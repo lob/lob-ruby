@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Lob::VERSION
   spec.authors       = ["Akash Manohar J"]
   spec.email         = ["akash@akash.im"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Lob API wrapper}
+  spec.summary       = %q{Lob API wrapper}
   spec.homepage      = ""
   spec.license       = "MIT"
 
