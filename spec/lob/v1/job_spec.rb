@@ -13,15 +13,6 @@ describe Lob::V1::Job do
       zip:     94085
     }
 
-    @sample_raw_address_params = {
-      name:    "TestAddress",
-      address_line1:   "123 Test Street",
-      address_city:    "Mountain View",
-      address_state:   "CA",
-      address_country: "USA",
-      address_zip:     94085
-    }
-
     @sample_job_params    = { name: "TestJob" }
     @sample_object_params = { name: "TestObject" }
   end
@@ -79,7 +70,7 @@ describe Lob::V1::Job do
           settings_list.first["id"]
         )
 
-        result = subject.jobs.create(@sample_job_params[:name], @sample_raw_address_params, new_object["id"])
+        result = subject.jobs.create(@sample_job_params[:name], @sample_address_params, new_object["id"])
         result["name"].must_equal(@sample_job_params[:name])
       end
     end

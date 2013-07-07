@@ -20,10 +20,10 @@ describe Lob::V1::Address do
     it "should verify an address" do
       VCR.use_cassette('verify_address') do
         result = subject.addresses.verify(
-          address_line1: @sample_params[:address],
-          address_city:  @sample_params[:city],
-          address_state: @sample_params[:state],
-          address_zip:   @sample_params[:zip]
+          address: @sample_params[:address],
+          city:  @sample_params[:city],
+          state: @sample_params[:state],
+          zip:   @sample_params[:zip]
         )
 
         result["address_country"].must_equal("USA")

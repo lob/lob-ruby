@@ -7,8 +7,8 @@ module Lob
       end
 
       def verify(options={})
-        raise ArgumentError.new("atleast one of the options must be specified") if options.empty?
-        Lob.submit(:get, address_verify_url, options)
+        params = @resource.format_address_params(options, false)
+        Lob.submit(:get, address_verify_url, params)
       end
 
       def list(options={})
@@ -20,24 +20,7 @@ module Lob
       end
 
       def create(options = {})
-        Lob.require_options(options, :name, :address, :city, :state, :zip, :country)
-
-        if options[:address].is_a?(String)
-          options[:address_line1] = options[:address]
-        elsif options[:address].is_a?(Array)
-          options[:address_line1] = options[:address][0]
-          options[:address_line2] = options[:address][1]
-        else
-          raise ArgumentError.new("Address can only be an Array or String")
-        end
-
-        [:city, :state, :zip, :country].each do |option|
-          options["address_#{option}".to_sym] = options[option]
-          options.delete(option)
-        end
-
-        options.delete(:address)
-        Lob.submit :post, address_url, options
+        Lob.submit :post, address_url, @resource.format_address_params(options)
       end
 
       def destroy(address_id)

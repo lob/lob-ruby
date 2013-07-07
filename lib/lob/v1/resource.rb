@@ -44,6 +44,30 @@ module Lob
         "#{base_url}/#{resource_type}/#{resource_id}"
       end
 
+      #NOTE to format address param names into API-compatible ones
+      def format_address_params(params, check_required_options=true)
+        if check_required_options
+          Lob.require_options(params, :name, :address, :city, :state, :zip, :country)
+        end
+
+        if params[:address].is_a?(String)
+          params[:address_line1] = params[:address]
+        elsif params[:address].is_a?(Array)
+          params[:address_line1] = params[:address][0]
+          params[:address_line2] = params[:address][1]
+        else
+          raise ArgumentError.new("Street address passed with the key \":address\" can only be an Array or String")
+        end
+
+        [:city, :state, :zip, :country].each do |option|
+          params["address_#{option}".to_sym] = params[option]
+          params.delete(option)
+        end
+
+        params.delete(:address)
+        params
+      end
+
     end
   end
 end

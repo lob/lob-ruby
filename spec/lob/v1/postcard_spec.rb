@@ -13,15 +13,6 @@ describe Lob::V1::Postcard do
       zip:     94085
     }
 
-    @sample_raw_address_params = {
-      name:    "TestAddress",
-      address_line1:   "123 Test Street",
-      address_city:    "Mountain View",
-      address_state:   "CA",
-      address_country: "USA",
-      address_zip:     94085
-    }
-
     @sample_postcard_params    = {
       name:    "TestPostcard",
       message: "Sample postcard message"
@@ -59,7 +50,6 @@ describe Lob::V1::Postcard do
           new_address["id"],
           message: @sample_postcard_params[:message],
           front: "https://www.lob.com/postcardfront.pdf",
-          back:  "https://www.lob.com/postcardback.pdf"
         )
 
         result["name"].must_equal(@sample_postcard_params[:name])
@@ -72,10 +62,9 @@ describe Lob::V1::Postcard do
 
         result = subject.postcards.create(
           @sample_postcard_params[:name],
-          @sample_raw_address_params,
+          @sample_address_params,
           message: @sample_postcard_params[:message],
-          front: "https://www.lob.com/postcardfront.pdf",
-          back:  "https://www.lob.com/postcardback.pdf"
+          front: "https://www.lob.com/postcardfront.pdf"
         )
 
         result["name"].must_equal(@sample_postcard_params[:name])
