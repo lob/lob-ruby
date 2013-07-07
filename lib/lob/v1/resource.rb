@@ -51,7 +51,7 @@ module Lob
         end
 
         [:city, :state, :zip, :country].each do |option|
-          params["address_#{option}".to_sym] = params[option]
+          params["address_#{option}".to_sym] = params[option] if params[option]
           params.delete(option)
         end
 

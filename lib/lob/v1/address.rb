@@ -8,7 +8,7 @@ module Lob
 
       def verify(options={})
         params = @resource.format_address_params(options, false)
-        Lob.submit(:get, address_verify_url, params)
+        Lob.submit(:post, address_verify_url, params)
       end
 
       def list(options={})
