@@ -41,7 +41,7 @@ module Lob
       end
 
       def construct_url(resource_type, resource_id=nil)
-        "#{base_url}/#{resource_type}/#{resource_id}"
+        "#{base_url}/#{resource_type}#{'/' + resource_id if resource_id}"
       end
 
       #NOTE to format address param names into API-compatible ones
