@@ -6,7 +6,7 @@ describe Lob::V1::Address do
     @sample_params = {
       name:    "Test",
       email:   "test@test.com",
-      address: "220 WILLIAM T MORRISSEY BLVD",
+      address_line1: "220 WILLIAM T MORRISSEY BLVD",
       city:    "Boston",
       state:   "MA",
       country: "USA",
@@ -20,7 +20,7 @@ describe Lob::V1::Address do
     it "should verify an address" do
       VCR.use_cassette('verify_address') do
         result = subject.addresses.verify(
-          address: @sample_params[:address],
+          address_line1: @sample_params[:address_line1],
           city:  @sample_params[:city],
           state: @sample_params[:state],
           zip:   @sample_params[:zip]

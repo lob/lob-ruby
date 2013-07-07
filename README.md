@@ -56,18 +56,19 @@ end
 # name, address, city, state, country and zip are required parameters
 @lob.addresses.create(
   name: "John Doe",
-  address: "104, Printing Boulevard",
+  address_line1: "104, Printing Boulevard",
   city: "Boston",
   state: "MA",
   country: "USA"
   zip: 12345
 )
 
-# If your address contains two lines, then pass an array
+# You can also pass address_line2
 @lob.addresses.create(
   name: "John Doe",
   email: "test@test.com",  # see you can also pass other optional parameters?
-  address: ["104, Printing Boulevard", "Sunset Town"],
+  address_line1: "104, Printing Boulevard",
+  address_line2: "Sunset Town",
   city: "Boston",
   state: "MA",
   country: "USA"
@@ -104,7 +105,7 @@ end
 ```ruby
 # verifies and returns an address with more details
 @lob.addresses.verify(
-      address: "220 WILLIAM T MORRISSEY BLVD",
+      address_line1: "220 WILLIAM T MORRISSEY BLVD",
       city:    "Boston",
       state:   "MA",
       zip:     02125
@@ -123,7 +124,7 @@ end
 # to-address can also be specified as address params to create new address
 @lob.jobs.create(
   "New Cool Posters",
-  {name: "ToAddress", address: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
+  {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
   "object-id"
 )
 
@@ -230,11 +231,11 @@ You'll have to specify either the `message` option or the `back` option.
 # create using address params, front, back and from address
 @lob.postcards.create(
   "John Joe",
-  {name: "ToAddress", address: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
+  {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
   message: "Hey buddy. Waiting to hear your stories",
   front: "http://test.com/file.pdf",
   back: File.read("/path/to/file.pdf"),
-  from: {name: "FromAddress", address: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
+  from: {name: "FromAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
 )
 ```
 

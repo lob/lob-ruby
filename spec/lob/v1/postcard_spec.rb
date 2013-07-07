@@ -6,7 +6,8 @@ describe Lob::V1::Postcard do
     @sample_address_params = {
       name:    "TestAddress",
       email:   "test@test.com",
-      address: ["123 Test Street", "Unit 199"],
+      address_line1: "123 Test Street",
+      address_line2: "Unit 199",
       city:    "Mountain View",
       state:   "CA",
       country: "USA",
