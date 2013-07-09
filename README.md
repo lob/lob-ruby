@@ -248,7 +248,7 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.postcards.list(count: 10, offset: 3)
 ```
 
-### Find a postcard
+#### Find a postcard
 
 ```ruby
 @lob.postcards.find "post-card-id"
