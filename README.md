@@ -284,6 +284,10 @@ You are powered up and ready to roll ~!
 
 ## Running the test-suite
 
+To run the tests, download the required sample files by running the following command:
+
+    bundle exec rake dev:setup
+
 Tests are written using MiniTest, a testing library that comes with Ruby stdlib. The remote responses are tested using [vcr](https://github.com/vcr/vcr).
 
 You'll need to pass in your Lob.com API as the environment variable `LOB_API_KEY`, to run the tests. Be sure to use your Test API key, and not the Live one.

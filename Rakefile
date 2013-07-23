@@ -7,3 +7,21 @@ Rake::TestTask.new do |t|
   t.test_files = FileList['spec/**/*_spec.rb']
   t.verbose = true
 end
+
+
+namespace :dev do
+
+  desc "Download sample files to run tests with"
+  task :setup do
+    Dir.mkdir("spec/samples") unless File.exist?("spec/samples")
+    files = [
+      {url: "https://www.lob.com/postcardfront.pdf", name: "postcardfront.pdf"},
+      {url: "https://www.lob.com/postcardback.pdf",  name: "postcardback.pdf"},
+      {url: "https://www.lob.com/goblue.pdf",        name: "goblue.pdf"}
+    ]
+    files.each do |f|
+      system "wget #{f[:url]} -O spec/samples/#{f[:name]}"
+    end
+
+  end
+end
