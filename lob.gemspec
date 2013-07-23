@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["akash@akash.im", "leore@lob.com"]
   spec.description   = %q{Lob API Ruby wrapper}
   spec.summary       = %q{Ruby wrapper for Lob.com API with ActiveRecord-style syntax}
-  spec.homepage      = "https://github.com/lobapi/lob-ruby"
+  spec.homepage      = "https://github.com/lob/lob-ruby"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
