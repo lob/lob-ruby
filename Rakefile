@@ -17,7 +17,7 @@ namespace :dev do
     files = [
       {url: "https://www.lob.com/postcardfront.pdf", name: "postcardfront.pdf"},
       {url: "https://www.lob.com/postcardback.pdf",  name: "postcardback.pdf"},
-      {url: "https://www.lob.com/goblue.pdf",        name: "goblue.pdf"}
+      {url: "https://www.lob.com/test.pdf",          name: "test.pdf"}
     ]
     files.each do |f|
       system "wget #{f[:url]} -O spec/samples/#{f[:name]}"
