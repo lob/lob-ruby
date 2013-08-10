@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Lob::V1::Job do
 
-  before :all do
+  before :each do
     @sample_address_params = {
       name:    "TestAddress",
       email:   "test@test.com",
@@ -10,12 +10,13 @@ describe Lob::V1::Job do
       address_line2: "Unit 199",
       city:    "Mountain View",
       state:   "CA",
-      country: "USA",
+      country: "US",
       zip:     94085
     }
 
     @sample_job_params    = { name: "TestJob" }
     @sample_object_params = { name: "TestObject" }
+    @test_setting_id = 201
   end
 
   subject { Lob(api_key: ENV["LOB_API_KEY"], api_version: "v1") }
@@ -28,8 +29,8 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           @sample_object_params[:name],
-          "https://www.lob.com/goblue.pdf",
-          settings_list.first["id"]
+          "https://www.lob.com/test.pdf",
+          @test_setting_id
         )
 
         new_job = subject.jobs.create(
@@ -53,8 +54,8 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           @sample_object_params[:name],
-          "https://www.lob.com/goblue.pdf",
-          settings_list.first["id"]
+          "https://www.lob.com/test.pdf",
+          @test_setting_id
         )
 
         result = subject.jobs.create(@sample_job_params[:name], new_address["id"], new_object["id"])
@@ -67,8 +68,8 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           @sample_object_params[:name],
-          "https://www.lob.com/goblue.pdf",
-          settings_list.first["id"]
+          "https://www.lob.com/test.pdf",
+          @test_setting_id
         )
 
         result = subject.jobs.create(@sample_job_params[:name], @sample_address_params, new_object["id"])
@@ -83,8 +84,8 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object_params = {
           name:      @sample_object_params[:name],
-          file:      "https://www.lob.com/goblue.pdf",
-          setting_id: settings_list.first["id"]
+          file:      "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         }
 
         result = subject.jobs.create(@sample_job_params[:name], new_address["id"], new_object_params)
@@ -102,8 +103,8 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           @sample_object_params[:name],
-          "https://www.lob.com/goblue.pdf",
-          settings_list.first["id"]
+          "https://www.lob.com/test.pdf",
+          @test_setting_id
         )
 
         new_job = subject.jobs.create(@sample_job_params[:name], new_address["id"], new_object["id"])

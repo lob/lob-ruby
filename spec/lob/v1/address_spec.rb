@@ -2,14 +2,14 @@ require "spec_helper"
 
 describe Lob::V1::Address do
 
-  before :all do
+  before :each do
     @sample_params = {
       name:    "Test",
       email:   "test@test.com",
       address_line1: "220 WILLIAM T MORRISSEY BLVD",
       city:    "Boston",
       state:   "MA",
-      country: "USA",
+      country: "US",
       zip:     02125
     }
   end
@@ -26,7 +26,7 @@ describe Lob::V1::Address do
           zip:   @sample_params[:zip]
         )
 
-        result["address"]["address_country"].must_equal("USA")
+        result["address"]["address_country"].must_equal("US")
       end
     end
   end

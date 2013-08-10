@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Lob::V1::Postcard do
 
-  before :all do
+  before :each do
     @sample_address_params = {
       name:    "TestAddress",
       email:   "test@test.com",
@@ -10,7 +10,7 @@ describe Lob::V1::Postcard do
       address_line2: "Unit 199",
       city:    "Mountain View",
       state:   "CA",
-      country: "USA",
+      country: "US",
       zip:     94085
     }
 

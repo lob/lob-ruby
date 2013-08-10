@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Lob::V1::Resource do
 
-  before :all do
+  before :each do
     @api_key = "test"
   end
 
