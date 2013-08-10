@@ -64,5 +64,5 @@ def Lob(options={})
   end
 
   #TODO check if the version exists first
-  Lob.const_get("#{options[:api_version].capitalize}::Resource").new(options)
+  Lob.const_get("#{options[:api_version].capitalize}").const_get("Resource").new(options)
 end
