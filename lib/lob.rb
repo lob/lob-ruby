@@ -45,6 +45,7 @@ module Lob
     begin
       error_message = JSON(e.http_body)["errors"].first.values.first
     rescue
+    rescue => e
       raise e
     end
     raise Lob::Error.new(error_message)
