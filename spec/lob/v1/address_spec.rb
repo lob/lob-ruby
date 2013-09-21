@@ -29,15 +29,17 @@ describe Lob::V1::Address do
 
   describe "verify" do
     it "should verify an address" do
-      VCR.use_cassette('verify_address2') do
-        result = subject.addresses.verify(
-          address_line1: sample_params2[:address_line1],
-          city:  sample_params2[:city],
-          state: sample_params2[:state],
-          zip:   sample_params2[:zip]
-        )
+      assert_raises(Lob::Error) do
+        VCR.use_cassette('verify_address2') do
+          result = subject.addresses.verify(
+            address_line1: sample_params2[:address_line1],
+            city:  sample_params2[:city],
+            state: sample_params2[:state],
+            zip:   sample_params2[:zip]
+          )
 
-        result["address"]["address_country"].must_equal("US")
+          result["address"]["address_country"].must_equal("US")
+        end
       end
     end
 
