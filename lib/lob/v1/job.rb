@@ -14,8 +14,16 @@ module Lob
         Lob.submit :get, job_url(job_id)
       end
 
-      def create(name, to, object1, options = {})
-        options = { name: name, to: to, object1: object1 }.merge(options)
+      def create(name, to, objects, options = {})
+        options = { name: name, to: to}.merge(options)
+
+        if objects.is_a?(Array)
+          objects.each_with_index do |object, index|
+            options["object#{index}"] = object
+          end
+        else
+          options["object1"] = objects
+        end
 
         if options[:to] && !options[:to].is_a?(String)
           options[:to] = @resource.format_address_params(options[:to])

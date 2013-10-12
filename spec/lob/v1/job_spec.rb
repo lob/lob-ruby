@@ -76,19 +76,16 @@ describe Lob::V1::Job do
           setting_id: @test_setting_id
         }
 
-
         another_object_params = {
           name:      "Another #{@sample_object_params[:name]}",
           file:      "https://www.lob.com/test.pdf",
           setting_id: @test_setting_id
         }
 
-
         result = subject.jobs.create(
           @sample_job_params[:name],
           new_address["id"],
-          new_object_params,
-          object2: another_object_params
+          [new_object_params, another_object_params]
         )
 
         result["name"].must_equal(@sample_job_params[:name])

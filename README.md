@@ -140,6 +140,15 @@ end
     setting_id: "some-setting-id"
   }
 )
+
+# Or add a job with multiple objects
+
+@lob.jobs.create(
+  "New Cool Posters",
+  {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
+  ["object-id", "another-object-id"]
+)
+
 ```
 
 #### List jobs
