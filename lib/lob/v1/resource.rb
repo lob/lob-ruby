@@ -40,6 +40,19 @@ module Lob
         Lob::V1::Country.new(self)
       end
 
+      def checks
+        Lob::V1::Check.new(self)
+      end
+
+      def cheques
+        Lob::V1::Check.new(self)
+      end
+
+      def bank_accounts
+        Lob::V1::BankAccount.new(self)
+      end
+
+
       def base_url
         "#{@options[:protocol]}://#{@options[:api_key]}:@#{@options[:api_host]}/v1"
       end
@@ -54,12 +67,14 @@ module Lob
           Lob.require_options(params, :name, :address_line1, :city, :state, :zip, :country)
         end
 
+        new_params = params.clone
+
         [:city, :state, :zip, :country].each do |option|
-          params["address_#{option}".to_sym] = params[option] if params[option]
-          params.delete(option)
+          new_params["address_#{option}".to_sym] = params[option] if params[option]
+          new_params.delete(option)
         end
 
-        params
+        new_params
       end
 
     end
