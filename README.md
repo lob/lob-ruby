@@ -272,6 +272,16 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.settings.list
 ```
 
+
+### Supported countries
+
+#### List supported countries
+
+```ruby
+# returns a list of countries
+@lob.countries.list
+```
+
 ## Developing
 
 Make sure you have Ruby 2.0 installed. Copy and paste the following commands in your projects directory.

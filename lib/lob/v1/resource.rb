@@ -36,6 +36,10 @@ module Lob
         Lob::V1::Setting.new(self)
       end
 
+      def countries
+        Lob::V1::Country.new(self)
+      end
+
       def base_url
         "#{@options[:protocol]}://#{@options[:api_key]}:@#{@options[:api_host]}/v1"
       end

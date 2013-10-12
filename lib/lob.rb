@@ -10,6 +10,7 @@ require "lob/v1/packaging"
 require "lob/v1/postcard"
 require "lob/v1/service"
 require "lob/v1/setting"
+require "lob/v1/country"
 
 
 module Lob
