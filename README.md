@@ -272,15 +272,55 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.services.list
 ```
 
-### Settings
+### Bank accounts
 
-#### List settings
+#### List bank accounts
 
 ```ruby
-# returns a list of settings
-@lob.settings.list
+# returns a list of accounts
+@lob.bank_accounts.list
 ```
 
+#### Add a bank account
+
+```ruby
+bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345}
+account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345}
+
+# Pass address params or address IDs
+# The 5th argument is the options argument and is optional
+@lob.bank_accounts.create("routing_number", bank_address, "account_number", account_address)
+```
+
+#### Find a bank account
+
+```ruby
+@lob.bank_accounts.find "bank-account-id"
+```
+
+### Checks
+
+#### Create a check
+
+```ruby
+# Transfer $5000 to a bank account.
+@lob.checks.create("bank-account-id", "to-address-ID", 5000)
+
+# For the "to" address, you can pass params or an address ID
+# You can also specify an optional 4th argument, with other options.
+```
+
+#### List checks
+
+```ruby
+@lob.checks.list
+```
+
+#### Find a check
+
+```ruby
+@lob.checks.find("check-id")
+```
 
 ### Supported countries
 

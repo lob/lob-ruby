@@ -59,28 +59,10 @@ describe Lob::V1::Check do
         )
 
         result = subject.checks.create(
-          new_bank_account["id"], new_address["id"], 2000
+          new_bank_account["id"], new_address["id"], "2000"
         )
 
-        result["amount"].must_equal(@sample_check_params[:amount])
-      end
-    end
-
-
-    it "should create a check with bank account params" do
-      VCR.use_cassette('create_check_with_bank_account_params') do
-        new_address = subject.addresses.create @sample_address_params
-
-        formatted_addreses = {
-          account_address: subject.format_address_params(@sample_address_params),
-          bank_address: subject.format_address_params(@sample_address_params),
-        }
-
-        result = subject.checks.create(
-          @sample_bank_account_params.merge(formatted_addreses), new_address["id"], 2000
-        )
-
-        result["amount"].must_equal(@sample_check_params[:amount])
+        result["amount"].to_s.must_equal("2000.00")
       end
     end
   end
