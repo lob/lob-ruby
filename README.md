@@ -119,11 +119,12 @@ end
 ```ruby
 # name, to-address and object are the arguments
 # to-address can be specified as an address-id
-@lob.jobs.create("New Cool Posters", "to-address-id", "object-id")
+@lob.jobs.create("New Cool Posters", "from-address-id", "to-address-id", "object-id")
 
 # to-address can also be specified as address params to create new address
 @lob.jobs.create(
   "New Cool Posters",
+  {name: "FromAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
   {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
   "object-id"
 )
@@ -132,6 +133,7 @@ end
 # and other options like packaging_id an setting_id
 @lob.jobs.create(
   "New Cool Posters",
+  "from-address-id",
   "to-address-id",
   "object-id",
   {
@@ -145,6 +147,7 @@ end
 
 @lob.jobs.create(
   "New Cool Posters",
+  "from-address-id",
   {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
   ["object-id", "another-object-id"]
 )

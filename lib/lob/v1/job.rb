@@ -14,8 +14,8 @@ module Lob
         Lob.submit :get, job_url(job_id)
       end
 
-      def create(name, to, objects, options = {})
-        options = { name: name, to: to}.merge(options)
+      def create(name, from, to, objects, options = {})
+        options = { name: name, to: to, from: from}.merge(options)
 
         if objects.is_a?(Array)
           objects.each_with_index do |object, index|
