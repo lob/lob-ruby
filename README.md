@@ -25,6 +25,12 @@ You'll need a Lob.com API key. It's free and you can get yours [here](https://ww
 
 For optional parameters and other details, refer the docs here - <https://lob.com/docs>
 
+#### Caution: Pass zero-prefixed zip codes as strings
+
+When using zip codes with zero-prefixes, always quote them. For example when specifying `02125`, pass it as a string `"02125"`, instead of an integer.
+
+The Ruby interpreter assumes it's not of base-10 and tries to convert it to base-10 number. So that might result in an entirely different zip-code than intended.
+
 ### Initialization and configuration
 
 ```ruby
@@ -108,7 +114,7 @@ end
       address_line1: "220 WILLIAM T MORRISSEY BLVD",
       city:    "Boston",
       state:   "MA",
-      zip:     02125
+      zip:     "02125"
   )
 ```
 
