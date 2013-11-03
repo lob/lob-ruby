@@ -65,7 +65,7 @@ end
   address_line1: "104, Printing Boulevard",
   city: "Boston",
   state: "MA",
-  country: "USA"
+  country: "US"
   zip: 12345
 )
 
@@ -77,7 +77,7 @@ end
   address_line2: "Sunset Town",
   city: "Boston",
   state: "MA",
-  country: "USA"
+  country: "US"
   zip: 12345
 )
 ```
