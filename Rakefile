@@ -20,7 +20,7 @@ namespace :dev do
       {url: "https://www.lob.com/test.pdf",          name: "test.pdf"}
     ]
     files.each do |f|
-      system "wget #{f[:url]} -O spec/samples/#{f[:name]}"
+      system "curl #{f[:url]} -o spec/samples/#{f[:name]}"
     end
 
   end
