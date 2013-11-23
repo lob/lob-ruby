@@ -345,7 +345,7 @@ account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Bost
 Make sure you have Ruby 2.0 installed. Copy and paste the following commands in your projects directory.
 
     git clone https://github.com/lob/lob-ruby.git
-    cd lob
+    cd lob-ruby
     bundle install
 
 You are powered up and ready to roll ~!
