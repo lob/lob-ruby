@@ -264,19 +264,31 @@ You'll have to specify either the `message` option or the `back` option.
 ```ruby
 # accepts the name, address-id to send to and options
 @lob.postcards.create(
-  "John Joe",
-  "to-address-id",
+  name: "John Joe",
+  to: "to-address-id",
   message: front: File.read("/path/to/file.pdf")
 )
 
 # create using address params, front, back and from address
 @lob.postcards.create(
-  "John Joe",
-  {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
+  name: "John Joe",
+  to: {
+    name: "ToAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    country: "USA",
+    zip: 12345
+  },
   message: "Hey buddy. Waiting to hear your stories",
   front: "http://test.com/file.pdf",
   back: File.read("/path/to/file.pdf"),
-  from: {name: "FromAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
+  from: {
+    name: "FromAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    country: "USA",
+    zip: 12345
+  }
 )
 ```
 
@@ -292,7 +304,7 @@ You'll have to specify either the `message` option or the `back` option.
 #### Find a postcard
 
 ```ruby
-@lob.postcards.find "post-card-id"
+@lob.postcards.find("post-card-id")
 ```
 
 ### Services
