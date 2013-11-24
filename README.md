@@ -125,23 +125,40 @@ end
 ```ruby
 # name, to-address and object are the arguments
 # to-address can be specified as an address-id
-@lob.jobs.create("New Cool Posters", "from-address-id", "to-address-id", "object-id")
+@lob.jobs.create(
+  name: "New Cool Posters",
+  from: "from-address-id",
+  to: "to-address-id",
+  objects: "object-id"
+)
 
 # to-address can also be specified as address params to create new address
 @lob.jobs.create(
-  "New Cool Posters",
-  {name: "FromAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
-  {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
-  "object-id"
+  name: "New Cool Posters",
+  from: {
+    name: "FromAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    country: "USA",
+    zip: 12345
+  },
+  to: {
+    name: "ToAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    country: "USA",
+    zip: 12345
+  },
+  objects: "object-id"
 )
 
 # You can also pass new object params for the object
 # and other options like packaging_id an setting_id
 @lob.jobs.create(
-  "New Cool Posters",
-  "from-address-id",
-  "to-address-id",
-  "object-id",
+  name: "New Cool Posters",
+  from: "from-address-id",
+  to: "to-address-id",
+  objects: "object-id",
   {
     name: "Your fantistic object",
     file: "http://test.com/file.pdf",
@@ -152,10 +169,16 @@ end
 # Or add a job with multiple objects
 
 @lob.jobs.create(
-  "New Cool Posters",
-  "from-address-id",
-  {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345},
-  ["object-id", "another-object-id"]
+  name: "New Cool Posters",
+  from: "from-address-id",
+  to: {
+    name: "ToAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    country: "USA",
+    zip: 12345
+  },
+  objects: ["object-id", "another-object-id"]
 )
 
 ```
