@@ -333,13 +333,18 @@ account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Bost
 
 # Pass address params or address IDs
 # The 5th argument is the options argument and is optional
-@lob.bank_accounts.create("routing_number", bank_address, "account_number", account_address)
+@lob.bank_accounts.create(
+  routing_number: "routing_number",
+  bank_address: bank_address,
+  account_number: "account_number",
+  account_address: account_address
+)
 ```
 
 #### Find a bank account
 
 ```ruby
-@lob.bank_accounts.find "bank-account-id"
+@lob.bank_accounts.find("bank-account-id")
 ```
 
 ### Checks
