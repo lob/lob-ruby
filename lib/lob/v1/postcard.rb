@@ -14,8 +14,7 @@ module Lob
         Lob.submit :get, postcard_url(postcard_id)
       end
 
-      def create(name, to, options = {})
-        options = { name: name, to: to }.merge(options)
+      def create(options = {})
         if options[:to] && !options[:to].is_a?(String)
           options[:to] = @resource.format_address_params(options[:to])
         end
@@ -26,7 +25,6 @@ module Lob
 
         Lob.submit :post, postcard_url, options
       end
-
 
       private
 
