@@ -14,8 +14,7 @@ module Lob
         Lob.submit :get, object_url(lob_object_id)
       end
 
-      def create(name, file, setting_id, options = {})
-        options = { name: name, file: file, setting_id: setting_id }.merge(options)
+      def create(options = {})
         Lob.submit :post, object_url, options
       end
 

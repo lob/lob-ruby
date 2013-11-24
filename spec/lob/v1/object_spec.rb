@@ -17,9 +17,9 @@ describe Lob::V1::Object do
       VCR.use_cassette('list_objects') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         list_result = subject.objects.list
@@ -34,9 +34,9 @@ describe Lob::V1::Object do
       VCR.use_cassette('create_object_with_url') do
         settings_list = subject.settings.list
         result = subject.objects.create(
-          @sample_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         result["name"].must_equal(@sample_params[:name])
@@ -47,9 +47,9 @@ describe Lob::V1::Object do
       VCR.use_cassette('create_object_with_file') do
         settings_list = subject.settings.list
         result = subject.objects.create(
-          @sample_params[:name],
-          File.new(File.expand_path("../../../samples/test.pdf", __FILE__), "rb"),
-          @test_setting_id
+          name: @sample_params[:name],
+          file: File.new(File.expand_path("../../../samples/test.pdf", __FILE__), "rb"),
+          setting_id: @test_setting_id
         )
 
         result["name"].must_equal(@sample_params[:name])
@@ -63,9 +63,9 @@ describe Lob::V1::Object do
       VCR.use_cassette('find_object') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         find_result = subject.objects.find(new_object["id"])
@@ -80,9 +80,9 @@ describe Lob::V1::Object do
       VCR.use_cassette('delete_object') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         delete_result = subject.objects.destroy(new_object["id"])
