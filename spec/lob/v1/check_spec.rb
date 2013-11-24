@@ -28,12 +28,11 @@ describe Lob::V1::Check do
         new_address = subject.addresses.create @sample_address_params
 
         new_bank_account = subject.bank_accounts.create(
-          @sample_bank_account_params[:routing_number],
-          @sample_address_params,
-          @sample_bank_account_params[:account_number],
-          @sample_address_params
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params
         )
-
 
         new_check = subject.checks.create(
           new_bank_account["id"], @sample_address_params, 2000
@@ -52,10 +51,10 @@ describe Lob::V1::Check do
         new_address = subject.addresses.create @sample_address_params
 
         new_bank_account = subject.bank_accounts.create(
-          @sample_bank_account_params[:routing_number],
-          @sample_address_params,
-          @sample_bank_account_params[:account_number],
-          @sample_address_params
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params
         )
 
         result = subject.checks.create(
@@ -74,10 +73,10 @@ describe Lob::V1::Check do
         new_address = subject.addresses.create @sample_address_params
 
         new_bank_account = subject.bank_accounts.create(
-          @sample_bank_account_params[:routing_number],
-          @sample_address_params,
-          @sample_bank_account_params[:account_number],
-          @sample_address_params
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params
         )
 
         new_check = subject.checks.create(
