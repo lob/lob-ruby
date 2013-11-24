@@ -28,9 +28,9 @@ describe Lob::V1::Job do
         new_address = subject.addresses.create @sample_address_params
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         new_job = subject.jobs.create(
@@ -54,9 +54,9 @@ describe Lob::V1::Job do
 
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         result = subject.jobs.create(
@@ -104,9 +104,9 @@ describe Lob::V1::Job do
       VCR.use_cassette('create_job_with_address_params') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         result = subject.jobs.create(
@@ -149,9 +149,9 @@ describe Lob::V1::Job do
 
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         new_job = subject.jobs.create(
