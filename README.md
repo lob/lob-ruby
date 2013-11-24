@@ -207,17 +207,17 @@ end
 ```ruby
 # You can create by passing the name, file url and setting ID
 @lob.objects.create(
-  "Your fantistic object",
-  "http://test.com/file.pdf",
-  "some-setting-id"
+  name: "Your fantistic object",
+  file: "http://test.com/file.pdf",
+  setting_id: "some-setting-id"
 )
 
 # You can also pass the quantity as an option
 # Or pass a file for upload instead of a url
 @lob.objects.create(
-  "Your fantistic object",
-  File.new("/path/to/file.pdf"),
-  "some-setting-id",
+  name: "Your fantistic object",
+  file: File.new("/path/to/file.pdf"),
+  setting_id: "some-setting-id",
   quantity: 12
 )
 ```
