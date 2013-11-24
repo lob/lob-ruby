@@ -35,7 +35,9 @@ describe Lob::V1::Check do
         )
 
         new_check = subject.checks.create(
-          new_bank_account["id"], @sample_address_params, 2000
+          bank_account: new_bank_account["id"],
+          to: @sample_address_params,
+          amount: 2000
         )
 
         list_result = subject.checks.list
@@ -58,7 +60,9 @@ describe Lob::V1::Check do
         )
 
         result = subject.checks.create(
-          new_bank_account["id"], new_address["id"], "2000"
+          bank_account: new_bank_account["id"],
+          to: new_address["id"],
+          amount: "2000"
         )
 
         result["amount"].to_s.must_equal("2000.00")
@@ -80,7 +84,9 @@ describe Lob::V1::Check do
         )
 
         new_check = subject.checks.create(
-          new_bank_account["id"], new_address["id"], 2000
+          bank_account: new_bank_account["id"],
+          to: new_address["id"],
+          amount: 2000
         )
 
         result = subject.checks.find(new_check["id"])

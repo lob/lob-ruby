@@ -14,14 +14,12 @@ module Lob
         Lob.submit :get, check_url(check_id)
       end
 
-      def create(bank_account, to, amount, options = {})
-        params = { bank_account: bank_account, to: to, amount: amount }.merge(options)
-
-        if !params[:to].is_a?(String)
-          params[:to] = @resource.format_address_params(params[:to])
+      def create(options = {})
+        if !options[:to].is_a?(String)
+          options[:to] = @resource.format_address_params(options[:to])
         end
 
-        Lob.submit :post, check_url, params
+        Lob.submit :post, check_url, options
       end
 
 
