@@ -353,7 +353,11 @@ account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Bost
 
 ```ruby
 # Transfer $5000 to a bank account.
-@lob.checks.create("bank-account-id", "to-address-ID", 5000)
+@lob.checks.create(
+  bank_account: "bank-account-id",
+  to: "to-address-ID",
+  amount: 5000
+)
 
 # For the "to" address, you can pass params or an address ID
 # You can also specify an optional 4th argument, with other options.
