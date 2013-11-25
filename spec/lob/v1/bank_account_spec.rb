@@ -46,7 +46,7 @@ describe Lob::V1::BankAccount do
         new_address = subject.addresses.create @sample_address_params
 
         result = subject.bank_accounts.create(
-          account_address: @sample_bank_account_params[:routing_number],
+          routing_number: @sample_bank_account_params[:routing_number],
           bank_address: new_address["id"],
           account_number: @sample_bank_account_params[:account_number],
           account_address: new_address["id"]
@@ -61,7 +61,7 @@ describe Lob::V1::BankAccount do
       VCR.use_cassette('create_bank_account_with_address_params') do
 
         result = subject.bank_accounts.create(
-          account_address: @sample_bank_account_params[:routing_number],
+          routing_number: @sample_bank_account_params[:routing_number],
           bank_address: @sample_address_params.clone,
           account_number: @sample_bank_account_params[:account_number],
           account_address: @sample_address_params.clone
@@ -79,7 +79,7 @@ describe Lob::V1::BankAccount do
         new_address = subject.addresses.create @sample_address_params
 
         new_bank_account = subject.bank_accounts.create(
-          account_address: @sample_bank_account_params[:routing_number],
+          routing_number: @sample_bank_account_params[:routing_number],
           bank_address: new_address["id"],
           account_number: @sample_bank_account_params[:account_number],
           account_address: new_address["id"]
