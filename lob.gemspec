@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "lob"
-  spec.version       = "1.0.5"
+  spec.version       = "1.1"
   spec.authors       = ["Akash Manohar J"]
   spec.email         = ["akash@akash.im"]
   spec.description   = %q{Lob API Ruby wrapper}
