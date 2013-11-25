@@ -1,5 +1,7 @@
 # lob-ruby
 
+[![Build Status](https://travis-ci.org/lob/lob-ruby.png?branch=master)](https://travis-ci.org/lob/lob-ruby)
+
 Ruby wrapper for the [Lob.com](http://lob.com) API. This gem gives you an ActiveRecord-style syntax to use the Lob.com API.
 
 Supports Ruby 1.9.3 and greater.
