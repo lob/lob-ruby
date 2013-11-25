@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - jruby-19mode
+  - 2.0.0
+
+env:
+  - LOB_API_KEY=23bc669e0ab1464217c218ac1fe3f429c42fbd65
+
+before_script:
+  - bundle exec rake dev:setup
+  - rm -rf spec/vcr_cassettes
+
+script: bundle exec rake test
