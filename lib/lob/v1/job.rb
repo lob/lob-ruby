@@ -14,15 +14,13 @@ module Lob
         Lob.submit :get, job_url(job_id)
       end
 
-      def create(name, from, to, objects, options = {})
-        options = { name: name, to: to, from: from}.merge(options)
-
-        if objects.is_a?(Array)
-          objects.each_with_index do |object, index|
+      def create(options = {})
+        if options[:objects].is_a?(Array)
+          options[:objects].each_with_index do |object, index|
             options["object#{index}"] = object
           end
         else
-          options["object1"] = objects
+          options["object1"] = options[:objects]
         end
 
         if options[:to] && !options[:to].is_a?(String)

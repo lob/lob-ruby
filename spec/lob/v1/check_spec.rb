@@ -28,15 +28,16 @@ describe Lob::V1::Check do
         new_address = subject.addresses.create @sample_address_params
 
         new_bank_account = subject.bank_accounts.create(
-          @sample_bank_account_params[:routing_number],
-          @sample_address_params,
-          @sample_bank_account_params[:account_number],
-          @sample_address_params
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params
         )
 
-
         new_check = subject.checks.create(
-          new_bank_account["id"], @sample_address_params, 2000
+          bank_account: new_bank_account["id"],
+          to: @sample_address_params,
+          amount: 2000
         )
 
         list_result = subject.checks.list
@@ -52,14 +53,16 @@ describe Lob::V1::Check do
         new_address = subject.addresses.create @sample_address_params
 
         new_bank_account = subject.bank_accounts.create(
-          @sample_bank_account_params[:routing_number],
-          @sample_address_params,
-          @sample_bank_account_params[:account_number],
-          @sample_address_params
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params
         )
 
         result = subject.checks.create(
-          new_bank_account["id"], new_address["id"], "2000"
+          bank_account: new_bank_account["id"],
+          to: new_address["id"],
+          amount: "2000"
         )
 
         result["amount"].to_s.must_equal("2000.00")
@@ -74,14 +77,16 @@ describe Lob::V1::Check do
         new_address = subject.addresses.create @sample_address_params
 
         new_bank_account = subject.bank_accounts.create(
-          @sample_bank_account_params[:routing_number],
-          @sample_address_params,
-          @sample_bank_account_params[:account_number],
-          @sample_address_params
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params
         )
 
         new_check = subject.checks.create(
-          new_bank_account["id"], new_address["id"], 2000
+          bank_account: new_bank_account["id"],
+          to: new_address["id"],
+          amount: 2000
         )
 
         result = subject.checks.find(new_check["id"])

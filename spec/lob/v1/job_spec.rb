@@ -28,16 +28,16 @@ describe Lob::V1::Job do
         new_address = subject.addresses.create @sample_address_params
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         new_job = subject.jobs.create(
-          @sample_job_params[:name],
-          new_address["id"],
-          new_address["id"],
-          new_object["id"]
+          name: @sample_job_params[:name],
+          from: new_address["id"],
+          to: new_address["id"],
+          objects: new_object["id"]
         )
 
         list_result = subject.jobs.list
@@ -54,12 +54,17 @@ describe Lob::V1::Job do
 
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
-        result = subject.jobs.create(@sample_job_params[:name], new_address["id"], new_address["id"], new_object["id"])
+        result = subject.jobs.create(
+          name: @sample_job_params[:name],
+          from: new_address["id"],
+          to: new_address["id"],
+          objects: new_object["id"]
+        )
         result["name"].must_equal(@sample_job_params[:name])
       end
     end
@@ -84,10 +89,10 @@ describe Lob::V1::Job do
         }
 
         result = subject.jobs.create(
-          @sample_job_params[:name],
-          new_address["id"],
-          new_address["id"],
-          [new_object_params, another_object_params]
+          name: @sample_job_params[:name],
+          from: new_address["id"],
+          to: new_address["id"],
+          objects: [new_object_params, another_object_params]
         )
 
         result["name"].must_equal(@sample_job_params[:name])
@@ -99,16 +104,16 @@ describe Lob::V1::Job do
       VCR.use_cassette('create_job_with_address_params') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         result = subject.jobs.create(
-          @sample_job_params[:name],
-          @sample_address_params,
-          @sample_address_params,
-          new_object["id"]
+          name: @sample_job_params[:name],
+          from: @sample_address_params,
+          to: @sample_address_params,
+          objects: new_object["id"]
         )
         result["name"].must_equal(@sample_job_params[:name])
       end
@@ -126,10 +131,10 @@ describe Lob::V1::Job do
         }
 
         result = subject.jobs.create(
-          @sample_job_params[:name],
-          new_address["id"],
-          new_address["id"],
-          new_object_params
+          name: @sample_job_params[:name],
+          from: new_address["id"],
+          to: new_address["id"],
+          objects: new_object_params
         )
         result["name"].must_equal(@sample_job_params[:name])
       end
@@ -144,16 +149,16 @@ describe Lob::V1::Job do
 
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          @sample_object_params[:name],
-          "https://www.lob.com/test.pdf",
-          @test_setting_id
+          name: @sample_object_params[:name],
+          file: "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
         )
 
         new_job = subject.jobs.create(
-          @sample_job_params[:name],
-          new_address["id"],
-          new_address["id"],
-          new_object["id"]
+          name: @sample_job_params[:name],
+          from: new_address["id"],
+          to: new_address["id"],
+          objects: new_object["id"]
         )
 
         result  = subject.jobs.find(new_job["id"])

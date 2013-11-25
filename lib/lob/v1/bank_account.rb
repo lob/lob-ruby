@@ -14,14 +14,7 @@ module Lob
         Lob.submit :get, bank_account_url(bank_account_id)
       end
 
-      def create(routing_number, bank_address, account_number, account_address, options = {})
-        options = {
-          routing_number: routing_number,
-          bank_address:   bank_address,
-          account_number:  account_number,
-          account_address: account_address
-        }.merge(options)
-
+      def create(options = {})
         if !options[:bank_address].is_a?(String)
           options[:bank_address] = @resource.format_address_params(options[:bank_address])
         end
