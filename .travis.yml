@@ -5,7 +5,7 @@ rvm:
   - 2.0.0
 
 env:
-  - LOB_API_KEY=23bc669e0ab1464217c218ac1fe3f429c42fbd65
+  - LOB_API_KEY=test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc
 
 before_script:
   - bundle exec rake dev:setup
