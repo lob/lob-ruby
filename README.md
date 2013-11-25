@@ -409,6 +409,10 @@ Here's how you can run the tests:
     LOB_API_KEY=your_test_api_key bundle exec rake test
 
 
+When you make changes to failed tests, then clear out the vcr cassettes to re-record the http requests. You can clear out all the cassettes by running `rm -rf spec/vcr_cassettes`.
+
+You can also configure, TravisCI for your fork of the repository and it'll run the tests for you, when you push.
+
 ## Contributing
 
 1. Fork it
