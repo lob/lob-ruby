@@ -141,14 +141,14 @@ end
     name: "FromAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
-    country: "USA",
+    country: "US",
     zip: 12345
   },
   to: {
     name: "ToAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
-    country: "USA",
+    country: "US",
     zip: 12345
   },
   objects: "object-id"
@@ -177,7 +177,7 @@ end
     name: "ToAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
-    country: "USA",
+    country: "US",
     zip: 12345
   },
   objects: ["object-id", "another-object-id"]
@@ -278,7 +278,7 @@ You'll have to specify either the `message` option or the `back` option.
     name: "ToAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
-    country: "USA",
+    country: "US",
     zip: 12345
   },
   message: "Hey buddy. Waiting to hear your stories",
@@ -288,7 +288,7 @@ You'll have to specify either the `message` option or the `back` option.
     name: "FromAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
-    country: "USA",
+    country: "US",
     zip: 12345
   }
 )
@@ -330,8 +330,8 @@ You'll have to specify either the `message` option or the `back` option.
 #### Add a bank account
 
 ```ruby
-bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345}
-account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "USA", zip: 12345}
+bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
+account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
 
 # Pass address params or address IDs
 # The 5th argument is the options argument and is optional
