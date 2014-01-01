@@ -38,7 +38,7 @@ describe Lob::V1::Address do
             zip:   sample_params2[:zip]
           )
 
-          result["address"]["address_country"].must_equal("US")
+          result["address"]["address_country"].must_equal("United States")
         end
       end
     end
@@ -52,7 +52,7 @@ describe Lob::V1::Address do
           zip:   sample_params[:zip]
         )
 
-        result["address"]["address_country"].must_equal("US")
+        result["address"]["address_country"].must_equal("United States")
       end
     end
   end
