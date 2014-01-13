@@ -141,6 +141,7 @@ end
     name: "FromAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
+    state: "MA",
     country: "US",
     zip: 12345
   },
