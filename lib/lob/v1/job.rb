@@ -21,6 +21,7 @@ module Lob
           end
         else
           options["object1"] = options[:objects]
+          options.delete(:objects)
         end
 
         if options[:to] && !options[:to].is_a?(String)
