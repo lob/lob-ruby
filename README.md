@@ -269,7 +269,8 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.postcards.create(
   name: "John Joe",
   to: "to-address-id",
-  message: front: File.new("/path/to/file.pdf")
+  message: "Hey buddy. Waiting to hear your stories",
+  front: File.new("/path/to/file.pdf")
 )
 
 # create using address params, front, back and from address
@@ -279,16 +280,18 @@ You'll have to specify either the `message` option or the `back` option.
     name: "ToAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
+    state: "MA",
     country: "US",
     zip: 12345
   },
   message: "Hey buddy. Waiting to hear your stories",
-  front: "http://test.com/file.pdf",
+  front: "https://www.lob.com/postcardback.pdf",
   back: File.new("/path/to/file.pdf"),
   from: {
     name: "FromAddress",
     address_line1: "120, 6th Ave",
     city: "Boston",
+    state: "MA",
     country: "US",
     zip: 12345
   }
