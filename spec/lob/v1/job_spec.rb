@@ -100,6 +100,43 @@ describe Lob::V1::Job do
     end
 
 
+
+    it "should be able to create jobs from a mix of remote and local files" do
+      VCR.use_cassette('create_multiple_jobs_from_mix_of_remote_and_local_files') do
+        new_address = subject.addresses.create @sample_address_params
+
+        new_object_params = {
+          name:      @sample_object_params[:name],
+          file:      File.new(File.expand_path("../../../samples/test.pdf", __FILE__)),
+          setting_id: @test_setting_id
+        }
+
+        another_object_params = {
+          name:      "Another #{@sample_object_params[:name]}",
+          file:      "https://www.lob.com/test.pdf",
+          setting_id: @test_setting_id
+        }
+
+        result = subject.jobs.create(
+          name: @sample_job_params[:name],
+          from: new_address["id"],
+          to: new_address["id"],
+          objects: [new_object_params, another_object_params]
+        )
+
+        # result = subject.jobs.create(
+        #   name: @sample_job_params[:name],
+        #   from: new_address["id"],
+        #   to: new_address["id"],
+        #   objects: [new_object_params]
+        # )
+
+        result["name"].must_equal(@sample_job_params[:name])
+      end
+    end
+
+
+
     it "should create a job with address params" do
       VCR.use_cassette('create_job_with_address_params') do
         settings_list = subject.settings.list
