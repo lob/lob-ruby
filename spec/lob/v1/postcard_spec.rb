@@ -30,8 +30,8 @@ describe Lob::V1::Postcard do
         new_postcard = subject.postcards.create(
           name: @sample_postcard_params[:name],
           to: new_address["id"],
-          front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__), "rb"),
-          back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__), "rb")
+          front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__)),
+          back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__))
         )
 
         list_result = subject.postcards.list
@@ -96,8 +96,8 @@ describe Lob::V1::Postcard do
         result = subject.postcards.create(
           name: @sample_postcard_params[:name],
           to: new_address["id"],
-          front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__), "rb"),
-          back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__), "rb")
+          front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__)),
+          back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__))
         )
 
         result["name"].must_equal(@sample_postcard_params[:name])
@@ -115,8 +115,8 @@ describe Lob::V1::Postcard do
         new_postcard = subject.postcards.create(
           name: @sample_postcard_params[:name],
           to: new_address["id"],
-          front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__), "rb"),
-          back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__), "rb")
+          front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__)),
+          back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__))
         )
 
         result  = subject.postcards.find(new_postcard["id"])
