@@ -17,12 +17,12 @@ module Lob
       def create(options = {})
         if options[:objects].is_a?(Array)
           options[:objects].each_with_index do |object, index|
-            options["object#{index}"] = object
+            options["object#{index+1}"] = object
           end
         else
           options["object1"] = options[:objects]
-          options.delete(:objects)
         end
+        options.delete(:objects)
 
         if options[:to] && !options[:to].is_a?(String)
           options[:to] = @resource.format_address_params(options[:to])
