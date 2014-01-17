@@ -125,66 +125,6 @@ end
 #### Create jobs
 
 ```ruby
-# name, to-address and object are the arguments
-# to-address can be specified as an address-id
-@lob.jobs.create(
-  name: "New Cool Posters",
-  from: "from-address-id",
-  to: "to-address-id",
-  objects: "object-id"
-)
-
-# to-address can also be specified as address params to create new address
-@lob.jobs.create(
-  name: "New Cool Posters",
-  from: {
-    name: "FromAddress",
-    address_line1: "120, 6th Ave",
-    city: "Boston",
-    state: "MA",
-    country: "US",
-    zip: 12345
-  },
-  to: {
-    name: "ToAddress",
-    address_line1: "120, 6th Ave",
-    city: "Boston",
-    state: "MA",
-    country: "US",
-    zip: 12345
-  },
-  objects: "object-id"
-)
-
-# You can also pass new object params for the object
-# and other options like packaging_id an setting_id
-@lob.jobs.create(
-  name: "New Cool Posters",
-  from: "from-address-id",
-  to: "to-address-id",
-  objects: "object-id",
-  {
-    name: "Your fantistic object",
-    file: "http://test.com/file.pdf",
-    setting_id: "some-setting-id"
-  }
-)
-
-# Or add a job with multiple objects
-
-@lob.jobs.create(
-  name: "New Cool Posters",
-  from: "from-address-id",
-  to: {
-    name: "ToAddress",
-    address_line1: "120, 6th Ave",
-    city: "Boston",
-    state: "MA",
-    country: "US",
-    zip: 12345
-  },
-  objects: ["object-id", "another-object-id"]
-)
 
 # Below is an example with inline addresses and object creation
 
@@ -216,6 +156,63 @@ end
     setting_id: 100
   })
 
+
+# name, to-address and object are the arguments
+# to-address can be specified as an address-id
+@lob.jobs.create(
+  name: "New Cool Posters",
+  from: "from-address-id",
+  to: "to-address-id",
+  objects: "object-id"
+)
+
+# mixing inline objects with ids
+@lob.jobs.create(
+  name: "New Cool Posters",
+  from: {
+    name: "FromAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    state: "MA",
+    country: "US",
+    zip: 12345
+  },
+  to: "to-address-id",
+  objects: "object-id"
+)
+
+# You can also pass new object params for the object
+# and other options like packaging_id an setting_id
+@lob.jobs.create(
+  name: "New Cool Posters",
+  from: "from-address-id",
+  to: "to-address-id",
+  objects: "object-id",
+  {
+    name: "Your fantistic object",
+    file: "http://test.com/file.pdf",
+    setting_id: "some-setting-id"
+  }
+)
+
+# Multi Object Jobs (include more than 1 file)
+
+@lob.jobs.create(
+  name: "New Cool Posters",
+  from: "from-address-id",
+  to: {
+    name: "ToAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    state: "MA",
+    country: "US",
+    zip: 12345
+  },
+  objects: ["object-id", "another-object-id"]
+)
+
+
+
 ```
 
 #### List jobs
@@ -240,11 +237,11 @@ end
 #### Create objects
 
 ```ruby
-# You can create by passing the name, file url and setting ID
+# You can create an onject by passing the name, file url and setting ID, quantity is defaulted to 1
 @lob.objects.create(
   name: "Your fantistic object",
-  file: "http://test.com/file.pdf",
-  setting_id: "some-setting-id"
+  file: "https://www.lob.com/test.pdf",
+  setting_id: "201"
 )
 
 # You can also pass the quantity as an option
@@ -292,20 +289,14 @@ end
 
 ### Postcards
 
-#### Creating post cards
+#### Creating postcards
 
 You'll have to specify either the `message` option or the `back` option.
 
 ```ruby
-# accepts the name, address-id to send to and options
-@lob.postcards.create(
-  name: "John Joe",
-  to: "to-address-id",
-  message: "Hey buddy. Waiting to hear your stories",
-  front: File.new("/path/to/file.pdf")
-)
 
-# create using address params, front, back and from address
+
+# create postcard with complete customization
 @lob.postcards.create(
   name: "John Joe",
   to: {
@@ -316,9 +307,6 @@ You'll have to specify either the `message` option or the `back` option.
     country: "US",
     zip: 12345
   },
-  message: "Hey buddy. Waiting to hear your stories",
-  front: "https://www.lob.com/postcardback.pdf",
-  back: File.new("/path/to/file.pdf"),
   from: {
     name: "FromAddress",
     address_line1: "120, 6th Ave",
@@ -327,6 +315,40 @@ You'll have to specify either the `message` option or the `back` option.
     country: "US",
     zip: 12345
   }
+  front: "https://www.lob.com/postcardback.pdf",
+  back: File.new("/path/to/file.pdf")
+)
+
+# create postcard with templated back
+
+@lob.postcards.create(
+  name: "John Joe",
+  to: {
+    name: "ToAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    state: "MA",
+    country: "US",
+    zip: 12345
+  },
+  from: {
+    name: "FromAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    state: "MA",
+    country: "US",
+    zip: 12345
+  }
+  front: "https://www.lob.com/postcardback.pdf",
+  message: "Hey Buddy, Thanks for Visiting"
+)
+
+# sending a new postcard with stored address id
+@lob.postcards.create(
+  name: "John Joe",
+  to: "to-address-id",
+  message: "Hey buddy. Waiting to hear your stories",
+  front: File.new("/path/to/file.pdf")
 )
 ```
 
