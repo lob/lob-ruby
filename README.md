@@ -186,6 +186,36 @@ end
   objects: ["object-id", "another-object-id"]
 )
 
+# Below is an example with inline addresses and object creation
+
+@lob.jobs.create(
+  name: "Inline Test Job",
+  from: {
+    name:    "TestAddress",
+    email:  "test@test.com",
+    address_line1: "123 Test Street",
+    address_line2: "Unit 199",
+    city:    "Mountain View",
+    state:  "CA",
+    country: "US",
+    zip:    94085
+  },
+  to: {
+    name:    "TestAddress",
+    email:  "test@test.com",
+    address_line1: "123 Test Street",
+    address_line2: "Unit 199",
+    city:    "Mountain View",
+    state:  "CA",
+    country: "US",
+    zip:    94085
+  },
+  objects: {
+    name: "Local File Object",
+    file:      File.new(File.expand_path("/Users/peternagel/Downloads/letter.pdf", __FILE__)),
+    setting_id: 100
+  })
+
 ```
 
 #### List jobs
