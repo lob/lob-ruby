@@ -131,7 +131,7 @@ end
 @lob.jobs.create(
   name: "Inline Test Job",
   from: {
-    name:    "TestAddress",
+    name:    "Test Address",
     email:  "test@test.com",
     address_line1: "123 Test Street",
     address_line2: "Unit 199",
