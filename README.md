@@ -41,7 +41,7 @@ The Ruby interpreter assumes it's not of base-10 and tries to convert it to base
 
 
 # Alternatively, to set the API key for all calls in the future
-Lob.api_key = "you-api-key"
+Lob.api_key = "your-api-key"
 @lob = Lob()   # don't forget the paranthesis!
 ```
 
