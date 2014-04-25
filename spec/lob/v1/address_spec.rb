@@ -98,7 +98,7 @@ describe Lob::V1::Address do
         new_address = subject.addresses.create sample_params
 
         delete_result = subject.addresses.destroy(new_address["id"])
-        assert /has been deleted/ =~ delete_result["message"]
+        assert_equal(new_address["id"], delete_result["id"])
       end
     end
   end

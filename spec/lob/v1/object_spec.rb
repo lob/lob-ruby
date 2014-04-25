@@ -86,7 +86,7 @@ describe Lob::V1::Object do
         )
 
         delete_result = subject.objects.destroy(new_object["id"])
-        assert /has been deleted/ =~ delete_result["message"]
+        assert_equal(new_object["id"], delete_result["id"])
       end
     end
   end

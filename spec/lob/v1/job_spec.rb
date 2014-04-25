@@ -198,7 +198,7 @@ describe Lob::V1::Job do
           objects: new_object["id"]
         )
 
-        result  = subject.jobs.find(new_job["id"])
+        result = subject.jobs.find(new_job["id"])
         result["name"].must_equal(@sample_job_params[:name])
       end
     end
