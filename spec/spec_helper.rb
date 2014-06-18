@@ -5,6 +5,9 @@ require "minitest/spec"
 require "minitest/pride"
 require "minitest/autorun"
 require "vcr"
+require "coveralls"
+
+Coveralls.wear!
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr_cassettes"
