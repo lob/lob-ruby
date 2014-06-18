@@ -481,8 +481,9 @@ You can also configure, TravisCI for your fork of the repository and it'll run t
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Make sure the tests pass and add tests if required
-6. Create new Pull Request
+5. Make sure the tests pass
+6. Open up coverage/index.html in your browser and add tests if required
+7. Create new Pull Request
 
 ## Credits
 
