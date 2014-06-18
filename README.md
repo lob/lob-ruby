@@ -2,8 +2,7 @@
 
 [![Build Status](https://travis-ci.org/lob/lob-ruby.svg?branch=master)](https://travis-ci.org/lob/lob-ruby) [![Gem Version](https://badge.fury.io/rb/lob.svg)](http://badge.fury.io/rb/lob) [![Dependency Status](https://gemnasium.com/lob/lob-ruby.svg)](https://gemnasium.com/lob/lob-ruby)
 
-[![Coverage Status](https://img.shields.io/coveralls/bsiddiqui/lob-ruby.svg)](https://coveralls.io/r/bsiddiqui/lob-ruby)
-
+[![Coverage Status](https://img.shields.io/coveralls/lob/lob-ruby.svg)](https://coveralls.io/r/lob/lob-ruby?branch=master)
 
 Ruby wrapper for the [Lob.com](http://lob.com) API. This gem gives you an ActiveRecord-style syntax to use the Lob.com API.
 
