@@ -1,17 +1,6 @@
 require "spec_helper"
 
 describe Lob::V1::Address do
-  let(:sample_params2) {
-    {
-      name:    "Russell Smith",
-      email:   "test@test.com",
-      address_line1: "673 Brannan",
-      city:    "San Francisco",
-      state:   "CA",
-      country: "US",
-      zip:     94107
-    }
-  }
 
   let(:sample_params) {
     {
@@ -28,20 +17,6 @@ describe Lob::V1::Address do
   subject { Lob(api_key: ENV["LOB_API_KEY"], api_version: "v1") }
 
   describe "verify" do
-    it "should verify an address" do
-      assert_raises(Lob::Error) do
-        VCR.use_cassette('verify_address2') do
-          result = subject.addresses.verify(
-            address_line1: sample_params2[:address_line1],
-            city:  sample_params2[:city],
-            state: sample_params2[:state],
-            zip:   sample_params2[:zip]
-          )
-
-          result["address"]["address_country"].must_equal("United States")
-        end
-      end
-    end
 
     it "should verify an address" do
       VCR.use_cassette('verify_address') do
@@ -52,7 +27,7 @@ describe Lob::V1::Address do
           zip:   sample_params[:zip]
         )
 
-        result["address"]["address_country"].must_equal("United States")
+        result["address"]["address_country"].must_equal("US")
       end
     end
   end
