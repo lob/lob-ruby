@@ -3,8 +3,7 @@ $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require "simplecov"
 require "coveralls"
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-Coveralls.start!
+Coveralls.wear!
 SimpleCov.start
 
 require "lob"
