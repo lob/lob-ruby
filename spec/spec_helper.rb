@@ -4,6 +4,7 @@ require "simplecov"
 require "coveralls"
 
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+Coveralls.start!
 SimpleCov.start
 
 require "lob"
