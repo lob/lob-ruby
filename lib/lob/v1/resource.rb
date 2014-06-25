@@ -44,10 +44,6 @@ module Lob
         Lob::V1::Check.new(self)
       end
 
-      def cheques
-        Lob::V1::Check.new(self)
-      end
-
       def bank_accounts
         Lob::V1::BankAccount.new(self)
       end
