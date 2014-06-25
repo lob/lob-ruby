@@ -41,6 +41,7 @@ module Lob
   def self.submit(method, url, parameters={})
     parameters = {:params => parameters} if method == :get
     JSON(RestClient.send(method, url, parameters))
+  # :nocov:
   rescue => e
     error_message = nil
     raise e unless e.respond_to? :http_body
@@ -58,6 +59,7 @@ module Lob
       raise e
     end
     raise Lob::Error.new(error_message)
+  # :nocov:
   end
 
 end
