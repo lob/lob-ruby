@@ -11,9 +11,7 @@ module Lob
   end
 end
 
-
 describe Lob do
-
   it "should return the resource object for the specified version" do
     Lob(api_key: "test", api_version: "test").must_be_kind_of(Lob::Test::Resource)
   end
@@ -30,5 +28,19 @@ describe Lob do
 
   it "should pass the API key to the resource for the version" do
     Lob(api_key: "test").options[:api_key].must_equal "test"
+  end
+
+  it "should allow detailed configuration" do
+    Lob.configure do |config|
+      config.api_key = "test"
+      config.api_version = "v1"
+      config.protocol = "https"
+      config.api_host = "api.lob.com"
+    end
+
+    Lob.api_key.must_equal "test"
+    Lob.api_version.must_equal "v1"
+    Lob.protocol.must_equal "https"
+    Lob.api_host.must_equal "api.lob.com"
   end
 end
