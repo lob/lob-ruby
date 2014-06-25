@@ -14,7 +14,7 @@ describe Lob::V1::Postcard do
       zip:     94085
     }
 
-    @sample_postcard_params    = {
+    @sample_postcard_params = {
       name:    "TestPostcard",
       message: "Sample postcard message"
     }
@@ -57,10 +57,8 @@ describe Lob::V1::Postcard do
       end
     end
 
-
-    it "should create a postcard with address params" do
-      VCR.use_cassette('create_postcard_with_address_params') do
-
+    it "should create a postcard with to address params" do
+      VCR.use_cassette('create_postcard_with_to_address_params') do
         result = subject.postcards.create(
           name: @sample_postcard_params[:name],
           to: @sample_address_params,
@@ -72,6 +70,21 @@ describe Lob::V1::Postcard do
       end
     end
 
+    it "should create a postcard with from address params" do
+      VCR.use_cassette('create_postcard_with_from_address_params') do
+        new_address = subject.addresses.create @sample_address_params
+
+        result = subject.postcards.create(
+          name: @sample_postcard_params[:name],
+          to: new_address["id"],
+          from: @sample_address_params,
+          message: @sample_postcard_params[:message],
+          front: "https://www.lob.com/postcardfront.pdf"
+        )
+
+        result["name"].must_equal(@sample_postcard_params[:name])
+      end
+    end
 
     it "should create a postcard with front and back as urls" do
       VCR.use_cassette('create_postcard_with_front_and_back_urls') do
