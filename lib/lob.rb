@@ -43,9 +43,8 @@ module Lob
     JSON(RestClient.send(method, url, parameters))
   # :nocov:
   rescue => e
-    error_message = nil
-    raise e unless e.respond_to? :http_body
     begin
+      # Parse the error to raise a nice Lob::Error
       json = JSON(e.http_body)
 
       if json.has_key? 'errors'
@@ -55,10 +54,12 @@ module Lob
       else
         error_message = "Unknown error: #{json}"
       end
-    rescue => e
+
+      raise Lob::Error.new(error_message)
+    rescue
+      # If error parsing failed re-raise the original error
       raise e
     end
-    raise Lob::Error.new(error_message)
   # :nocov:
   end
 
