@@ -28,6 +28,10 @@ module Lob
         Lob::V1::Postcard.new(self)
       end
 
+      def routes
+        Lob::V1::Route.new(self)
+      end
+
       def services
         Lob::V1::Service.new(self)
       end
