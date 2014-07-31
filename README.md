@@ -369,6 +369,64 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.postcards.find("post-card-id")
 ```
 
+### Simple Area Mail
+
+#### Create areas
+
+You'll have to specify front, back, and either zip_codes or routes
+
+```ruby
+# create an area request with routes
+@lob.area.create(
+  name: "My Area",
+  front: "https://www.lob.com/areafront.pdf",
+  back: "https://www.lob.com/areaback.pdf",
+  routes: ["94158-C001", "94107-C031"],
+  target_type: "all",
+  full_blled = "1"
+)
+
+# create an area request with zip_codes
+@lob.area.create(
+  name: "My Area",
+  front: "https://www.lob.com/areafront.pdf",
+  back: "https://www.lob.com/areaback.pdf",
+  zip_codes: ["95678", "94158"],
+  target_type: "all",
+  full_blled = "1"
+)
+```
+
+zip_codes and routes can be a string or an array of strings
+
+#### List areas
+```ruby
+  @lob.areas.list
+
+  # you can also pass count and offset
+  @lob.areas.list(count: 10, offset: 3)
+```
+
+
+#### Find an area
+```ruby
+@lob.areas.find("area_id")
+```
+
+### Routes
+
+You'll have to specify zip_codes
+
+#### Find routes
+
+```ruby
+@lob.routes.find(
+  zip_codes: ["95678, 94158"]
+)
+```
+
+zip_codes can be a string or an array of strings
+
 ### Services
 
 #### List services
