@@ -8,6 +8,10 @@ module Lob
         @options = options
       end
 
+      def areas
+        Lob::V1::Area.new(self)
+      end
+
       def addresses
         Lob::V1::Address.new(self)
       end
