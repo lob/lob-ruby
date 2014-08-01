@@ -39,10 +39,20 @@ The Ruby interpreter assumes it's not of base-10 and tries to convert it to base
 # To initialize a Lob object
 @lob = Lob(api_key: "your-api-key")
 
-
 # Alternatively, to set the API key for all calls in the future
 Lob.api_key = "your-api-key"
 @lob = Lob()   # don't forget the paranthesis!
+```
+
+### Alternatively, you can use initialize and configure like this
+
+```ruby
+# To initialize a Lob object
+@lob = Lob.load(api_key: "your-api-key")
+
+# Alternatively, to set the API key for all calls in the future
+Lob.api_key = "your-api-key"
+@lob = Lob.load
 ```
 
 #### Or if you want some detailed configuration
