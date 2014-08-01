@@ -6,7 +6,7 @@ module Lob
         @resource = resource
       end
 
-      def list(options={})
+      def list(options = {})
         Lob.submit(:get, object_url, options)["data"] || []
       end
 

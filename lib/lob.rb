@@ -8,11 +8,13 @@ require "lob/v1/job"
 require "lob/v1/object"
 require "lob/v1/packaging"
 require "lob/v1/postcard"
+require "lob/v1/route"
 require "lob/v1/service"
 require "lob/v1/setting"
 require "lob/v1/country"
 require "lob/v1/check"
 require "lob/v1/bank_account"
+require "lob/v1/area"
 
 module Lob
 
