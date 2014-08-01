@@ -1,16 +1,5 @@
 require "spec_helper"
 
-module Lob
-  module Test
-    class Resource
-      attr_accessor :options
-      def initialize(options)
-        @options = options
-      end
-    end
-  end
-end
-
 describe Lob do
   it "should return the resource object for the valid version" do
     Lob(api_key: "test", api_version: "v1").must_be_kind_of(Lob::V1::Resource)
