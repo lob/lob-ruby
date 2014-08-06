@@ -69,7 +69,7 @@ end
 ### Settings
 
 #### List settings
-```
+```ruby
 # returns an array of settings
 @lob.settings.list
 ```
