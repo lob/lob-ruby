@@ -66,20 +66,6 @@ Lob.configure do |config|
 end
 ```
 
-### Settings
-
-#### List settings
-```
-# returns an array of settings
-@lob.settings.list
-```
-
-#### Find a setting
-```ruby
-# returns a setting object
-@lob.settings.find("setting_id")
-```
-
 ### Addresses
 
 #### To create an address
@@ -423,10 +409,10 @@ zip_codes and routes can be a string or an array of strings
 
 #### List areas
 ```ruby
-@lob.areas.list
+  @lob.areas.list
 
-# you can also pass count and offset
-@lob.areas.list(count: 10, offset: 3)
+  # you can also pass count and offset
+  @lob.areas.list(count: 10, offset: 3)
 ```
 
 
