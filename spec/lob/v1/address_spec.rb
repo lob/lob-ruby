@@ -4,13 +4,12 @@ describe Lob::V1::Address do
 
   let(:sample_params) {
     {
-      name:    "Test",
-      email:   "test@test.com",
-      address_line1: "220 WILLIAM T MORRISSEY BLVD",
-      city:    "Boston",
-      state:   "MA",
+      name: "John Doe",
+      address_line1: "325 Berry Street",
+      city: "San Francisco",
+      state: "CA",
       country: "US",
-      zip:     02125
+      zip: 94158
     }
   }
 
