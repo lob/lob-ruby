@@ -15,7 +15,7 @@ describe Lob::V1::Check do
     }
 
     @sample_bank_account_params = {
-      routing_number: "123456789",
+      routing_number: "122100024",
       account_number: "123456789"
     }
   end
