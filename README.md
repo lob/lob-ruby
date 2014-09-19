@@ -33,7 +33,23 @@ When using zip codes with zero-prefixes, always quote them. For example when spe
 
 The Ruby interpreter assumes it's not of base-10 and tries to convert it to base-10 number. So that might result in an entirely different zip-code than intended.
 
-### Initialization and configuration
+Supported Image Types
+--------
+The lob.com API supports the following image types:
+
+- PDF
+- PNG
+- JPEG
+
+For more information on prepping the images please see the [Lob documentation](https://lob.com/docs#prepping)
+
+Creating a PDF
+-------
+
+If you need to generate your own PDF programmatically we recommend using [prawn](https://github.com/prawnpdf/prawn). There is an example provided in the examples folder [here](examples/create_pdf.rb)
+
+Initialization and configuration
+------
 
 ```ruby
 # To initialize a Lob object
