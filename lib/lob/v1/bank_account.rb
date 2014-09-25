@@ -26,6 +26,9 @@ module Lob
         Lob.submit :post, bank_account_url, options
       end
 
+      def destroy(bank_account_id)
+        Lob.submit :delete, bank_account_url(bank_account_id)
+      end
 
       private
 
