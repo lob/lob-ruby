@@ -91,4 +91,19 @@ describe Lob::V1::BankAccount do
     end
   end
 
+  describe "destroy" do
+    it "should delete a bank_account" do
+      VCR.use_cassette('delete_bank_account') do
+        new_bank_account = subject.bank_accounts.create(
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params.clone,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params.clone
+        )
+
+        delete_result = subject.bank_accounts.destroy(new_bank_account["id"])
+        assert_equal(new_bank_account["id"], delete_result["id"])
+      end
+    end
+  end
 end
