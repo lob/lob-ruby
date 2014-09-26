@@ -29,8 +29,18 @@ module Lob
 
 
   def self.submit(method, url, parameters={})
-    parameters = {:params => parameters} if method == :get
-    JSON(RestClient.send(method, url, parameters))
+    clientVersion = Gem.latest_spec_for('lob').version.to_s
+
+    if method == :get || method == :delete
+      JSON(RestClient.send(method, url, {
+        user_agent: 'Lob/v1 NodeBindings/' + clientVersion,
+        params: parameters
+      }))
+    else
+      JSON(RestClient.send(method, url, parameters, {
+        user_agent: 'Lob/v1 NodeBindings/' + clientVersion
+      }))
+    end
   # :nocov:
   rescue => e
     begin
