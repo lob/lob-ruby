@@ -475,8 +475,8 @@ zip_codes can be a string or an array of strings
 #### Add a bank account
 
 ```ruby
-bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
-account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
+bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", state: "MA", country: "US", zip: 12345}
+account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", state: "MA", country: "US", zip: 12345}
 
 # Pass address params or address IDs
 # The 5th argument is the options argument and is optional

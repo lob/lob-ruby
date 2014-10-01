@@ -10,37 +10,38 @@ settings = @lob.settings.list
 setting_index = settings.find_index { |setting| setting["type"] === "documents" }
 setting_id = settings[setting_index]["id"]
 
-# create a file object to user laterA
+# create a file object to user later
 michigan_logo = @lob.objects.create(
   name: "Michigan Logo Document",
+  file: "https://www.lob.com/goblue.pdf",
+  setting_id: setting_id
+)
+
+# create a to address
+to_address = @lob.addresses.create(
+  name: "ToAddress",
+  address_line1: "120 6th Ave",
+  city: "Boston",
+  state: "MA",
+  country: "US",
+  zip: 12345
+)
+
+# create a from address
+from_address = @lob.addresses.create(
+  name: "FromAddress",
+  address_line1: "120 6th Ave",
+  city: "Boston",
+  state: "MA",
+  country: "US",
+  zip: 12345
 )
 
 
-@lob.jobs.create(
+# send the object you created
+puts @lob.jobs.create(
   name: "Michigan Logo to Harry",
-  from: {
-    name:    "Leore Avidar",
-    email:  "test@test.com",
-    address_line1: "123 Test Street",
-    address_line2: "Unit 199",
-    city:    "Mountain View",
-    state:  "CA",
-    country: "US",
-    zip:    94085
-  },
-  to: {
-    name:    "Harry Avidar",
-    email:  "test@test.com",
-    address_line1: "123 Test Street",
-    address_line2: "Unit 199",
-    city:    "Mountain View",
-    state:  "CA",
-    country: "US",
-    zip:    94085
-  },
-  objects: {
-    name: "Michigan Logo",
-    file: "https://www.lob.com/goblue.pdf",
-    setting_id: setting_id
-  }
+  to: to_address["id"],
+  from: from_address["id"],
+  objects: michigan_logo["id"]
 )
