@@ -71,83 +71,7 @@ end
 
 ## API Reference
 
-### Settings
-
-#### List settings
-```ruby
-# returns an array of settings
-@lob.settings.list
-```
-
-#### Find a setting
-```ruby
-# returns a setting object
-@lob.settings.find("setting_id")
-```
-
-### Addresses
-
-#### To create an address
-
-```ruby
-# name, address, city, state, country and zip are required parameters
-@lob.addresses.create(
-  name: "John Doe",
-  address_line1: "104, Printing Boulevard",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
-)
-
-# You can also pass address_line2
-@lob.addresses.create(
-  name: "John Doe",
-  email: "test@test.com",  # see you can also pass other optional parameters?
-  address_line1: "104, Printing Boulevard",
-  address_line2: "Sunset Town",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
-)
-```
-
-#### List addresses
-
-```ruby
-# returns an array of addresses
-@lob.addresses.list
-
-#you can also pass count and offset
-@lob.addresses.list(count: 10, offset: 3)
-```
-
-#### Find a specific address
-
-```ruby
-# returns the address with the corresponding ID
-@lob.addresses.find("some-address-id")
-```
-
-#### Deletes a specific address
-
-```ruby
-# deletes the address with the corresponding ID
-@lob.addresses.destroy("some-address-id")
-```
-
-### Address verification
-
-```ruby
-# verifies and returns an address with more details
-@lob.addresses.verify(
-      address_line1: "220 WILLIAM T MORRISSEY BLVD",
-      city:    "Boston",
-      state:   "MA",
-      zip:     "02125"
-  )
-```
+## Simple Print Service
 
 ### Jobs
 
@@ -261,6 +185,58 @@ end
 @lob.jobs.find("some-job-id")
 ```
 
+### Addresses
+
+#### To create an address
+
+```ruby
+# name, address, city, state, country and zip are required parameters
+@lob.addresses.create(
+  name: "John Doe",
+  address_line1: "104, Printing Boulevard",
+  city: "Boston",
+  state: "MA",
+  country: "US",
+  zip: 12345
+)
+
+# You can also pass address_line2
+@lob.addresses.create(
+  name: "John Doe",
+  email: "test@test.com",  # see you can also pass other optional parameters?
+  address_line1: "104, Printing Boulevard",
+  address_line2: "Sunset Town",
+  city: "Boston",
+  state: "MA",
+  country: "US",
+  zip: 12345
+)
+```
+
+#### List addresses
+
+```ruby
+# returns an array of addresses
+@lob.addresses.list
+
+#you can also pass count and offset
+@lob.addresses.list(count: 10, offset: 3)
+```
+
+#### Find a specific address
+
+```ruby
+# returns the address with the corresponding ID
+@lob.addresses.find("some-address-id")
+```
+
+#### Deletes a specific address
+
+```ruby
+# deletes the address with the corresponding ID
+@lob.addresses.destroy("some-address-id")
+```
+
 ### Objects
 
 #### Create objects
@@ -307,6 +283,20 @@ end
 @lob.objects.destroy("some-object-id")
 ```
 
+### Settings
+
+#### List settings
+```ruby
+# returns an array of settings
+@lob.settings.list
+```
+
+#### Find a setting
+```ruby
+# returns a setting object
+@lob.settings.find("setting_id")
+```
+
 ### Packagings
 
 #### List packagings
@@ -315,6 +305,17 @@ end
 # returns a list of packagings
 @lob.packagings.list
 ```
+
+### Services
+
+#### List services
+
+```ruby
+# returns a list of services
+@lob.services.list
+```
+
+## Simple Postcard Service
 
 ### Postcards
 
@@ -396,7 +397,70 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.postcards.find("post-card-id")
 ```
 
-### Simple Area Mail
+## Simple Check Service
+
+### Checks
+
+#### Create a check
+
+```ruby
+# Transfer $5000 to a bank account.
+@lob.checks.create(
+  bank_account: "bank-account-id",
+  to: "to-address-ID",
+  amount: 5000
+)
+
+# For the "to" address, you can pass params or an address ID
+# You can also specify an optional 4th argument, with other options.
+```
+
+#### List checks
+
+```ruby
+@lob.checks.list
+```
+
+#### Find a check
+
+```ruby
+@lob.checks.find("check-id")
+```
+
+### Bank accounts
+
+#### List bank accounts
+
+```ruby
+# returns a list of accounts
+@lob.bank_accounts.list
+```
+
+#### Add a bank account
+
+```ruby
+bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
+account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
+
+# Pass address params or address IDs
+# The 5th argument is the options argument and is optional
+@lob.bank_accounts.create(
+  routing_number: "routing_number",
+  bank_address: bank_address,
+  account_number: "account_number",
+  account_address: account_address
+)
+```
+
+#### Find a bank account
+
+```ruby
+@lob.bank_accounts.find("bank-account-id")
+```
+
+## Simple Area Mail
+
+### Areas
 
 #### Create areas
 
@@ -434,7 +498,6 @@ zip_codes and routes can be a string or an array of strings
 @lob.areas.list(count: 10, offset: 3)
 ```
 
-
 #### Find an area
 ```ruby
 @lob.areas.find("area_id")
@@ -454,75 +517,21 @@ You'll have to specify zip_codes
 
 zip_codes can be a string or an array of strings
 
-### Services
-
-#### List services
+### Verify
 
 ```ruby
-# returns a list of services
-@lob.services.list
+# verifies and returns an address with more details
+@lob.addresses.verify(
+      address_line1: "220 WILLIAM T MORRISSEY BLVD",
+      city:    "Boston",
+      state:   "MA",
+      zip:     "02125"
+  )
 ```
 
-### Bank accounts
+## Resources
 
-#### List bank accounts
-
-```ruby
-# returns a list of accounts
-@lob.bank_accounts.list
-```
-
-#### Add a bank account
-
-```ruby
-bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", state: "MA", country: "US", zip: 12345}
-account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", state: "MA", country: "US", zip: 12345}
-
-# Pass address params or address IDs
-# The 5th argument is the options argument and is optional
-@lob.bank_accounts.create(
-  routing_number: "routing_number",
-  bank_address: bank_address,
-  account_number: "account_number",
-  account_address: account_address
-)
-```
-
-#### Find a bank account
-
-```ruby
-@lob.bank_accounts.find("bank-account-id")
-```
-
-### Checks
-
-#### Create a check
-
-```ruby
-# Transfer $5000 to a bank account.
-@lob.checks.create(
-  bank_account: "bank-account-id",
-  to: "to-address-ID",
-  amount: 5000
-)
-
-# For the "to" address, you can pass params or an address ID
-# You can also specify an optional 4th argument, with other options.
-```
-
-#### List checks
-
-```ruby
-@lob.checks.list
-```
-
-#### Find a check
-
-```ruby
-@lob.checks.find("check-id")
-```
-
-### Supported countries
+### Countries
 
 #### List supported countries
 
