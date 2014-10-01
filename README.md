@@ -69,6 +69,8 @@ Lob.configure do |config|
 end
 ```
 
+## API Reference
+
 ### Settings
 
 #### List settings
@@ -539,7 +541,7 @@ Make sure you have Ruby 2.0 installed. Copy and paste the following commands in 
 
 You are powered up and ready to roll ~!
 
-## Running the test-suite
+## Testing
 
 To run the tests, download the required sample files by running the following command:
 
