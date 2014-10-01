@@ -23,7 +23,7 @@ Or manually install it yourself:
 ## Usage
 
 The library uses an ActiveRecord-style interface. You'll feel right at home.
-You'll need a Lob.com API key. It's free and you can get yours [here](https://www.lob.com/account).
+You'll need a Lob.com API key. It's free and you can get yours [here](https://dashboard.lob.com/account).
 
 For optional parameters and other details, refer the docs here - <https://lob.com/docs>
 
