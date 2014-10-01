@@ -16,7 +16,7 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or manually install it yourself:
 
     $ gem install lob
 
