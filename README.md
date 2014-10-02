@@ -252,19 +252,9 @@ end
 # name, address, city, state, country and zip are required parameters
 @lob.addresses.create(
   name: "John Doe",
+  email: "test@test.com",  # optional
   address_line1: "104, Printing Boulevard",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
-)
-
-# You can also pass address_line2
-@lob.addresses.create(
-  name: "John Doe",
-  email: "test@test.com",  # see you can also pass other optional parameters?
-  address_line1: "104, Printing Boulevard",
-  address_line2: "Sunset Town",
+  address_line2: "Sunset Town", # optional
   city: "Boston",
   state: "MA",
   country: "US",
