@@ -6,6 +6,17 @@ Ruby wrapper for the [Lob.com](http://lob.com) API. This gem gives you an Active
 
 Supports Ruby 1.9.3 and greater.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Supported Image Types](#supported-images)
+- [Initialization and Configuration](#initialization-and-configuration)
+- [API Reference](#api-reference)
+- [Developing](#developing)
+- [Testing](#testing)
+- [Contributing](#contributing)
+
 ## Installation
 
 Add this line to your application's `Gemfile`:
@@ -47,7 +58,7 @@ For more information on prepping the images please see the [Lob documentation](h
 
 If you need to generate your own PDF programmatically we recommend using [prawn](https://github.com/prawnpdf/prawn). There is an example provided in the examples folder [here](examples/create_pdf.rb)
 
-## Initialization and configuration
+## Initialization and Configuration
 
 ```ruby
 # To initialize a Lob object
