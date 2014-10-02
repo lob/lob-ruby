@@ -71,11 +71,59 @@ end
 
 ## API Reference
 
+- [Simple Print Service](#simple-print-service)
+  - [lob.jobs](#lobjobs)
+    - [lob.jobs.create](#lobjobscreate)
+    - [lob.jobs.list](#lobjobslist)
+    - [lob.jobs.find](#lobjobsfind)
+  - [lob.addresses](#lobaddresses)
+    - [lob.addreses.create](#lobaddresescreate)
+    - [lob.addreses.list](#lobaddreseslist)
+    - [lob.addreses.find](#lobaddresesfind)
+    - [lob.addreses.destroy](#lobaddresesdestroy)
+    - [lob.addreses.verify](#lobaddresesverify)
+  - [lob.objects](#lobobjects)
+    - [lob.objects.create](#lobobjectscreate)
+    - [lob.objects.list](#lobobjectslist)
+    - [lob.objects.find](#lobobjectsfind)
+    - [lob.objects.destroy](#lobobjectsdestroy)
+  - [lob.settings](#lobsettings)
+    - [lob.settings.list](#lobsettingslist)
+    - [lob.settings.find](#lobsettingsfind)
+  - [lob.packagagins](#lobpackagings)
+    - [lob.packagings.list](#lobpackagingslist)
+  - [lob.services](#lobservices)
+    - [lob.services.list](#lobserviceslist)
+- [Simple Postcard Service](#simple-postcard-service)
+  - [lob.postcards](#lobpostcards)
+    - [lob.postcards.create](#lobpostcardscreate)
+    - [lob.postcards.list](#lobpostcardslist)
+    - [lob.postcards.find](#lobpostcardsfind)
+- [Simple Check Service](#simple-check-service)
+  - [lob.checks](#lobchecks)
+    - [lob.checks.create](#lobcheckscreate)
+    - [lob.checks.list](#lobcheckslist)
+    - [lob.checks.find](#lobchecksfind)
+  - [lob.bank_accounts](#lobbank_accounts)
+    - [lob.bank_accounts.create](#lobbank_accountscreate)
+    - [lob.bank_accounts.list](#lobbank_accountslist)
+    - [lob.bank_accounts.find](#lobbank_accountsfind)
+- [Simple Area Mail](#simple-area-mail)
+  - [lob.areas](#lobareas)
+    - [lob.areas.create](#lobareascreate)
+    - [lob.areas.list](#lobareaslist)
+    - [lob.areas.find](#lobareasfind)
+  - [lob.routes](#lobareas)
+    - [lob.routes.find](#lobroutesfind)
+- [Resources](#lobresources)
+  - [lob.countries](#lobcountries)
+    - [lob.countries.list](#lobcountrieslist)
+
 ## Simple Print Service
 
-### Jobs
+### lob.jobs
 
-#### Create jobs
+#### lob.jobs.create
 
 ```ruby
 
@@ -168,7 +216,7 @@ end
 
 ```
 
-#### List jobs
+#### lob.jobs.list
 
 ```ruby
 # returns an array of jobs
@@ -178,16 +226,16 @@ end
 @lob.jobs.list(count: 10, offset: 3)
 ```
 
-#### Find a specific job
+#### lob.jobs.find
 
 ```ruby
 # returns the job with the corresponding ID
 @lob.jobs.find("some-job-id")
 ```
 
-### Addresses
+### lob.addresses
 
-#### To create an address
+#### lob.addresses.create
 
 ```ruby
 # name, address, city, state, country and zip are required parameters
@@ -213,7 +261,7 @@ end
 )
 ```
 
-#### List addresses
+#### lob.addresses.list
 
 ```ruby
 # returns an array of addresses
@@ -223,23 +271,35 @@ end
 @lob.addresses.list(count: 10, offset: 3)
 ```
 
-#### Find a specific address
+#### lob.addresses.find
 
 ```ruby
 # returns the address with the corresponding ID
 @lob.addresses.find("some-address-id")
 ```
 
-#### Deletes a specific address
+#### lob.addresses.destroy
 
 ```ruby
 # deletes the address with the corresponding ID
 @lob.addresses.destroy("some-address-id")
 ```
 
-### Objects
+#### lob.addresses.verify
 
-#### Create objects
+```ruby
+# verifies and returns an address with more details
+@lob.addresses.verify(
+      address_line1: "220 WILLIAM T MORRISSEY BLVD",
+      city:    "Boston",
+      state:   "MA",
+      zip:     "02125"
+  )
+```
+
+### lob.objects
+
+#### lob.objects.create
 
 ```ruby
 # You can create an onject by passing the name, file url and setting ID, quantity is defaulted to 1
@@ -259,7 +319,7 @@ end
 )
 ```
 
-#### List objects
+#### lob.objects.list
 
 ```ruby
 # returns an array of objects
@@ -269,46 +329,46 @@ end
 @lob.objects.list(count: 10, offset: 3)
 ```
 
-#### Find a specific object
+#### lob.objects.find
 
 ```ruby
 # returns the object with the corresponding ID
 @lob.objects.find("some-object-id")
 ```
 
-#### Delete a specific object
+#### lob.objects.destroy
 
 ```ruby
 # deletes the object with the corresponding ID
 @lob.objects.destroy("some-object-id")
 ```
 
-### Settings
+### lob.settings
 
-#### List settings
+#### lob.settings.list
 ```ruby
 # returns an array of settings
 @lob.settings.list
 ```
 
-#### Find a setting
+#### lob.settings.find
 ```ruby
 # returns a setting object
 @lob.settings.find("setting_id")
 ```
 
-### Packagings
+### lob.packagings
 
-#### List packagings
+#### lob.packagings.list
 
 ```ruby
 # returns a list of packagings
 @lob.packagings.list
 ```
 
-### Services
+### lob.services
 
-#### List services
+#### lob.services.list
 
 ```ruby
 # returns a list of services
@@ -317,9 +377,9 @@ end
 
 ## Simple Postcard Service
 
-### Postcards
+### lob.postcards
 
-#### Creating postcards
+#### lob.postcards.create
 
 You'll have to specify either the `message` option or the `back` option.
 
@@ -382,7 +442,7 @@ You'll have to specify either the `message` option or the `back` option.
 )
 ```
 
-#### List postcards
+#### lob.postcards.list
 
 ```ruby
 @lob.postcards.list
@@ -391,7 +451,7 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.postcards.list(count: 10, offset: 3)
 ```
 
-#### Find a postcard
+#### lob.postcards.find
 
 ```ruby
 @lob.postcards.find("post-card-id")
@@ -399,9 +459,9 @@ You'll have to specify either the `message` option or the `back` option.
 
 ## Simple Check Service
 
-### Checks
+### lob.checks
 
-#### Create a check
+#### lob.checks.create
 
 ```ruby
 # Transfer $5000 to a bank account.
@@ -415,28 +475,21 @@ You'll have to specify either the `message` option or the `back` option.
 # You can also specify an optional 4th argument, with other options.
 ```
 
-#### List checks
+#### lob.checks.list
 
 ```ruby
 @lob.checks.list
 ```
 
-#### Find a check
+#### lob.checks.find
 
 ```ruby
 @lob.checks.find("check-id")
 ```
 
-### Bank accounts
+### lob.bank_accounts
 
-#### List bank accounts
-
-```ruby
-# returns a list of accounts
-@lob.bank_accounts.list
-```
-
-#### Add a bank account
+#### lob.bank_accounts.create
 
 ```ruby
 bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
@@ -452,7 +505,14 @@ account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Bost
 )
 ```
 
-#### Find a bank account
+#### lob.bank_accounts.list
+
+```ruby
+# returns a list of accounts
+@lob.bank_accounts.list
+```
+
+#### lob.bank_accounts.find
 
 ```ruby
 @lob.bank_accounts.find("bank-account-id")
@@ -460,15 +520,15 @@ account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Bost
 
 ## Simple Area Mail
 
-### Areas
+### lob.areas
 
-#### Create areas
+#### lob.areas.create
 
 You'll have to specify front, back, and either zip_codes or routes
 
 ```ruby
 # create an area request with routes
-@lob.area.create(
+@lob.areas.create(
   name: "My Area",
   front: "https://www.lob.com/areafront.pdf",
   back: "https://www.lob.com/areaback.pdf",
@@ -478,7 +538,7 @@ You'll have to specify front, back, and either zip_codes or routes
 )
 
 # create an area request with zip_codes
-@lob.area.create(
+@lob.areas.create(
   name: "My Area",
   front: "https://www.lob.com/areafront.pdf",
   back: "https://www.lob.com/areaback.pdf",
@@ -490,7 +550,7 @@ You'll have to specify front, back, and either zip_codes or routes
 
 zip_codes and routes can be a string or an array of strings
 
-#### List areas
+#### lob.areas.list
 ```ruby
 @lob.areas.list
 
@@ -498,16 +558,16 @@ zip_codes and routes can be a string or an array of strings
 @lob.areas.list(count: 10, offset: 3)
 ```
 
-#### Find an area
+#### lob.areas.find
 ```ruby
 @lob.areas.find("area_id")
 ```
 
-### Routes
+### lob.routes
 
 You'll have to specify zip_codes
 
-#### Find routes
+#### lob.routes.find
 
 ```ruby
 @lob.routes.find(
@@ -517,23 +577,11 @@ You'll have to specify zip_codes
 
 zip_codes can be a string or an array of strings
 
-### Verify
-
-```ruby
-# verifies and returns an address with more details
-@lob.addresses.verify(
-      address_line1: "220 WILLIAM T MORRISSEY BLVD",
-      city:    "Boston",
-      state:   "MA",
-      zip:     "02125"
-  )
-```
-
 ## Resources
 
-### Countries
+### lob.countries
 
-#### List supported countries
+#### lob.countries.list
 
 ```ruby
 # returns a list of countries
