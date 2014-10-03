@@ -164,7 +164,7 @@ end
   },
   objects: {
     name: "Local File Object",
-    file:      File.new(File.expand_path("<<YOUR PATH>>/letter.pdf", __FILE__)),
+    file: File.new("/path/to/file.pdf"),
     setting_id: 100
   })
 
