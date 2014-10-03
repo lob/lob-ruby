@@ -1,10 +1,21 @@
 # lob-ruby
 
-[![Build Status](https://travis-ci.org/lob/lob-ruby.svg?branch=master)](https://travis-ci.org/lob/lob-ruby) [![Gem Version](https://badge.fury.io/rb/lob.svg)](http://badge.fury.io/rb/lob) [![Dependency Status](https://gemnasium.com/lob/lob-ruby.svg)](https://gemnasium.com/lob/lob-ruby) [![Coverage Status](https://img.shields.io/coveralls/lob/lob-ruby.svg)](https://coveralls.io/r/lob/lob-ruby?branch=master) [![Downloads](http://ruby-gem-downloads-badge.herokuapp.com/lob?color=green)](https://rubygems.org/gems/lob)
+[![Build Status](https://travis-ci.org/lob/lob-ruby.svg?branch=master)](https://travis-ci.org/lob/lob-ruby) [![Gem Version](https://badge.fury.io/rb/lob.svg)](http://badge.fury.io/rb/lob) [![Dependency Status](https://gemnasium.com/lob/lob-ruby.svg)](https://gemnasium.com/lob/lob-ruby) [![Coverage Status](https://img.shields.io/coveralls/lob/lob-ruby.svg)](https://coveralls.io/r/lob/lob-ruby?branch=master) [![Downloads](http://ruby-gem-downloads-badge.herokuapp.com/lob?color=green&type=total)](https://rubygems.org/gems/lob)
 
 Ruby wrapper for the [Lob.com](http://lob.com) API. This gem gives you an ActiveRecord-style syntax to use the Lob.com API.
 
 Supports Ruby 1.9.3 and greater.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Supported Image Types](#supported-images)
+- [Initialization and Configuration](#initialization-and-configuration)
+- [API Reference](#api-reference)
+- [Developing](#developing)
+- [Testing](#testing)
+- [Contributing](#contributing)
 
 ## Installation
 
@@ -16,14 +27,14 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or manually install it yourself:
 
     $ gem install lob
 
 ## Usage
 
 The library uses an ActiveRecord-style interface. You'll feel right at home.
-You'll need a Lob.com API key. It's free and you can get yours [here](https://www.lob.com/account).
+You'll need a Lob.com API key. It's free and you can get yours [here](https://dashboard.lob.com/account).
 
 For optional parameters and other details, refer the docs here - <https://lob.com/docs>
 
@@ -33,8 +44,8 @@ When using zip codes with zero-prefixes, always quote them. For example when spe
 
 The Ruby interpreter assumes it's not of base-10 and tries to convert it to base-10 number. So that might result in an entirely different zip-code than intended.
 
-Supported Image Types
---------
+## Supported Image Types
+
 The lob.com API supports the following image types:
 
 - PDF
@@ -43,13 +54,11 @@ The lob.com API supports the following image types:
 
 For more information on prepping the images please see the [Lob documentation](https://lob.com/docs#prepping)
 
-Creating a PDF
--------
+#### Creating a PDF
 
 If you need to generate your own PDF programmatically we recommend using [prawn](https://github.com/prawnpdf/prawn). There is an example provided in the examples folder [here](examples/create_pdf.rb)
 
-Initialization and configuration
-------
+## Initialization and Configuration
 
 ```ruby
 # To initialize a Lob object
@@ -71,87 +80,61 @@ Lob.configure do |config|
 end
 ```
 
-### Settings
+## API Reference
 
-#### List settings
-```ruby
-# returns an array of settings
-@lob.settings.list
-```
+- [Simple Print Service](#simple-print-service)
+  - [lob.jobs](#lobjobs)
+    - [lob.jobs.create](#lobjobscreate)
+    - [lob.jobs.list](#lobjobslist)
+    - [lob.jobs.find](#lobjobsfind)
+  - [lob.addresses](#lobaddresses)
+    - [lob.addresses.create](#lobaddressescreate)
+    - [lob.addresses.list](#lobaddresseslist)
+    - [lob.addresses.find](#lobaddressesfind)
+    - [lob.addresses.destroy](#lobaddressesdestroy)
+    - [lob.addresses.verify](#lobaddressesverify)
+  - [lob.objects](#lobobjects)
+    - [lob.objects.create](#lobobjectscreate)
+    - [lob.objects.list](#lobobjectslist)
+    - [lob.objects.find](#lobobjectsfind)
+    - [lob.objects.destroy](#lobobjectsdestroy)
+  - [lob.settings](#lobsettings)
+    - [lob.settings.list](#lobsettingslist)
+    - [lob.settings.find](#lobsettingsfind)
+  - [lob.packagagins](#lobpackagings)
+    - [lob.packagings.list](#lobpackagingslist)
+  - [lob.services](#lobservices)
+    - [lob.services.list](#lobserviceslist)
+- [Simple Postcard Service](#simple-postcard-service)
+  - [lob.postcards](#lobpostcards)
+    - [lob.postcards.create](#lobpostcardscreate)
+    - [lob.postcards.list](#lobpostcardslist)
+    - [lob.postcards.find](#lobpostcardsfind)
+- [Simple Check Service](#simple-check-service)
+  - [lob.checks](#lobchecks)
+    - [lob.checks.create](#lobcheckscreate)
+    - [lob.checks.list](#lobcheckslist)
+    - [lob.checks.find](#lobchecksfind)
+  - [lob.bank_accounts](#lobbank_accounts)
+    - [lob.bank_accounts.create](#lobbank_accountscreate)
+    - [lob.bank_accounts.list](#lobbank_accountslist)
+    - [lob.bank_accounts.find](#lobbank_accountsfind)
+- [Simple Area Mail](#simple-area-mail)
+  - [lob.areas](#lobareas)
+    - [lob.areas.create](#lobareascreate)
+    - [lob.areas.list](#lobareaslist)
+    - [lob.areas.find](#lobareasfind)
+  - [lob.routes](#lobareas)
+    - [lob.routes.find](#lobroutesfind)
+- [Resources](#lobresources)
+  - [lob.countries](#lobcountries)
+    - [lob.countries.list](#lobcountrieslist)
 
-#### Find a setting
-```ruby
-# returns a setting object
-@lob.settings.find("setting_id")
-```
+## Simple Print Service
 
-### Addresses
+### lob.jobs
 
-#### To create an address
-
-```ruby
-# name, address, city, state, country and zip are required parameters
-@lob.addresses.create(
-  name: "John Doe",
-  address_line1: "104, Printing Boulevard",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
-)
-
-# You can also pass address_line2
-@lob.addresses.create(
-  name: "John Doe",
-  email: "test@test.com",  # see you can also pass other optional parameters?
-  address_line1: "104, Printing Boulevard",
-  address_line2: "Sunset Town",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
-)
-```
-
-#### List addresses
-
-```ruby
-# returns an array of addresses
-@lob.addresses.list
-
-#you can also pass count and offset
-@lob.addresses.list(count: 10, offset: 3)
-```
-
-#### Find a specific address
-
-```ruby
-# returns the address with the corresponding ID
-@lob.addresses.find("some-address-id")
-```
-
-#### Deletes a specific address
-
-```ruby
-# deletes the address with the corresponding ID
-@lob.addresses.destroy("some-address-id")
-```
-
-### Address verification
-
-```ruby
-# verifies and returns an address with more details
-@lob.addresses.verify(
-      address_line1: "220 WILLIAM T MORRISSEY BLVD",
-      city:    "Boston",
-      state:   "MA",
-      zip:     "02125"
-  )
-```
-
-### Jobs
-
-#### Create jobs
+#### lob.jobs.create
 
 ```ruby
 
@@ -181,7 +164,7 @@ end
   },
   objects: {
     name: "Local File Object",
-    file:      File.new(File.expand_path("<<YOUR PATH>>/letter.pdf", __FILE__)),
+    file: File.new("/path/to/file.pdf"),
     setting_id: 100
   })
 
@@ -244,7 +227,7 @@ end
 
 ```
 
-#### List jobs
+#### lob.jobs.list
 
 ```ruby
 # returns an array of jobs
@@ -254,16 +237,70 @@ end
 @lob.jobs.list(count: 10, offset: 3)
 ```
 
-#### Find a specific job
+#### lob.jobs.find
 
 ```ruby
 # returns the job with the corresponding ID
 @lob.jobs.find("some-job-id")
 ```
 
-### Objects
+### lob.addresses
 
-#### Create objects
+#### lob.addresses.create
+
+```ruby
+# name, address, city, state, country and zip are required parameters
+@lob.addresses.create(
+  name: "John Doe",
+  email: "test@test.com",  # optional
+  address_line1: "104, Printing Boulevard",
+  address_line2: "Sunset Town", # optional
+  city: "Boston",
+  state: "MA",
+  country: "US",
+  zip: 12345
+)
+```
+
+#### lob.addresses.list
+
+```ruby
+# returns an array of addresses
+@lob.addresses.list
+
+#you can also pass count and offset
+@lob.addresses.list(count: 10, offset: 3)
+```
+
+#### lob.addresses.find
+
+```ruby
+# returns the address with the corresponding ID
+@lob.addresses.find("some-address-id")
+```
+
+#### lob.addresses.destroy
+
+```ruby
+# deletes the address with the corresponding ID
+@lob.addresses.destroy("some-address-id")
+```
+
+#### lob.addresses.verify
+
+```ruby
+# verifies and returns an address with more details
+@lob.addresses.verify(
+      address_line1: "220 WILLIAM T MORRISSEY BLVD",
+      city:    "Boston",
+      state:   "MA",
+      zip:     "02125"
+  )
+```
+
+### lob.objects
+
+#### lob.objects.create
 
 ```ruby
 # You can create an onject by passing the name, file url and setting ID, quantity is defaulted to 1
@@ -283,7 +320,7 @@ end
 )
 ```
 
-#### List objects
+#### lob.objects.list
 
 ```ruby
 # returns an array of objects
@@ -293,32 +330,57 @@ end
 @lob.objects.list(count: 10, offset: 3)
 ```
 
-#### Find a specific object
+#### lob.objects.find
 
 ```ruby
 # returns the object with the corresponding ID
 @lob.objects.find("some-object-id")
 ```
 
-#### Delete a specific object
+#### lob.objects.destroy
 
 ```ruby
 # deletes the object with the corresponding ID
 @lob.objects.destroy("some-object-id")
 ```
 
-### Packagings
+### lob.settings
 
-#### List packagings
+#### lob.settings.list
+```ruby
+# returns an array of settings
+@lob.settings.list
+```
+
+#### lob.settings.find
+```ruby
+# returns a setting object
+@lob.settings.find("setting_id")
+```
+
+### lob.packagings
+
+#### lob.packagings.list
 
 ```ruby
 # returns a list of packagings
 @lob.packagings.list
 ```
 
-### Postcards
+### lob.services
 
-#### Creating postcards
+#### lob.services.list
+
+```ruby
+# returns a list of services
+@lob.services.list
+```
+
+## Simple Postcard Service
+
+### lob.postcards
+
+#### lob.postcards.create
 
 You'll have to specify either the `message` option or the `back` option.
 
@@ -381,7 +443,7 @@ You'll have to specify either the `message` option or the `back` option.
 )
 ```
 
-#### List postcards
+#### lob.postcards.list
 
 ```ruby
 @lob.postcards.list
@@ -390,113 +452,17 @@ You'll have to specify either the `message` option or the `back` option.
 @lob.postcards.list(count: 10, offset: 3)
 ```
 
-#### Find a postcard
+#### lob.postcards.find
 
 ```ruby
 @lob.postcards.find("post-card-id")
 ```
 
-### Simple Area Mail
+## Simple Check Service
 
-#### Create areas
+### lob.checks
 
-You'll have to specify front, back, and either zip_codes or routes
-
-```ruby
-# create an area request with routes
-@lob.area.create(
-  name: "My Area",
-  front: "https://www.lob.com/areafront.pdf",
-  back: "https://www.lob.com/areaback.pdf",
-  routes: ["94158-C001", "94107-C031"],
-  target_type: "all",
-  full_blled = "1"
-)
-
-# create an area request with zip_codes
-@lob.area.create(
-  name: "My Area",
-  front: "https://www.lob.com/areafront.pdf",
-  back: "https://www.lob.com/areaback.pdf",
-  zip_codes: ["95678", "94158"],
-  target_type: "all",
-  full_blled = "1"
-)
-```
-
-zip_codes and routes can be a string or an array of strings
-
-#### List areas
-```ruby
-@lob.areas.list
-
-# you can also pass count and offset
-@lob.areas.list(count: 10, offset: 3)
-```
-
-
-#### Find an area
-```ruby
-@lob.areas.find("area_id")
-```
-
-### Routes
-
-You'll have to specify zip_codes
-
-#### Find routes
-
-```ruby
-@lob.routes.find(
-  zip_codes: ["95678, 94158"]
-)
-```
-
-zip_codes can be a string or an array of strings
-
-### Services
-
-#### List services
-
-```ruby
-# returns a list of services
-@lob.services.list
-```
-
-### Bank accounts
-
-#### List bank accounts
-
-```ruby
-# returns a list of accounts
-@lob.bank_accounts.list
-```
-
-#### Add a bank account
-
-```ruby
-bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", state: "MA", country: "US", zip: 12345}
-account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", state: "MA", country: "US", zip: 12345}
-
-# Pass address params or address IDs
-# The 5th argument is the options argument and is optional
-@lob.bank_accounts.create(
-  routing_number: "routing_number",
-  bank_address: bank_address,
-  account_number: "account_number",
-  account_address: account_address
-)
-```
-
-#### Find a bank account
-
-```ruby
-@lob.bank_accounts.find("bank-account-id")
-```
-
-### Checks
-
-#### Create a check
+#### lob.checks.create
 
 ```ruby
 # Transfer $5000 to a bank account.
@@ -510,21 +476,113 @@ account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Bost
 # You can also specify an optional 4th argument, with other options.
 ```
 
-#### List checks
+#### lob.checks.list
 
 ```ruby
 @lob.checks.list
 ```
 
-#### Find a check
+#### lob.checks.find
 
 ```ruby
 @lob.checks.find("check-id")
 ```
 
-### Supported countries
+### lob.bank_accounts
 
-#### List supported countries
+#### lob.bank_accounts.create
+
+```ruby
+bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
+account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
+
+# Pass address params or address IDs
+# The 5th argument is the options argument and is optional
+@lob.bank_accounts.create(
+  routing_number: "routing_number",
+  bank_address: bank_address,
+  account_number: "account_number",
+  account_address: account_address
+)
+```
+
+#### lob.bank_accounts.list
+
+```ruby
+# returns a list of accounts
+@lob.bank_accounts.list
+```
+
+#### lob.bank_accounts.find
+
+```ruby
+@lob.bank_accounts.find("bank-account-id")
+```
+
+## Simple Area Mail
+
+### lob.areas
+
+#### lob.areas.create
+
+You'll have to specify front, back, and either zip_codes or routes
+
+```ruby
+# create an area request with routes
+@lob.areas.create(
+  name: "My Area",
+  front: "https://www.lob.com/areafront.pdf",
+  back: "https://www.lob.com/areaback.pdf",
+  routes: ["94158-C001", "94107-C031"],
+  target_type: "all",
+  full_blled = "1"
+)
+
+# create an area request with zip_codes
+@lob.areas.create(
+  name: "My Area",
+  front: "https://www.lob.com/areafront.pdf",
+  back: "https://www.lob.com/areaback.pdf",
+  zip_codes: ["95678", "94158"],
+  target_type: "all",
+  full_blled = "1"
+)
+```
+
+zip_codes and routes can be a string or an array of strings
+
+#### lob.areas.list
+```ruby
+@lob.areas.list
+
+# you can also pass count and offset
+@lob.areas.list(count: 10, offset: 3)
+```
+
+#### lob.areas.find
+```ruby
+@lob.areas.find("area_id")
+```
+
+### lob.routes
+
+You'll have to specify zip_codes
+
+#### lob.routes.find
+
+```ruby
+@lob.routes.find(
+  zip_codes: ["95678, 94158"]
+)
+```
+
+zip_codes can be a string or an array of strings
+
+## Resources
+
+### lob.countries
+
+#### lob.countries.list
 
 ```ruby
 # returns a list of countries
@@ -541,7 +599,7 @@ Make sure you have Ruby 2.0 installed. Copy and paste the following commands in 
 
 You are powered up and ready to roll ~!
 
-## Running the test-suite
+## Testing
 
 To run the tests, download the required sample files by running the following command:
 
