@@ -1,12 +1,12 @@
 require "spec_helper"
 
-describe Lob::V1::Country do
+describe Lob::V1::State do
   subject { Lob(api_key: ENV["LOB_API_KEY"], api_version: "v1") }
 
   describe "list" do
-    it "should list countries" do
-      VCR.use_cassette('list_countries') do
-        result = subject.countries.list
+    it "should list states" do
+      VCR.use_cassette('list_states') do
+        result = subject.states.list
         result.length.must_be :>, 0
       end
     end

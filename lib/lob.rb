@@ -6,7 +6,6 @@ require "lob/lob_error"
 Dir[File.join(File.dirname(__FILE__), 'lob', 'v*', '*.rb')].each {|file| require file }
 
 module Lob
-
   class << self
     attr_accessor :api_key,
                   :api_version,
