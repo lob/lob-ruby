@@ -16,6 +16,18 @@ module Lob
         Lob::V1::Address.new(self)
       end
 
+      def bank_accounts
+        Lob::V1::BankAccount.new(self)
+      end
+
+      def checks
+        Lob::V1::Check.new(self)
+      end
+
+      def countries
+        Lob::V1::Country.new(self)
+      end
+
       def jobs
         Lob::V1::Job.new(self)
       end
@@ -44,18 +56,9 @@ module Lob
         Lob::V1::Setting.new(self)
       end
 
-      def countries
-        Lob::V1::Country.new(self)
+      def states
+        Lob::V1::State.new(self)
       end
-
-      def checks
-        Lob::V1::Check.new(self)
-      end
-
-      def bank_accounts
-        Lob::V1::BankAccount.new(self)
-      end
-
 
       def base_url
         "#{@options[:protocol]}://#{@options[:api_key]}:@#{@options[:api_host]}/v1"

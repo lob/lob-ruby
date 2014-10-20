@@ -129,6 +129,8 @@ end
 - [Resources](#lobresources)
   - [lob.countries](#lobcountries)
     - [lob.countries.list](#lobcountrieslist)
+  - [lob.states](#lobstates)
+    - [lob.states.list](#lobstateslist)
 
 ## Simple Print Service
 
@@ -614,6 +616,15 @@ zip_codes can be a string or an array of strings
 ```ruby
 # returns a list of countries
 @lob.countries.list
+```
+
+### lob.states
+
+#### lob.states.list
+
+```ruby
+# returns a list of states
+@lob.states.list
 ```
 
 ## Developing
