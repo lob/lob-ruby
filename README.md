@@ -465,14 +465,28 @@ You'll have to specify either the `message` option or the `back` option.
 #### lob.checks.create
 
 ```ruby
+# For the "to" address, you can pass params
 # Transfer $5000 to a bank account.
+@lob.checks.create(
+  bank_account: "bank-account-id",
+  to: {
+    name: "FromAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    state: "MA",
+    country: "US",
+    zip: 12345
+  },
+  amount: 5000
+)
+
+# or an address ID
 @lob.checks.create(
   bank_account: "bank-account-id",
   to: "to-address-ID",
   amount: 5000
 )
 
-# For the "to" address, you can pass params or an address ID
 # You can also specify an optional 4th argument, with other options.
 ```
 
@@ -493,16 +507,29 @@ You'll have to specify either the `message` option or the `back` option.
 #### lob.bank_accounts.create
 
 ```ruby
-bank_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
-account_address = {name: "ToAddress", address_line1: "120, 6th Ave", city: "Boston", country: "US", zip: 12345}
+bank_address =
+
+account_address =
 
 # Pass address params or address IDs
 # The 5th argument is the options argument and is optional
 @lob.bank_accounts.create(
   routing_number: "routing_number",
-  bank_address: bank_address,
   account_number: "account_number",
-  account_address: account_address
+  bank_address: {
+    name: "ToAddress",
+    address_line1: "120 6th Ave",
+    city: "Boston",
+    country: "US",
+    zip: 12345
+  },
+  account_address: {
+    name: "ToAddress",
+    address_line1: "120 6th Ave",
+    city: "Boston",
+    country: "US",
+    zip: 12345
+  }
 )
 ```
 
