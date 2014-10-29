@@ -29,7 +29,7 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
@@ -55,7 +55,7 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
@@ -78,13 +78,13 @@ describe Lob::V1::Job do
 
         new_object_params = {
           name:      @sample_object_params[:name],
-          file:      "https://www.lob.com/test.pdf",
+          file:      "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         }
 
         another_object_params = {
           name:      "Another #{@sample_object_params[:name]}",
-          file:      "https://www.lob.com/test.pdf",
+          file:      "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         }
 
@@ -113,7 +113,7 @@ describe Lob::V1::Job do
 
         another_object_params = {
           name:      "Another #{@sample_object_params[:name]}",
-          file:      "https://www.lob.com/test.pdf",
+          file:      "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         }
 
@@ -142,7 +142,7 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
@@ -163,7 +163,7 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object_params = {
           name:      @sample_object_params[:name],
-          file:      "https://www.lob.com/test.pdf",
+          file:      "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         }
 
@@ -187,7 +187,7 @@ describe Lob::V1::Job do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
