@@ -18,7 +18,7 @@ describe Lob::V1::Object do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           name: @sample_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
@@ -35,7 +35,7 @@ describe Lob::V1::Object do
         settings_list = subject.settings.list
         result = subject.objects.create(
           name: @sample_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
@@ -64,7 +64,7 @@ describe Lob::V1::Object do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           name: @sample_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
@@ -81,7 +81,7 @@ describe Lob::V1::Object do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
           name: @sample_params[:name],
-          file: "https://www.lob.com/test.pdf",
+          file: "https://assets.lob.com/test.pdf",
           setting_id: @test_setting_id
         )
 
