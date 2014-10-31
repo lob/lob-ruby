@@ -308,7 +308,7 @@ end
 # You can create an onject by passing the name, file url and setting ID, quantity is defaulted to 1
 @lob.objects.create(
   name: "Your fantistic object",
-  file: "https://www.lob.com/test.pdf",
+  file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
   setting_id: "201"
 )
 
@@ -408,7 +408,7 @@ You'll have to specify either the `message` option or the `back` option.
     country: "US",
     zip: 12345
   }
-  front: "https://www.lob.com/postcardback.pdf",
+  front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardback.pdf",
   back: File.new("/path/to/file.pdf")
 )
 
@@ -432,7 +432,7 @@ You'll have to specify either the `message` option or the `back` option.
     country: "US",
     zip: 12345
   }
-  front: "https://www.lob.com/postcardback.pdf",
+  front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardback.pdf",
   message: "Hey Buddy, Thanks for Visiting"
 )
 
@@ -560,8 +560,8 @@ You'll have to specify front, back, and either zip_codes or routes
 # create an area request with routes
 @lob.areas.create(
   name: "My Area",
-  front: "https://www.lob.com/areafront.pdf",
-  back: "https://www.lob.com/areaback.pdf",
+  front: "https://s3-us-west-2.amazonaws.com/lob-assets/areafront.pdf",
+  back: "https://s3-us-west-2.amazonaws.com/lob-assets/areaback.pdf",
   routes: ["94158-C001", "94107-C031"],
   target_type: "all",
   full_blled = "1"
@@ -570,8 +570,8 @@ You'll have to specify front, back, and either zip_codes or routes
 # create an area request with zip_codes
 @lob.areas.create(
   name: "My Area",
-  front: "https://www.lob.com/areafront.pdf",
-  back: "https://www.lob.com/areaback.pdf",
+  front: "https://s3-us-west-2.amazonaws.com/lob-assets/areafront.pdf",
+  back: "https://s3-us-west-2.amazonaws.com/lob-assets/areaback.pdf",
   zip_codes: ["95678", "94158"],
   target_type: "all",
   full_blled = "1"

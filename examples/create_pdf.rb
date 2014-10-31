@@ -10,7 +10,7 @@ Lob.api_key = 'test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc'
 POINTS_PER_INCH = 72 # 72 PostScript Points per Inch
 
 pdf = Prawn::Document.new(:page_size => [4.25 * POINTS_PER_INCH, 6.25 * POINTS_PER_INCH])
-pdf.image open('https://www.lob.com/assets/images/printing_icon.png'), :position => :center
+pdf.image open('https://s3-us-west-2.amazonaws.com/lob-assets/printing_icon.png'), :position => :center
 pdf.text 'Print with Lob!', :align => :center, :size => 32
 
 pdf.render_file 'sample.pdf'
