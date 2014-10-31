@@ -30,6 +30,6 @@ puts @lob.postcards.create(
   name: "John Joe",
   to: to_address["id"],
   from: from_address["id"],
-  front: "https://www.lob.com/postcardfront.pdf",
-  back: "https://www.lob.com/postcardback.pdf"
+  front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardfront.pdf",
+  back: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardback.pdf"
 )

@@ -13,7 +13,7 @@ setting_id = settings[setting_index]["id"]
 # create a file object to user later
 michigan_logo = @lob.objects.create(
   name: "Michigan Logo Document",
-  file: "https://www.lob.com/goblue.pdf",
+  file: "https://s3-us-west-2.amazonaws.com/lob-assets/goblue.pdf",
   setting_id: setting_id
 )
 

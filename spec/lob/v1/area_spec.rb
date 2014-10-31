@@ -3,8 +3,8 @@ require "spec_helper"
 describe Lob::V1::Area do
   before :each do
     @sample_area_params = {
-      front: "https://www.lob.com/areafront.pdf",
-      back: "https://www.lob.com/areaback.pdf",
+      front: "https://s3-us-west-2.amazonaws.com/lob-assets/areafront.pdf",
+      back: "https://s3-us-west-2.amazonaws.com/lob-assets/areaback.pdf",
       routes: ["94158-C001", "94107-C031"],
     }
   end
