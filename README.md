@@ -564,7 +564,7 @@ You'll have to specify front, back, and either zip_codes or routes
   back: "https://s3-us-west-2.amazonaws.com/lob-assets/areaback.pdf",
   routes: ["94158-C001", "94107-C031"],
   target_type: "all",
-  full_blled = "1"
+  full_bleed = "1"
 )
 
 # create an area request with zip_codes
@@ -574,7 +574,7 @@ You'll have to specify front, back, and either zip_codes or routes
   back: "https://s3-us-west-2.amazonaws.com/lob-assets/areaback.pdf",
   zip_codes: ["95678", "94158"],
   target_type: "all",
-  full_blled = "1"
+  full_bleed = "1"
 )
 ```
 
