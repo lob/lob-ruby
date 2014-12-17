@@ -1,6 +1,7 @@
 require "rest-client"
 require "json"
 require "lob/lob_error"
+require "lob/version"
 
 # Dynamically require files
 Dir[File.join(File.dirname(__FILE__), 'lob', 'v*', '*.rb')].each {|file| require file }
@@ -28,7 +29,7 @@ module Lob
 
 
   def self.submit(method, url, parameters={})
-    clientVersion = Gem.latest_spec_for('lob').version.to_s
+    clientVersion = Lob::VERSION
 
     if method == :get || method == :delete
       JSON(RestClient.send(method, url, {

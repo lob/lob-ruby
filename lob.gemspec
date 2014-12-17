@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
+require File.expand_path('../lib/lob/version', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
 
 Gem::Specification.new do |spec|
   spec.name          = "lob"
-  spec.version       = "1.7"
+  spec.version       = Lob::VERSION
   spec.authors       = ["Lob"]
   spec.email         = ["support@lob.com"]
   spec.description   = %q{Lob API Ruby wrapper}
