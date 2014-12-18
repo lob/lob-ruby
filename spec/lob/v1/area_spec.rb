@@ -59,18 +59,7 @@ describe Lob::V1::Area do
 
     it "should create an area object with zip_codes" do
       VCR.use_cassette('create_area_object_with_zip') do
-        @sample_area_params.delete("routes")
-        @sample_area_params[:zip_codes] = "94158"
-        result = subject.areas.create @sample_area_params
-
-        result["object"].must_equal("area")
-      end
-    end
-
-    it "should error without routes required params" do
-      VCR.use_cassette('create_area_object_with_zip') do
-        @sample_area_params.delete("routes")
-        @sample_area_params[:zip_codes] = "94158"
+        @sample_area_params[:routes] = ["94158"];
         result = subject.areas.create @sample_area_params
 
         result["object"].must_equal("area")
