@@ -9,8 +9,7 @@ describe Lob::V1::Object do
     @test_setting_id = 201
   end
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"], api_version: "v1") }
-
+  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
 
   describe "list" do
     it "should list objects" do
@@ -27,7 +26,6 @@ describe Lob::V1::Object do
       end
     end
   end
-
 
   describe "create" do
     it "should create an object with file url" do
@@ -55,8 +53,21 @@ describe Lob::V1::Object do
         result["name"].must_equal(@sample_params[:name])
       end
     end
-  end
 
+    it "should create an object with a new api version" do
+      Lob.api_version = "2014-12-18"
+      VCR.use_cassette("create_object_with_new_version") do
+        result = subject.objects.create(
+          name: @sample_params[:name],
+          file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
+          setting: @test_setting_id
+        )
+
+        result["name"].must_equal(@sample_params[:name])
+      end
+      Lob.api_version = "2014-11-24"
+    end
+  end
 
   describe "find" do
     it "should find an object" do
@@ -73,7 +84,6 @@ describe Lob::V1::Object do
       end
     end
   end
-
 
   describe "destroy" do
     it "should delete an object" do

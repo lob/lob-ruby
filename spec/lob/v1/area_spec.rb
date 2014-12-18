@@ -9,7 +9,7 @@ describe Lob::V1::Area do
     }
   end
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"], api_version: "v1") }
+  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
 
   describe "list" do
     it "should list areas" do

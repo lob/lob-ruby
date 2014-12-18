@@ -19,7 +19,7 @@ describe Lob::V1::Job do
     @test_setting_id = 201
   end
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"], api_version: "v1") }
+  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
 
 
   describe "list" do

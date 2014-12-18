@@ -2,16 +2,7 @@ require "spec_helper"
 
 describe Lob do
   it "should return the resource object for the valid version" do
-    Lob(api_key: "test", api_version: "v1").must_be_kind_of(Lob::V1::Resource)
-  end
-
-  it "should raise an error if the version doesn't exist" do
-    ->{Lob(api_key: "test", api_version: "test")}.must_raise(Lob::VersionInvalidError)
-  end
-
-  it "should raise an error if API key is not passed as an option or set on module" do
-    Lob.api_key = nil  # make sure API key is nil
-    ->{ Lob() }.must_raise(ArgumentError)
+    Lob(api_key: "test", api_version: "2014-11-25").must_be_kind_of(Lob::V1::Resource)
   end
 
   it "should *not* raise an error if API key has been on module and not passed as option" do
@@ -26,13 +17,13 @@ describe Lob do
   it "should allow detailed configuration" do
     Lob.configure do |config|
       config.api_key = "test"
-      config.api_version = "v1"
+      config.api_version = "2014-11-24"
       config.protocol = "https"
       config.api_host = "api.lob.com"
     end
 
     Lob.api_key.must_equal "test"
-    Lob.api_version.must_equal "v1"
+    Lob.api_version.must_equal "2014-11-24"
     Lob.protocol.must_equal "https"
     Lob.api_host.must_equal "api.lob.com"
   end
@@ -43,12 +34,7 @@ describe Lob do
     Lob.api_key = "test"
     Lob.load.wont_be_nil
 
-    Lob.api_key = nil  # make sure API key is nil
-    ->{ Lob.load }.must_raise(ArgumentError)
-
-    ->{Lob.load(api_key: "test", api_version: "test")}.must_raise(Lob::VersionInvalidError)
-
-    Lob.load(api_key: "test", api_version: "v1").must_be_kind_of(Lob::V1::Resource)
+    Lob.load(api_key: "test", api_version: "2014-11-24").must_be_kind_of(Lob::V1::Resource)
   end
 
   it "should handle API errors gracefully" do
@@ -58,5 +44,14 @@ describe Lob do
         lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
       end
     end
+  end
+
+  it "should work when no api_version is provided" do
+    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    Lob.api_version = nil
+    VCR.use_cassette('no_api_version') do
+      lob.addresses.list
+    end
+    Lob.api_version = "2014-11-24"
   end
 end
