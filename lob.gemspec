@@ -1,7 +1,7 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-require File.expand_path('../lib/lob/version', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$:.unshift(File.join(File.dirname(__FILE__), 'lib'))
+
+require "lob/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "lob"
