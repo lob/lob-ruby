@@ -50,4 +50,13 @@ describe Lob do
 
     Lob.load(api_key: "test", api_version: "v1").must_be_kind_of(Lob::V1::Resource)
   end
+
+  it "should handle API errors gracefully" do
+    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    assert_raises Lob::InvalidRequestError do
+      VCR.use_cassette('bad_request') do
+        lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
+      end
+    end
+  end
 end

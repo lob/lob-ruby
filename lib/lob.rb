@@ -1,23 +1,21 @@
 require "rest-client"
 require "json"
-require "lob/lob_error"
 require "lob/version"
+require "lob/errors/lob_error"
+require "lob/errors/invalid_request_error"
+require "lob/errors/version_invalid_error"
 
 # Dynamically require files
 Dir[File.join(File.dirname(__FILE__), 'lob', 'v*', '*.rb')].each {|file| require file }
 
 module Lob
   class << self
-    attr_accessor :api_key,
-                  :api_version,
-                  :protocol,
-                  :api_host
+    attr_accessor :api_key, :api_version, :protocol, :api_host
 
     def configure
       yield self
       true
     end
-
     alias :config :configure
   end
 
@@ -27,47 +25,42 @@ module Lob
     end
   end
 
-
   def self.submit(method, url, parameters={})
     clientVersion = Lob::VERSION
-
-    if method == :get || method == :delete
-      JSON(RestClient.send(method, url, {
-        user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
-        params: parameters
-      }))
-    else
-      JSON(RestClient.send(method, url, parameters, {
-        user_agent: 'Lob/v1 RubyBindings/' + clientVersion
-      }))
-    end
-  # :nocov:
-  rescue => e
     begin
-      # Parse the error to raise a nice Lob::Error
-      json = JSON(e.http_body)
-
-      if json.has_key? 'errors'
-        error_message = json["errors"].first.values.first
-      elsif json.has_key? 'message'
-        error_message = json["message"]
+      if method == :get || method == :delete
+        JSON.parse(RestClient.send(method, url, {
+          user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
+          params: parameters,
+          "Lob-Version" => self.api_version
+        }))
       else
-        error_message = "Unknown error: #{json}"
+        JSON.parse(RestClient.send(method, url, parameters, {
+          user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
+          "Lob-Version" => self.api_version
+        }))
       end
 
-      raise Lob::Error.new(error_message)
-    rescue
-      # If error parsing failed re-raise the original error
-      raise e
+    rescue RestClient::ExceptionWithResponse => e
+      handle_api_error(e)
     end
-  # :nocov:
   end
 
   def self.load(options={})
     Lob(options)
   end
-end
 
+  def self.handle_api_error(error)
+    begin
+      response = JSON.parse(error.http_body)
+      error_obj = response["errors"].first
+      message = error_obj["message"]
+      raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
+    rescue JSON::ParserError
+      raise LobError.new("Invalid response object: #{}", error.http_code, error.http_body)
+    end
+  end
+end
 
 def Lob(options={})
   options[:api_host]     ||= Lob.api_host    || "api.lob.com"
