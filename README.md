@@ -73,10 +73,8 @@ Lob.api_key = "your-api-key"
 
 ```ruby
 Lob.configure do |config|
-  config.api_key = "your-api-key"  # get your own at http://lob.com :)
-  config.api_version = "v1"        # default version
-  config.protocol = "https"        # default protocol
-  config.api_host = "api.lob.com"  # ofcourse it's Lob
+  config.api_key = "your-api-key"    # get your own at http://lob.com :)
+  config.api_version = "2014-12-18"  # override the API version
 end
 ```
 
