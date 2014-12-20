@@ -3,7 +3,6 @@ require "json"
 require "lob/version"
 require "lob/errors/lob_error"
 require "lob/errors/invalid_request_error"
-require "lob/errors/version_invalid_error"
 
 # Dynamically require files
 Dir[File.join(File.dirname(__FILE__), 'lob', 'v*', '*.rb')].each {|file| require file }
@@ -27,6 +26,7 @@ module Lob
 
   def self.submit(method, url, parameters={})
     clientVersion = Lob::VERSION
+
     begin
       if method == :get || method == :delete
         JSON.parse(RestClient.send(method, url, {
@@ -65,16 +65,12 @@ end
 def Lob(options={})
   options[:api_host]     ||= Lob.api_host    || "api.lob.com"
   options[:protocol]     ||= Lob.protocol    || "https"
-  options[:api_version]  ||= Lob.api_version || "v1"
+  options[:api_version]  ||= Lob.api_version
   options[:api_key]      ||= Lob.api_key
 
   if options[:api_key].nil?
     raise ArgumentError.new(":api_key is a required argument to initialize Lob")
   end
 
-  if Dir[File.join(File.dirname(__FILE__), 'lob', options[:api_version])].empty?
-    raise Lob::VersionInvalidError.new("api version #{options[:api_version]} doesn't exist")
-  end
-
-  Lob.const_get(options[:api_version].capitalize).const_get("Resource").new(options)
+  Lob::V1::Resource.new(options)
 end
