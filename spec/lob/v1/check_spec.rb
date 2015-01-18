@@ -31,7 +31,8 @@ describe Lob::V1::Check do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: @sample_address_params,
           account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params
+          account_address: @sample_address_params,
+          signatory: "John Doe"
         )
 
         new_check = subject.checks.create(
@@ -56,7 +57,8 @@ describe Lob::V1::Check do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: @sample_address_params,
           account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params
+          account_address: @sample_address_params,
+          signatory: "John Doe"
         )
 
         result = subject.checks.create(
@@ -80,7 +82,8 @@ describe Lob::V1::Check do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: @sample_address_params,
           account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params
+          account_address: @sample_address_params,
+          signatory: "John Doe"
         )
 
         new_check = subject.checks.create(

@@ -30,7 +30,8 @@ describe Lob::V1::BankAccount do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: @sample_address_params.clone,
           account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params.clone
+          account_address: @sample_address_params.clone,
+          signatory: "John Doe"
         )
 
         list_result = subject.bank_accounts.list
@@ -49,7 +50,8 @@ describe Lob::V1::BankAccount do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: new_address["id"],
           account_number: @sample_bank_account_params[:account_number],
-          account_address: new_address["id"]
+          account_address: new_address["id"],
+          signatory: "John Doe"
         )
 
         result["account_number"].must_equal(@sample_bank_account_params[:account_number])
@@ -64,7 +66,8 @@ describe Lob::V1::BankAccount do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: @sample_address_params.clone,
           account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params.clone
+          account_address: @sample_address_params.clone,
+          signatory: "John Doe"
         )
 
         result["account_number"].must_equal(@sample_bank_account_params[:account_number])
@@ -82,7 +85,8 @@ describe Lob::V1::BankAccount do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: new_address["id"],
           account_number: @sample_bank_account_params[:account_number],
-          account_address: new_address["id"]
+          account_address: new_address["id"],
+          signatory: "John Doe"
         )
 
         result  = subject.bank_accounts.find(new_bank_account["id"])
@@ -98,7 +102,8 @@ describe Lob::V1::BankAccount do
           routing_number: @sample_bank_account_params[:routing_number],
           bank_address: @sample_address_params.clone,
           account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params.clone
+          account_address: @sample_address_params.clone,
+          signatory: "John Doe"
         )
 
         delete_result = subject.bank_accounts.destroy(new_bank_account["id"])

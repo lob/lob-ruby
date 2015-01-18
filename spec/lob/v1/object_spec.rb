@@ -18,7 +18,7 @@ describe Lob::V1::Object do
         new_object = subject.objects.create(
           name: @sample_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         list_result = subject.objects.list
@@ -34,7 +34,7 @@ describe Lob::V1::Object do
         result = subject.objects.create(
           name: @sample_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         result["name"].must_equal(@sample_params[:name])
@@ -47,25 +47,11 @@ describe Lob::V1::Object do
         result = subject.objects.create(
           name: @sample_params[:name],
           file: File.new(File.expand_path("../../../samples/test.pdf", __FILE__), "rb"),
-          setting_id: @test_setting_id
-        )
-
-        result["name"].must_equal(@sample_params[:name])
-      end
-    end
-
-    it "should create an object with a new api version" do
-      Lob.api_version = "2014-12-18"
-      VCR.use_cassette("create_object_with_new_version") do
-        result = subject.objects.create(
-          name: @sample_params[:name],
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
           setting: @test_setting_id
         )
 
         result["name"].must_equal(@sample_params[:name])
       end
-      Lob.api_version = "2014-11-24"
     end
   end
 
@@ -76,7 +62,7 @@ describe Lob::V1::Object do
         new_object = subject.objects.create(
           name: @sample_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         find_result = subject.objects.find(new_object["id"])
@@ -92,7 +78,7 @@ describe Lob::V1::Object do
         new_object = subject.objects.create(
           name: @sample_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         delete_result = subject.objects.destroy(new_object["id"])
