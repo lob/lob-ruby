@@ -30,7 +30,7 @@ describe Lob::V1::Job do
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         new_job = subject.jobs.create(
@@ -56,7 +56,7 @@ describe Lob::V1::Job do
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         result = subject.jobs.create(
@@ -79,13 +79,13 @@ describe Lob::V1::Job do
         new_object_params = {
           name:      @sample_object_params[:name],
           file:      "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         }
 
         another_object_params = {
           name:      "Another #{@sample_object_params[:name]}",
           file:      "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         }
 
         result = subject.jobs.create(
@@ -108,13 +108,13 @@ describe Lob::V1::Job do
         new_object_params = {
           name:      @sample_object_params[:name],
           file:      File.new(File.expand_path("../../../samples/test.pdf", __FILE__)),
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         }
 
         another_object_params = {
           name:      "Another #{@sample_object_params[:name]}",
           file:      "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         }
 
         result = subject.jobs.create(
@@ -143,7 +143,7 @@ describe Lob::V1::Job do
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         result = subject.jobs.create(
@@ -164,7 +164,7 @@ describe Lob::V1::Job do
         new_object_params = {
           name:      @sample_object_params[:name],
           file:      "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         }
 
         result = subject.jobs.create(
@@ -188,7 +188,7 @@ describe Lob::V1::Job do
         new_object = subject.objects.create(
           name: @sample_object_params[:name],
           file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-          setting_id: @test_setting_id
+          setting: @test_setting_id
         )
 
         new_job = subject.jobs.create(

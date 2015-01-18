@@ -1,6 +1,11 @@
 require "spec_helper"
 
 describe Lob do
+
+  after do
+    Lob.api_version = nil
+  end
+
   it "should return the resource object for the valid version" do
     Lob(api_key: "test", api_version: "2014-11-25").must_be_kind_of(Lob::V1::Resource)
   end
@@ -34,7 +39,7 @@ describe Lob do
     Lob.api_key = "test"
     Lob.load.wont_be_nil
 
-    Lob.load(api_key: "test", api_version: "2014-11-24").must_be_kind_of(Lob::V1::Resource)
+    Lob.load(api_key: "test").must_be_kind_of(Lob::V1::Resource)
   end
 
   it "should handle API errors gracefully" do
