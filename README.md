@@ -36,9 +36,9 @@ Or manually install it yourself:
 ## Usage
 
 The library uses an ActiveRecord-style interface. You'll feel right at home.
-You'll need a Lob.com API key. It's free and you can get yours [here](https://dashboard.lob.com/account).
+You'll need a Lob.com API key. It's free and you can get yours [here](https://dashboard.lob.com/settings).
 
-For optional parameters and other details, refer the docs here - <https://lob.com/docs>
+For optional parameters and other details, refer to the docs [here](https://lob.com/docs).
 
 #### Caution: Pass zero-prefixed zip codes as strings
 
@@ -48,17 +48,17 @@ The Ruby interpreter assumes it's not of base-10 and tries to convert it to base
 
 ## Supported Image Types
 
-The lob.com API supports the following image types:
+The Lob.com API supports the following image types:
 
 - PDF
 - PNG
 - JPEG
 
-For more information on prepping the images please see the [Lob documentation](https://lob.com/docs#prepping)
+For more information on prepping images please see the [Lob documentation](https://lob.com/docs#prepping).
 
 #### Creating a PDF
 
-If you need to generate your own PDF programmatically we recommend using [prawn](https://github.com/prawnpdf/prawn). There is an example provided in the examples folder [here](examples/create_pdf.rb)
+If you need to generate your own PDF programmatically we recommend using [prawn](https://github.com/prawnpdf/prawn). There is an example provided in the examples folder [here](examples/create_pdf.rb).
 
 ## Initialization and Configuration
 
@@ -205,7 +205,7 @@ end
   {
     name: "Your fantistic object",
     file: "http://test.com/file.pdf",
-    setting_id: "some-setting-id"
+    setting: "some-setting"
   }
 )
 
@@ -309,7 +309,7 @@ end
 @lob.objects.create(
   name: "Your fantistic object",
   file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
-  setting_id: "201"
+  setting: "201"
 )
 
 # You can also pass the quantity as an option
@@ -317,7 +317,7 @@ end
 @lob.objects.create(
   name: "Your fantistic object",
   file: File.new("/path/to/file.pdf"),
-  setting_id: "some-setting-id",
+  setting: "some-setting",
   quantity: 12
 )
 ```
@@ -357,7 +357,7 @@ end
 #### lob.settings.find
 ```ruby
 # returns a setting object
-@lob.settings.find("setting_id")
+@lob.settings.find("setting")
 ```
 
 ### lob.packagings
