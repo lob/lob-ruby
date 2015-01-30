@@ -19,6 +19,7 @@ to_address = @lob.addresses.create(
 bank_account = @lob.bank_accounts.create(
   routing_number: "322271627",
   account_number: "123456789",
+  signatory: "John Doe",
   bank_address: {
     name: "Bank Address",
     address_line1: "120 6th Ave",
