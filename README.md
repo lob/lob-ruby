@@ -165,7 +165,7 @@ end
   objects: {
     name: "Local File Object",
     file: File.new("/path/to/file.pdf"),
-    setting_id: 100
+    setting: 100
   })
 
 
