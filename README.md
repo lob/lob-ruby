@@ -38,7 +38,7 @@ Or manually install it yourself:
 The library uses an ActiveRecord-style interface. You'll feel right at home.
 You'll need a Lob.com API key. It's free and you can get yours [here](https://dashboard.lob.com/settings).
 
-For optional parameters and other details, refer to the docs [here](https://lob.com/docs).
+For optional parameters and other details, refer to the docs [here](https://lob.com/docs/ruby).
 
 #### Caution: Pass zero-prefixed zip codes as strings
 
@@ -54,7 +54,7 @@ The Lob.com API supports the following image types:
 - PNG
 - JPEG
 
-For more information on prepping images please see the [Lob documentation](https://lob.com/docs#prepping).
+For more information on prepping images please see the [Lob documentation](https://lob.com/docs/ruby#prepping).
 
 #### Creating a PDF
 
@@ -101,8 +101,6 @@ end
   - [lob.settings](#lobsettings)
     - [lob.settings.list](#lobsettingslist)
     - [lob.settings.find](#lobsettingsfind)
-  - [lob.packagings](#lobpackagings)
-    - [lob.packagings.list](#lobpackagingslist)
   - [lob.services](#lobservices)
     - [lob.services.list](#lobserviceslist)
 - [Simple Postcard Service](#simple-postcard-service)
@@ -196,7 +194,7 @@ end
 )
 
 # You can also pass new object params for the object
-# and other options like packaging_id an setting_id
+# and other options like setting
 @lob.jobs.create(
   name: "New Cool Posters",
   from: "from-address-id",
@@ -358,15 +356,6 @@ end
 ```ruby
 # returns a setting object
 @lob.settings.find("setting")
-```
-
-### lob.packagings
-
-#### lob.packagings.list
-
-```ruby
-# returns a list of packagings
-@lob.packagings.list
 ```
 
 ### lob.services
