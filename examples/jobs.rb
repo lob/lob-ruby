@@ -14,7 +14,7 @@ setting_id = settings[setting_index]["id"]
 michigan_logo = @lob.objects.create(
   name: "Michigan Logo Document",
   file: "https://s3-us-west-2.amazonaws.com/lob-assets/goblue.pdf",
-  setting_id: setting_id
+  setting: 101
 )
 
 # create a to address
