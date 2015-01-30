@@ -18,7 +18,7 @@ pdf.render_file 'sample.pdf'
 object = @lob.objects.create(
   name: 'Test Object',
   file: File.new('sample.pdf'),
-  setting_id: 201,
+  setting: 201,
   full_bleed: 1
 )
 
