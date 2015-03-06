@@ -468,14 +468,16 @@ You'll have to specify either the `message` option or the `back` option.
     country: "US",
     zip: 12345
   },
-  amount: 5000
+  amount: 5000,
+  logo: "http://assets.lob.com/lob_check_logo.png" # optional
 )
 
 # or an address ID
 @lob.checks.create(
   bank_account: "bank-account-id",
   to: "to-address-ID",
-  amount: 5000
+  amount: 5000,
+  logo: "http://assets.lob.com/lob_check_logo.png" # optional
 )
 
 # You can also specify an optional 4th argument, with other options.
