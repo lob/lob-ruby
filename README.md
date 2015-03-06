@@ -469,7 +469,7 @@ You'll have to specify either the `message` option or the `back` option.
     zip: 12345
   },
   amount: 5000,
-  logo: "http://assets.lob.com/lob_check_logo.png" # optional
+  logo: "https://s3-us-west-2.amazonaws.com/lob-assets/lob_check_logo.png" # optional
 )
 
 # or an address ID
@@ -477,7 +477,7 @@ You'll have to specify either the `message` option or the `back` option.
   bank_account: "bank-account-id",
   to: "to-address-ID",
   amount: 5000,
-  logo: "http://assets.lob.com/lob_check_logo.png" # optional
+  logo: "https://s3-us-west-2.amazonaws.com/lob-assets/lob_check_logo.png" # optional
 )
 
 # You can also specify an optional 4th argument, with other options.
