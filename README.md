@@ -60,6 +60,12 @@ For more information on prepping images please see the [Lob documentation](https
 
 If you need to generate your own PDF programmatically we recommend using [prawn](https://github.com/prawnpdf/prawn). There is an example provided in the examples folder [here](examples/create_pdf.rb).
 
+## HTML Support
+
+The Lob.com API also supports HTML strings in leiu of a file of the above type. See below for examples of submitting with HTML strings.
+
+For templates and more information regarding HTML, please see the [Lob documentation](https://lob.com/docs/ruby#html-fonts). 
+
 ## Initialization and Configuration
 
 ```ruby
@@ -303,9 +309,9 @@ end
 #### lob.objects.create
 
 ```ruby
-# You can create an onject by passing the name, file url and setting ID, quantity is defaulted to 1
+# You can create an object by passing the name, file url and setting ID, quantity is defaulted to 1
 @lob.objects.create(
-  name: "Your fantistic object",
+  name: "Your fantastic object",
   file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
   setting: "201"
 )
@@ -313,10 +319,17 @@ end
 # You can also pass the quantity as an option
 # Or pass a file for upload instead of a url
 @lob.objects.create(
-  name: "Your fantistic object",
+  name: "Your fantastic object",
   file: File.new("/path/to/file.pdf"),
   setting: "some-setting",
   quantity: 12
+)
+
+# You can also pass an HTML string instead of a file
+@lob.objects.create(
+  name: "Your fantastic object",
+  file: "<html style='margin: 130px; font-size: 50;'>HTML here</html>",
+  setting: "some-setting"
 )
 ```
 
@@ -377,31 +390,7 @@ You'll have to specify either the `message` option or the `back` option.
 
 ```ruby
 
-
-# create postcard with complete customization
-@lob.postcards.create(
-  name: "John Joe",
-  to: {
-    name: "ToAddress",
-    address_line1: "120, 6th Ave",
-    city: "Boston",
-    state: "MA",
-    country: "US",
-    zip: 12345
-  },
-  from: {
-    name: "FromAddress",
-    address_line1: "120, 6th Ave",
-    city: "Boston",
-    state: "MA",
-    country: "US",
-    zip: 12345
-  }
-  front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardback.pdf",
-  back: File.new("/path/to/file.pdf")
-)
-
-# create postcard with templated back
+# create postcard with message
 
 @lob.postcards.create(
   name: "John Joe",
@@ -421,16 +410,42 @@ You'll have to specify either the `message` option or the `back` option.
     country: "US",
     zip: 12345
   }
-  front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardback.pdf",
-  message: "Hey Buddy, Thanks for Visiting"
+  front: "https://lob.com/postcardfront.pdf",
+  message: "Hey Buddy, Thanks for Visiting",
+  full_bleed: 1
 )
 
-# sending a new postcard with stored address id
+# create postcard with your own back, adhering to lob's template
+@lob.postcards.create(
+  name: "John Joe",
+  to: {
+    name: "ToAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    state: "MA",
+    country: "US",
+    zip: 12345
+  },
+  from: {
+    name: "FromAddress",
+    address_line1: "120, 6th Ave",
+    city: "Boston",
+    state: "MA",
+    country: "US",
+    zip: 12345
+  }
+  front: "https://lob.com/postcardfront.pdf",
+  back: File.new("/path/to/file.pdf"),
+  full_bleed: 1,
+  template: 1
+)
+
+# create postcard with HTML string & a stored address id
 @lob.postcards.create(
   name: "John Joe",
   to: "to-address-id",
-  message: "Hey buddy. Waiting to hear your stories",
-  front: File.new("/path/to/file.pdf")
+  front:  "<html style='margin: 130px; font-size: 50;'>HTML here</html>",
+  message: "Hey buddy. Waiting to hear your stories."
 )
 ```
 
@@ -549,7 +564,7 @@ account_address =
 You'll have to specify front, back, and either zip_codes or routes
 
 ```ruby
-# create an area request with routes
+# create an area request with remote files & with routes
 @lob.areas.create(
   name: "My Area",
   front: "https://s3-us-west-2.amazonaws.com/lob-assets/areafront.pdf",
@@ -559,11 +574,11 @@ You'll have to specify front, back, and either zip_codes or routes
   full_bleed: "1"
 )
 
-# create an area request with zip_codes
+# create an area request with HTML & with zip codes
 @lob.areas.create(
   name: "My Area",
-  front: "https://s3-us-west-2.amazonaws.com/lob-assets/areafront.pdf",
-  back: "https://s3-us-west-2.amazonaws.com/lob-assets/areaback.pdf",
+  front: "<html style='margin: 130px; font-size: 50;'>HTML here</html>",
+  back: "<html style='margin: 130px; font-size: 50;'>HTML here</html>",
   zip_codes: ["95678", "94158"],
   target_type: "all",
   full_bleed: "1"
