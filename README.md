@@ -409,7 +409,7 @@ You'll have to specify either the `message` option or the `back` option.
     state: "MA",
     country: "US",
     zip: 12345
-  }
+  },
   front: "https://lob.com/postcardfront.pdf",
   message: "Hey Buddy, Thanks for Visiting",
   full_bleed: 1
@@ -433,7 +433,7 @@ You'll have to specify either the `message` option or the `back` option.
     state: "MA",
     country: "US",
     zip: 12345
-  }
+  },
   front: "https://lob.com/postcardfront.pdf",
   back: File.new("/path/to/file.pdf"),
   full_bleed: 1,
