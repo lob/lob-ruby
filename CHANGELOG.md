@@ -1,3 +1,7 @@
+## [**1.9**](https://github.com/lob/lob-ruby/releases/tag/v1.8)
+- [**#88**] (https://github.com/lob/lob-ruby/pull/88) default prawn to 1.3.0 for ruby 1.9.3
+- [**#91**] (https://github.com/lob/lob-ruby/pull/91) reduce strictness of rest-client version
+
 ## [**1.8**](https://github.com/lob/lob-ruby/releases/tag/v1.8)
 - [**#69**] (https://github.com/lob/lob-ruby/pull/69) fixed spelling in documentation
 - [**#71**] (https://github.com/lob/lob-ruby/pull/71) fixed syntax in documentation
