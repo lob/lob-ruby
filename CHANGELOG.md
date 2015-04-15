@@ -1,4 +1,7 @@
-## [**1.9**](https://github.com/lob/lob-ruby/releases/tag/v1.8)
+## [**1.9.1**](https://github.com/lob/lob-ruby/releases/tag/v1.9.1)
+- [**#92**] (https://github.com/lob/lob-ruby/pull/92) don't fix prawn version
+
+## [**1.9**](https://github.com/lob/lob-ruby/releases/tag/v1.9.0)
 - [**#88**] (https://github.com/lob/lob-ruby/pull/88) default prawn to 1.3.0 for ruby 1.9.3
 - [**#91**] (https://github.com/lob/lob-ruby/pull/91) reduce strictness of rest-client version
 
