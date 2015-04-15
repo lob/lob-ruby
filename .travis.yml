@@ -1,11 +1,15 @@
 language: ruby
+
+sudo: false
+
 rvm:
   - 1.9.3
-  - jruby-19mode
+  - jruby
   - 2.0.0
   - 2.1.0
 
 env:
+  JRUBY_OPTS=--2.0
   - LOB_API_KEY=test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc
 
 before_script:
