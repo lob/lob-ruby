@@ -30,6 +30,10 @@ module Lob
         Lob.submit :delete, bank_account_url(bank_account_id)
       end
 
+      def verify(bank_account_id, options = {})
+        Lob.submit :post, "#{bank_account_url(bank_account_id)}/verify", options
+      end
+
       private
 
       def bank_account_url(bank_account_id = nil)
