@@ -1,3 +1,6 @@
+## [**1.9.2**](https://github.com/lob/lob-ruby/releases/tag/v1.9.2)
+- [**#94**] (https://github.com/lob/lob-ruby/pull/94) added bank account verify support
+
 ## [**1.9.1**](https://github.com/lob/lob-ruby/releases/tag/v1.9.1)
 - [**#92**] (https://github.com/lob/lob-ruby/pull/92) don't fix prawn version
 
