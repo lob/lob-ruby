@@ -111,4 +111,21 @@ describe Lob::V1::BankAccount do
       end
     end
   end
+
+  describe "verify" do
+    it "should verify a bank account" do
+      VCR.use_cassette('verify_bank_account') do
+        new_bank_account = subject.bank_accounts.create(
+          routing_number: @sample_bank_account_params[:routing_number],
+          bank_address: @sample_address_params.clone,
+          account_number: @sample_bank_account_params[:account_number],
+          account_address: @sample_address_params.clone,
+          signatory: "John Doe"
+        )
+
+        verify_result = subject.bank_accounts.verify(new_bank_account["id"], amounts: [12, 34])
+        assert_equal(new_bank_account["id"], verify_result["id"])
+      end
+    end
+  end
 end

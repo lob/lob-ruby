@@ -35,6 +35,8 @@ describe Lob::V1::Check do
           signatory: "John Doe"
         )
 
+        subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
+
         new_check = subject.checks.create(
           bank_account: new_bank_account["id"],
           to: @sample_address_params,
@@ -61,6 +63,8 @@ describe Lob::V1::Check do
           signatory: "John Doe"
         )
 
+        subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
+
         result = subject.checks.create(
           bank_account: new_bank_account["id"],
           to: new_address["id"],
@@ -85,6 +89,8 @@ describe Lob::V1::Check do
           account_address: @sample_address_params,
           signatory: "John Doe"
         )
+
+        subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
 
         new_check = subject.checks.create(
           bank_account: new_bank_account["id"],
