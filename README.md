@@ -23,9 +23,10 @@ Supports Ruby 1.9.3 and greater.
 
 Here's a general overview of the Lob services available, click through to read more.
 
-- [Simple Print Service](https://lob.com/services/sps)
+- [Simple Letter Service](https://lob.com/services/letters)
 - [Simple Postcard Service](https://lob.com/services/postcards)
-- [Simple Check Service](https://lob.com/services/postcards)
+- [Simple Check Service](https://lob.com/services/checks)
+- [Simple Print Service](https://lob.com/services/sps)
 - [Simple Area Mail](https://lob.com/services/sam)
 - [Address Verification](https://lob.com/verification/address)
 
@@ -90,31 +91,24 @@ We've provided various examples for you to try out [here](https://github.com/lob
 - [Introduction](https://lob.com/docs/ruby#introduction)
 - [Versioning](https://lob.com/docs/ruby#version)
 - [Image Prepping](https://lob.com/docs/ruby#prepping)
-- **Simple Print Service**
-  - [Jobs](https://lob.com/docs/ruby#jobs)
-    - [Create a Job](https://lob.com/docs/ruby#jobs_create)
-    - [Retrieve a Job](https://lob.com/docs/ruby#jobs_retrieve)
-    - [List all Jobs](https://lob.com/docs/ruby#jobs_list)
-  - [Addresses](https://lob.com/docs/ruby#addresses)
+- **Addresses**
+  - [Address Book](https://lob.com/docs/ruby#addresses)
     - [Create an Address](https://lob.com/docs/ruby#addresses_create)
     - [Retrieve an Address](https://lob.com/docs/ruby#addresses_retrieve)
     - [Delete an Address](https://lob.com/docs/ruby#addresses_delete)
     - [List all Addresses](https://lob.com/docs/ruby#addresses_list)
-  - [Objects](https://lob.com/docs/ruby#objects)
-    - [Create an Object](https://lob.com/docs/ruby#objects_create)
-    - [Retrieve an Object](https://lob.com/docs/ruby#objects_retrieve)
-    - [Delete an Object](https://lob.com/docs/ruby#objects_delete)
-    - [List all Objects](https://lob.com/docs/ruby#objects_list)
-  - [Settings](https://lob.com/docs/ruby#settings)
-    - [Retrieve a Setting](https://lob.com/docs/ruby#settings_retrieve)
-    - [List all Settings](https://lob.com/docs/ruby#settings_list)
-  - [Services](https://lob.com/docs/ruby#services)
-    - [List all Services](https://lob.com/docs/ruby#services_list)
+  - [Simple Address Verification](https://lob.com/docs/ruby#verify)
+    - [Verify an Address](https://lob.com/docs/ruby#verify_create)
 - **Simple Postcard Service**
   - [Postcards](https://lob.com/docs/ruby#postcards)
     - [Create a Postcard](https://lob.com/docs/ruby#postcards_create)
     - [Retrieve a Postcard](https://lob.com/docs/ruby#postcards_retrieve)
     - [List all Postcards](https://lob.com/docs/ruby#postcards_list)
+- **Simple Letter Service**
+  - [Letters](https://lob.com/docs/ruby#letters)
+    - [Create a Letter](https://lob.com/docs/ruby#letters_create)
+    - [Retrieve a Letter](https://lob.com/docs/ruby#letters_retrieve)
+    - [List all Letters](https://lob.com/docs/ruby#letters_list)
 - **Simple Check Service**
   - [Checks](https://lob.com/docs/ruby#checks)
     - [Create a Check](https://lob.com/docs/ruby#checks_create)
@@ -126,6 +120,19 @@ We've provided various examples for you to try out [here](https://github.com/lob
     - [List all Bank Accounts](https://lob.com/docs/ruby#bankaccounts_list)
     - [Verify a Bank Account](https://lob.com/docs/ruby#bankaccounts_verify)
     - [Delete a Bank Account](https://lob.com/docs/ruby#bankaccounts_delete)
+- **Simple Print Service**
+  - [Jobs](https://lob.com/docs/ruby#jobs)
+    - [Create a Job](https://lob.com/docs/ruby#jobs_create)
+    - [Retrieve a Job](https://lob.com/docs/ruby#jobs_retrieve)
+    - [List all Jobs](https://lob.com/docs/ruby#jobs_list)
+  - [Objects](https://lob.com/docs/ruby#objects)
+    - [Create an Object](https://lob.com/docs/ruby#objects_create)
+    - [Retrieve an Object](https://lob.com/docs/ruby#objects_retrieve)
+    - [Delete an Object](https://lob.com/docs/ruby#objects_delete)
+    - [List all Objects](https://lob.com/docs/ruby#objects_list)
+  - [Settings](https://lob.com/docs/ruby#settings)
+    - [Retrieve a Setting](https://lob.com/docs/ruby#settings_retrieve)
+    - [List all Settings](https://lob.com/docs/ruby#settings_list)
 - **Simple Area Mail**
   - [Areas](https://lob.com/docs/ruby#areas)
     - [Create an Area Mailing](https://lob.com/docs/ruby#areas_create)
@@ -134,9 +141,6 @@ We've provided various examples for you to try out [here](https://github.com/lob
   - [Routes](https://lob.com/docs/ruby#routes)
     - [Retrieve a Zip Code](https://lob.com/docs/ruby#routes_retrieve)
     - [List all Zip Codes](https://lob.com/docs/ruby#routes_list)
-- **Simple Address Verification**
-  - [Verify](https://lob.com/docs/ruby#verify)
-    - [Verify an Address](https://lob.com/docs/ruby#verify_create)
 - **Resources**
   - [Countries](https://lob.com/docs/ruby#countries)
     - [List all Countries](https://lob.com/docs/ruby#countries_list)
