@@ -32,6 +32,10 @@ module Lob
         Lob::V1::Job.new(self)
       end
 
+      def letters
+        Lob::V1::Letter.new(self)
+      end
+
       def objects
         Lob::V1::Object.new(self)
       end
