@@ -1,3 +1,6 @@
+## [**1.10.0**](https://github.com/lob/lob-ruby/releases/tag/v1.10.0)
+- [**#100**] (https://github.com/lob/lob-ruby/pull/100) adds support for Simple Letter Service
+
 ## [**1.9.2**](https://github.com/lob/lob-ruby/releases/tag/v1.9.2)
 - [**#94**] (https://github.com/lob/lob-ruby/pull/94) added bank account verify support
 
