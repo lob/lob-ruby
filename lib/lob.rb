@@ -53,8 +53,7 @@ module Lob
   def self.handle_api_error(error)
     begin
       response = JSON.parse(error.http_body)
-      error_obj = response["errors"].first
-      message = error_obj["message"]
+      message = response["error"]["message"]
       raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
     rescue JSON::ParserError
       raise LobError.new("Invalid response object: #{}", error.http_code, error.http_body)

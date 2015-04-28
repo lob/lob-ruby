@@ -4,7 +4,7 @@ describe Lob::V1::Object do
 
   before :each do
     @sample_params = {
-      name:    "TestObject",
+      description: "TestObject",
     }
     @test_setting_id = 201
   end
@@ -16,13 +16,13 @@ describe Lob::V1::Object do
       VCR.use_cassette('list_objects') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          name: @sample_params[:name],
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
+          description: @sample_params[:description],
+          file: "https://lob.com/postcardfront.pdf",
           setting: @test_setting_id
         )
 
         list_result = subject.objects.list
-        assert /#{new_object["name"]}/ =~ list_result.to_s
+        assert /#{new_object["description"]}/ =~ list_result.to_s
       end
     end
   end
@@ -32,12 +32,12 @@ describe Lob::V1::Object do
       VCR.use_cassette('create_object_with_url') do
         settings_list = subject.settings.list
         result = subject.objects.create(
-          name: @sample_params[:name],
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
+          description: @sample_params[:description],
+          file: "https://lob.com/postcardfront.pdf",
           setting: @test_setting_id
         )
 
-        result["name"].must_equal(@sample_params[:name])
+        result["description"].must_equal(@sample_params[:description])
       end
     end
 
@@ -45,12 +45,12 @@ describe Lob::V1::Object do
       VCR.use_cassette('create_object_with_file') do
         settings_list = subject.settings.list
         result = subject.objects.create(
-          name: @sample_params[:name],
-          file: File.new(File.expand_path("../../../samples/test.pdf", __FILE__), "rb"),
+          description: @sample_params[:description],
+          file: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__), "rb"),
           setting: @test_setting_id
         )
 
-        result["name"].must_equal(@sample_params[:name])
+        result["description"].must_equal(@sample_params[:description])
       end
     end
   end
@@ -60,13 +60,13 @@ describe Lob::V1::Object do
       VCR.use_cassette('find_object') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          name: @sample_params[:name],
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
+          description: @sample_params[:description],
+          file: "https://lob.com/postcardfront.pdf",
           setting: @test_setting_id
         )
 
         find_result = subject.objects.find(new_object["id"])
-        find_result["name"].must_equal(@sample_params[:name])
+        find_result["description"].must_equal(@sample_params[:description])
       end
     end
   end
@@ -76,8 +76,8 @@ describe Lob::V1::Object do
       VCR.use_cassette('delete_object') do
         settings_list = subject.settings.list
         new_object = subject.objects.create(
-          name: @sample_params[:name],
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/test.pdf",
+          description: @sample_params[:description],
+          file: "https://lob.com/postcardfront.pdf",
           setting: @test_setting_id
         )
 

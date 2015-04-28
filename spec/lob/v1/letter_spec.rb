@@ -17,7 +17,6 @@ describe Lob::V1::Letter do
 
   subject { Lob(api_key: ENV["LOB_API_KEY"]) }
 
-
   describe "list" do
     it "should list letter" do
       VCR.use_cassette('list_letters') do
