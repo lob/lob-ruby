@@ -15,7 +15,7 @@ describe Lob::V1::Postcard do
     }
 
     @sample_postcard_params = {
-      name:    "TestPostcard",
+      description:    "TestPostcard",
       message: "Sample postcard message"
     }
   end
@@ -50,7 +50,7 @@ describe Lob::V1::Postcard do
           name: @sample_postcard_params[:name],
           to: new_address["id"],
           message: @sample_postcard_params[:message],
-          front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardfront.pdf",
+          front: "https://lob.com/postcardfront.pdf",
         )
 
         result["name"].must_equal(@sample_postcard_params[:name])
@@ -63,7 +63,7 @@ describe Lob::V1::Postcard do
           name: @sample_postcard_params[:name],
           to: @sample_address_params,
           message: @sample_postcard_params[:message],
-          front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardfront.pdf"
+          front: "https://lob.com/postcardfront.pdf"
         )
 
         result["name"].must_equal(@sample_postcard_params[:name])
@@ -79,7 +79,7 @@ describe Lob::V1::Postcard do
           to: new_address["id"],
           from: @sample_address_params,
           message: @sample_postcard_params[:message],
-          front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardfront.pdf"
+          front: "https://lob.com/postcardfront.pdf"
         )
 
         result["name"].must_equal(@sample_postcard_params[:name])
@@ -93,8 +93,8 @@ describe Lob::V1::Postcard do
         result = subject.postcards.create(
           name: @sample_postcard_params[:name],
           to: new_address["id"],
-          front: "https://s3-us-west-2.amazonaws.com/lob-assets/postcardfront.pdf",
-          back:  "https://s3-us-west-2.amazonaws.com/lob-assets/postcardback.pdf"
+          front: "https://lob.com/postcardfront.pdf",
+          back:  "https://lob.com/postcardback.pdf"
         )
 
         result["name"].must_equal(@sample_postcard_params[:name])

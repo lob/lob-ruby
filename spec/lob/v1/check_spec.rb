@@ -3,6 +3,7 @@ require "spec_helper"
 describe Lob::V1::Check do
 
   before :each do
+
     @sample_address_params = {
       name:    "TestAddress",
       email:   "test@test.com",
