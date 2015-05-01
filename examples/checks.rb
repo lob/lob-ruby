@@ -38,9 +38,12 @@ bank_account = @lob.bank_accounts.create(
   }
 )
 
+puts bank_account
+@lob.bank_accounts.verify(bank_account['id'], amounts: [23, 12])
+
 # send a $1000 check using an already created bank and address
 puts @lob.checks.create(
-  name: "Test Check",
+  description: "Test Check",
   check_number: "10000",
   bank_account: bank_account["id"],
   to: to_address["id"],
