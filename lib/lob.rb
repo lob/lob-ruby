@@ -56,7 +56,9 @@ module Lob
       message = response["error"]["message"]
       raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
     rescue JSON::ParserError
+      # :nocov:
       raise LobError.new("Invalid response object: #{}", error.http_code, error.http_body)
+      # :nocov:
     end
   end
 end
@@ -68,7 +70,9 @@ def Lob(options={})
   options[:api_key]      ||= Lob.api_key
 
   if options[:api_key].nil?
+    # :nocov:
     raise ArgumentError.new(":api_key is a required argument to initialize Lob")
+    # :nocov:
   end
 
   Lob::V1::Resource.new(options)
