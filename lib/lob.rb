@@ -1,4 +1,5 @@
 require "rest-client"
+require "rack"
 require "json"
 require "lob/version"
 require "lob/errors/lob_error"
@@ -29,9 +30,10 @@ module Lob
 
     begin
       if method == :get || method == :delete
+        # Hack to URL encode nested objects like metadata.
+        url = "#{url}?#{Rack::Utils.build_nested_query(parameters)}"
         JSON.parse(RestClient.send(method, url, {
           user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
-          params: parameters,
           "Lob-Version" => self.api_version
         }))
       else
