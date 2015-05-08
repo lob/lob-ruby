@@ -69,10 +69,10 @@ describe Lob::V1::Check do
         result = subject.checks.create(
           bank_account: new_bank_account["id"],
           to: new_address["id"],
-          amount: "2000"
+          amount: "2000.12"
         )
 
-        result["amount"].to_s.must_equal("2000.00")
+        result["amount"].to_s.must_equal("2000.12")
       end
     end
   end
