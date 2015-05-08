@@ -1,3 +1,6 @@
+## [**1.12.0**](https://github.com/lob/lob-ruby/releases/tag/v1.12.0)
+- [**#110**] (https://github.com/lob/lob-ruby/pull/110) fixes metadata filter
+
 ## [**1.10.0**](https://github.com/lob/lob-ruby/releases/tag/v1.10.0)
 - [**#100**] (https://github.com/lob/lob-ruby/pull/100) adds support for Simple Letter Service
 
