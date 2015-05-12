@@ -19,7 +19,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rest-client", "~> 1.8"
-  spec.add_dependency "rack", "~> 1.6"
 
   spec.add_dependency "prawn"
 
