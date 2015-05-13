@@ -1,6 +1,6 @@
 require "rest-client"
-require "rack"
 require "json"
+require 'uri'
 require "lob/version"
 require "lob/errors/lob_error"
 require "lob/errors/invalid_request_error"
@@ -31,7 +31,7 @@ module Lob
     begin
       if method == :get || method == :delete
         # Hack to URL encode nested objects like metadata.
-        url = "#{url}?#{Rack::Utils.build_nested_query(parameters)}"
+        url = "#{url}?#{build_nested_query(parameters)}"
         JSON.parse(RestClient.send(method, url, {
           user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
           "Lob-Version" => self.api_version
@@ -59,6 +59,24 @@ module Lob
       raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
     rescue JSON::ParserError
       raise LobError.new("Invalid response object: #{}", error.http_code, error.http_body)
+    end
+  end
+
+  def self.build_nested_query(value, prefix = nil)
+    case value
+    when Array
+      value.map { |v|
+        build_nested_query(v, "#{prefix}[]")
+      }.join("&")
+    when Hash
+      value.map { |k, v|
+        build_nested_query(v, prefix ? "#{prefix}[#{URI.encode_www_form_component(k)}]" : URI.encode_www_form_component(k))
+      }.reject(&:empty?).join('&')
+    when nil
+      prefix
+    else
+      raise ArgumentError, "value must be a Hash" if prefix.nil?
+      "#{prefix}=#{URI.encode_www_form_component(value)}"
     end
   end
 end
