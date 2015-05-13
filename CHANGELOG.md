@@ -1,3 +1,6 @@
+## [**1.13.0**](https://github.com/lob/lob-ruby/releases/tag/v1.13.0)
+- [**#112**] (https://github.com/lob/lob-ruby/pull/112) removes Rack dependency
+
 ## [**1.12.0**](https://github.com/lob/lob-ruby/releases/tag/v1.12.0)
 - [**#110**] (https://github.com/lob/lob-ruby/pull/110) fixes metadata filter
 
