@@ -78,14 +78,7 @@ module Lob
           Lob.require_options(params, :name, :address_line1, :address_city, :address_state, :address_zip, :address_country)
         end
 
-        new_params = params.clone
-
-        [:city, :state, :zip, :country].each do |option|
-          new_params["address_#{option}".to_sym] = params[option] if params[option]
-          new_params.delete(option)
-        end
-
-        new_params
+        params
       end
 
     end
