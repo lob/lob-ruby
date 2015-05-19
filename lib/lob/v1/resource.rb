@@ -75,7 +75,7 @@ module Lob
       #NOTE to format address param names into API-compatible ones
       def format_address_params(params, check_required_options=true)
         if check_required_options
-          Lob.require_options(params, :name, :address_line1, :city, :state, :zip, :country)
+          Lob.require_options(params, :name, :address_line1, :address_city, :address_state, :address_zip, :address_country)
         end
 
         new_params = params.clone
