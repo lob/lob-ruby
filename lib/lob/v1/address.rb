@@ -12,7 +12,7 @@ module Lob
       end
 
       def list(options={})
-        Lob.submit(:get, address_url, options)["data"] || []
+        Lob.submit(:get, address_url, options)
       end
 
       def find(address_id)

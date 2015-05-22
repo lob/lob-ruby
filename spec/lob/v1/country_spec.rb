@@ -6,10 +6,7 @@ describe Lob::V1::Country do
 
   describe "list" do
     it "should list countries" do
-      VCR.use_cassette('list_countries') do
-        result = subject.countries.list
-        result.length.must_be :>, 0
-      end
+      assert subject.countries.list["object"] == "list"
     end
   end
 end

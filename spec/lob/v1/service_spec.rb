@@ -6,10 +6,7 @@ describe Lob::V1::Service do
 
   describe "list" do
     it "should list services" do
-      VCR.use_cassette('list_services') do
-        result = subject.services.list
-        result.length.must_be :>, 0
-      end
+      assert subject.services.list["object"] == "list"
     end
   end
 

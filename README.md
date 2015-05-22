@@ -184,15 +184,13 @@ To run the tests, download the required sample files by running the following co
 
     bundle exec rake dev:setup
 
-Tests are written using MiniTest, a testing library that comes with Ruby stdlib. The remote responses are tested using [vcr](https://github.com/vcr/vcr).
+Tests are written using MiniTest, a testing library that comes with Ruby stdlib.
 
 You'll need to pass in your Lob.com API as the environment variable `LOB_API_KEY`, to run the tests. Be sure to use your Test API key, and not the Live one.
 
 Here's how you can run the tests:
 
     LOB_API_KEY=your_test_api_key bundle exec rake test
-
-When you make changes to failed tests, then clear out the vcr cassettes to re-record the http requests. You can clear out all the cassettes by running `rm -rf spec/vcr_cassettes`.
 
 You can also configure, TravisCI for your fork of the repository and it'll run the tests for you, when you push.
 

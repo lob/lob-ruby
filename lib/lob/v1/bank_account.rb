@@ -7,7 +7,7 @@ module Lob
       end
 
       def list(options={})
-        Lob.submit(:get, bank_account_url, options)["data"] || []
+        Lob.submit(:get, bank_account_url, options)
       end
 
       def find(bank_account_id)

@@ -6,10 +6,7 @@ describe Lob::V1::State do
 
   describe "list" do
     it "should list states" do
-      VCR.use_cassette('list_states') do
-        result = subject.states.list
-        result.length.must_be :>, 0
-      end
+      assert subject.states.list["object"] == "list"
     end
   end
 end

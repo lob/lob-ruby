@@ -7,7 +7,7 @@ module Lob
       end
 
       def list(options={})
-        Lob.submit(:get, setting_url, options)["data"] || []
+        Lob.submit(:get, setting_url, options)
       end
 
       def find(setting_id)
