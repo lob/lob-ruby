@@ -9,10 +9,10 @@ describe Lob::V1::Check do
       email:   "test@test.com",
       address_line1: "123 Test Street",
       address_line2: "Unit 199",
-      city:    "Mountain View",
-      state:   "CA",
-      country: "US",
-      zip:     94085
+      address_city:    "Mountain View",
+      address_state:   "CA",
+      address_country: "US",
+      address_zip:     94085
     }
 
     @sample_bank_account_params = {

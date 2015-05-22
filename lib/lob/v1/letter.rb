@@ -15,18 +15,8 @@ module Lob
       end
 
       def create(options = {})
-
-        if options[:to] && !options[:to].is_a?(String)
-          options[:to] = @resource.format_address_params(options[:to])
-        end
-
-        if options[:from] && !options[:from].is_a?(String)
-          options[:from] = @resource.format_address_params(options[:from])
-        end
-
         Lob.submit :post, letter_url, options
       end
-
 
       private
 

@@ -15,14 +15,6 @@ module Lob
       end
 
       def create(options = {})
-        if !options[:bank_address].is_a?(String)
-          options[:bank_address] = @resource.format_address_params(options[:bank_address])
-        end
-
-        if !options[:account_address].is_a?(String)
-          options[:account_address] = @resource.format_address_params(options[:account_address])
-        end
-
         Lob.submit :post, bank_account_url, options
       end
 

@@ -180,10 +180,6 @@ Make sure you have Ruby 2.0 installed. Copy and paste the following commands in 
 
 ## Testing
 
-To run the tests, download the required sample files by running the following command:
-
-    bundle exec rake dev:setup
-
 Tests are written using MiniTest, a testing library that comes with Ruby stdlib.
 
 You'll need to pass in your Lob.com API as the environment variable `LOB_API_KEY`, to run the tests. Be sure to use your Test API key, and not the Live one.

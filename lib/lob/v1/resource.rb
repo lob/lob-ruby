@@ -72,22 +72,6 @@ module Lob
         "#{base_url}/#{resource_type}#{'/' + resource_id if resource_id}"
       end
 
-      #NOTE to format address param names into API-compatible ones
-      def format_address_params(params, check_required_options=true)
-        if check_required_options
-          Lob.require_options(params, :name, :address_line1, :city, :state, :zip, :country)
-        end
-
-        new_params = params.clone
-
-        [:city, :state, :zip, :country].each do |option|
-          new_params["address_#{option}".to_sym] = params[option] if params[option]
-          new_params.delete(option)
-        end
-
-        new_params
-      end
-
     end
   end
 end
