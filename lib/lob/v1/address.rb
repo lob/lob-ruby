@@ -7,8 +7,7 @@ module Lob
       end
 
       def verify(options={})
-        params = @resource.format_address_params(options, false)
-        Lob.submit(:post, address_verify_url, params)
+        Lob.submit(:post, address_verify_url, options)
       end
 
       def list(options={})
@@ -20,7 +19,7 @@ module Lob
       end
 
       def create(options = {})
-        Lob.submit :post, address_url, @resource.format_address_params(options)
+        Lob.submit :post, address_url, options
       end
 
       def destroy(address_id)

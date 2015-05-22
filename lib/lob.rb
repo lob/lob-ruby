@@ -19,12 +19,6 @@ module Lob
     alias :config :configure
   end
 
-  def self.require_options(options, *keys)
-    keys.each do |key|
-      raise ArgumentError.new(":#{key} is required") unless options.key?(key)
-    end
-  end
-
   def self.submit(method, url, parameters={})
     clientVersion = Lob::VERSION
 

@@ -6,10 +6,10 @@ describe Lob::V1::Address do
     {
       name: "John Doe",
       address_line1: "325 Berry Street",
-      city: "San Francisco",
-      state: "CA",
-      country: "US",
-      zip: 94158
+      address_city: "San Francisco",
+      address_state: "CA",
+      address_country: "US",
+      address_zip: 94158
     }
   }
 
@@ -20,9 +20,9 @@ describe Lob::V1::Address do
     it "should verify an address" do
       result = subject.addresses.verify(
         address_line1: sample_params[:address_line1],
-        city:  sample_params[:city],
-        state: sample_params[:state],
-        zip:   sample_params[:zip]
+        address_city:  sample_params[:address_city],
+        address_state: sample_params[:address_state],
+        address_zip:   sample_params[:address_zip]
       )
 
       result["address"]["address_country"].must_equal("US")
