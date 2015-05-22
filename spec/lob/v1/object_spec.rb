@@ -13,15 +13,7 @@ describe Lob::V1::Object do
 
   describe "list" do
     it "should list objects" do
-      settings_list = subject.settings.list
-      new_object = subject.objects.create(
-        description: @sample_params[:description],
-        file: "https://lob.com/postcardfront.pdf",
-        setting: @test_setting_id
-      )
-
-      list_result = subject.objects.list
-      assert /#{new_object["description"]}/ =~ list_result.to_s
+      assert subject.objects.list["object"] == "list"
     end
   end
 

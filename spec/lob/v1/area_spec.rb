@@ -14,11 +14,7 @@ describe Lob::V1::Area do
 
   describe "list" do
     it "should list areas" do
-      new_area = subject.areas.create @sample_area_params
-
-      list_result = subject.areas.list
-
-      assert /#{new_area["name"]}/ =~ list_result.to_s
+      assert subject.areas.list["object"] == "list"
     end
   end
 

@@ -19,18 +19,7 @@ describe Lob::V1::Letter do
 
   describe "list" do
     it "should list letter" do
-      new_address = subject.addresses.create @sample_address_params
-
-      new_letter = subject.letters.create(
-        description: "TestLetter",
-        color: true,
-        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
-        to: new_address["id"],
-        from: new_address["id"]
-      )
-
-      list_result = subject.letters.list
-      assert /#{new_letter["description"]}/ =~ list_result.to_s
+      assert subject.letters.list["object"] == "list"
     end
   end
 

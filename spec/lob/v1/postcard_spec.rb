@@ -24,17 +24,7 @@ describe Lob::V1::Postcard do
 
   describe "list" do
     it "should list postcards" do
-      new_address = subject.addresses.create @sample_address_params
-
-      new_postcard = subject.postcards.create(
-        name: @sample_postcard_params[:name],
-        to: new_address["id"],
-        front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__)),
-        back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__))
-      )
-
-      list_result = subject.postcards.list
-      assert /#{new_postcard["name"]}/ =~ list_result.to_s
+      assert subject.postcards.list["object"] == "list"
     end
   end
 

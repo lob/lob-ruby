@@ -32,10 +32,7 @@ describe Lob::V1::Address do
 
   describe "list" do
     it "should list addresses" do
-      new_address = subject.addresses.create sample_params
-
-      list_result = subject.addresses.list
-      assert /#{new_address["name"]}/i =~ list_result.to_s
+      assert subject.addresses.list["object"] == "list"
     end
   end
 

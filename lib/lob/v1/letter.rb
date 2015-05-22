@@ -7,7 +7,7 @@ module Lob
       end
 
       def list(options={})
-        Lob.submit(:get, letter_url, options)["data"] || []
+        Lob.submit(:get, letter_url, options)
       end
 
       def find(job_id)

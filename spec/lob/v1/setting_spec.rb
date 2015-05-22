@@ -6,18 +6,14 @@ describe Lob::V1::Setting do
 
   describe "list" do
     it "should list settings" do
-      result = subject.settings.list
-      result.length.must_be :>, 0
-      /Document/ =~ result.to_s
-      /Poster/   =~ result.to_s
-      /Card/     =~ result.to_s
+      assert subject.settings.list["object"] == "list"
     end
   end
 
 
   describe "find" do
     it "should find a setting" do
-      list_result = subject.settings.list
+      list_result = subject.settings.list["data"]
       result = subject.settings.find(list_result.first["id"])
       result["description"].must_equal(list_result.first["description"])
     end

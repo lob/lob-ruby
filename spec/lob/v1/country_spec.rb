@@ -6,8 +6,7 @@ describe Lob::V1::Country do
 
   describe "list" do
     it "should list countries" do
-      result = subject.countries.list
-      result.length.must_be :>, 0
+      assert subject.countries.list["object"] == "list"
     end
   end
 end

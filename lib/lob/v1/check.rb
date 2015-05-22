@@ -7,7 +7,7 @@ module Lob
       end
 
       def list(options={})
-        Lob.submit(:get, check_url, options)["data"] || []
+        Lob.submit(:get, check_url, options)
       end
 
       def find(check_id)

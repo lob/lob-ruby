@@ -6,7 +6,7 @@ module Lob
       end
 
       def list(options = {})
-        Lob.submit(:get, route_url, options)["data"] || []
+        Lob.submit(:get, route_url, options)
       end
 
       private

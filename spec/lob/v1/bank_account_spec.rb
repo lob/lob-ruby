@@ -25,16 +25,7 @@ describe Lob::V1::BankAccount do
 
   describe "list" do
     it "should list bank accounts" do
-      new_bank_account = subject.bank_accounts.create(
-        routing_number: @sample_bank_account_params[:routing_number],
-        bank_address: @sample_address_params.clone,
-        account_number: @sample_bank_account_params[:account_number],
-        account_address: @sample_address_params.clone,
-        signatory: "John Doe"
-      )
-
-      list_result = subject.bank_accounts.list
-      assert /#{new_bank_account["id"]}/i =~ list_result.to_s
+      assert subject.bank_accounts.list["object"] == "list"
     end
   end
 

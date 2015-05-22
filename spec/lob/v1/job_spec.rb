@@ -23,23 +23,7 @@ describe Lob::V1::Job do
 
   describe "list" do
     it "should list jobs" do
-      new_address = subject.addresses.create @sample_address_params
-      settings_list = subject.settings.list
-      new_object = subject.objects.create(
-        description: @sample_object_params[:description],
-        file: "https://lob.com/postcardfront.pdf",
-        setting: @test_setting_id
-      )
-
-      new_job = subject.jobs.create(
-        description: @sample_job_params[:description],
-        from: new_address["id"],
-        to: new_address["id"],
-        objects: new_object["id"]
-      )
-
-      list_result = subject.jobs.list
-      assert /#{new_job["description"]}/ =~ list_result.to_s
+      assert subject.jobs.list["object"] == "list"
     end
   end
 

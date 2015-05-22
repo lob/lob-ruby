@@ -25,25 +25,7 @@ describe Lob::V1::Check do
 
   describe "list" do
     it "should list checks" do
-      new_address = subject.addresses.create @sample_address_params
-
-      new_bank_account = subject.bank_accounts.create(
-        routing_number: @sample_bank_account_params[:routing_number],
-        bank_address: @sample_address_params,
-        account_number: @sample_bank_account_params[:account_number],
-        account_address: @sample_address_params,
-        signatory: "John Doe"
-      )
-
-      subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
-
-      new_check = subject.checks.create(
-        bank_account: new_bank_account["id"],
-        to: @sample_address_params,
-        amount: 2000
-      )
-
-      list_result = subject.checks.list
+      assert subject.checks.list["object"] == "list"
     end
   end
 

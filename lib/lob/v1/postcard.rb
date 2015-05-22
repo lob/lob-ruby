@@ -7,7 +7,7 @@ module Lob
       end
 
       def list(options={})
-        Lob.submit(:get, postcard_url, options)["data"] || []
+        Lob.submit(:get, postcard_url, options)
       end
 
       def find(postcard_id)
