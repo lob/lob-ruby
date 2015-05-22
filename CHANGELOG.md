@@ -1,3 +1,13 @@
+## 2.0.0
+
+Version 2.0.0 introduces several breaking changes. It requires a minimum API version of `2015-04-11`.
+
+* The lob-ruby gem no longer converts `city`, `state`, etc. parameters into `address_city`, `address_state`, etc. This change was made to be more consistent with the API and other Lob wrappers, and to prevent confusion.
+* The wrapper now returns the raw JSON from the API in all `list` endpoints rather than just the `data` field in the response. This will allow access to additional fields like `count` and `offset`.
+* The `packagings` endpoint is not longer supporter in the API, and therefore has been taken out of lob-ruby.
+
+In addition to these breaking changes, the test suite was cleaned up by removing the unnecessary VCR gem and committing sample upload files to the repository rather than downloading them in rake task.
+
 ## [**1.13.0**](https://github.com/lob/lob-ruby/releases/tag/v1.13.0)
 - [**#112**] (https://github.com/lob/lob-ruby/pull/112) removes Rack dependency
 
