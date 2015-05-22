@@ -19,7 +19,6 @@ describe Lob::V1::Resource do
     end
   end
 
-
   it "should return addresses resource" do
     subject.addresses.must_be_kind_of(Lob::V1::Address)
   end

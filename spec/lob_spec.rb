@@ -45,18 +45,14 @@ describe Lob do
   it "should handle API errors gracefully" do
     lob = Lob.load(api_key: ENV["LOB_API_KEY"])
     assert_raises Lob::InvalidRequestError do
-      VCR.use_cassette('bad_request') do
-        lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
-      end
+      lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
     end
   end
 
   it "should work when no api_version is provided" do
     lob = Lob.load(api_key: ENV["LOB_API_KEY"])
     Lob.api_version = nil
-    VCR.use_cassette('no_api_version') do
-      lob.addresses.list
-    end
+    lob.addresses.list
     Lob.api_version = "2014-11-24"
   end
 end

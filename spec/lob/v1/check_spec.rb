@@ -25,83 +25,76 @@ describe Lob::V1::Check do
 
   describe "list" do
     it "should list checks" do
-      VCR.use_cassette('list_checks') do
-        new_address = subject.addresses.create @sample_address_params
+      new_address = subject.addresses.create @sample_address_params
 
-        new_bank_account = subject.bank_accounts.create(
-          routing_number: @sample_bank_account_params[:routing_number],
-          bank_address: @sample_address_params,
-          account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params,
-          signatory: "John Doe"
-        )
+      new_bank_account = subject.bank_accounts.create(
+        routing_number: @sample_bank_account_params[:routing_number],
+        bank_address: @sample_address_params,
+        account_number: @sample_bank_account_params[:account_number],
+        account_address: @sample_address_params,
+        signatory: "John Doe"
+      )
 
-        subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
+      subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
 
-        new_check = subject.checks.create(
-          bank_account: new_bank_account["id"],
-          to: @sample_address_params,
-          amount: 2000
-        )
+      new_check = subject.checks.create(
+        bank_account: new_bank_account["id"],
+        to: @sample_address_params,
+        amount: 2000
+      )
 
-        list_result = subject.checks.list
-        assert /#{new_check["id"]}/i =~ list_result.to_s
-      end
+      list_result = subject.checks.list
     end
   end
 
 
   describe "create" do
     it "should create a check with bank account id" do
-      VCR.use_cassette('create_check_with_bank_account_id') do
-        new_address = subject.addresses.create @sample_address_params
+      new_address = subject.addresses.create @sample_address_params
 
-        new_bank_account = subject.bank_accounts.create(
-          routing_number: @sample_bank_account_params[:routing_number],
-          bank_address: @sample_address_params,
-          account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params,
-          signatory: "John Doe"
-        )
+      new_bank_account = subject.bank_accounts.create(
+        routing_number: @sample_bank_account_params[:routing_number],
+        bank_address: @sample_address_params,
+        account_number: @sample_bank_account_params[:account_number],
+        account_address: @sample_address_params,
+        signatory: "John Doe"
+      )
 
-        subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
+      subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
 
-        result = subject.checks.create(
-          bank_account: new_bank_account["id"],
-          to: new_address["id"],
-          amount: "2000.12"
-        )
+      result = subject.checks.create(
+        bank_account: new_bank_account["id"],
+        to: new_address["id"],
+        amount: "2000.12"
+      )
 
-        result["amount"].to_s.must_equal("2000.12")
-      end
+      result["amount"].to_s.must_equal("2000.12")
     end
   end
 
 
   describe "find" do
     it "should find a check" do
-      VCR.use_cassette('find_check') do
-        new_address = subject.addresses.create @sample_address_params
+      new_address = subject.addresses.create @sample_address_params
 
-        new_bank_account = subject.bank_accounts.create(
-          routing_number: @sample_bank_account_params[:routing_number],
-          bank_address: @sample_address_params,
-          account_number: @sample_bank_account_params[:account_number],
-          account_address: @sample_address_params,
-          signatory: "John Doe"
-        )
+      new_bank_account = subject.bank_accounts.create(
+        routing_number: @sample_bank_account_params[:routing_number],
+        bank_address: @sample_address_params,
+        account_number: @sample_bank_account_params[:account_number],
+        account_address: @sample_address_params,
+        signatory: "John Doe"
+      )
 
-        subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
+      subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
 
-        new_check = subject.checks.create(
-          bank_account: new_bank_account["id"],
-          to: new_address["id"],
-          amount: 2000
-        )
+      new_check = subject.checks.create(
+        bank_account: new_bank_account["id"],
+        to: new_address["id"],
+        amount: 2000
+      )
 
-        result = subject.checks.find(new_check["id"])
-        result["id"].must_equal(new_check["id"])
-      end
+      result = subject.checks.find(new_check["id"])
+      result["id"].must_equal(new_check["id"])
     end
   end
 

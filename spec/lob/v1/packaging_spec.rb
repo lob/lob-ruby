@@ -6,10 +6,8 @@ describe Lob::V1::Packaging do
 
   describe "list" do
     it "should list packagings" do
-      VCR.use_cassette('list_packagings') do
-        result = subject.packagings.list
-        result.length.must_be :>, 0
-      end
+      result = subject.packagings.list
+      result.length.must_be :>, 0
     end
   end
 

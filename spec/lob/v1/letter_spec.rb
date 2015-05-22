@@ -19,75 +19,67 @@ describe Lob::V1::Letter do
 
   describe "list" do
     it "should list letter" do
-      VCR.use_cassette('list_letters') do
-        new_address = subject.addresses.create @sample_address_params
+      new_address = subject.addresses.create @sample_address_params
 
-        new_letter = subject.letters.create(
-          description: "TestLetter",
-          color: true,
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
-          to: new_address["id"],
-          from: new_address["id"]
-        )
+      new_letter = subject.letters.create(
+        description: "TestLetter",
+        color: true,
+        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        to: new_address["id"],
+        from: new_address["id"]
+      )
 
-        list_result = subject.letters.list
-        assert /#{new_letter["description"]}/ =~ list_result.to_s
-      end
+      list_result = subject.letters.list
+      assert /#{new_letter["description"]}/ =~ list_result.to_s
     end
   end
 
 
   describe "create" do
     it "should create a letter with address_id" do
-      VCR.use_cassette('create_letter_with_address_id') do
-        new_address = subject.addresses.create @sample_address_params
+      new_address = subject.addresses.create @sample_address_params
 
-        new_letter = subject.letters.create(
-          description: "TestLetter",
-          color: true,
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
-          to: new_address["id"],
-          from: @sample_address_params
-        )
+      new_letter = subject.letters.create(
+        description: "TestLetter",
+        color: true,
+        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        to: new_address["id"],
+        from: @sample_address_params
+      )
 
-        new_letter["description"].must_equal("TestLetter")
-      end
+      new_letter["description"].must_equal("TestLetter")
     end
 
     it "should create a letter with a local file" do
-      VCR.use_cassette('create_letter_with_address_id') do
-        new_address = subject.addresses.create @sample_address_params
+      new_address = subject.addresses.create @sample_address_params
 
-        new_letter = subject.letters.create(
-          description: "TestLetter",
-          color: true,
-          file: File.new(File.expand_path("../../../samples/8.5x11.pdf", __FILE__)),
-          to: new_address["id"],
-          from: @sample_address_params
-        )
+      new_letter = subject.letters.create(
+        description: "TestLetter",
+        color: true,
+        file: File.new(File.expand_path("../../../samples/8.5x11.pdf", __FILE__)),
+        to: new_address["id"],
+        from: @sample_address_params
+      )
 
-        new_letter["description"].must_equal("TestLetter")
-      end
+      new_letter["description"].must_equal("TestLetter")
     end
   end
 
 
   describe "find" do
     it "should find a letter" do
-      VCR.use_cassette('find_letter') do
-        new_address = subject.addresses.create @sample_address_params
+      new_address = subject.addresses.create @sample_address_params
 
-        new_letter = subject.letters.create(
-          description: "TestLetter",
-          color: true,
-          file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
-          to: new_address["id"],
-          from: new_address["id"]
-        )
+      new_letter = subject.letters.create(
+        description: "TestLetter",
+        color: true,
+        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        to: new_address["id"],
+        from: new_address["id"]
+      )
 
-        result = subject.letters.find(new_letter["id"])
-        assert /#{new_letter["description"]}/ =~ result.to_s
-      end
+      result = subject.letters.find(new_letter["id"])
+      assert /#{new_letter["description"]}/ =~ result.to_s
     end
   end
 

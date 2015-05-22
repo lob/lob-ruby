@@ -6,13 +6,11 @@ describe Lob::V1::Route do
 
   describe "list" do
     it "should list routes" do
-      VCR.use_cassette("list_routes") do
-        routes = subject.routes.list(
-          zip_codes: "94158"
-        )
+      routes = subject.routes.list(
+        zip_codes: "94158"
+      )
 
-        routes[0]["zip_code"].must_equal("94158")
-      end
+      routes[0]["zip_code"].must_equal("94158")
     end
   end
 end
