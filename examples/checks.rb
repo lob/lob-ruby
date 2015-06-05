@@ -9,10 +9,10 @@ Lob.api_key = 'test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc'
 to_address = @lob.addresses.create(
   name: "John Doe",
   address_line1: "104 Printing Boulevard",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
+  address_city: "Boston",
+  address_state: "MA",
+  address_country: "US",
+  address_zip: 12345
 )
 
 # create a bank account
@@ -23,18 +23,18 @@ bank_account = @lob.bank_accounts.create(
   bank_address: {
     name: "Bank Address",
     address_line1: "120 6th Ave",
-    city: "Boston",
-    state: "MA",
-    country: "US",
-    zip: 12345
+    address_city: "Boston",
+    address_state: "MA",
+    address_country: "US",
+    address_zip: 12345
   },
   account_address: {
     name: "Account Address",
     address_line1: "120 6th Ave",
-    city: "Boston",
-    state: "MA",
-    country: "US",
-    zip: 12345
+    address_city: "Boston",
+    address_state: "MA",
+    address_country: "US",
+    address_zip: 12345
   }
 )
 
