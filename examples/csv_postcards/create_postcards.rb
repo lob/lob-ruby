@@ -1,3 +1,4 @@
+$:.unshift File.expand_path("../../lib", File.dirname(__FILE__))
 require 'lob'
 require 'csv'
 
@@ -17,18 +18,18 @@ CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
       name: row[5],
       address_line1: row[6],
       address_line2: row[7],
-      city: row[8],
-      state: row[9],
-      zip: row[10],
-      country: row[11]
+      address_city: row[8],
+      address_state: row[9],
+      address_zip: row[10],
+      address_country: row[11]
     },
     from: {
       name: 'Lob',
       address_line1: '123 Main Street',
-      city: 'San Francisco',
-      state: 'CA',
-      zip: '94185',
-      country: 'US'
+      address_city: 'San Francisco',
+      address_state: 'CA',
+      address_zip: '94185',
+      address_country: 'US'
     },
     setting: 1002,
     front: front_html,

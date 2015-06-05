@@ -59,20 +59,20 @@ html = %{
 to_address = @lob.addresses.create(
   name: "ToAddress",
   address_line1: "120 6th Ave",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
+  address_city: "Boston",
+  address_state: "MA",
+  address_country: "US",
+  address_zip: 12345
 )
 
 # create a from address
 from_address = @lob.addresses.create(
   name: "FromAddress",
   address_line1: "120 6th Ave",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
+  address_city: "Boston",
+  address_state: "MA",
+  address_country: "US",
+  address_zip: 12345
 )
 
 # send a postcard

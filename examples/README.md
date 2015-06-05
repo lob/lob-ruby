@@ -10,10 +10,6 @@ An example showing how to dynamically create postcards from a CSV using HTML, a 
 
 An example showing how to create a check using Lob's [Simple Check Service](https://lob.com/services/checks).
 
-## /create_pdf.rb
-
-An example showing how to create PDF's with the Prawn library.
-
 ## /jobs.rb
 
 An example showing how to create objects and jobs using Lob's [Simple Print Service](https://lob.com/services/sps).

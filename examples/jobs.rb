@@ -1,23 +1,64 @@
 $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require 'open-uri'
-require 'prawn'
 require 'lob'
 
 # initialize Lob object
 Lob.api_key = 'test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc'
 @lob = Lob.load
 
-POINTS_PER_INCH = 72 # 72 PostScript Points per Inch
+html = %{
+<html>
+<head>
+<title>Lob.com Sample Photo</title>
+<style>
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
-pdf = Prawn::Document.new(:page_size => [4.25 * POINTS_PER_INCH, 6.25 * POINTS_PER_INCH])
-pdf.image open('https://s3-us-west-2.amazonaws.com/lob-assets/printing_icon.png'), :position => :center
-pdf.text 'Print with Lob!', :align => :center, :size => 32
+  @font-face {
+    font-family: 'Loved by the King';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://s3-us-west-2.amazonaws.com/lob-assets/LovedbytheKing.ttf') format('truetype');
+  }
 
-pdf.render_file 'sample.pdf'
+  body {
+    width: 6.25in;
+    height: 4.25in;
+    margin: 0;
+    padding: 0;
+    /* If using an image, the background image should have dimensions of 1875x1275 pixels. */
+    background-image: url(https://s3-us-west-2.amazonaws.com/lob-assets/beach.jpg);
+    background-size: 6.25in 4.25in;
+    background-repeat: no-repeat;
+  }
+
+  .text {
+    margin: 50px;
+    width: 400px;
+    font-family: 'Loved by the King';
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 3px 3px black;
+  }
+</style>
+</head>
+
+<body>
+  <h1 class="text">Hello {{name}}!</h1>
+  <p class="text">Join us for the {{event}}!</p>
+</body>
+
+</html>
+}
 
 object = @lob.objects.create(
   description: 'Test Object',
-  file: File.new('sample.pdf'),
+  file: html,
+  data: { name: "Albert", event: "Summer 2015 Beach-athon" },
   setting: 201
 )
 
@@ -25,22 +66,21 @@ object = @lob.objects.create(
 to_address = @lob.addresses.create(
   name: "ToAddress",
   address_line1: "120 6th Ave",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
+  address_city: "Boston",
+  address_state: "MA",
+  address_country: "US",
+  address_zip: 12345
 )
 
 # create a from address
 from_address = @lob.addresses.create(
   name: "FromAddress",
   address_line1: "120 6th Ave",
-  city: "Boston",
-  state: "MA",
-  country: "US",
-  zip: 12345
+  address_city: "Boston",
+  address_state: "MA",
+  address_country: "US",
+  address_zip: 12345
 )
-
 
 # send the object you created
 puts @lob.jobs.create(
