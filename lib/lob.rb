@@ -52,7 +52,7 @@ module Lob
       message = response.fetch("error").fetch("message")
       raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
     rescue JSON::ParserError, KeyError
-      raise LobError.new("Invalid response object: #{}", error.http_code, error.http_body)
+      raise LobError.new("Invalid response object (#{error.http_code}): #{error.http_body}")
     end
   end
 
