@@ -8,7 +8,7 @@
 [![Coverage Status](https://coveralls.io/repos/lob/lob-ruby/badge.svg?branch=master)](https://coveralls.io/r/lob/lob-ruby?branch=master)
 [![Downloads](http://ruby-gem-downloads-badge.herokuapp.com/lob?color=green&type=total)](https://rubygems.org/gems/lob)
 
-Ruby wrapper for the [Lob.com](http://lob.com) API. See the full Lob.com [API Documentation](https://lob.com/docs/ruby). This gem gives you an ActiveRecord-style syntax to use the Lob.com API.
+Ruby wrapper for the [Lob.com](http://lob.com) API. See the full Lob.com [API Documentation](https://lob.com/docs/ruby).  For best results, be sure that you're using [the latest version](https://lob.com/docs/ruby#version) of the Lob API and the latest version of the ruby wrapper. This gem gives you an ActiveRecord-style syntax to use the Lob.com API.
 
 Supports Ruby 1.9.3 and greater.
 
@@ -93,11 +93,13 @@ We've provided various examples for you to try out [here](https://github.com/lob
 There are simple scripts to demonstrate how to create all the core Lob products (checks, letters, postcards, jobs etc.), as well as more complex examples that utilize other libraries and external files:
 
 - [Creating Dynamic Postcards with HTML and Data](https://github.com/lob/lob-ruby/tree/master/examples/csv_postcards)
+
 ## API Documentation
 
 - [Introduction](https://lob.com/docs/ruby#introduction)
 - [Versioning](https://lob.com/docs/ruby#version)
-- [Image Prepping](https://lob.com/docs/ruby#prepping)
+- [Errors](https://lob.com/docs/ruby#errors)
+- [Metadata](https://lob.com/docs/ruby#metadata)
 - **Addresses**
   - [Address Book](https://lob.com/docs/ruby#addresses)
     - [Create an Address](https://lob.com/docs/ruby#addresses_create)
@@ -130,6 +132,7 @@ There are simple scripts to demonstrate how to create all the core Lob products 
 - **Simple Print Service**
   - [Jobs](https://lob.com/docs/ruby#jobs)
     - [Create a Job](https://lob.com/docs/ruby#jobs_create)
+    - [Create a MultiObject Job](https://lob.com/docs/ruby#jobs_multi)
     - [Retrieve a Job](https://lob.com/docs/ruby#jobs_retrieve)
     - [List all Jobs](https://lob.com/docs/ruby#jobs_list)
   - [Objects](https://lob.com/docs/ruby#objects)
@@ -154,11 +157,9 @@ There are simple scripts to demonstrate how to create all the core Lob products 
   - [States](https://lob.com/docs/ruby#states)
     - [List all States](https://lob.com/docs/ruby#states_list)
 - **Appendix**
+  - [HTML Examples](https://lob.com/docs/ruby#html-examples)
+  - [Image Prepping](https://lob.com/docs/ruby#prepping)
   - [SPS Templates](https://lob.com/docs/ruby#sps-templates)
-  - [Custom Fonts with HTML](https://lob.com/docs/ruby#html-fonts)
-  - [Postcard HTML Examples](https://lob.com/docs/ruby#postcard-examples)
-  - [Area HTML Examples](https://lob.com/docs/ruby#area-examples)
-  - [Letter HTML Examples](https://lob.com/docs/ruby#letter-examples)
 
 ## Contributing
 
