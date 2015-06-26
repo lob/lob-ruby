@@ -6,12 +6,8 @@ module Lob
       @http_status = http_status
       @http_body = http_body
       @json_body = json_body
-      super(custom_message)
-    end
-
-    def custom_message
       status_string = @http_status.nil? ? "" : "(Status #{@http_status}) "
-      "#{status_string}#{to_s} \n #{@http_body}"
+      super("#{status_string}#{message} \n #{@http_body}")
     end
   end
 end
