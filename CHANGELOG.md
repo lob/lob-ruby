@@ -1,3 +1,6 @@
+## [**2.1.0**](https://github.com/lob/lob-ruby/releases/tag/v2.1.0)
+- [**#119**] (https://github.com/lob/lob-ruby/pull/119) better error messages
+
 ## [**2.0.1**](https://github.com/lob/lob-ruby/releases/tag/v2.0.1)
 - [**#118**] (https://github.com/lob/lob-ruby/pull/118) removed prawn and fixed examples
 
