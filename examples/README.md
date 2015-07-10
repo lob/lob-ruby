@@ -21,3 +21,7 @@ And example showing how to create letters using Lob's [Simple Letter Service](ht
 ## /postcards.rb
 
 An example showing how to create postcards using Lob's [Simple Postcard Service](https://lob.com/services/postcards).
+
+## /verify.rb
+
+An example showing how to verify an address using the [StreetAddress gem](https://github.com/derrek/street-address) and Lob's verify endpoint. This example saves verified addresses in a CSV file.
