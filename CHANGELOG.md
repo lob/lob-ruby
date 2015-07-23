@@ -1,3 +1,6 @@
+## [**2.1.1**](https://github.com/lob/lob-ruby/releases/tag/v2.1.1)
+- [**#124**] (https://github.com/lob/lob-ruby/pull/124) routes#find accepts single ZIP code
+
 ## [**2.1.0**](https://github.com/lob/lob-ruby/releases/tag/v2.1.0)
 - [**#119**] (https://github.com/lob/lob-ruby/pull/119) better error messages
 
