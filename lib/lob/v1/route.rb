@@ -6,7 +6,11 @@ module Lob
       end
 
       def list(options = {})
-        Lob.submit(:get, route_url, options)
+        if options.is_a?(String)
+          Lob.submit(:get, route_url(options))
+        else
+          Lob.submit(:get, route_url, options)
+        end
       end
 
       private
