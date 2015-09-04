@@ -3,6 +3,7 @@ require "spec_helper"
 describe Lob do
 
   after do
+    Lob.api_key = nil
     Lob.api_version = nil
   end
 
@@ -17,6 +18,12 @@ describe Lob do
 
   it "should pass the API key to the resource for the version" do
     Lob(api_key: "test").options[:api_key].must_equal "test"
+  end
+
+  it "should raise an error if no API key is supplied" do
+    assert_raises ArgumentError do
+      Lob()
+    end
   end
 
   it "should allow detailed configuration" do
