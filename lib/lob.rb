@@ -52,7 +52,9 @@ module Lob
       message = response.fetch("error").fetch("message")
       raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
     rescue JSON::ParserError, KeyError
+      # :nocov:
       raise LobError.new("Invalid response object:", error.http_code, error.http_body)
+      # :nocov:
     end
   end
 
@@ -66,10 +68,8 @@ module Lob
       value.map { |k, v|
         build_nested_query(v, prefix ? "#{prefix}[#{URI.encode_www_form_component(k)}]" : URI.encode_www_form_component(k))
       }.reject(&:empty?).join('&')
-    when nil
-      prefix
     else
-      raise ArgumentError, "value must be a Hash" if prefix.nil?
+      raise ArgumentError, "value must be an Array or Hash" if prefix.nil?
       "#{prefix}=#{URI.encode_www_form_component(value)}"
     end
   end

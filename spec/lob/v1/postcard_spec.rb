@@ -24,7 +24,7 @@ describe Lob::V1::Postcard do
 
   describe "list" do
     it "should list postcards" do
-      assert subject.postcards.list["object"] == "list"
+      assert subject.postcards.list({ include: ['total_count'] })["object"] == "list"
     end
   end
 

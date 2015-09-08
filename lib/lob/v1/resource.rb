@@ -40,10 +40,6 @@ module Lob
         Lob::V1::Object.new(self)
       end
 
-      def packagings
-        Lob::V1::Packaging.new(self)
-      end
-
       def postcards
         Lob::V1::Postcard.new(self)
       end
