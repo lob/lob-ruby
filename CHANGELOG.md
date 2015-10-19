@@ -1,3 +1,6 @@
+## [**2.1.2**](https://github.com/lob/lob-ruby/releases/tag/v2.1.2)
+- [**#127**] (https://github.com/lob/lob-ruby/pull/127) Ensure JSON.parse is never passes nil
+
 ## [**2.1.1**](https://github.com/lob/lob-ruby/releases/tag/v2.1.1)
 - [**#124**] (https://github.com/lob/lob-ruby/pull/124) routes#find accepts single ZIP code
 
