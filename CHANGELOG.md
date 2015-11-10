@@ -1,3 +1,6 @@
+## [**2.2.0**](https://github.com/lob/lob-ruby/releases/tag/v2.2.0)
+- [**#129**] (https://github.com/lob/lob-ruby/pull/129) Adds support for API version 2015-11-06
+
 ## [**2.1.2**](https://github.com/lob/lob-ruby/releases/tag/v2.1.2)
 - [**#127**] (https://github.com/lob/lob-ruby/pull/127) Ensure JSON.parse is never passes nil
 
