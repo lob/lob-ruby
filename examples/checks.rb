@@ -12,30 +12,24 @@ to_address = @lob.addresses.create(
   address_city: "Boston",
   address_state: "MA",
   address_country: "US",
-  address_zip: 12345
+  address_zip: "12345"
+)
+
+# create a from address
+from_address = @lob.addresses.create(
+  name: "Jane Doe",
+  address_line1: "123 Hello Ave",
+  address_city: "Providence",
+  address_state: "RI",
+  address_country: "US",
+  address_zip: "02912"
 )
 
 # create a bank account
 bank_account = @lob.bank_accounts.create(
   routing_number: "322271627",
   account_number: "123456789",
-  signatory: "John Doe",
-  bank_address: {
-    name: "Bank Address",
-    address_line1: "120 6th Ave",
-    address_city: "Boston",
-    address_state: "MA",
-    address_country: "US",
-    address_zip: 12345
-  },
-  account_address: {
-    name: "Account Address",
-    address_line1: "120 6th Ave",
-    address_city: "Boston",
-    address_state: "MA",
-    address_country: "US",
-    address_zip: 12345
-  }
+  signatory: "John Doe"
 )
 
 puts bank_account
@@ -47,6 +41,7 @@ puts @lob.checks.create(
   check_number: "10000",
   bank_account: bank_account["id"],
   to: to_address["id"],
+  from: from_address["id"],
   amount: 100,
   memo: "This is my first Check",
   message: "This check is for laundry"
