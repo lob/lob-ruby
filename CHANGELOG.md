@@ -1,3 +1,6 @@
+## [**2.3.0**](https://github.com/lob/lob-ruby/releases/tag/v2.3.0)
+- [**#130**] (https://github.com/lob/lob-ruby/pull/130) Removed services endpoint support
+
 ## [**2.2.0**](https://github.com/lob/lob-ruby/releases/tag/v2.2.0)
 - [**#129**] (https://github.com/lob/lob-ruby/pull/129) Adds support for API version 2015-11-06
 
