@@ -48,10 +48,6 @@ module Lob
         Lob::V1::Route.new(self)
       end
 
-      def services
-        Lob::V1::Service.new(self)
-      end
-
       def settings
         Lob::V1::Setting.new(self)
       end
