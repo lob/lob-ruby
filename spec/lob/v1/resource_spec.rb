@@ -35,10 +35,6 @@ describe Lob::V1::Resource do
     subject.postcards.must_be_kind_of(Lob::V1::Postcard)
   end
 
-  it "should return services resource" do
-    subject.services.must_be_kind_of(Lob::V1::Service)
-  end
-
   it "should return settings resource" do
     subject.settings.must_be_kind_of(Lob::V1::Setting)
   end
