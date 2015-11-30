@@ -30,8 +30,7 @@ Here's a general overview of the Lob services available, click through to read m
 - [Postcards API](https://lob.com/services/postcards)
 - [Letters API](https://lob.com/services/letters)
 - [Checks API](https://lob.com/services/checks)
-- [Prints API](https://lob.com/services/sps)
-- [Area Mail API](https://lob.com/services/sam)
+- [Area Mail API](https://lob.com/services/area)
 - [Address Verification API](https://lob.com/verification/address)
 
 ### Registration
@@ -130,19 +129,6 @@ There are simple scripts to demonstrate how to create all the core Lob products 
     - [Delete a Bank Account](https://lob.com/docs/ruby#bankaccounts_delete)
     - [Verify a Bank Account](https://lob.com/docs/ruby#bankaccounts_verify)
     - [List all Bank Accounts](https://lob.com/docs/ruby#bankaccounts_list)
-- **Prints API**
-  - [Jobs](https://lob.com/docs/ruby#jobs)
-    - [Create a Job](https://lob.com/docs/ruby#jobs_create)
-    - [Retrieve a Job](https://lob.com/docs/ruby#jobs_retrieve)
-    - [List all Jobs](https://lob.com/docs/ruby#jobs_list)
-  - [Objects](https://lob.com/docs/ruby#objects)
-    - [Create an Object](https://lob.com/docs/ruby#objects_create)
-    - [Retrieve an Object](https://lob.com/docs/ruby#objects_retrieve)
-    - [Delete an Object](https://lob.com/docs/ruby#objects_delete)
-    - [List all Objects](https://lob.com/docs/ruby#objects_list)
-  - [Settings](https://lob.com/docs/ruby#settings)
-    - [Retrieve a Setting](https://lob.com/docs/ruby#settings_retrieve)
-    - [List all Settings](https://lob.com/docs/ruby#settings_list)
 - **Area Mail API**
   - [Areas](https://lob.com/docs/ruby#areas)
     - [Create an Area Mailing](https://lob.com/docs/ruby#areas_create)
@@ -160,7 +146,6 @@ There are simple scripts to demonstrate how to create all the core Lob products 
   - [API Changelog](https://lob.com/docs/ruby#changelog)
   - [HTML Examples](https://lob.com/docs/ruby#html-examples)
   - [Image Prepping](https://lob.com/docs/ruby#prepping)
-  - [Prints API Templates](https://lob.com/docs/ruby#prints-templates)
 
 ## Contributing
 
