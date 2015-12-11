@@ -9,7 +9,10 @@ describe Lob::V1::Address do
       address_city: "San Francisco",
       address_state: "CA",
       address_country: "US",
-      address_zip: 94158
+      address_zip: 94158,
+      metadata: {
+        test: 'stuff'
+      }
     }
   }
 
