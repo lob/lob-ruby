@@ -31,7 +31,7 @@ CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
       address_zip: '94185',
       address_country: 'US'
     },
-    setting: 1002,
+    size: "6x11",
     front: front_html,
     back: back_html,
     data: {
