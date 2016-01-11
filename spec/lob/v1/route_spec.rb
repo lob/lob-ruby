@@ -18,6 +18,12 @@ describe Lob::V1::Route do
       routes["zip_code"].must_equal(zip_code)
     end
 
+    it "should list routes given multiple zip codes" do
+      zip_codes = ["94107", "94158"]
+      routes = subject.routes.list(zip_codes: zip_codes)
+      routes["data"][0]["zip_code"].must_equal(zip_codes[0])
+    end
+
   end
 
 end
