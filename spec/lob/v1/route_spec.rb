@@ -4,6 +4,16 @@ describe Lob::V1::Route do
 
   subject { Lob(api_key: ENV["LOB_API_KEY"]) }
 
+  describe "find" do
+
+    it "should fetch a route" do
+      zip_code = "94158"
+      routes = subject.routes.find(zip_code)
+      routes["zip_code"].must_equal(zip_code)
+    end
+
+  end
+
   describe "list" do
 
     it "should list routes" do
