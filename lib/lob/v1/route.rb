@@ -5,6 +5,10 @@ module Lob
         @resource = resource
       end
 
+      def find(route)
+        Lob.submit :get, route_url(route)
+      end
+
       def list(options = {})
         if options.is_a?(String)
           Lob.submit(:get, route_url(options))
