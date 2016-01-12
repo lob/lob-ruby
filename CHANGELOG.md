@@ -1,3 +1,6 @@
+## [**2.4.0**](https://github.com/lob/lob-ruby/releases/tag/v2.4.0)
+- [**#136**] (https://github.com/lob/lob-ruby/pull/136) Adds find to routes
+
 ## [**2.3.0**](https://github.com/lob/lob-ruby/releases/tag/v2.3.0)
 - [**#130**] (https://github.com/lob/lob-ruby/pull/130) Removed services endpoint support
 
