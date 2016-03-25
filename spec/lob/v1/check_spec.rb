@@ -17,7 +17,9 @@ describe Lob::V1::Check do
 
     @sample_bank_account_params = {
       routing_number: "122100024",
-      account_number: "123456789"
+      account_number: "123456789",
+      account_type: "company",
+      signatory: "John Doe"
     }
   end
 
@@ -33,11 +35,7 @@ describe Lob::V1::Check do
     it "should create a check with bank account id" do
       new_address = subject.addresses.create @sample_address_params
 
-      new_bank_account = subject.bank_accounts.create(
-        routing_number: @sample_bank_account_params[:routing_number],
-        account_number: @sample_bank_account_params[:account_number],
-        signatory: "John Doe"
-      )
+      new_bank_account = subject.bank_accounts.create(@sample_bank_account_params)
 
       subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
 
@@ -57,11 +55,7 @@ describe Lob::V1::Check do
     it "should find a check" do
       new_address = subject.addresses.create @sample_address_params
 
-      new_bank_account = subject.bank_accounts.create(
-        routing_number: @sample_bank_account_params[:routing_number],
-        account_number: @sample_bank_account_params[:account_number],
-        signatory: "John Doe"
-      )
+      new_bank_account = subject.bank_accounts.create(@sample_bank_account_params)
 
       subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
 

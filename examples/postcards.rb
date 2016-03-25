@@ -2,7 +2,7 @@ $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require 'lob'
 
 # initialize Lob object
-Lob.api_key = 'test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc'
+Lob.api_key = 'test_799ff27291c166d10ba191902ad02fb059c'
 @lob = Lob.load
 
 # HTML to send to the server
