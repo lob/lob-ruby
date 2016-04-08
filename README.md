@@ -1,7 +1,5 @@
 # lob-ruby
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/lob/lob-ruby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Build Status](https://travis-ci.org/lob/lob-ruby.svg?branch=master)](https://travis-ci.org/lob/lob-ruby)
 [![Gem Version](https://badge.fury.io/rb/lob.svg)](http://badge.fury.io/rb/lob)
 [![Dependency Status](https://gemnasium.com/lob/lob-ruby.svg)](https://gemnasium.com/lob/lob-ruby)
