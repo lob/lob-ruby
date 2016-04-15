@@ -62,4 +62,20 @@ describe Lob do
     lob.addresses.list
     Lob.api_version = "2014-11-24"
   end
+
+  it "should include the raw response" do
+    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    result = lob.addresses.list
+    assert result._response.headers.include?(:content_type)
+  end
+
+  it "should include response headers for errors" do
+    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    begin
+      lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
+    rescue Lob::InvalidRequestError => e
+      assert e._response.headers.include?(:content_type)
+    end
+  end
+
 end

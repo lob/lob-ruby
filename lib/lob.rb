@@ -26,16 +26,24 @@ module Lob
       if method == :get || method == :delete
         # Hack to URL encode nested objects like metadata.
         url = "#{url}?#{build_nested_query(parameters)}"
-        JSON.parse(RestClient.send(method, url, {
+        response = RestClient.send(method, url, {
           user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
           "Lob-Version" => self.api_version
-        }))
+        })
       else
-        JSON.parse(RestClient.send(method, url, parameters, {
+        response = RestClient.send(method, url, parameters, {
           user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
           "Lob-Version" => self.api_version
-        }))
+        })
       end
+
+      body = JSON.parse(response)
+
+      body.define_singleton_method(:_response) do
+        response
+      end
+
+      return body
 
     rescue RestClient::ExceptionWithResponse => e
       handle_api_error(e)
