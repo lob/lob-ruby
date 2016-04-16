@@ -83,6 +83,34 @@ When using zip codes with zero-prefixes, always quote them. For example when spe
 
 The Ruby interpreter assumes it's not of base-10 and tries to convert it to base-10 number. So that might result in an entirely different zip-code than intended.
 
+#### Accessing Response Headers
+
+You can access response headers via a hidden `headers` method on the response hash.
+
+```ruby
+addresses = @lob.addresses.list
+
+addresses._response.headers[:content_type]
+# => "application/json; charset=utf-8"
+
+addresses._response.headers[:rate_limit_window]
+# => "60"
+
+addresses._response.headers[:rate_limit_remaining]
+# => "1234"
+```
+
+You can also access headers from `Lob::InvalidRequestError`s.
+
+```ruby
+begin
+  @lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
+rescue Lob::InvalidRequestError => e
+  e._response.headers[:content_type]
+  # => "application/json; charset=utf-8"
+end
+```
+
 ## Examples
 
 We've provided various examples for you to try out [here](https://github.com/lob/lob-ruby/tree/master/examples).
