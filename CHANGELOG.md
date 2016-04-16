@@ -1,3 +1,6 @@
+## [**2.5.0**](https://github.com/lob/lob-ruby/releases/tag/v2.5.0)
+- [**#140**] (https://github.com/lob/lob-ruby/pull/140) Adds access to response and headers
+
 ## [**2.4.0**](https://github.com/lob/lob-ruby/releases/tag/v2.4.0)
 - [**#136**] (https://github.com/lob/lob-ruby/pull/136) Adds find to routes
 
