@@ -30,7 +30,7 @@ describe Lob::V1::Area do
 
       result = subject.areas.create @sample_area_params
 
-      result["name"].must_equal @sample_area_params[:name]
+      result["description"].must_equal @sample_area_params[:description]
     end
 
     it "should create an area object with a single route" do
