@@ -10,12 +10,16 @@ module Lob
         Lob.submit(:get, letter_url, options)
       end
 
-      def find(job_id)
-        Lob.submit :get, letter_url(job_id)
+      def find(letter_id)
+        Lob.submit :get, letter_url(letter_id)
       end
 
       def create(options = {})
         Lob.submit :post, letter_url, options
+      end
+
+      def destroy(letter_id)
+        Lob.submit :delete, letter_url(letter_id)
       end
 
       private

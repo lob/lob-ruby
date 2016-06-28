@@ -72,4 +72,41 @@ describe Lob::V1::Letter do
     end
   end
 
+
+  describe "find" do
+    it "should find a letter" do
+      new_address = subject.addresses.create @sample_address_params
+
+      new_letter = subject.letters.create(
+        description: "TestLetter",
+        color: true,
+        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        to: new_address["id"],
+        from: new_address["id"]
+      )
+
+      result = subject.letters.find(new_letter["id"])
+      assert /#{new_letter["description"]}/ =~ result.to_s
+    end
+  end
+
+
+  describe "destroy" do
+    it "should destroy a letter" do
+      new_address = subject.addresses.create @sample_address_params
+
+      new_letter = subject.letters.create(
+        description: "TestLetter",
+        color: true,
+        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        to: new_address["id"],
+        from: new_address["id"]
+      )
+
+      result = subject.letters.destroy(new_letter["id"])
+      result["id"].must_equal(new_letter["id"])
+      result["deleted"].must_equal(true)
+    end
+  end
+
 end

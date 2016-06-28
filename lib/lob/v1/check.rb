@@ -18,6 +18,9 @@ module Lob
         Lob.submit :post, check_url, options
       end
 
+      def destroy(check_id)
+        Lob.submit :delete, check_url(check_id)
+      end
 
       private
 

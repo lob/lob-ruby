@@ -31,6 +31,7 @@ describe Lob::V1::Check do
     end
   end
 
+
   describe "create" do
     it "should create a check with bank account id" do
       new_address = subject.addresses.create @sample_address_params
@@ -68,6 +69,28 @@ describe Lob::V1::Check do
 
       result = subject.checks.find(new_check["id"])
       result["id"].must_equal(new_check["id"])
+    end
+  end
+
+
+  describe "destroy" do
+    it "should destroy a check" do
+      new_address = subject.addresses.create @sample_address_params
+
+      new_bank_account = subject.bank_accounts.create(@sample_bank_account_params)
+
+      subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
+
+      new_check = subject.checks.create(
+        bank_account: new_bank_account["id"],
+        to: new_address["id"],
+        from: new_address["id"],
+        amount: 2000
+      )
+
+      result = subject.checks.destroy(new_check["id"])
+      result["id"].must_equal(new_check["id"])
+      result["deleted"].must_equal(true)
     end
   end
 
