@@ -18,6 +18,10 @@ module Lob
         Lob.submit :post, postcard_url, options
       end
 
+      def destroy(postcard_id)
+        Lob.submit :delete, postcard_url(postcard_id)
+      end
+
       private
 
       def postcard_url(postcard_id = nil)

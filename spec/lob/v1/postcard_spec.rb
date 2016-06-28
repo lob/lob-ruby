@@ -114,4 +114,22 @@ describe Lob::V1::Postcard do
     end
   end
 
+
+  describe "destroy" do
+    it "should destroy a postcard" do
+      new_address = subject.addresses.create @sample_address_params
+
+      new_postcard = subject.postcards.create(
+        description: @sample_postcard_params[:description],
+        to: new_address["id"],
+        front: File.new(File.expand_path("../../../samples/postcardfront.pdf", __FILE__)),
+        back: File.new(File.expand_path("../../../samples/postcardback.pdf", __FILE__))
+      )
+
+      result = subject.postcards.destroy(new_postcard["id"])
+      result["id"].must_equal(new_postcard["id"])
+      result["deleted"].must_equal(true)
+    end
+  end
+
 end
