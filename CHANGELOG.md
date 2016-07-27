@@ -1,3 +1,6 @@
+## [**2.5.1**](https://github.com/lob/lob-ruby/releases/tag/v2.5.1)
+- [**#145**] (https://github.com/lob/lob-ruby/pull/145) More lenient rest-client version restriction
+
 ## [**2.5.0**](https://github.com/lob/lob-ruby/releases/tag/v2.5.0)
 - [**#140**] (https://github.com/lob/lob-ruby/pull/140) Adds access to response and headers
 
