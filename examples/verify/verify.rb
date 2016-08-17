@@ -14,7 +14,7 @@ output = File.open(File.expand_path('../output.csv', __FILE__), 'w')
 
 output.puts ['address_line1', 'address_city', 'address_state', 'address_zip', 'address_country'].join(',')
 
-# Parse the CSV and create the postcards.
+# Parse the input file and verify the addresses
 File.open(File.expand_path('../input.txt', __FILE__)).each_line do |line|
   parsed_address = StreetAddress::US.parse(line)
 

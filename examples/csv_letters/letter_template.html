@@ -1,0 +1,33 @@
+<html>
+<head>
+<style>
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: 'Loved by the King';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://s3-us-west-2.amazonaws.com/lob-assets/LovedbytheKing.ttf') format('truetype');
+  }
+
+  .text {
+    margin-left: 75px;
+    padding-top: 250px;
+    width: 400px;
+    font-family: 'Loved by the King';
+    font-size: 50px;
+    font-weight: 700;
+    color: black;
+  }
+</style>
+</head>
+
+<body>
+  <p class="text">Hello {{name}}!<br/><br/>Join us for this year's summer celebration in {{city}}!</p>
+</body>
+
+</html>
