@@ -126,8 +126,10 @@ There are simple scripts to demonstrate how to create all the core Lob products 
 - [Errors](https://lob.com/docs/ruby#errors)
 - [Rate Limiting](https://lob.com/docs/ruby#rate-limits)
 - [Metadata](https://lob.com/docs/ruby#metadata)
+- [Asset URLs](https://lob.com/docs/ruby#urls)
 - **Addresses**
   - [Address Book](https://lob.com/docs/ruby#addresses)
+    - [The Address Object](https://lob.com/docs/ruby#addresses_object)
     - [Create an Address](https://lob.com/docs/ruby#addresses_create)
     - [Retrieve an Address](https://lob.com/docs/ruby#addresses_retrieve)
     - [Delete an Address](https://lob.com/docs/ruby#addresses_delete)
@@ -136,20 +138,24 @@ There are simple scripts to demonstrate how to create all the core Lob products 
     - [Verify an Address](https://lob.com/docs/ruby#verify_create)
 - **Postcards API**
   - [Postcards](https://lob.com/docs/ruby#postcards)
+    - [The Postcard Object](https://lob.com/docs/ruby#postcards_object)
     - [Create a Postcard](https://lob.com/docs/ruby#postcards_create)
     - [Retrieve a Postcard](https://lob.com/docs/ruby#postcards_retrieve)
     - [List all Postcards](https://lob.com/docs/ruby#postcards_list)
 - **Letters API**
   - [Letters](https://lob.com/docs/ruby#letters)
+    - [The Letter Object](https://lob.com/docs/ruby#letters_object)
     - [Create a Letter](https://lob.com/docs/ruby#letters_create)
     - [Retrieve a Letter](https://lob.com/docs/ruby#letters_retrieve)
     - [List all Letters](https://lob.com/docs/ruby#letters_list)
 - **Checks API**
   - [Checks](https://lob.com/docs/ruby#checks)
+    - [The Check Object](https://lob.com/docs/ruby#checks_object)
     - [Create a Check](https://lob.com/docs/ruby#checks_create)
     - [Retrieve a Check](https://lob.com/docs/ruby#checks_retrieve)
     - [List all Checks](https://lob.com/docs/ruby#checks_list)
   - [Bank Accounts](https://lob.com/docs/ruby#bank-accounts)
+    - [The Bank Account Object](https://lob.com/docs/ruby#bankaccounts_object)
     - [Create a Bank Account](https://lob.com/docs/ruby#bankaccounts_create)
     - [Retrieve a Bank Account](https://lob.com/docs/ruby#bankaccounts_retrieve)
     - [Delete a Bank Account](https://lob.com/docs/ruby#bankaccounts_delete)
@@ -157,12 +163,14 @@ There are simple scripts to demonstrate how to create all the core Lob products 
     - [List all Bank Accounts](https://lob.com/docs/ruby#bankaccounts_list)
 - **Area Mail API**
   - [Areas](https://lob.com/docs/ruby#areas)
+    - [The Area Object](https://lob.com/docs/ruby#areas_object)
     - [Create an Area Mailing](https://lob.com/docs/ruby#areas_create)
     - [Retrieve an Area Mailing](https://lob.com/docs/ruby#areas_retrieve)
     - [List all Area Mailings](https://lob.com/docs/ruby#areas_list)
   - [Routes](https://lob.com/docs/ruby#routes)
-    - [Retrieve a Zip Code](https://lob.com/docs/ruby#routes_retrieve)
-    - [List all Zip Codes](https://lob.com/docs/ruby#routes_list)
+    - [The Routes Object](https://lob.com/docs/ruby#routes_object)
+    - [Retrieve Routes](https://lob.com/docs/ruby#routes_retrieve)
+    - [List all Routes](https://lob.com/docs/ruby#routes_list)
 - **Resources**
   - [Countries](https://lob.com/docs/ruby#countries)
     - [List all Countries](https://lob.com/docs/ruby#countries_list)
@@ -170,6 +178,7 @@ There are simple scripts to demonstrate how to create all the core Lob products 
     - [List all States](https://lob.com/docs/ruby#states_list)
 - **Appendix**
   - [API Changelog](https://lob.com/docs/ruby#changelog)
+  - [The Tracking Event Object](https://lob.com/docs/ruby#tracking_event_object)
   - [HTML Examples](https://lob.com/docs/ruby#html-examples)
   - [Image Prepping](https://lob.com/docs/ruby#prepping)
 
