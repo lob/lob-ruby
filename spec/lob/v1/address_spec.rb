@@ -16,7 +16,7 @@ describe Lob::V1::Address do
     }
   end
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
+  subject { Lob(api_key: API_KEY) }
 
   describe "verify" do
 

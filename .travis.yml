@@ -11,6 +11,5 @@ rvm:
 
 env:
   JRUBY_OPTS=--2.0
-  - LOB_API_KEY=test_799ff27291c166d10ba191902ad02fb059c
 
 script: bundle exec rake test

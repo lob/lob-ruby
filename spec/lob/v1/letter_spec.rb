@@ -15,7 +15,7 @@ describe Lob::V1::Letter do
     }
   end
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
+  subject { Lob(api_key: API_KEY) }
 
   describe "list" do
     it "should list letter" do

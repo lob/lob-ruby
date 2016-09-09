@@ -190,11 +190,9 @@ To contribute, please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 Tests are written using MiniTest, a testing library that comes with Ruby stdlib.
 
-You'll need to pass in your Lob.com API as the environment variable `LOB_API_KEY`, to run the tests. Be sure to use your Test API key, and not the Live one.
-
 Here's how you can run the tests:
 
-    LOB_API_KEY=your_test_api_key bundle exec rake test
+    `bundle exec rake test`
 
 You can also configure, TravisCI for your fork of the repository and it'll run the tests for you, when you push.
 
