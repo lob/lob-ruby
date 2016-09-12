@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Lob::V1::Route do
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
+  subject { Lob(api_key: API_KEY) }
 
   describe "find" do
 

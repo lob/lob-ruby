@@ -11,7 +11,7 @@ describe Lob::V1::BankAccount do
     }
   end
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
+  subject { Lob(api_key: API_KEY) }
 
   describe "list" do
     it "should list bank accounts" do

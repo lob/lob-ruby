@@ -19,7 +19,7 @@ describe Lob::V1::Job do
     @test_setting_id = 201
   end
 
-  subject { Lob(api_key: ENV["LOB_API_KEY"]) }
+  subject { Lob(api_key: API_KEY) }
 
   describe "list" do
     it "should list jobs" do

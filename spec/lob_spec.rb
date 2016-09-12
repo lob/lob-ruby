@@ -50,27 +50,27 @@ describe Lob do
   end
 
   it "should handle API errors gracefully" do
-    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    lob = Lob.load(api_key: API_KEY)
     assert_raises Lob::InvalidRequestError do
       lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
     end
   end
 
   it "should work when no api_version is provided" do
-    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    lob = Lob.load(api_key: API_KEY)
     Lob.api_version = nil
     lob.addresses.list
     Lob.api_version = "2014-11-24"
   end
 
   it "should include the raw response" do
-    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    lob = Lob.load(api_key: API_KEY)
     result = lob.addresses.list
     assert result._response.headers.include?(:content_type)
   end
 
   it "should include response headers for errors" do
-    lob = Lob.load(api_key: ENV["LOB_API_KEY"])
+    lob = Lob.load(api_key: API_KEY)
     begin
       lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
     rescue Lob::InvalidRequestError => e
