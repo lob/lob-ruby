@@ -1,23 +1,14 @@
+require_relative "resource"
+
 module Lob
   module V1
-    class Setting
+    class Setting < Lob::V1::Resource
 
-      def initialize(resource)
-        @resource = resource
-      end
+      undef_method :create, :destroy
 
-      def list(options={})
-        Lob.submit(:get, setting_url, options)
-      end
-
-      def find(setting_id)
-        Lob.submit :get, setting_url(setting_id)
-      end
-
-      private
-
-      def setting_url(setting_id = nil)
-        @resource.construct_url("settings", setting_id)
+      def initialize(config)
+        super(config)
+        @endpoint = "settings"
       end
 
     end

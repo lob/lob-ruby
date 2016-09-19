@@ -1,27 +1,24 @@
+require_relative "resource"
+
 module Lob
   module V1
-    class Route
-      def initialize(resource)
-        @resource = resource
-      end
+    class Route < Lob::V1::Resource
 
-      def find(route)
-        Lob.submit :get, route_url(route)
+      undef_method :create, :destroy
+
+      def initialize(config)
+        super(config)
+        @endpoint = "routes"
       end
 
       def list(options = {})
         if options.is_a?(String)
-          Lob.submit(:get, route_url(options))
+          submit :get, resource_url(options)
         else
-          Lob.submit(:get, route_url, options)
+          submit :get, endpoint_url, options
         end
       end
 
-      private
-
-      def route_url(route_id = nil)
-        @resource.construct_url("routes", route_id)
-      end
     end
   end
 end

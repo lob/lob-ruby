@@ -1,39 +1,22 @@
+require_relative "resource"
+
 module Lob
   module V1
-    class Address
+    class Address < Lob::V1::Resource
 
-      def initialize(resource)
-        @resource = resource
+      def initialize(config)
+        super(config)
+        @endpoint = "addresses"
       end
 
       def verify(options={})
-        Lob.submit(:post, address_verify_url, options)
-      end
-
-      def list(options={})
-        Lob.submit(:get, address_url, options)
-      end
-
-      def find(address_id)
-        Lob.submit :get, address_url(address_id)
-      end
-
-      def create(options = {})
-        Lob.submit :post, address_url, options
-      end
-
-      def destroy(address_id)
-        Lob.submit :delete, address_url(address_id)
+        submit :post, address_verify_url, options
       end
 
       private
 
-      def address_url(address_id = nil)
-        @resource.construct_url("addresses", address_id)
-      end
-
       def address_verify_url
-        @resource.construct_url("verify")
+        "#{base_url}/verify"
       end
 
     end
