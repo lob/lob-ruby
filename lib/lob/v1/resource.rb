@@ -1,67 +1,106 @@
+require "rest-client"
+require "json"
+require "uri"
+
 module Lob
   module V1
     class Resource
 
-      attr_accessor :options
+      attr_reader :config, :endpoint
 
-      def initialize(options)
-        @options = options
+      def initialize(config)
+        @config = config
       end
 
-      def areas
-        Lob::V1::Area.new(self)
+      def list(options={})
+        submit :get, endpoint_url, options
       end
 
-      def addresses
-        Lob::V1::Address.new(self)
+      def find(resource_id)
+        submit :get, resource_url(resource_id)
       end
 
-      def bank_accounts
-        Lob::V1::BankAccount.new(self)
+      def create(options = {})
+        submit :post, endpoint_url, options
       end
 
-      def checks
-        Lob::V1::Check.new(self)
+      def destroy(resource_id)
+        submit :delete, resource_url(resource_id)
       end
 
-      def countries
-        Lob::V1::Country.new(self)
+      private
+
+      def submit(method, url, parameters={})
+        clientVersion = Lob::VERSION
+
+        begin
+          if method == :get || method == :delete
+            # Hack to URL encode nested objects like metadata.
+            url = "#{url}?#{build_nested_query(parameters)}"
+            response = RestClient.send(method, url, {
+              user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
+              "Lob-Version" => config[:api_version]
+            })
+          else
+            response = RestClient.send(method, url, parameters, {
+              user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
+              "Lob-Version" => config[:api_version]
+            })
+          end
+
+          body = JSON.parse(response)
+
+          body.define_singleton_method(:_response) do
+            response
+          end
+
+          return body
+
+        rescue RestClient::ExceptionWithResponse => e
+          handle_api_error(e)
+        end
       end
 
-      def jobs
-        Lob::V1::Job.new(self)
+      private
+
+      def handle_api_error(error)
+        begin
+          response = JSON.parse(error.http_body.to_s)
+          message = response.fetch("error").fetch("message")
+          raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
+        rescue JSON::ParserError, KeyError
+          # :nocov:
+          raise LobError.new("Invalid response object:", error.http_code, error.http_body)
+          # :nocov:
+        end
       end
 
-      def letters
-        Lob::V1::Letter.new(self)
-      end
-
-      def objects
-        Lob::V1::Object.new(self)
-      end
-
-      def postcards
-        Lob::V1::Postcard.new(self)
-      end
-
-      def routes
-        Lob::V1::Route.new(self)
-      end
-
-      def settings
-        Lob::V1::Setting.new(self)
-      end
-
-      def states
-        Lob::V1::State.new(self)
+      def build_nested_query(value, prefix = nil)
+        case value
+        when Array
+          value.map { |v|
+            build_nested_query(v, "#{prefix}[]")
+          }.join("&")
+        when Hash
+          value.map { |k, v|
+            build_nested_query(v, prefix ? "#{prefix}[#{URI.encode_www_form_component(k)}]" : URI.encode_www_form_component(k))
+          }.reject(&:empty?).join('&')
+        else
+          raise ArgumentError, "value must be an Array or Hash" if prefix.nil?
+          "#{prefix}=#{URI.encode_www_form_component(value)}"
+        end
       end
 
       def base_url
-        "#{@options[:protocol]}://#{@options[:api_key]}:@#{@options[:api_host]}/v1"
+        "#{config[:protocol]}://#{config[:api_key]}:@#{config[:api_host]}/v1"
       end
 
-      def construct_url(resource_type, resource_id=nil)
-        "#{base_url}/#{resource_type}#{'/' + resource_id if resource_id}"
+      def endpoint_url
+        "#{base_url}/#{endpoint}"
+      end
+
+      def resource_url(resource_id)
+        "#{endpoint_url}/#{resource_id}"
       end
 
     end

@@ -1,17 +1,14 @@
+require_relative "resource"
+
 module Lob
   module V1
-    class Job
+    class Job < Lob::V1::Resource
 
-      def initialize(resource)
-        @resource = resource
-      end
+      undef_method :destroy
 
-      def list(options={})
-        Lob.submit(:get, job_url, options)
-      end
-
-      def find(job_id)
-        Lob.submit :get, job_url(job_id)
+      def initialize(config)
+        super(config)
+        @endpoint = "jobs"
       end
 
       def create(options = {})
@@ -22,16 +19,9 @@ module Lob
         else
           options["object1"] = options[:objects]
         end
-        options.delete(:objects)
+        options.delete :objects
 
-        Lob.submit :post, job_url, options
-      end
-
-
-      private
-
-      def job_url(job_id = nil)
-        @resource.construct_url("jobs", job_id)
+        submit :post, endpoint_url, options
       end
 
     end

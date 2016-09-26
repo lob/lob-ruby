@@ -8,7 +8,7 @@ describe Lob do
   end
 
   it "should return the resource object for the valid version" do
-    Lob(api_key: "test", api_version: "2014-11-25").must_be_kind_of(Lob::V1::Resource)
+    Lob(api_key: "test", api_version: "2014-11-25").must_be_kind_of(Lob::V1::Client)
   end
 
   it "should *not* raise an error if API key has been on module and not passed as option" do
@@ -46,7 +46,7 @@ describe Lob do
     Lob.api_key = "test"
     Lob.load.wont_be_nil
 
-    Lob.load(api_key: "test").must_be_kind_of(Lob::V1::Resource)
+    Lob.load(api_key: "test").must_be_kind_of(Lob::V1::Client)
   end
 
   it "should handle API errors gracefully" do

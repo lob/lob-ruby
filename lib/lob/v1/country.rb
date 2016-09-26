@@ -1,19 +1,14 @@
+require_relative "resource"
+
 module Lob
   module V1
-    class Country
+    class Country < Lob::V1::Resource
 
-      def initialize(resource)
-        @resource = resource
-      end
+      undef_method :find, :create, :destroy
 
-      def list(options={})
-        Lob.submit(:get, country_url, options)
-      end
-
-      private
-
-      def country_url
-        @resource.construct_url("countries")
+      def initialize(config)
+        super(config)
+        @endpoint = "countries"
       end
 
     end

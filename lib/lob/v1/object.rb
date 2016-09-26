@@ -1,31 +1,12 @@
+require_relative "resource"
+
 module Lob
   module V1
-    class Object
+    class Object < Lob::V1::Resource
 
-      def initialize(resource)
-        @resource = resource
-      end
-
-      def list(options = {})
-        Lob.submit(:get, object_url, options)
-      end
-
-      def find(lob_object_id)
-        Lob.submit :get, object_url(lob_object_id)
-      end
-
-      def create(options = {})
-        Lob.submit :post, object_url, options
-      end
-
-      def destroy(lob_object_id)
-        Lob.submit :delete, object_url(lob_object_id)
-      end
-
-      private
-
-      def object_url(lob_object_id = nil)
-        @resource.construct_url("objects", lob_object_id)
+      def initialize(config)
+        super(config)
+        @endpoint = "objects"
       end
 
     end
