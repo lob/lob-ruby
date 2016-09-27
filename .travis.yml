@@ -3,11 +3,12 @@ language: ruby
 sudo: false
 
 rvm:
-  - 1.9.3
   - jruby
   - 2.0.0
   - 2.1
   - 2.2
+  - 2.3.0
+  - 2.3.1
 
 env:
   JRUBY_OPTS=--2.0
