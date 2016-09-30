@@ -19,23 +19,40 @@ describe Lob::V1::Resource do
     end
   end
 
+  it "should return areas resource" do
+    subject.areas.must_be_kind_of(Lob::V1::Area)
+  end
+
   it "should return addresses resource" do
     subject.addresses.must_be_kind_of(Lob::V1::Address)
   end
 
-  it "should return jobs resource" do
-    subject.jobs.must_be_kind_of(Lob::V1::Job)
+  it "should return bank accounts resource" do
+    subject.bank_accounts.must_be_kind_of(Lob::V1::BankAccount)
   end
 
-  it "should return objects resource" do
-    subject.objects.must_be_kind_of(Lob::V1::Object)
+  it "should return checks resource" do
+    subject.checks.must_be_kind_of(Lob::V1::Check)
+  end
+
+  it "should return countries resource" do
+    subject.countries.must_be_kind_of(Lob::V1::Country)
+  end
+
+  it "should return letters resource" do
+    subject.letters.must_be_kind_of(Lob::V1::Letter)
   end
 
   it "should return postcards resource" do
     subject.postcards.must_be_kind_of(Lob::V1::Postcard)
   end
 
-  it "should return settings resource" do
-    subject.settings.must_be_kind_of(Lob::V1::Setting)
+  it "should return routes resource" do
+    subject.routes.must_be_kind_of(Lob::V1::Route)
   end
+
+  it "should return states resource" do
+    subject.states.must_be_kind_of(Lob::V1::State)
+  end
+
 end

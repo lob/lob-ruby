@@ -52,7 +52,7 @@ describe Lob do
   it "should handle API errors gracefully" do
     lob = Lob.load(api_key: API_KEY)
     assert_raises Lob::InvalidRequestError do
-      lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
+      lob.postcards.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
     end
   end
 
@@ -72,7 +72,7 @@ describe Lob do
   it "should include response headers for errors" do
     lob = Lob.load(api_key: API_KEY)
     begin
-      lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
+      lob.postcards.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
     rescue Lob::InvalidRequestError => e
       assert e._response.headers.include?(:content_type)
     end
