@@ -3,12 +3,9 @@ require_relative "area"
 require_relative "bank_account"
 require_relative "check"
 require_relative "country"
-require_relative "job"
 require_relative "letter"
-require_relative "object"
 require_relative "postcard"
 require_relative "route"
-require_relative "setting"
 require_relative "state"
 
 module Lob
@@ -45,16 +42,8 @@ module Lob
         Lob::V1::Country.new(config)
       end
 
-      def jobs
-        Lob::V1::Job.new(config)
-      end
-
       def letters
         Lob::V1::Letter.new(config)
-      end
-
-      def objects
-        Lob::V1::Object.new(config)
       end
 
       def postcards
@@ -63,10 +52,6 @@ module Lob
 
       def routes
         Lob::V1::Route.new(config)
-      end
-
-      def settings
-        Lob::V1::Setting.new(config)
       end
 
       def states
