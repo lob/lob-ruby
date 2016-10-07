@@ -1,8 +1,8 @@
-require_relative "resource"
+require "lob/resources/resource_base"
 
 module Lob
-  module V1
-    class Check < Lob::V1::Resource
+  module Resources
+    class Check < Lob::Resources::ResourceBase
 
       def initialize(config)
         super(config)

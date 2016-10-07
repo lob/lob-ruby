@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::State do
+describe Lob::Resources::State do
 
   subject { Lob(api_key: API_KEY) }
 

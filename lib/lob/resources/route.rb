@@ -1,8 +1,8 @@
-require_relative "resource"
+require "lob/resources/resource_base"
 
 module Lob
-  module V1
-    class Route < Lob::V1::Resource
+  module Resources
+    class Route < Lob::Resources::ResourceBase
 
       undef_method :create, :destroy
 

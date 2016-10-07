@@ -1,14 +1,14 @@
-require_relative "resource"
+require "lob/resources/resource_base"
 
 module Lob
-  module V1
-    class Country < Lob::V1::Resource
+  module Resources
+    class State < Lob::Resources::ResourceBase
 
       undef_method :find, :create, :destroy
 
       def initialize(config)
         super(config)
-        @endpoint = "countries"
+        @endpoint = "states"
       end
 
     end

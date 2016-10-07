@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::Postcard do
+describe Lob::Resources::Postcard do
 
   before :each do
     @sample_address_params = {
