@@ -1,4 +1,4 @@
-require "lob/v1/client"
+require "lob/client"
 require "lob/version"
 require "lob/errors/lob_error"
 require "lob/errors/invalid_request_error"
@@ -31,6 +31,6 @@ def Lob(options={})
     raise ArgumentError.new(":api_key is a required argument to initialize Lob")
   end
 
-  Lob::V1::Client.new(options)
+  Lob::Client.new(options)
 
 end

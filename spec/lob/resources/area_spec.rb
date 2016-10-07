@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::Area do
+describe Lob::Resources::Area do
   before :each do
     @sample_area_params = {
       description: "Test Area",

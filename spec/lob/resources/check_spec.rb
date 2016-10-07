@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::Check do
+describe Lob::Resources::Check do
 
   before :each do
 

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::Letter do
+describe Lob::Resources::Letter do
 
   before :each do
     @sample_address_params = {

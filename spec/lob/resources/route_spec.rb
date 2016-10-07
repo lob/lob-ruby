@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::Route do
+describe Lob::Resources::Route do
 
   subject { Lob(api_key: API_KEY) }
 

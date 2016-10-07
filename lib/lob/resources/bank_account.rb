@@ -1,8 +1,8 @@
-require_relative "resource"
+require "lob/resources/resource_base"
 
 module Lob
-  module V1
-    class BankAccount < Lob::V1::Resource
+  module Resources
+    class BankAccount < Lob::Resources::ResourceBase
 
       def initialize(config)
         super(config)

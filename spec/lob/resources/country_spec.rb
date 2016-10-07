@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::Country do
+describe Lob::Resources::Country do
 
   subject { Lob(api_key: API_KEY) }
 

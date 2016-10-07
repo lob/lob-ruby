@@ -3,8 +3,8 @@ require "json"
 require "uri"
 
 module Lob
-  module V1
-    class Resource
+  module Resources
+    class ResourceBase
 
       attr_reader :config, :endpoint
 

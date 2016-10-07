@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lob::V1::BankAccount do
+describe Lob::Resources::BankAccount do
 
   before :each do
     @sample_bank_account_params = {
