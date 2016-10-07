@@ -2,8 +2,7 @@ $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require 'lob'
 
 # initialize Lob object
-Lob.api_key = 'test_799ff27291c166d10ba191902ad02fb059c'
-@lob = Lob.load
+lob = Lob::Client.new(api_key: 'test_799ff27291c166d10ba191902ad02fb059c')
 
 # HTML to send to the server
 html = %{
@@ -56,7 +55,7 @@ html = %{
 }
 
 # create a to address
-to_address = @lob.addresses.create(
+to_address = lob.addresses.create(
   name: "ToAddress",
   address_line1: "120 6th Ave",
   address_city: "Boston",
@@ -66,7 +65,7 @@ to_address = @lob.addresses.create(
 )
 
 # create a from address
-from_address = @lob.addresses.create(
+from_address = lob.addresses.create(
   name: "FromAddress",
   address_line1: "120 6th Ave",
   address_city: "Boston",
@@ -76,7 +75,7 @@ from_address = @lob.addresses.create(
 )
 
 # send a postcard
-puts @lob.postcards.create(
+puts lob.postcards.create(
   description: "Beach Postcard",
   to: to_address["id"],
   from: from_address["id"],

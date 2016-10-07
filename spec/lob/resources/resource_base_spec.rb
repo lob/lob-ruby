@@ -6,16 +6,11 @@ describe Lob::Resources::ResourceBase do
     @api_key = "test"
   end
 
-  subject { Lob(api_key: @api_key) }
+  subject { Lob::Client.new(api_key: @api_key) }
 
   describe "when Lob is initialized" do
-    it "should receive and contain default options when Lob is initialized" do
-      subject.options[:protocol].must_equal "https"
-      subject.options[:api_host].must_equal "api.lob.com"
-    end
-
-    it "should have API key in options" do
-      subject.options[:api_key].must_equal @api_key
+    it "should have API key in config" do
+      subject.config[:api_key].must_equal @api_key
     end
   end
 

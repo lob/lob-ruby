@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Lob::Resources::Country do
 
-  subject { Lob(api_key: API_KEY) }
+  subject { Lob::Client.new(api_key: API_KEY) }
 
   describe "list" do
     it "should list countries" do

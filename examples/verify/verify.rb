@@ -7,8 +7,7 @@ require 'lob'
 require 'street_address'
 
 # Initialize Lob object
-Lob.api_key = 'test_799ff27291c166d10ba191902ad02fb059c'
-@lob = Lob.load
+lob = Lob::Client.new(api_key: 'test_799ff27291c166d10ba191902ad02fb059c')
 
 output = File.open(File.expand_path('../output.csv', __FILE__), 'w')
 
@@ -18,7 +17,7 @@ output.puts ['address_line1', 'address_city', 'address_state', 'address_zip', 'a
 File.open(File.expand_path('../input.txt', __FILE__)).each_line do |line|
   parsed_address = StreetAddress::US.parse(line)
 
-  verified_address = @lob.addresses.verify(
+  verified_address = lob.addresses.verify(
     address_line1: parsed_address.to_s(:line1),
     address_city: parsed_address.city,
     address_state: parsed_address.state,

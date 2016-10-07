@@ -92,7 +92,7 @@ module Lob
       end
 
       def base_url
-        "#{config[:protocol]}://#{config[:api_key]}:@#{config[:api_host]}/v1"
+        "https://#{config[:api_key]}:@api.lob.com/v1"
       end
 
       def endpoint_url

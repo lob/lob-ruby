@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Lob::Resources::Route do
 
-  subject { Lob(api_key: API_KEY) }
+  subject { Lob::Client.new(api_key: API_KEY) }
 
   describe "find" do
 

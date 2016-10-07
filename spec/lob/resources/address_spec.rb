@@ -16,7 +16,7 @@ describe Lob::Resources::Address do
     }
   end
 
-  subject { Lob(api_key: API_KEY) }
+  subject { Lob::Client.new(api_key: API_KEY) }
 
   describe "verify" do
 
