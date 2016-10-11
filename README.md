@@ -8,7 +8,7 @@
 
 Ruby wrapper for the [Lob.com](http://lob.com) API. See the full Lob.com [API Documentation](https://lob.com/docs/ruby).  For best results, be sure that you're using [the latest version](https://lob.com/docs/ruby#version) of the Lob API and the latest version of the ruby wrapper. This gem gives you an ActiveRecord-style syntax to use the Lob.com API.
 
-Supports Ruby 1.9.3 and greater.
+Supports Ruby 2.0.0 and greater.
 
 ## Table of Contents
 

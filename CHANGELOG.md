@@ -1,3 +1,12 @@
+## 3.0.0
+
+Version 3.0.0 introduces several breaking changes. It requires a minimum API version of `2015-04-11`.
+
+* Ruby 1.9.3 is no longer supported. lob-ruby now supports Ruby versions at or above 2.0.0.
+* Jobs and Objects resources have been deprecated from the gem.
+* Resources have been moved from `Lob::V1` to the `Lob::Resources` namespace and have been refactored to contain the HTTP request/response logic..
+* Configuration for the Lob Client has been changed. `Lob()`, `Lob.load`, and `Lob.configure` have all been deprecated and replaced with a single method of configuration: `Lob::Client.new(api_key: "your-api-key")`.
+
 ## [**2.5.1**](https://github.com/lob/lob-ruby/releases/tag/v2.5.1)
 - [**#145**] (https://github.com/lob/lob-ruby/pull/145) More lenient rest-client version restriction
 
