@@ -10,7 +10,7 @@ describe Lob::Resources::Area do
     }
   end
 
-  subject { Lob(api_key: API_KEY) }
+  subject { Lob::Client.new(api_key: API_KEY) }
 
   describe "list" do
     it "should list areas" do

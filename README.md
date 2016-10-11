@@ -61,20 +61,10 @@ For optional parameters and other details, refer to the docs [here](https://lob.
 
 ```ruby
 # To initialize a Lob object
-@lob = Lob.load(api_key: "your-api-key")
+lob = Lob::Client.new(api_key: "your-api-key")
 
-# Alternatively, to set the API key for all calls in the future
-Lob.api_key = "your-api-key"
-@lob = Lob.load
-```
-
-#### Or if you want some detailed configuration
-
-```ruby
-Lob.configure do |config|
-  config.api_key = "your-api-key"    # get your own at http://lob.com :)
-  config.api_version = "2014-12-18"  # override the API version
-end
+# To initialize a Lob object with an older API version
+lob = Lob::Client.new(api_key: "your-api-key", api_version: "2014-12-18")
 ```
 
 #### Caution: Pass zero-prefixed zip codes as strings
@@ -88,7 +78,7 @@ The Ruby interpreter assumes it's not of base-10 and tries to convert it to base
 You can access response headers via a hidden `headers` method on the response hash.
 
 ```ruby
-addresses = @lob.addresses.list
+addresses = lob.addresses.list
 
 addresses._response.headers[:content_type]
 # => "application/json; charset=utf-8"
@@ -104,7 +94,7 @@ You can also access headers from `Lob::InvalidRequestError`s.
 
 ```ruby
 begin
-  @lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
+  lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
 rescue Lob::InvalidRequestError => e
   e._response.headers[:content_type]
   # => "application/json; charset=utf-8"
@@ -192,7 +182,7 @@ Tests are written using MiniTest, a testing library that comes with Ruby stdlib.
 
 Here's how you can run the tests:
 
-    `bundle exec rake test`
+    bundle exec rake test
 
 You can also configure, TravisCI for your fork of the repository and it'll run the tests for you, when you push.
 

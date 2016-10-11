@@ -3,15 +3,14 @@ require 'lob'
 require 'csv'
 
 # Initialize Lob object
-Lob.api_key = 'test_799ff27291c166d10ba191902ad02fb059c'
-@lob = Lob.load
+lob = Lob::Client.new(api_key: 'test_799ff27291c166d10ba191902ad02fb059c')
 
 # Load the HTML from letter_template.html
 letter_html = File.open(File.expand_path('../letter_template.html', __FILE__)).read
 
 # Parse the CSV and create the letters.
 CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
-  letter = @lob.letters.create(
+  letter = lob.letters.create(
     description: 'CSV Test',
     to: {
       name: row[0],

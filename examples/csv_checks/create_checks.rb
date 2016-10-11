@@ -3,11 +3,10 @@ require 'lob'
 require 'csv'
 
 # Initialize Lob object
-Lob.api_key = 'test_799ff27291c166d10ba191902ad02fb059c'
-@lob = Lob.load
+lob = Lob::Client.new(api_key: 'test_799ff27291c166d10ba191902ad02fb059c')
 
 # Create a bank account
-bank_account = @lob.bank_accounts.create(
+bank_account = lob.bank_accounts.create(
   routing_number: "322271627",
   account_number: "123456789",
   account_type: "company",
@@ -17,11 +16,11 @@ bank_account = @lob.bank_accounts.create(
 puts bank_account
 
 # Verify bank account
-@lob.bank_accounts.verify(bank_account['id'], amounts: [23, 12])
+lob.bank_accounts.verify(bank_account['id'], amounts: [23, 12])
 
 # Parse the CSV and create the checks
 CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
-  check = @lob.checks.create(
+  check = lob.checks.create(
     description: 'CSV Test',
     bank_account: bank_account["id"],
     to: {

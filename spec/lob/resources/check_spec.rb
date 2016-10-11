@@ -21,9 +21,10 @@ describe Lob::Resources::Check do
       account_type: "company",
       signatory: "John Doe"
     }
+
   end
 
-  subject { Lob(api_key: API_KEY) }
+  subject { Lob::Client.new(api_key: API_KEY) }
 
   describe "list" do
     it "should list checks" do

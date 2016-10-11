@@ -3,8 +3,7 @@ require 'lob'
 require 'csv'
 
 # Initialize Lob object
-Lob.api_key = 'test_799ff27291c166d10ba191902ad02fb059c'
-@lob = Lob.load
+lob = Lob::Client.new(api_key: 'test_799ff27291c166d10ba191902ad02fb059c')
 
 # Load the HTML from postcard_front.html and postcard_back.html.
 front_html = File.open(File.expand_path('../postcard_front.html', __FILE__)).read
@@ -12,7 +11,7 @@ back_html = File.open(File.expand_path('../postcard_back.html', __FILE__)).read
 
 # Parse the CSV and create the postcards.
 CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
-  postcard = @lob.postcards.create(
+  postcard = lob.postcards.create(
     description: 'CSV Test',
     to: {
       name: row[5],
