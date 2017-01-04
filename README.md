@@ -115,6 +115,7 @@ There are simple scripts to demonstrate how to create all the core Lob products 
 - [Versioning](https://lob.com/docs/ruby#version)
 - [Errors](https://lob.com/docs/ruby#errors)
 - [Rate Limiting](https://lob.com/docs/ruby#rate-limits)
+- [Webhooks](https://lob.com/docs/ruby#webhooks)
 - [Metadata](https://lob.com/docs/ruby#metadata)
 - [Asset URLs](https://lob.com/docs/ruby#urls)
 - **Addresses**
@@ -169,6 +170,7 @@ There are simple scripts to demonstrate how to create all the core Lob products 
 - **Appendix**
   - [API Changelog](https://lob.com/docs/ruby#changelog)
   - [The Tracking Event Object](https://lob.com/docs/ruby#tracking_event_object)
+  - [Events](https://lob.com/docs/ruby#events)
   - [HTML Examples](https://lob.com/docs/ruby#html-examples)
   - [Image Prepping](https://lob.com/docs/ruby#prepping)
 
