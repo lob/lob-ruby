@@ -29,7 +29,7 @@ Here's a general overview of the Lob services available, click through to read m
 - [Letters API](https://lob.com/services/letters)
 - [Checks API](https://lob.com/services/checks)
 - [Area Mail API](https://lob.com/services/area)
-- [Address Verification API](https://lob.com/verification/address)
+- [Address Verification API](https://lob.com/services/verifications)
 
 ### Registration
 
@@ -125,8 +125,13 @@ There are simple scripts to demonstrate how to create all the core Lob products 
     - [Retrieve an Address](https://lob.com/docs/ruby#addresses_retrieve)
     - [Delete an Address](https://lob.com/docs/ruby#addresses_delete)
     - [List all Addresses](https://lob.com/docs/ruby#addresses_list)
-  - [Address Verification API](https://lob.com/docs/ruby#verify)
-    - [Verify an Address](https://lob.com/docs/ruby#verify_create)
+- **US Verification API**
+  - [US Verifications](https://lob.com/docs/ruby#us_verifications)
+    - [The US Verifications Object](https://lob.com/docs/ruby#us_verifications_object)
+    - [Verify a US address](https://lob.com/docs/ruby#us_verifications_create)
+- **Int'l Verification API**
+  - [International Verifications](https://lob.com/docs/ruby#intl_verifications)
+    - [Verify an int'l address](https://lob.com/docs/ruby#intl_verifications_create)
 - **Postcards API**
   - [Postcards](https://lob.com/docs/ruby#postcards)
     - [The Postcard Object](https://lob.com/docs/ruby#postcards_object)
@@ -173,6 +178,7 @@ There are simple scripts to demonstrate how to create all the core Lob products 
   - [Events](https://lob.com/docs/ruby#events)
   - [HTML Examples](https://lob.com/docs/ruby#html-examples)
   - [Image Prepping](https://lob.com/docs/ruby#prepping)
+  - [US Verification Details](https://lob.com/docs/ruby#us_verification_details)
 
 ## Contributing
 

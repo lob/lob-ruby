@@ -18,21 +18,6 @@ describe Lob::Resources::Address do
 
   subject { Lob::Client.new(api_key: API_KEY) }
 
-  describe "verify" do
-
-    it "should verify an address" do
-      result = subject.addresses.verify(
-        address_line1: @sample_params[:address_line1],
-        address_city:  @sample_params[:address_city],
-        address_state: @sample_params[:address_state],
-        address_zip:   @sample_params[:address_zip]
-      )
-
-      result["address"]["address_country"].must_equal("US")
-    end
-  end
-
-
   describe "list" do
     it "should list addresses" do
       assert subject.addresses.list["object"] == "list"

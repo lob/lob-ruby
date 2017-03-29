@@ -9,16 +9,6 @@ module Lob
         @endpoint = "addresses"
       end
 
-      def verify(options={})
-        submit :post, address_verify_url, options
-      end
-
-      private
-
-      def address_verify_url
-        "#{base_url}/verify"
-      end
-
     end
   end
 end
