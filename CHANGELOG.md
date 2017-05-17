@@ -1,3 +1,9 @@
+## 4.0.0
+
+Version 4.0.0 introduces a breaking change. It requires a minimum API version of `2017-05-17`, which introduces new US and International Verification APIs.
+
+* Removes `Lob.addresses.verify()`. Please use `Lob.us_verifications.verify()` and `Lob.intl_verifications.verify() instead.
+
 ## 3.0.0
 
 Version 3.0.0 introduces several breaking changes. It requires a minimum API version of `2015-04-11`.
