@@ -3,10 +3,12 @@ require "lob/resources/area"
 require "lob/resources/bank_account"
 require "lob/resources/check"
 require "lob/resources/country"
+require "lob/resources/intl_verifications"
 require "lob/resources/letter"
 require "lob/resources/postcard"
 require "lob/resources/route"
 require "lob/resources/state"
+require "lob/resources/us_verifications"
 
 module Lob
   class Client
@@ -41,6 +43,10 @@ module Lob
       Lob::Resources::Country.new(config)
     end
 
+    def intl_verifications
+      Lob::Resources::IntlVerifications.new(config)
+    end
+
     def letters
       Lob::Resources::Letter.new(config)
     end
@@ -55,6 +61,10 @@ module Lob
 
     def states
       Lob::Resources::State.new(config)
+    end
+
+    def us_verifications
+      Lob::Resources::USVerifications.new(config)
     end
 
   end
