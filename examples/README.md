@@ -18,10 +18,6 @@ An example showing how to dynamically create postcards from a CSV using HTML, a 
 
 An example showing how to create a check using Lob's [Checks API](https://lob.com/services/checks).
 
-## /jobs.rb
-
-An example showing how to create objects and jobs using Lob's [Jobs API](https://lob.com/services/sps).
-
 ## /letters.rb
 
 An example showing how to create a letter using Lob's [Letters API](https://lob.com/services/letters).
@@ -32,4 +28,4 @@ An example showing how to create a postcard using Lob's [Postcards API](https://
 
 ## /verify/
 
-An example showing how to verify an address using the [StreetAddress gem](https://github.com/derrek/street-address) and Lob's verify endpoint. This example saves verified addresses in a CSV file.
+An example showing how to verify an address using Lob's us_verifications endpoint. This example saves verified addresses in a CSV file.
