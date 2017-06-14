@@ -80,7 +80,7 @@ puts lob.postcards.create(
   to: to_address["id"],
   from: from_address["id"],
   metadata: { campaign: "Summer 2015 Beach" },
-  data: { name: "Albert", event: "Summer 2015 Beach-athon" },
+  merge_variables: { name: "Albert", event: "Summer 2015 Beach-athon" },
   front: html,
   message: "Please RSVP as soon as possible to reserve your lounge chair."
 )

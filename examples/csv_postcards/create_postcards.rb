@@ -33,7 +33,7 @@ CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
     size: "6x11",
     front: front_html,
     back: back_html,
-    data: {
+    merge_variables: {
       background_image: row[1],
       background_color: row[2],
       name: row[0],
