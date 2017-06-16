@@ -30,7 +30,7 @@ CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
       address_country: 'US'
     },
     file: letter_html,
-    data: {
+    merge_variables: {
       name: row[0],
       city: row[3]
     },

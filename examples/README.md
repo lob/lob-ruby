@@ -4,15 +4,15 @@ This directory contains a collection of ruby example to help get you started usi
 
 ## /csv_checks/
 
-An example showing how to dynamically create checks from a CSV using HTML, variable data, and Lob's [Checks API](https://lob.com/services/checks).
+An example showing how to dynamically create checks from a CSV using HTML, merge variables, and Lob's [Checks API](https://lob.com/services/checks).
 
 ## /csv_letters/
 
-An example showing how to dynamically create letters from a CSV using HTML, a custom font, variable data, and Lob's [Letters API](https://lob.com/services/letters).
+An example showing how to dynamically create letters from a CSV using HTML, a custom font, merge variables, and Lob's [Letters API](https://lob.com/services/letters).
 
 ## /csv_postcards/
 
-An example showing how to dynamically create postcards from a CSV using HTML, a custom font, variable data, and Lob's [Postcards API](https://lob.com/services/postcards).
+An example showing how to dynamically create postcards from a CSV using HTML, a custom font, merge variables, and Lob's [Postcards API](https://lob.com/services/postcards).
 
 ## /checks.rb
 

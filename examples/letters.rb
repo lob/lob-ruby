@@ -66,7 +66,7 @@ puts lob.letters.create(
   to: to_address["id"],
   from: from_address["id"],
   file: html,
-  data: { name: 'Albert', event: 'HTML Letter Conference'},
+  merge_variables: { name: 'Albert', event: 'HTML Letter Conference'},
   metadata: { campaign: 'HTML 1.0' },
   color: false
 )
