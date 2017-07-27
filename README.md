@@ -31,6 +31,8 @@ Here's a general overview of the Lob services available, click through to read m
 - [Area Mail API](https://lob.com/services/area)
 - [Address Verification API](https://lob.com/services/verifications)
 
+Please read through the official [API Documentation](#api-documentation) to get a complete sense of what to expect from each endpoint.
+
 ### Registration
 
 First, you will need to first create an account at [Lob.com](https://dashboard.lob.com/#/register) and obtain your Test and Live API Keys.
@@ -105,9 +107,7 @@ end
 
 We've provided various examples for you to try out [here](https://github.com/lob/lob-ruby/tree/master/examples).
 
-There are simple scripts to demonstrate how to create all the core Lob products (checks, letters, postcards, etc.), as well as more complex examples that utilize other libraries and external files:
-
-- [Creating Dynamic Postcards with HTML and Merge Variables](https://github.com/lob/lob-ruby/tree/master/examples/csv_postcards)
+There are simple scripts to demonstrate how to create all the core Lob objects (checks, letters, postcards. etc.) as well as more complex examples that utilize other libraries and external files.
 
 ## API Documentation
 
@@ -116,69 +116,75 @@ There are simple scripts to demonstrate how to create all the core Lob products 
 - [Errors](https://lob.com/docs/ruby#errors)
 - [Rate Limiting](https://lob.com/docs/ruby#rate-limits)
 - [Webhooks](https://lob.com/docs/ruby#webhooks)
+- [Cancellation Windows](https://lob.com/docs/ruby#cancellation)
+- [Scheduled Mailings](https://lob.com/docs/ruby#scheduled)
 - [Metadata](https://lob.com/docs/ruby#metadata)
+- [HTML Templates](https://lob.com/docs/ruby#templates)
 - [Asset URLs](https://lob.com/docs/ruby#urls)
 - **Addresses**
-  - [Address Book](https://lob.com/docs/ruby#addresses)
-    - [The Address Object](https://lob.com/docs/ruby#addresses_object)
-    - [Create an Address](https://lob.com/docs/ruby#addresses_create)
-    - [Retrieve an Address](https://lob.com/docs/ruby#addresses_retrieve)
-    - [Delete an Address](https://lob.com/docs/ruby#addresses_delete)
-    - [List all Addresses](https://lob.com/docs/ruby#addresses_list)
+- [Address Book](https://lob.com/docs/ruby#addresses)
+  - [The Address Object](https://lob.com/docs/ruby#addresses_object)
+  - [Create an Address](https://lob.com/docs/ruby#addresses_create)
+  - [Retrieve an Address](https://lob.com/docs/ruby#addresses_retrieve)
+  - [Delete an Address](https://lob.com/docs/ruby#addresses_delete)
+  - [List all Addresses](https://lob.com/docs/ruby#addresses_list)
 - **US Verification API**
-  - [US Verifications](https://lob.com/docs/ruby#us_verifications)
-    - [The US Verifications Object](https://lob.com/docs/ruby#us_verifications_object)
-    - [Verify a US address](https://lob.com/docs/ruby#us_verifications_create)
+- [US Verification API](https://lob.com/docs/ruby#us_verifications)
+  - [The US Verification Object](https://lob.com/docs/ruby#us_verifications_object)
+  - [Verify a US Address](https://lob.com/docs/ruby#us_verifications_create)
 - **Int'l Verification API**
-  - [International Verifications](https://lob.com/docs/ruby#intl_verifications)
-    - [Verify an int'l address](https://lob.com/docs/ruby#intl_verifications_create)
+- [International Verifications](https://lob.com/docs/ruby#intl_verifications)
+  - [Verify an International Address](https://lob.com/docs/ruby#intl_verifications_create)
 - **Postcards API**
-  - [Postcards](https://lob.com/docs/ruby#postcards)
-    - [The Postcard Object](https://lob.com/docs/ruby#postcards_object)
-    - [Create a Postcard](https://lob.com/docs/ruby#postcards_create)
-    - [Retrieve a Postcard](https://lob.com/docs/ruby#postcards_retrieve)
-    - [List all Postcards](https://lob.com/docs/ruby#postcards_list)
+- [Postcards](https://lob.com/docs/ruby#postcards)
+  - [The Postcard Object](https://lob.com/docs/ruby#postcards_object)
+  - [Create a Postcard](https://lob.com/docs/ruby#postcards_create)
+  - [Retrieve a Postcard](https://lob.com/docs/ruby#postcards_retrieve)
+  - [Cancel a Postcard](https://lob.com/docs/ruby#postcards_delete)
+  - [List all Postcards](https://lob.com/docs/ruby#postcards_list)
 - **Letters API**
-  - [Letters](https://lob.com/docs/ruby#letters)
-    - [The Letter Object](https://lob.com/docs/ruby#letters_object)
-    - [Create a Letter](https://lob.com/docs/ruby#letters_create)
-    - [Retrieve a Letter](https://lob.com/docs/ruby#letters_retrieve)
-    - [List all Letters](https://lob.com/docs/ruby#letters_list)
+- [Letters](https://lob.com/docs/ruby#letters)
+  - [The Letter Object](https://lob.com/docs/ruby#letters_object)
+  - [Create a Letter](https://lob.com/docs/ruby#letters_create)
+  - [Retrieve a Letter](https://lob.com/docs/ruby#letters_retrieve)
+  - [Cancel a Letter](https://lob.com/docs/ruby#letters_delete)
+  - [List all Letters](https://lob.com/docs/ruby#letters_list)
 - **Checks API**
-  - [Checks](https://lob.com/docs/ruby#checks)
-    - [The Check Object](https://lob.com/docs/ruby#checks_object)
-    - [Create a Check](https://lob.com/docs/ruby#checks_create)
-    - [Retrieve a Check](https://lob.com/docs/ruby#checks_retrieve)
-    - [List all Checks](https://lob.com/docs/ruby#checks_list)
-  - [Bank Accounts](https://lob.com/docs/ruby#bank-accounts)
-    - [The Bank Account Object](https://lob.com/docs/ruby#bankaccounts_object)
-    - [Create a Bank Account](https://lob.com/docs/ruby#bankaccounts_create)
-    - [Retrieve a Bank Account](https://lob.com/docs/ruby#bankaccounts_retrieve)
-    - [Delete a Bank Account](https://lob.com/docs/ruby#bankaccounts_delete)
-    - [Verify a Bank Account](https://lob.com/docs/ruby#bankaccounts_verify)
-    - [List all Bank Accounts](https://lob.com/docs/ruby#bankaccounts_list)
+- [Checks](https://lob.com/docs/ruby#checks)
+  - [The Check Object](https://lob.com/docs/ruby#checks_object)
+  - [Create a Check](https://lob.com/docs/ruby#checks_create)
+  - [Retrieve a Check](https://lob.com/docs/ruby#checks_retrieve)
+  - [Cancel a Check](https://lob.com/docs/ruby#checks_delete)
+  - [List all Checks](https://lob.com/docs/ruby#checks_list)
+- [Bank Accounts](https://lob.com/docs/ruby#bank-accounts)
+  - [The Bank Account Object](https://lob.com/docs/ruby#bankaccounts_object)
+  - [Create a Bank Account](https://lob.com/docs/ruby#bankaccounts_create)
+  - [Retrieve a Bank Account](https://lob.com/docs/ruby#bankaccounts_retrieve)
+  - [Delete a Bank Account](https://lob.com/docs/ruby#bankaccounts_delete)
+  - [Verify a Bank Account](https://lob.com/docs/ruby#bankaccounts_verify)
+  - [List all Bank Accounts](https://lob.com/docs/ruby#bankaccounts_list)
 - **Area Mail API**
-  - [Areas](https://lob.com/docs/ruby#areas)
-    - [The Area Object](https://lob.com/docs/ruby#areas_object)
-    - [Create an Area Mailing](https://lob.com/docs/ruby#areas_create)
-    - [Retrieve an Area Mailing](https://lob.com/docs/ruby#areas_retrieve)
-    - [List all Area Mailings](https://lob.com/docs/ruby#areas_list)
-  - [Routes](https://lob.com/docs/ruby#routes)
-    - [The Routes Object](https://lob.com/docs/ruby#routes_object)
-    - [Retrieve Routes](https://lob.com/docs/ruby#routes_retrieve)
-    - [List all Routes](https://lob.com/docs/ruby#routes_list)
+- [Areas](https://lob.com/docs/ruby#areas)
+  - [The Area Object](https://lob.com/docs/ruby#areas_object)
+  - [Create an Area Mailing](https://lob.com/docs/ruby#areas_create)
+  - [Retrieve an Area Mailing](https://lob.com/docs/ruby#areas_retrieve)
+  - [List all Area Mailings](https://lob.com/docs/ruby#areas_list)
+- [Routes](https://lob.com/docs/ruby#routes)
+  - [The Routes Object](https://lob.com/docs/ruby#routes_object)
+  - [Retrieve Routes](https://lob.com/docs/ruby#routes_retrieve)
+  - [List all Routes](https://lob.com/docs/ruby#routes_list)
 - **Resources**
-  - [Countries](https://lob.com/docs/ruby#countries)
-    - [List all Countries](https://lob.com/docs/ruby#countries_list)
-  - [States](https://lob.com/docs/ruby#states)
-    - [List all States](https://lob.com/docs/ruby#states_list)
+- [Countries](https://lob.com/docs/ruby#countries)
+  - [List all Countries](https://lob.com/docs/ruby#countries_list)
+- [States](https://lob.com/docs/ruby#states)
+  - [List all States](https://lob.com/docs/ruby#states_list)
 - **Appendix**
-  - [API Changelog](https://lob.com/docs/ruby#changelog)
-  - [The Tracking Event Object](https://lob.com/docs/ruby#tracking_event_object)
-  - [Events](https://lob.com/docs/ruby#events)
-  - [HTML Examples](https://lob.com/docs/ruby#html-examples)
-  - [Image Prepping](https://lob.com/docs/ruby#prepping)
-  - [US Verification Details](https://lob.com/docs/ruby#us_verification_details)
+- [API Changelog](https://lob.com/docs/ruby#changelog)
+- [The Tracking Event Object](https://lob.com/docs/ruby#tracking_event_object)
+- [Events](https://lob.com/docs/ruby#events)
+- [HTML Examples](https://lob.com/docs/ruby#html-examples)
+- [Image Prepping](https://lob.com/docs/ruby#prepping)
+- [US Verification Details](https://lob.com/docs/ruby#us_verification_details)
 
 ## Contributing
 
