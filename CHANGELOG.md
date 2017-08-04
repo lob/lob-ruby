@@ -1,3 +1,6 @@
+## [**4.1.0**](https://github.com/lob/lob-ruby/releases/tag/v4.1.0)
+- [**#158**] (https://github.com/lob/lob-ruby/pull/158) add US Zip Lookups API endpoint to wrapper
+
 ## 4.0.0
 
 Version 4.0.0 introduces a breaking change. It requires a minimum API version of `2017-05-17`, which introduces new US and International Verification APIs.
