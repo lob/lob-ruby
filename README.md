@@ -132,6 +132,8 @@ There are simple scripts to demonstrate how to create all the core Lob objects (
 - [US Verification API](https://lob.com/docs/ruby#us_verifications)
   - [The US Verification Object](https://lob.com/docs/ruby#us_verifications_object)
   - [Verify a US Address](https://lob.com/docs/ruby#us_verifications_create)
+  - [The US Zip Lookup Object](https://lob.com/docs/ruby#us_zip_lookups_object)
+  - [Lookup a US Zip Code](https://lob.com/docs/ruby#us_zip_lookups_create)
 - **Int'l Verification API**
 - [International Verifications](https://lob.com/docs/ruby#intl_verifications)
   - [Verify an International Address](https://lob.com/docs/ruby#intl_verifications_create)
@@ -205,4 +207,3 @@ You can also configure, TravisCI for your fork of the repository and it'll run t
 Copyright &copy; 2016 Lob.com
 
 Released under the MIT License, which can be found in the repository in `LICENSE.txt`.
-

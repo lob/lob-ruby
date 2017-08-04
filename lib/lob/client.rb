@@ -9,6 +9,7 @@ require "lob/resources/postcard"
 require "lob/resources/route"
 require "lob/resources/state"
 require "lob/resources/us_verifications"
+require "lob/resources/us_zip_lookups"
 
 module Lob
   class Client
@@ -65,6 +66,10 @@ module Lob
 
     def us_verifications
       Lob::Resources::USVerifications.new(config)
+    end
+
+    def us_zip_lookups
+      Lob::Resources::USZipLookups.new(config)
     end
 
   end
