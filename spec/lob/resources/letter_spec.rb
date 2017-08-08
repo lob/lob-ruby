@@ -1,4 +1,5 @@
 require "spec_helper"
+require "securerandom"
 
 describe Lob::Resources::Letter do
 
@@ -37,6 +38,34 @@ describe Lob::Resources::Letter do
       )
 
       new_letter["description"].must_equal("TestLetter")
+    end
+
+    it "should accept an idempotency_key" do
+      new_address = subject.addresses.create @sample_address_params
+
+      uuid = SecureRandom.uuid
+
+      new_letter = subject.letters.create({
+        description: "TestLetter",
+        color: true,
+        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        to: new_address["id"],
+        from: @sample_address_params
+      }, {
+        "idempotency-key": uuid
+      })
+
+      new_letter_dup = subject.letters.create({
+        description: "TestLetter",
+        color: true,
+        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        to: new_address["id"],
+        from: @sample_address_params
+      }, {
+        "idempotency-key": uuid
+      })
+
+      new_letter["id"].must_equal(new_letter_dup["id"])
     end
 
     it "should create a letter with a local file" do
