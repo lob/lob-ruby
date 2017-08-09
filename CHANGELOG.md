@@ -1,3 +1,6 @@
+## [**4.1.1**](https://github.com/lob/lob-ruby/releases/tag/v4.1.1)
+- [**#160**] (https://github.com/lob/lob-ruby/pull/160) adds capability to pass in idempotency headers
+
 ## [**4.1.0**](https://github.com/lob/lob-ruby/releases/tag/v4.1.0)
 - [**#158**] (https://github.com/lob/lob-ruby/pull/158) add US Zip Lookups API endpoint to wrapper
 
