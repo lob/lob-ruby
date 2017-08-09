@@ -3,7 +3,7 @@ require "spec_helper"
 describe Lob::Resources::ResourceBase do
 
   before :each do
-    @api_key = "test"
+    @api_key = API_KEY
   end
 
   subject { Lob::Client.new(api_key: @api_key) }
@@ -48,6 +48,48 @@ describe Lob::Resources::ResourceBase do
 
   it "should return states resource" do
     subject.states.must_be_kind_of(Lob::Resources::State)
+  end
+
+  it "should accept an idempotency_key" do
+    sample_address_params = {
+      name:    "TestAddress",
+      email:   "test@test.com",
+      address_line1: "123 Test Street",
+      address_line2: "Unit 199",
+      address_city:    "Mountain View",
+      address_state:   "CA",
+      address_country: "US",
+      address_zip:     94085
+    }
+
+    sample_postcard_params = {
+      description:    "TestPostcard",
+      message: "Sample postcard message"
+    }
+
+    new_address = subject.addresses.create sample_address_params
+
+    idempotency_key = "Test_Idempotency_key"
+
+    new_postcard = subject.postcards.create({
+      description: sample_postcard_params[:description],
+      to: new_address["id"],
+      message: sample_postcard_params[:message],
+      front: "https://lob.com/postcardfront.pdf"
+    }, {
+      "Idempotency-Key" => idempotency_key
+    })
+
+    new_postcard_dup = subject.postcards.create({
+      description: sample_postcard_params[:description],
+      to: new_address["id"],
+      message: sample_postcard_params[:message],
+      front: "https://lob.com/postcardfront.pdf"
+    }, {
+      "Idempotency-Key" => idempotency_key
+    })
+
+    new_postcard["id"].must_equal(new_postcard_dup["id"])
   end
 
 end
