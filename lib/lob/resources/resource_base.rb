@@ -20,8 +20,8 @@ module Lob
         submit :get, resource_url(resource_id)
       end
 
-      def create(options = {})
-        submit :post, endpoint_url, options
+      def create(options={}, headers={})
+        submit :post, endpoint_url, options, headers
       end
 
       def destroy(resource_id)
@@ -30,7 +30,7 @@ module Lob
 
       private
 
-      def submit(method, url, parameters={})
+      def submit(method, url, parameters={}, headers={})
         clientVersion = Lob::VERSION
 
         begin
@@ -42,10 +42,11 @@ module Lob
               "Lob-Version" => config[:api_version]
             })
           else
-            response = RestClient.send(method, url, parameters, {
+            headers = headers.merge({
               user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
               "Lob-Version" => config[:api_version]
             })
+            response = RestClient.send(method, url, parameters, headers)
           end
 
           body = JSON.parse(response)

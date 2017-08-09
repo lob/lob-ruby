@@ -37,7 +37,7 @@ describe Lob::Resources::Postcard do
         description: @sample_postcard_params[:description],
         to: new_address["id"],
         message: @sample_postcard_params[:message],
-        front: "https://lob.com/postcardfront.pdf",
+        front: "https://lob.com/postcardfront.pdf"
       )
 
       result["description"].must_equal(@sample_postcard_params[:description])
