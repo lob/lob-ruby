@@ -12,4 +12,7 @@ rvm:
 env:
   JRUBY_OPTS=--2.0
 
+before_install:
+    - gem install bundler
+
 script: bundle exec rake test
