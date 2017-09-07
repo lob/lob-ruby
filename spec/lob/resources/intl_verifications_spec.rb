@@ -4,11 +4,11 @@ describe Lob::Resources::IntlVerifications do
 
   before :each do
     @sample_params = {
-      address_line1: "123 Test St",
-      address_city: "HEARST",
-      address_state: "ONTARIO",
-      address_zip: "P0L1N0",
-      address_country: "CA"
+      primary_line: "123 Test St",
+      city: "HEARST",
+      state: "ONTARIO",
+      postal_code: "P0L1N0",
+      country: "CA"
     }
   end
 
