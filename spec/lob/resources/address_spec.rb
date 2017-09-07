@@ -4,9 +4,9 @@ describe Lob::Resources::Address do
 
   before :each do
     @sample_params = {
-      name: "John Doe",
-      address_line1: "325 Berry Street",
-      address_city: "San Francisco",
+      name: "JOHN DOE",
+      address_line1: "325 BERRY ST",
+      address_city: "SAN FRANCISCO",
       address_state: "CA",
       address_country: "US",
       address_zip: 94158,
