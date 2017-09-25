@@ -20,7 +20,7 @@ describe Lob::Resources::USVerifications do
 
       result["recipient"].must_equal(@sample_params[:recipient])
       result["primary_line"].must_equal(@sample_params[:primary_line])
-      result["last_line"].must_equal("SAN FRANCISCO CA 94107-1728")
+      result["last_line"].must_equal("SAN FRANCISCO CA 94107-1234")
     end
   end
 
