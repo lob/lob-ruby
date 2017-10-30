@@ -2,12 +2,10 @@ require "lob/resources/address"
 require "lob/resources/area"
 require "lob/resources/bank_account"
 require "lob/resources/check"
-require "lob/resources/country"
 require "lob/resources/intl_verifications"
 require "lob/resources/letter"
 require "lob/resources/postcard"
 require "lob/resources/route"
-require "lob/resources/state"
 require "lob/resources/us_verifications"
 require "lob/resources/us_zip_lookups"
 
@@ -40,10 +38,6 @@ module Lob
       Lob::Resources::Check.new(config)
     end
 
-    def countries
-      Lob::Resources::Country.new(config)
-    end
-
     def intl_verifications
       Lob::Resources::IntlVerifications.new(config)
     end
@@ -58,10 +52,6 @@ module Lob
 
     def routes
       Lob::Resources::Route.new(config)
-    end
-
-    def states
-      Lob::Resources::State.new(config)
     end
 
     def us_verifications
