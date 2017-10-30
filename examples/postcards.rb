@@ -82,5 +82,5 @@ puts lob.postcards.create(
   metadata: { campaign: "Summer 2015 Beach" },
   merge_variables: { name: "Albert", event: "Summer 2015 Beach-athon" },
   front: html,
-  message: "Please RSVP as soon as possible to reserve your lounge chair."
+  back: "<h1>Please RSVP as soon as possible to reserve your lounge chair.</h1>"
 )

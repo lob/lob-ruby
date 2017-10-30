@@ -64,7 +64,7 @@ describe Lob::Resources::ResourceBase do
 
     sample_postcard_params = {
       description:    "TestPostcard",
-      message: "Sample postcard message"
+      back: "<h1>Sample postcard back</h1>"
     }
 
     new_address = subject.addresses.create sample_address_params
@@ -74,7 +74,7 @@ describe Lob::Resources::ResourceBase do
     new_postcard = subject.postcards.create({
       description: sample_postcard_params[:description],
       to: new_address["id"],
-      message: sample_postcard_params[:message],
+      back: sample_postcard_params[:back],
       front: "https://lob.com/postcardfront.pdf"
     }, {
       "Idempotency-Key" => idempotency_key
@@ -83,7 +83,7 @@ describe Lob::Resources::ResourceBase do
     new_postcard_dup = subject.postcards.create({
       description: sample_postcard_params[:description],
       to: new_address["id"],
-      message: sample_postcard_params[:message],
+      back: sample_postcard_params[:back],
       front: "https://lob.com/postcardfront.pdf"
     }, {
       "Idempotency-Key" => idempotency_key
