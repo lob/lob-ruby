@@ -30,10 +30,6 @@ describe Lob::Resources::ResourceBase do
     subject.checks.must_be_kind_of(Lob::Resources::Check)
   end
 
-  it "should return countries resource" do
-    subject.countries.must_be_kind_of(Lob::Resources::Country)
-  end
-
   it "should return letters resource" do
     subject.letters.must_be_kind_of(Lob::Resources::Letter)
   end
@@ -44,10 +40,6 @@ describe Lob::Resources::ResourceBase do
 
   it "should return routes resource" do
     subject.routes.must_be_kind_of(Lob::Resources::Route)
-  end
-
-  it "should return states resource" do
-    subject.states.must_be_kind_of(Lob::Resources::State)
   end
 
   it "should accept an idempotency_key" do
@@ -64,7 +56,7 @@ describe Lob::Resources::ResourceBase do
 
     sample_postcard_params = {
       description:    "TestPostcard",
-      message: "Sample postcard message"
+      back: "<h1>Sample postcard back</h1>"
     }
 
     new_address = subject.addresses.create sample_address_params
@@ -74,7 +66,7 @@ describe Lob::Resources::ResourceBase do
     new_postcard = subject.postcards.create({
       description: sample_postcard_params[:description],
       to: new_address["id"],
-      message: sample_postcard_params[:message],
+      back: sample_postcard_params[:back],
       front: "https://lob.com/postcardfront.pdf"
     }, {
       "Idempotency-Key" => idempotency_key
@@ -83,7 +75,7 @@ describe Lob::Resources::ResourceBase do
     new_postcard_dup = subject.postcards.create({
       description: sample_postcard_params[:description],
       to: new_address["id"],
-      message: sample_postcard_params[:message],
+      back: sample_postcard_params[:back],
       front: "https://lob.com/postcardfront.pdf"
     }, {
       "Idempotency-Key" => idempotency_key
