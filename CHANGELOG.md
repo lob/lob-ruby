@@ -1,3 +1,6 @@
+## [**4.1.2**](https://github.com/lob/lob-ruby/releases/tag/v4.1.2)
+- [**#165**] (https://github.com/lob/lob-ruby/pull/165) Remove states and countries API resources. Also remove the ability to use postcard.message.
+
 ## [**4.1.1**](https://github.com/lob/lob-ruby/releases/tag/v4.1.1)
 - [**#160**] (https://github.com/lob/lob-ruby/pull/160) adds capability to pass in idempotency headers
 
