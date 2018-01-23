@@ -73,7 +73,7 @@ lob = Lob::Client.new(api_key: "your-api-key", api_version: "2014-12-18")
 
 When using zip codes with zero-prefixes, always quote them. For example when specifying `02125`, pass it as a string `"02125"`, instead of an integer.
 
-The Ruby interpreter assumes it's not of base-10 and tries to convert it to base-10 number. So that might result in an entirely different zip-code than intended.
+The Ruby interpreter interprets a number with a leading zero as an octal (i.e., base-8) number and converts it to a base-10 number.  Thus `01000` is converted to the base-10 value `512` (since `8*8*8=512`).  So not quoting might result in an entirely different zip-code than intended.
 
 #### Accessing Response Headers
 
