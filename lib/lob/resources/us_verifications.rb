@@ -11,8 +11,15 @@ module Lob
         @endpoint = "us_verifications"
       end
 
-      def verify(options={})
-        submit :post, endpoint_url, options
+      def verify(body={}, query={})
+        request = {
+          method: :post,
+          url: endpoint_url,
+          body: body,
+          query: query
+        }
+
+        submit request
       end
 
     end

@@ -13,10 +13,19 @@ module Lob
 
       def list(options = {})
         if options.is_a?(String)
-          submit :get, resource_url(options)
+          request = {
+            method: :get,
+            url: resource_url(options)
+          }
         else
-          submit :get, endpoint_url, options
+          request = {
+            method: :get,
+            url: endpoint_url,
+            query: options
+          }
         end
+
+        submit request
       end
 
     end

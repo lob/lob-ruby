@@ -12,41 +12,71 @@ module Lob
         @config = config
       end
 
-      def list(options={})
-        submit :get, endpoint_url, options
+      def list(query={})
+        request = {
+          method: :get,
+          url: endpoint_url,
+          query: query
+        }
+
+        submit request
       end
 
       def find(resource_id)
-        submit :get, resource_url(resource_id)
+        request = {
+          method: :get,
+          url: resource_url(resource_id)
+        }
+
+        submit request
       end
 
-      def create(options={}, headers={})
-        submit :post, endpoint_url, options, headers
+      def create(body={}, headers={}, query={})
+        request = {
+          method: :post,
+          url: endpoint_url,
+          body: body,
+          headers: headers,
+          query: query
+        }
+
+        submit request
       end
 
       def destroy(resource_id)
-        submit :delete, resource_url(resource_id)
+        request = {
+          method: :delete,
+          url: resource_url(resource_id)
+        }
+
+        submit request
       end
 
       private
 
-      def submit(method, url, parameters={}, headers={})
+      def submit(request)
         clientVersion = Lob::VERSION
+
+        url     = request[:url]
+        method  = request[:method]
+        body    = request[:body] || {}
+        query   = request[:query] || {}
+        headers = request[:headers] || {}
+
+        headers = headers.merge({
+          user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
+          "Lob-Version" => config[:api_version]
+        })
+
+        if query != {}
+          url = "#{url}?#{build_nested_query(query)}"
+        end
 
         begin
           if method == :get || method == :delete
-            # Hack to URL encode nested objects like metadata.
-            url = "#{url}?#{build_nested_query(parameters)}"
-            response = RestClient.send(method, url, {
-              user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
-              "Lob-Version" => config[:api_version]
-            })
+            response = RestClient.send(method, url, headers)
           else
-            headers = headers.merge({
-              user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
-              "Lob-Version" => config[:api_version]
-            })
-            response = RestClient.send(method, url, parameters, headers)
+            response = RestClient.send(method, url, body, headers)
           end
 
           body = JSON.parse(response)

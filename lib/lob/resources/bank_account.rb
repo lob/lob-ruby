@@ -9,8 +9,14 @@ module Lob
         @endpoint = "bank_accounts"
       end
 
-      def verify(bank_account_id, options = {})
-        submit :post, verify_url(bank_account_id), options
+      def verify(bank_account_id, body = {})
+        request = {
+          method: :post,
+          url: verify_url(bank_account_id),
+          body: body
+        }
+
+        submit request
       end
 
       private

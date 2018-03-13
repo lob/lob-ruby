@@ -11,8 +11,14 @@ module Lob
         @endpoint = "us_zip_lookups"
       end
 
-      def lookup(options={})
-        submit :post, endpoint_url, options
+      def lookup(body={})
+        request = {
+          method: :post,
+          url: endpoint_url,
+          body: body
+        }
+
+        submit request
       end
 
     end
