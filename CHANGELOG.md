@@ -1,3 +1,9 @@
+## [**4.2.0**](https://github.com/lob/lob-ruby/releases/tag/v4.2.0)
+- [**169**](https://github.com/lob/lob-ruby/pull/169) Support 'case' param for us_verifications
+- [**168**](https://github.com/lob/lob-ruby/pull/168) tweak wording around handling numbers with leading zeros
+- [**167**](https://github.com/lob/lob-ruby/pull/167) remove duplicate test
+- [**166**](https://github.com/lob/lob-ruby/pull/166) Fix commented check amount in checks.rb example
+
 ## [**4.1.2**](https://github.com/lob/lob-ruby/releases/tag/v4.1.2)
 - [**#165**] (https://github.com/lob/lob-ruby/pull/165) Remove states and countries API resources. Also remove the ability to use postcard.message.
 
