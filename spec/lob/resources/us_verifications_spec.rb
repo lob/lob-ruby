@@ -21,7 +21,7 @@ describe Lob::Resources::USVerifications do
       result["recipient"].must_equal("TEST KEYS DO NOT VERIFY ADDRESSES")
     end
 
-    it "should verify a US address" do
+    it "should allow 'case' in query params" do
       result = subject.us_verifications.verify @sample_params, {case: "proper"}
 
       result["recipient"].must_equal("Test Keys Do Not Verify Addresses")
