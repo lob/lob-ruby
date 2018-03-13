@@ -18,9 +18,13 @@ describe Lob::Resources::USVerifications do
     it "should verify a US address" do
       result = subject.us_verifications.verify @sample_params
 
-      result["recipient"].must_equal(@sample_params[:recipient])
-      result["primary_line"].must_equal(@sample_params[:primary_line])
-      result["last_line"].must_equal("SAN FRANCISCO CA 94107-1234")
+      result["recipient"].must_equal("TEST KEYS DO NOT VERIFY ADDRESSES")
+    end
+
+    it "should verify a US address" do
+      result = subject.us_verifications.verify @sample_params, {case: "proper"}
+
+      result["recipient"].must_equal("Test Keys Do Not Verify Addresses")
     end
   end
 
