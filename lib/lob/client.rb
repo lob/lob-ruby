@@ -6,6 +6,7 @@ require "lob/resources/intl_verifications"
 require "lob/resources/letter"
 require "lob/resources/postcard"
 require "lob/resources/route"
+require "lob/resources/us_autocompletions"
 require "lob/resources/us_verifications"
 require "lob/resources/us_zip_lookups"
 
@@ -52,6 +53,10 @@ module Lob
 
     def routes
       Lob::Resources::Route.new(config)
+    end
+
+    def us_autocompletions
+      Lob::Resources::USAutocompletions.new(config)
     end
 
     def us_verifications
