@@ -1,3 +1,7 @@
+## [**4.3.0**](https://github.com/lob/lob-ruby/releases/tag/v4.3.0)
+- [**171**](https://github.com/lob/lob-ruby/pull/171) add USAutocompletions
+- [**170**](https://github.com/lob/lob-ruby/pull/170) Fix test name
+
 ## [**4.2.0**](https://github.com/lob/lob-ruby/releases/tag/v4.2.0)
 - [**169**](https://github.com/lob/lob-ruby/pull/169) Support 'case' param for us_verifications
 - [**168**](https://github.com/lob/lob-ruby/pull/168) tweak wording around handling numbers with leading zeros
