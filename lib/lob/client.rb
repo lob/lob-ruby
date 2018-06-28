@@ -1,11 +1,9 @@
 require "lob/resources/address"
-require "lob/resources/area"
 require "lob/resources/bank_account"
 require "lob/resources/check"
 require "lob/resources/intl_verifications"
 require "lob/resources/letter"
 require "lob/resources/postcard"
-require "lob/resources/route"
 require "lob/resources/us_autocompletions"
 require "lob/resources/us_verifications"
 require "lob/resources/us_zip_lookups"
@@ -21,10 +19,6 @@ module Lob
       end
 
       @config = config
-    end
-
-    def areas
-      Lob::Resources::Area.new(config)
     end
 
     def addresses
@@ -49,10 +43,6 @@ module Lob
 
     def postcards
       Lob::Resources::Postcard.new(config)
-    end
-
-    def routes
-      Lob::Resources::Route.new(config)
     end
 
     def us_autocompletions
