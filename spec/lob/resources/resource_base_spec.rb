@@ -14,10 +14,6 @@ describe Lob::Resources::ResourceBase do
     end
   end
 
-  it "should return areas resource" do
-    subject.areas.must_be_kind_of(Lob::Resources::Area)
-  end
-
   it "should return addresses resource" do
     subject.addresses.must_be_kind_of(Lob::Resources::Address)
   end
@@ -36,10 +32,6 @@ describe Lob::Resources::ResourceBase do
 
   it "should return postcards resource" do
     subject.postcards.must_be_kind_of(Lob::Resources::Postcard)
-  end
-
-  it "should return routes resource" do
-    subject.routes.must_be_kind_of(Lob::Resources::Route)
   end
 
   it "should accept an idempotency_key" do

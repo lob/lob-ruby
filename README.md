@@ -28,7 +28,6 @@ Here's a general overview of the Lob services available, click through to read m
 - [Postcards API](https://lob.com/services/postcards)
 - [Letters API](https://lob.com/services/letters)
 - [Checks API](https://lob.com/services/checks)
-- [Area Mail API](https://lob.com/services/area)
 - [Address Verification API](https://lob.com/services/verifications)
 
 Please read through the official [API Documentation](#api-documentation) to get a complete sense of what to expect from each endpoint.
@@ -169,16 +168,6 @@ There are simple scripts to demonstrate how to create all the core Lob objects (
     - [Delete a Bank Account](https://lob.com/docs/ruby#bankaccounts_delete)
     - [Verify a Bank Account](https://lob.com/docs/ruby#bankaccounts_verify)
     - [List all Bank Accounts](https://lob.com/docs/ruby#bankaccounts_list)
-- **Area Mail API**
-  - [Areas](https://lob.com/docs/ruby#areas)
-    - [The Area Object](https://lob.com/docs/ruby#areas_object)
-    - [Create an Area Mailing](https://lob.com/docs/ruby#areas_create)
-    - [Retrieve an Area Mailing](https://lob.com/docs/ruby#areas_retrieve)
-    - [List all Area Mailings](https://lob.com/docs/ruby#areas_list)
-  - [Routes](https://lob.com/docs/ruby#routes)
-    - [The Routes Object](https://lob.com/docs/ruby#routes_object)
-    - [Retrieve Routes](https://lob.com/docs/ruby#routes_retrieve)
-    - [List all Routes](https://lob.com/docs/ruby#routes_list)
 - **Appendix**
   - [API Changelog](https://lob.com/docs/ruby#changelog)
   - [The Tracking Event Object](https://lob.com/docs/ruby#tracking_event_object)
