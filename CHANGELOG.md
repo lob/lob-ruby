@@ -1,3 +1,10 @@
+## 5.0.0
+
+Version 5.0.0 introduces a breaking change. It removes support for the area mail resources (`Areas` and `Routes`).
+
+* Removes `Lob.areas`.
+* Removes `Lob.routes`.
+
 ## [**4.3.0**](https://github.com/lob/lob-ruby/releases/tag/v4.3.0)
 - [**171**](https://github.com/lob/lob-ruby/pull/171) add USAutocompletions
 - [**170**](https://github.com/lob/lob-ruby/pull/170) Fix test name
