@@ -18,7 +18,7 @@ html = %{
     font-family: 'Loved by the King';
     font-style: normal;
     font-weight: 400;
-    src: url('https://s3-us-west-2.amazonaws.com/lob-assets/LovedbytheKing.ttf') format('truetype');
+    src: url('https://s3-us-west-2.amazonaws.com/public.lob.com/fonts/lovedByTheKing/LovedbytheKing.ttf') format('truetype');
   }
 
   .text {

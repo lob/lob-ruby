@@ -31,7 +31,7 @@ describe Lob::Resources::Letter do
       new_letter = subject.letters.create(
         description: "TestLetter",
         color: true,
-        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        file: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/us_letter_1pg.pdf",
         to: new_address["id"],
         from: @sample_address_params
       )
@@ -62,7 +62,7 @@ describe Lob::Resources::Letter do
       new_letter = subject.letters.create(
         description: "TestLetter",
         color: true,
-        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        file: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/us_letter_1pg.pdf",
         to: new_address["id"],
         from: new_address["id"]
       )
@@ -80,7 +80,7 @@ describe Lob::Resources::Letter do
       new_letter = subject.letters.create(
         description: "TestLetter",
         color: true,
-        file: "https://s3-us-west-2.amazonaws.com/lob-assets/letter-goblue.pdf",
+        file: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/us_letter_1pg.pdf",
         to: new_address["id"],
         from: new_address["id"]
       )

@@ -20,7 +20,7 @@ html = %{
     font-family: 'Loved by the King';
     font-style: normal;
     font-weight: 400;
-    src: url('https://s3-us-west-2.amazonaws.com/lob-assets/LovedbytheKing.ttf') format('truetype');
+    src: url('https://s3-us-west-2.amazonaws.com/public.lob.com/fonts/lovedByTheKing/LovedbytheKing.ttf') format('truetype');
   }
 
   body {
@@ -29,7 +29,7 @@ html = %{
     margin: 0;
     padding: 0;
     /* If using an image, the background image should have dimensions of 1875x1275 pixels. */
-    background-image: url(https://s3-us-west-2.amazonaws.com/lob-assets/beach.jpg);
+    background-image: url(https://s3-us-west-2.amazonaws.com/public.lob.com/assets/beach.jpg);
     background-size: 6.25in 4.25in;
     background-repeat: no-repeat;
   }
