@@ -94,7 +94,7 @@ You can also access headers from `Lob::InvalidRequestError`s.
 
 ```ruby
 begin
-  lob.objects.create(name: "Test", file: "https://lob.com/test.pdf", bad_param: "bad_value")
+  lob.objects.create(name: "Test", file: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/incorrect_size.pdf", bad_param: "bad_value")
 rescue Lob::InvalidRequestError => e
   e._response.headers[:content_type]
   # => "application/json; charset=utf-8"
