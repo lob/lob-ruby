@@ -2,15 +2,11 @@ require "spec_helper"
 
 describe Lob::Resources::ResourceBase do
 
-  before :each do
-    @api_key = API_KEY
-  end
-
-  subject { Lob::Client.new(api_key: @api_key) }
+  subject { Lob::Client.new(api_key: API_KEY) }
 
   describe "when Lob is initialized" do
     it "should have API key in config" do
-      subject.config[:api_key].must_equal @api_key
+      subject.config[:api_key].must_equal API_KEY
     end
   end
 

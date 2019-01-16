@@ -1,7 +1,5 @@
 language: ruby
 
-sudo: false
-
 rvm:
   - jruby-9.0.5.0
   - jruby-9.1.9.0
@@ -9,11 +7,10 @@ rvm:
   - 2.2
   - 2.3
   - 2.4
+  - 2.5
+  - 2.6
 
 env:
   JRUBY_OPTS=--2.0
-
-before_install:
-    - gem install bundler
 
 script: bundle exec rake test
