@@ -3,7 +3,7 @@ require 'lob'
 require 'csv'
 
 # Initialize Lob object
-lob = Lob::Client.new(api_key: 'test_799ff27291c166d10ba191902ad02fb059c')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
 
 # Create a bank account
 bank_account = lob.bank_accounts.create(

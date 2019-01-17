@@ -14,4 +14,4 @@ require "minitest/spec"
 require "minitest/pride"
 require "minitest/autorun"
 
-API_KEY = 'test_799ff27291c166d10ba191902ad02fb059c'
+API_KEY = ENV['API_KEY']

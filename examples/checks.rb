@@ -2,7 +2,7 @@ $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require 'lob'
 
 # initialize Lob object
-lob = Lob::Client.new(api_key: 'test_799ff27291c166d10ba191902ad02fb059c')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
 
 # create an address
 to_address = lob.addresses.create(
