@@ -1,6 +1,7 @@
 require "lob/resources/address"
 require "lob/resources/bank_account"
 require "lob/resources/check"
+require "lob/resources/group"
 require "lob/resources/intl_verifications"
 require "lob/resources/letter"
 require "lob/resources/postcard"
@@ -31,6 +32,10 @@ module Lob
 
     def checks
       Lob::Resources::Check.new(config)
+    end
+    
+    def groups
+      Lob::Resources::Group.new(config)
     end
 
     def intl_verifications
