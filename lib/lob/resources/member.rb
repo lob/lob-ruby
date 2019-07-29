@@ -53,60 +53,6 @@ module Lob
         submit request
       end
 
-      # private
-
-      # def submit(request)
-      #   clientVersion = Lob::VERSION
-
-      #   url     = request[:url]
-      #   method  = request[:method]
-      #   body    = request[:body] || {}
-      #   query   = request[:query] || {}
-      #   headers = request[:headers] || {}
-
-      #   headers = headers.merge({
-      #     user_agent: 'Lob/v1 RubyBindings/' + clientVersion,
-      #     "Lob-Version" => config[:api_version]
-      #   })
-
-      #   if query != {}
-      #     url = "#{url}?#{build_nested_query(query)}"
-      #   end
-
-      #   begin
-      #     if method == :get || method == :delete
-      #       response = RestClient.send(method, url, headers)
-      #     else
-      #       response = RestClient.send(method, url, body, headers)
-      #     end
-
-      #     body = JSON.parse(response)
-
-      #     body.define_singleton_method(:_response) do
-      #       response
-      #     end
-
-      #     return body
-
-      #   rescue RestClient::ExceptionWithResponse => e
-      #     handle_api_error(e)
-      #   end
-      # end
-
-      # private
-
-      # def handle_api_error(error)
-      #   begin
-      #     response = JSON.parse(error.http_body.to_s)
-      #     message = response.fetch("error").fetch("message")
-      #     raise InvalidRequestError.new(message, error.http_code, error.http_body, error.response)
-      #   rescue JSON::ParserError, KeyError
-      #     # :nocov:
-      #     raise LobError.new("Invalid response object:", error.http_code, error.http_body)
-      #     # :nocov:
-      #   end
-      # end
-
       def endpoint_url(group_id)
         "#{base_url}/groups/#{group_id}/#{endpoint}"
       end
