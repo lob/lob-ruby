@@ -4,6 +4,7 @@ require "lob/resources/check"
 require "lob/resources/group"
 require "lob/resources/intl_verifications"
 require "lob/resources/letter"
+require "lob/resources/member"
 require "lob/resources/postcard"
 require "lob/resources/us_autocompletions"
 require "lob/resources/us_verifications"
@@ -44,6 +45,10 @@ module Lob
 
     def letters
       Lob::Resources::Letter.new(config)
+    end
+
+    def members
+      Lob::Resources::Member.new(config)
     end
 
     def postcards
