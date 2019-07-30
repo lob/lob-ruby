@@ -2,9 +2,9 @@ require "lob/resources/address"
 require "lob/resources/bank_account"
 require "lob/resources/check"
 require "lob/resources/group"
+require "lob/resources/groups_member"
 require "lob/resources/intl_verifications"
 require "lob/resources/letter"
-require "lob/resources/member"
 require "lob/resources/postcard"
 require "lob/resources/us_autocompletions"
 require "lob/resources/us_verifications"
@@ -38,6 +38,10 @@ module Lob
     def groups
       Lob::Resources::Group.new(config)
     end
+    
+    def groups_members
+      Lob::Resources::GroupsMember.new(config)
+    end
 
     def intl_verifications
       Lob::Resources::IntlVerifications.new(config)
@@ -45,10 +49,6 @@ module Lob
 
     def letters
       Lob::Resources::Letter.new(config)
-    end
-
-    def members
-      Lob::Resources::Member.new(config)
     end
 
     def postcards

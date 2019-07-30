@@ -4,7 +4,7 @@ require "uri"
 
 module Lob
   module Resources
-    class Member < Lob::Resources::ResourceBase
+    class GroupsMember < Lob::Resources::ResourceBase
 
       attr_reader :config, :endpoint
 
