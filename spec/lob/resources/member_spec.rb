@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Lob::Resources::Member do
-  
+
   before :each do
     @sample_group_params = {
       description: "Unsubscribe group",
