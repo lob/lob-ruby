@@ -1,3 +1,9 @@
+## [**5.1.0**](https://github.com/lob/lob-ruby/releases/tag/v5.1.0)
+- [**176**](https://github.com/lob/lob-ruby/pull/176) Adds support for Group Members (beta feature)
+- [**175**](https://github.com/lob/lob-ruby/pull/175) Adds support for Groups (beta feature)
+- [**174**](https://github.com/lob/lob-ruby/pull/174) Add Ruby 2.5-6, remove API keys, other cleanup
+- [**173**](https://github.com/lob/lob-ruby/pull/173) Update example asset links
+
 ## 5.0.0
 
 Version 5.0.0 introduces a breaking change. It removes support for the area mail resources (`Areas` and `Routes`).
