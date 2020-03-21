@@ -189,6 +189,15 @@ Here's how you can run the tests:
 
 You can also configure, TravisCI for your fork of the repository and it'll run the tests for you, when you push.
 
+### Testing in Docker
+
+You can also run tests in Docker if you have problems running Ruby on your machine:
+
+````
+docker build -t lob-ruby
+docker run -e API_KEY=YOUR_API_KEY lob-ruby
+````
+
 =======================
 
 Copyright &copy; 2016 Lob.com

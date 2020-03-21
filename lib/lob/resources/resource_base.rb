@@ -123,7 +123,7 @@ module Lob
       end
 
       def base_url
-        "https://#{config[:api_key]}:@api.lob.com/v1"
+        https://#{config[:api_key]}:@api.lob.com/v1
       end
 
       def endpoint_url
