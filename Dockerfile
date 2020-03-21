@@ -4,8 +4,10 @@ WORKDIR /app
 COPY . .
 COPY .git .git
 
-# apk add --no-cache --virtual .build-deps python make g++
-RUN apk add git make gcc libc-dev g++ openssl-dev
+RUN apk add --virtual .build-deps make gcc libc-dev g++ openssl-dev
 RUN bundle install
+RUN apk del .build-deps
+
+RUN apk add git
 
 CMD bundle exec rake test
