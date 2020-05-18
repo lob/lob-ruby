@@ -116,6 +116,9 @@ module Lob
           value.map { |k, v|
             build_nested_query(v, prefix ? "#{prefix}[#{URI.encode_www_form_component(k)}]" : URI.encode_www_form_component(k))
           }.reject(&:empty?).join('&')
+        when TrueClass, FalseClass
+          raise ArgumentError, "value must be an Array or Hash" if prefix.nil?
+          "#{prefix}=#{value}"
         else
           raise ArgumentError, "value must be an Array or Hash" if prefix.nil?
           "#{prefix}=#{URI.encode_www_form_component(value)}"
