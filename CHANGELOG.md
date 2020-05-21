@@ -1,3 +1,13 @@
+#### 5.1.1 (2020-05-21)
+
+##### Chores
+
+* **intl-verification:**  update international verifications test mode fix ([#179](https://github.com/lob/lob-ruby/pull/179)) ([4ab7e7e2](https://github.com/lob/lob-ruby/commit/4ab7e7e2852706c37b00bd8f2df58207897bc0a3))
+
+##### Bug Fixes
+
+* **merge-variables:**  convert to json ([fa93885f](https://github.com/lob/lob-ruby/commit/fa93885f2aab4537e100b82d8a9f53cdec042f2e))
+
 ## [**5.1.0**](https://github.com/lob/lob-ruby/releases/tag/v5.1.0)
 - [**176**](https://github.com/lob/lob-ruby/pull/176) Adds support for Group Members (beta feature)
 - [**175**](https://github.com/lob/lob-ruby/pull/175) Adds support for Groups (beta feature)
