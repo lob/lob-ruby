@@ -52,6 +52,26 @@ describe Lob::Resources::Letter do
 
       new_letter["description"].must_equal("TestLetter")
     end
+
+    it "should create a letter with a merge variable object" do
+      new_address = subject.addresses.create @sample_address_params
+
+      new_letter = subject.letters.create(
+        description: "TestLetter",
+        color: true,
+        file: "<html>{{data.name}}</html>",
+        to: new_address["id"],
+        from: @sample_address_params,
+        merge_variables: {
+          data: {
+            name: "Kobe"
+          }
+        }
+      )
+
+      new_letter["description"].must_equal("TestLetter")
+      new_letter["merge_variables"]["data"]["name"].must_equal("Kobe")
+    end
   end
 
 

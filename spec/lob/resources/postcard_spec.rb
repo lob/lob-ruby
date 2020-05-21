@@ -95,6 +95,31 @@ describe Lob::Resources::Postcard do
       result["description"].must_equal(@sample_postcard_params[:description])
     end
 
+    it "should create a postcard with a merge variable list" do
+      new_address = subject.addresses.create @sample_address_params
+      merge_variables = {
+        list: [
+          {
+            name: "Larissa"
+          },
+          {
+            name: "Larry"
+          }
+        ]
+      }
+
+      result = subject.postcards.create(
+        description: @sample_postcard_params[:description],
+        to: new_address["id"],
+        back: "<html>{{#list}} {{name}} {{/list}}</html>",
+        front: "https://lob.com/postcardfront.pdf",
+        merge_variables: merge_variables
+      )
+
+      result["description"].must_equal(@sample_postcard_params[:description])
+      result["merge_variables"]["list"][0]["name"].must_equal("Larissa")
+      result["merge_variables"]["list"][1]["name"].must_equal("Larry")
+    end
   end
 
 
