@@ -76,6 +76,9 @@ module Lob
           if method == :get || method == :delete
             response = RestClient.send(method, url, headers)
           else
+            if body[:merge_variables] and body[:merge_variables].class == Hash
+              body[:merge_variables] = body[:merge_variables].to_json()
+            end
             response = RestClient.send(method, url, body, headers)
           end
 

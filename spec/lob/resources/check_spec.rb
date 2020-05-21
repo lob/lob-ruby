@@ -50,6 +50,27 @@ describe Lob::Resources::Check do
 
       result["amount"].to_s.must_equal("2000.12")
     end
+
+    it "should create a check with a merge variable conditional" do
+      new_address = subject.addresses.create @sample_address_params
+
+      new_bank_account = subject.bank_accounts.create(@sample_bank_account_params)
+
+      subject.bank_accounts.verify(new_bank_account["id"], amounts: [1, 2])
+
+      result = subject.checks.create(
+        bank_account: new_bank_account["id"],
+        to: new_address["id"],
+        from: new_address["id"],
+        amount: "2000.12",
+        attachment: "<html>{{#is_awesome}}You are awesome!{{/is_awesome}}</html>",
+        merge_variables: {
+          is_awesome: false
+        }
+      )
+
+      result["merge_variables"]["is_awesome"].must_equal(false)
+    end
   end
 
 
