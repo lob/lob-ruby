@@ -88,7 +88,7 @@ describe Lob::Resources::Letter do
       )
 
       result = subject.letters.find(new_letter["id"])
-      assert /#{new_letter["description"]}/ =~ result.to_s
+      assert %r{#{new_letter["description"]}} =~ result.to_s
     end
   end
 
