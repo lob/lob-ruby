@@ -55,7 +55,7 @@ describe Lob::Resources::ResourceBase do
       description: sample_postcard_params[:description],
       to: new_address["id"],
       back: sample_postcard_params[:back],
-      front: "https://lob.com/postcardfront.pdf"
+      front: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_front.pdf"
     }, {
       "Idempotency-Key" => idempotency_key
     })
@@ -64,7 +64,7 @@ describe Lob::Resources::ResourceBase do
       description: sample_postcard_params[:description],
       to: new_address["id"],
       back: sample_postcard_params[:back],
-      front: "https://lob.com/postcardfront.pdf"
+      front: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_front.pdf"
     }, {
       "Idempotency-Key" => idempotency_key
     })

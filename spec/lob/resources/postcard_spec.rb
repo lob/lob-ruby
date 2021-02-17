@@ -37,7 +37,7 @@ describe Lob::Resources::Postcard do
         description: @sample_postcard_params[:description],
         to: new_address["id"],
         back: @sample_postcard_params[:back],
-        front: "https://lob.com/postcardfront.pdf"
+        front: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_front.pdf"
       )
 
       result["description"].must_equal(@sample_postcard_params[:description])
@@ -48,7 +48,7 @@ describe Lob::Resources::Postcard do
         description: @sample_postcard_params[:description],
         to: @sample_address_params,
         back: @sample_postcard_params[:back],
-        front: "https://lob.com/postcardfront.pdf"
+        front: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_front.pdf"
       )
 
       result["description"].must_equal(@sample_postcard_params[:description])
@@ -62,7 +62,7 @@ describe Lob::Resources::Postcard do
         to: new_address["id"],
         from: @sample_address_params,
         back: @sample_postcard_params[:back],
-        front: "https://lob.com/postcardfront.pdf"
+        front: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_front.pdf"
       )
 
       result["description"].must_equal(@sample_postcard_params[:description])
@@ -74,8 +74,8 @@ describe Lob::Resources::Postcard do
       result = subject.postcards.create(
         description: @sample_postcard_params[:description],
         to: new_address["id"],
-        front: "https://lob.com/postcardfront.pdf",
-        back:  "https://lob.com/postcardback.pdf"
+        front: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_front.pdf",
+        back:  "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_back.pdf"
       )
 
       result["description"].must_equal(@sample_postcard_params[:description])
@@ -112,7 +112,7 @@ describe Lob::Resources::Postcard do
         description: @sample_postcard_params[:description],
         to: new_address["id"],
         back: "<html>{{#list}} {{name}} {{/list}}</html>",
-        front: "https://lob.com/postcardfront.pdf",
+        front: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/pc_4x6_front.pdf",
         merge_variables: merge_variables
       )
 

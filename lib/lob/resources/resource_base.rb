@@ -19,7 +19,7 @@ module Lob
           query: query
         }
 
-        submit request
+        submit(request)
       end
 
       def find(resource_id)
@@ -28,7 +28,7 @@ module Lob
           url: resource_url(resource_id)
         }
 
-        submit request
+        submit(request)
       end
 
       def create(body={}, headers={}, query={})
@@ -40,7 +40,7 @@ module Lob
           query: query
         }
 
-        submit request
+        submit(request)
       end
 
       def destroy(resource_id)
@@ -49,7 +49,7 @@ module Lob
           url: resource_url(resource_id)
         }
 
-        submit request
+        submit(request)
       end
 
       private
@@ -71,7 +71,7 @@ module Lob
         if query != {}
           url = "#{url}?#{build_nested_query(query)}"
         end
-
+        
         begin
           if method == :get || method == :delete
             response = RestClient.send(method, url, headers)
