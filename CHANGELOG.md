@@ -1,3 +1,8 @@
+#### 5.1.2 (2021-02-18)
+
+##### Chores and Bug Fixes
+
+-[**185**](https://github.com/lob/lob-ruby/pull/185) Bumps rake to 12.3.3, adds Ruby 2.7, update example asset links, other cleanup.
 #### 5.1.1 (2020-05-21)
 
 ##### Chores
