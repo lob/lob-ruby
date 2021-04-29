@@ -32,10 +32,6 @@ An example showing how to create a letter using Lob's [Letters API](https://lob.
 
 An example showing how to create a postcard using Lob's [Postcards API](https://lob.com/services/postcards).
 
-## /postcards.rb
-
-An example showing how to create a postcard using Lob's [Self Mailers API](https://lob.com/services/postcards).
-
 ## /self_mailers.rb
 
 An example showing how to create a self mailer using Lob's Self Mailers API.
