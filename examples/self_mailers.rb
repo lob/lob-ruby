@@ -31,7 +31,7 @@ puts lob.self_mailers.create(
   to: to_address["id"],
   from: from_address["id"],
   metadata: { campaign: "Summer 2021 Beach" },
-  merge_variables: { name: "Albert", event: "Summer 2021 Beach-athon" },
+  merge_variables: { name: "Albert" },
   outside: "https://s3-us-west-2.amazonaws.com/public.lob.com/assets/templates/self_mailers/6x18_sfm_outside.pdf",
   inside: "<h1>Hi {{name}}, please RSVP as soon as possible to reserve your lounge chair.</h1>"
 )
