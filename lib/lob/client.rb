@@ -6,6 +6,7 @@ require "lob/resources/groups_member"
 require "lob/resources/intl_verifications"
 require "lob/resources/letter"
 require "lob/resources/postcard"
+require "lob/resources/self_mailer"
 require "lob/resources/us_autocompletions"
 require "lob/resources/us_verifications"
 require "lob/resources/us_zip_lookups"
@@ -53,6 +54,10 @@ module Lob
 
     def postcards
       Lob::Resources::Postcard.new(config)
+    end
+
+    def self_mailers
+      Lob::Resources::SelfMailer.new(config)
     end
 
     def us_autocompletions

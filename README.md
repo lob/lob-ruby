@@ -146,6 +146,13 @@ There are simple scripts to demonstrate how to create all the core Lob objects (
     - [Retrieve a Postcard](https://lob.com/docs/ruby#postcards_retrieve)
     - [Cancel a Postcard](https://lob.com/docs/ruby#postcards_delete)
     - [List all Postcards](https://lob.com/docs/ruby#postcards_list)
+- **Self Mailers API**
+  - [Self Mailers](https://lob.com/docs/ruby#self_mailers)
+    - [The Self Mailer Object](https://lob.com/docs/ruby#self_mailers_object)
+    - [Create a Self Mailer](https://lob.com/docs/ruby#self_mailers_create)
+    - [Retrieve a Self Mailer](https://lob.com/docs/ruby#self_mailers_retrieve)
+    - [Cancel a Self Mailer](https://lob.com/docs/ruby#self_mailers_delete)
+    - [List all Self Mailers](https://lob.com/docs/ruby#self_mailers_list)
 - **Letters API**
   - [Letters](https://lob.com/docs/ruby#letters)
     - [The Letter Object](https://lob.com/docs/ruby#letters_object)
