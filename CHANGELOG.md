@@ -1,9 +1,11 @@
-#### 5.1.2 (2021-02-18)
+## [**5.2.0**](https://github.com/lob/lob-ruby/releases/tag/v5.2.0) (2021-05-03)
+- [**188**](https://github.com/lob/lob-ruby/pull/188) Adds support for Self Mailers
+## 5.1.2 (2021-02-18)
 
 ##### Chores and Bug Fixes
 
--[**185**](https://github.com/lob/lob-ruby/pull/185) Bumps rake to 12.3.3, adds Ruby 2.7, update example asset links, other cleanup.
-#### 5.1.1 (2020-05-21)
+- [**185**](https://github.com/lob/lob-ruby/pull/185) Bumps rake to 12.3.3, adds Ruby 2.7, update example asset links, other cleanup.
+## 5.1.1 (2020-05-21)
 
 ##### Chores
 
