@@ -1,5 +1,5 @@
 $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
-require 'lob.rb'
+require 'lob'
 require 'pp'
 
 # initialize Lob object
@@ -58,11 +58,11 @@ html = %{
 # create a to address
 to_address = lob.addresses.create(
   name: "ToAddress",
-  address_line1: "120 6th Ave",
-  address_city: "Boston",
-  address_state: "MA",
-  address_country: "US",
-  address_zip: 12345
+  address_line1: "370 Water St",
+  address_city: "Summerside",
+  address_state: "Prince Edward Island",
+  address_country: "CA",
+  address_zip: "C1N 1C4"
 )
 
 # create a from address

@@ -1,5 +1,6 @@
 $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require 'lob'
+require 'pp'
 
 # initialize Lob object
 lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
@@ -26,7 +27,7 @@ from_address = lob.addresses.create(
 
 
 # send a self mailer
-puts lob.self_mailers.create(
+pp lob.self_mailers.create(
   description: "Beach Postcard",
   to: to_address["id"],
   from: from_address["id"],

@@ -1,6 +1,7 @@
 $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require 'lob.rb'
 require 'pp'
+require 'date'
 
 # initialize Lob object
 lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
@@ -75,7 +76,15 @@ from_address = lob.addresses.create(
   address_zip: 12345
 )
 
-# send a postcard
+def get_date()
+  time = Time.new
+  if time.month == 12
+    return "#{time.year + 1}-01-#{time.day}"
+  else
+    return "#{time.year}-#{time.month + 1}-#{time.day}"
+  end
+end
+
 pp lob.postcards.create(
   description: "Beach Postcard",
   to: to_address["id"],
@@ -83,5 +92,6 @@ pp lob.postcards.create(
   metadata: { campaign: "Summer 2015 Beach" },
   merge_variables: { name: "Albert", event: "Summer 2015 Beach-athon" },
   front: html,
-  back: "<h1>Please RSVP as soon as possible to reserve your lounge chair.</h1>"
+  back: "<h1>Please RSVP as soon as possible to reserve your lounge chair.</h1>",
+  send_date: get_date()
 )

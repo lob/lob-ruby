@@ -77,11 +77,16 @@ from_address = lob.addresses.create(
 
 # send a postcard
 pp lob.postcards.create(
-  description: "Beach Postcard",
-  to: to_address["id"],
-  from: from_address["id"],
-  metadata: { campaign: "Summer 2015 Beach" },
-  merge_variables: { name: "Albert", event: "Summer 2015 Beach-athon" },
-  front: html,
-  back: "<h1>Please RSVP as soon as possible to reserve your lounge chair.</h1>"
+  {
+    description: "Beach Postcard",
+    to: to_address["id"],
+    from: from_address["id"],
+    metadata: { campaign: "Summer 2015 Beach" },
+    merge_variables: { name: "Albert", event: "Summer 2015 Beach-athon" },
+    front: html,
+    back: "<h1>Please RSVP as soon as possible to reserve your lounge chair.</h1>"
+  },
+  {
+    'Idempotency-Key': '026e7634-24d7-486c-a0bb-4a17fd0eebc5'
+  }
 )

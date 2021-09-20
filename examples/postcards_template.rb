@@ -3,7 +3,11 @@ require 'lob.rb'
 require 'pp'
 
 # initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
+# this key is publicly available in the legacy docs, so it's hardcoded
+# since the templates are associated with this dummy account
+# you can replace this key with your own, and the IDs below with any
+# saved templates you have
+lob = Lob::Client.new(api_key: 'test_0dc8d51e0acffcb1880e0f19c79b2f5b0cc')
 
 # HTML to send to the server
 html = %{
@@ -82,6 +86,7 @@ pp lob.postcards.create(
   from: from_address["id"],
   metadata: { campaign: "Summer 2015 Beach" },
   merge_variables: { name: "Albert", event: "Summer 2015 Beach-athon" },
-  front: html,
-  back: "<h1>Please RSVP as soon as possible to reserve your lounge chair.</h1>"
+  # you can replace these template IDs
+  front: 'tmpl_b846a20859ae11a',
+  back: 'tmpl_01b0d396a10c268'
 )

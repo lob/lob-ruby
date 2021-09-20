@@ -1,5 +1,6 @@
 $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require 'lob'
+require 'pp'
 
 # initialize Lob object
 lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
@@ -32,11 +33,11 @@ bank_account = lob.bank_accounts.create(
   signatory: "John Doe"
 )
 
-puts bank_account
+pp bank_account
 lob.bank_accounts.verify(bank_account['id'], amounts: [23, 12])
 
 # send a $100 check using an already created bank and address
-puts lob.checks.create(
+pp lob.checks.create(
   description: "Test Check",
   check_number: "10000",
   bank_account: bank_account["id"],
