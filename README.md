@@ -11,10 +11,14 @@ Supports Ruby 2.0.0 and greater.
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
   - [Registration](#registration)
   - [Installation](#installation)
   - [Usage](#usage)
+    - [Initialization and Configuration](#initialization-and-configuration)
+    - [Caution: Pass zero-prefixed zip codes as strings](#caution-pass-zero-prefixed-zip-codes-as-strings)
+    - [Accessing Response Headers](#accessing-response-headers)
 - [Examples](#examples)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
