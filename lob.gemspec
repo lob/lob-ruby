@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "coveralls", "~> 0.8.23"
   spec.add_development_dependency "simplecov", "~> 0.16.1"
   spec.add_development_dependency "json", "~> 2.3.1"
+  spec.add_development_dependency "uri", "~> 0.10.1"
 end

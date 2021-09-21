@@ -1,7 +1,6 @@
 require "rest-client"
 require "json"
 require "uri"
-require "pp"
 
 module Lob
   module Resources
@@ -13,7 +12,7 @@ module Lob
         @config = config
       end
 
-      def list(**query)
+      def list(query={})
         request = {
           method: :get,
           url: endpoint_url,
@@ -82,8 +81,6 @@ module Lob
             end
             response = RestClient.send(method, url, body, headers)
           end
-
-          pp JSON.parse(response)
 
           body = JSON.parse(response)
 
