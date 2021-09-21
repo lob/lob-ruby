@@ -10,6 +10,7 @@ require "lob/resources/letter"
 require "lob/resources/postcard"
 require "lob/resources/self_mailer"
 require "lob/resources/us_autocompletions"
+require "lob/resources/us_reverse_geocode_lookups"
 require "lob/resources/us_verifications"
 require "lob/resources/us_zip_lookups"
 
@@ -72,6 +73,10 @@ module Lob
 
     def us_autocompletions
       Lob::Resources::USAutocompletions.new(config)
+    end
+
+    def us_reverse_geocode_lookups
+      Lob::Resources::USReverseGeocodeLookups.new(config)
     end
 
     def us_verifications
