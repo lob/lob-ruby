@@ -1,3 +1,6 @@
+## [**5.4.0**](https://github.com/lob/lob-ruby/releases/tag/v5.4.0) (2021-09-21)
+- [**192**](https://github.com/lob/lob-ruby/pull/192) updated to 3.0.0 
+- [**191**](https://github.com/lob/lob-ruby/pull/191) feat(us_verifications): Reverse Geocoding endpoint
 ## [**5.3.0**](https://github.com/lob/lob-ruby/releases/tag/v5.3.0) (2021-08-25)
 - [**190**](https://github.com/lob/lob-ruby/pull/190) Adds support for bulk AV endpoints
 ## [**5.2.0**](https://github.com/lob/lob-ruby/releases/tag/v5.2.0) (2021-05-03)
