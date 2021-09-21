@@ -4,7 +4,7 @@ require 'csv'
 require 'pp'
 
 # Initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
 
 # Load the HTML from letter_template.html
 letter_html = File.open(File.expand_path('../letter_template.html', __FILE__)).read

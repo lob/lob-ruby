@@ -17,7 +17,7 @@ bundle exec ruby examples/csv_checks/create_checks.rb
 An example showing how to dynamically create letters from a CSV using HTML, a custom font, merge variables, and Lob's [Letters API](https://lob.com/services/letters).
 
 ```
-bundle exec ruby examples/csv_checks/create_letters.rb
+bundle exec ruby examples/csv_letters/create_letters.rb
 ```
 
 ## /csv_postcards/
@@ -25,7 +25,7 @@ bundle exec ruby examples/csv_checks/create_letters.rb
 An example showing how to dynamically create postcards from a CSV using HTML, a custom font, merge variables, and Lob's [Postcards API](https://lob.com/services/postcards).
 
 ```
-bundle exec ruby examples/csv_checks/create_postcards.rb
+bundle exec ruby examples/csv_postcards/create_postcards.rb
 ```
 
 ## /csv_verify/
@@ -35,7 +35,7 @@ An example showing how to validate and cleanse a CSV spreadsheet full of shippin
 Please note that if you are running this with a Test API Key, the verification API will always return [a dummy address](https://docs.lob.com/#section/US-Verifications-Test-Env).
 
 ```
-bundle exec ruby examples/csv_checks/verify.rb
+bundle exec ruby examples/csv_verify/verify.rb
 ```
 
 ## /checks.rb

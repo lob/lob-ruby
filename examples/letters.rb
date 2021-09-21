@@ -3,7 +3,7 @@ require 'lob'
 require 'pp'
 
 # initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
 
 html = %{
 <html>
