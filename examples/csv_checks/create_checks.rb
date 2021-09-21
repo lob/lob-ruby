@@ -4,7 +4,7 @@ require 'csv'
 require 'pp'
 
 # Initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
 
 # Create a bank account
 bank_account = lob.bank_accounts.create(
