@@ -5,7 +5,7 @@ require 'lob'
 require 'pp'
 
 # Initialize Lob object
-lob = Lob::Client.new(api_key: 'live_ef27c53a56d2b1a4f6cff194f98eae91175')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
 
 output = File.open(File.expand_path('../output.csv', __FILE__), 'w')
 
