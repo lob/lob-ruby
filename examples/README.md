@@ -38,6 +38,14 @@ Please note that if you are running this with a Test API Key, the verification A
 bundle exec ruby examples/csv_verify/verify.rb
 ```
 
+## /cards.rb
+
+An example showing how to create a check using Lob's [Cards API](https://docs.lob.com/#tag/Cards).
+
+```
+bundle exec ruby examples/cards.rb
+```
+
 ## /checks.rb
 
 An example showing how to create a check using Lob's [Checks API](https://lob.com/services/checks).
