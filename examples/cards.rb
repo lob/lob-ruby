@@ -18,7 +18,7 @@ pp lob.cards.create(
 
 # # update a card
 # card_id = 'YOUR_CARD_ID'
-# pp lob.cards.create(
+# pp lob.cards.update(
 #   card_id, # required
 #   { description: 'Updated Test Card Desc' }
 # )
