@@ -112,4 +112,44 @@ describe Lob::Resources::Card do
     end
   end
 
+
+  describe "create_order" do
+    it "should create an order for a card" do
+
+      new_card = subject.cards.create(
+        @sample_card_params.merge(front: @horizontal_card_front)
+      )
+
+      card_order_params = {
+        quantity: 10001
+      }
+
+      result = subject.cards.create_order(new_card["id"], card_order_params)
+      result["card_id"].must_equal(new_card["id"])
+      result["quantity_ordered"].must_equal(card_order_params[:quantity])
+      result["object"].must_equal("card_order")
+    end
+  end
+
+
+  describe "list_orders" do
+    it "should list all orders for a card" do
+
+      new_card = subject.cards.create(
+        @sample_card_params.merge(front: @horizontal_card_front)
+      )
+      card_order_params = {
+        quantity: 10001
+      }
+      new_card_order = subject.cards.create_order(
+        new_card["id"],
+        card_order_params
+      )
+
+      result = subject.cards.list_orders(new_card["id"])
+      result["object"].must_equal("list")
+      result["count"].must_equal(1)
+    end
+  end
+
 end
