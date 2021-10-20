@@ -40,7 +40,7 @@ bundle exec ruby examples/csv_verify/verify.rb
 
 ## /cards.rb
 
-An example showing how to create a check using Lob's [Cards API](https://docs.lob.com/#tag/Cards).
+An example showing how to create a card using Lob's [Cards API](https://docs.lob.com/#tag/Cards).
 
 ```
 bundle exec ruby examples/cards.rb
