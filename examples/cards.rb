@@ -3,7 +3,8 @@ require 'lob.rb'
 require 'pp'
 
 # initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
+LOB_LIVE_API_KEY = ENV['LOB_LIVE_API_KEY']
+lob = Lob::Client.new(api_key: LOB_LIVE_API_KEY)
 
 front_template = 'https://s3-us-west-2.amazonaws.com/public.lob.com/assets/card_horizontal.pdf'
 back_template = 'https://s3-us-west-2.amazonaws.com/public.lob.com/assets/card_horizontal.pdf'
