@@ -1,6 +1,6 @@
 # Ruby Examples
 
-Here we have put together a handful of ruby examples to help get you started. Please read through the official [API Documentation](https://docs.lob.com) to get a complete sense of what to expect from each endpoint. As always, feel free to [contact us](https://lob.com/support) directly if you have any questions on implementation.
+Here we have put together a handful of ruby examples to help get you started. Please read through the official [API Documentation](https://docs.lob.com) to get a complete sense of what to expect from each endpoint. As always, feel free to [contact us](https://lob.com/support) directly if you have any questions on implementation. Thank you for using Lob!
 
 To run these example commands, make sure you have a supported version of Ruby installed, including all the necessary gems.
 
