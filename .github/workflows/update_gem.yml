@@ -7,6 +7,9 @@ on:
 jobs:
   publish_gem:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['jruby-9.2.9.0', '2.6', '2.7', '3.0']
     steps:
     - uses: actions/checkout@v2
     - name: Setup
