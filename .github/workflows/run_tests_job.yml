@@ -1,0 +1,36 @@
+name: Run tests
+
+on:
+  pull_request:
+    types: [ created, reopened ]
+    branches:
+      - master
+jobs:
+  ruby_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['jruby-9.2.9.0', '2.6', '2.7', '3.0']
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+    - name: Install Dependencies
+      run: bundle install
+    - name: Run Tests
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+        JRUBY_OPT: --2.0
+      run: bundle exec rake test
+    - name: Send coverage to Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        
+
+
+
+
+  
