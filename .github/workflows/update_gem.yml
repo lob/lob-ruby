@@ -7,15 +7,12 @@ on:
 jobs:
   publish_gem:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby-version: ['jruby-9.2.9.0', '2.6', '2.7', '3.0']
     steps:
     - uses: actions/checkout@v2
     - name: Setup
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby-version }}
+        ruby-version: 2.7
     - name: Install Dependencies
       run: bundle install
     - name: Publish Gem

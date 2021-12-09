@@ -1,10 +1,6 @@
 name: Run tests
 
-on:
-  pull_request:
-    types: [ created, reopened ]
-    branches:
-      - master
+on: [pull_request]
 jobs:
   ruby_tests:
     runs-on: ubuntu-latest
