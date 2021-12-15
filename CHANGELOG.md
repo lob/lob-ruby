@@ -1,3 +1,5 @@
+## [**5.4.3**](https://github.com/lob/lob-ruby/releases/tag/v5.4.3) (2021-12-15)
+- [**199**](https://github.com/lob/lob-ruby/pull/199) Refactor ResourceBase to make the options sent to rest-client more configurable
 ## [**5.4.1**](https://github.com/lob/lob-ruby/releases/tag/v5.4.1) (2021-09-28)
 - [**193**](https://github.com/lob/lob-ruby/pull/193) Minor patches
 ## [**5.4.0**](https://github.com/lob/lob-ruby/releases/tag/v5.4.0) (2021-09-21)
