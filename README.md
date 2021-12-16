@@ -69,6 +69,9 @@ lob = Lob::Client.new(api_key: "your-api-key")
 
 # To initialize a Lob object with an older API version
 lob = Lob::Client.new(api_key: "your-api-key", api_version: "2014-12-18")
+
+# To initialize a Lob object that needs to communicate via a proxy
+lob = Lob::Client.new(api_key: "your-api-key", proxy: "http://proxy.example.com)
 ```
 
 #### Caution: Pass zero-prefixed zip codes as strings
