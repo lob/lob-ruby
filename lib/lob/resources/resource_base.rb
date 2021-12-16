@@ -78,13 +78,12 @@ module Lob
           url: url,
         }
         unless method == :delete || method == :get
-          if body&[:merge_variables]&.class == Hash
+          if body and body[:merge_variables] and body[:merge_variables].class == Hash
             body[:merge_variables] = body[:merge_variables].to_json
           end
 
-          client_params[:body] = body
+          client_params[:payload] = body
         end
-
         begin
           response = RestClient::Request.execute(client_params)
 

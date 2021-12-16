@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.3.3"
   spec.add_development_dependency "minitest", "~> 5.6.1"
   spec.add_development_dependency "webmock", "~> 1.2"
+  spec.add_development_dependency "simplecov-lcov"
   spec.add_development_dependency "coveralls_reborn", "~> 0.23.1"
   spec.add_development_dependency "simplecov", "~> 0.21.0"
   spec.add_development_dependency "json", "~> 2.3.1"
