@@ -2,9 +2,10 @@ $:.unshift File.expand_path("../../lib", File.dirname(__FILE__))
 
 require 'csv'
 require 'lob'
+require 'pp'
 
 # Initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
 
 output = File.open(File.expand_path('../output.csv', __FILE__), 'w')
 
@@ -22,7 +23,7 @@ File.open(File.expand_path('../input.csv', __FILE__)).each_line do |line|
     state: address_components[4],
     zip_code: address_components[5]
   )
-
+  
   output.puts [
     verified_address['primary_line'],
     verified_address['secondary_line'],

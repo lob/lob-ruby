@@ -20,9 +20,12 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rest-client", ">= 2.0.1", "< 3.0"
 
-  spec.add_development_dependency "rake", "~> 10.4.2"
+  spec.add_development_dependency "rake", "~> 12.3.3"
   spec.add_development_dependency "minitest", "~> 5.6.1"
   spec.add_development_dependency "webmock", "~> 1.2"
-  spec.add_development_dependency "coveralls", "~> 0.8.13"
-  spec.add_development_dependency "simplecov", "~> 0.11.0"
+  spec.add_development_dependency "simplecov-lcov"
+  spec.add_development_dependency "coveralls_reborn", "~> 0.23.1"
+  spec.add_development_dependency "simplecov", "~> 0.21.0"
+  spec.add_development_dependency "json", "~> 2.3.1"
+  spec.add_development_dependency "uri", "~> 0.10.1"
 end

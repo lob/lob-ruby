@@ -3,10 +3,12 @@ $:.unshift File.expand_path("../lib", File.dirname(__FILE__))
 require "simplecov"
 require "coveralls"
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
+require 'simplecov-lcov'
+
+SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+SimpleCov::Formatter::LcovFormatter.config.lcov_file_name = 'lcov.info'
+
+SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
 SimpleCov.start
 
 require "lob"

@@ -1,4 +1,24 @@
-#### 5.1.1 (2020-05-21)
+## [**5.4.4**](https://github.com/lob/lob-ruby/releases/tag/v5.4.4) (2021-12-16)
+- [**202**](https://github.com/lob/lob-ruby/pull/202) Fix for coveralls API for GH actions and fix for error in resource_base.rb
+## [**5.4.3**](https://github.com/lob/lob-ruby/releases/tag/v5.4.3) (2021-12-15)
+- [**199**](https://github.com/lob/lob-ruby/pull/199) Refactor ResourceBase to make the options sent to rest-client more configurable
+## [**5.4.2**](https://github.com/lob/lob-ruby/releases/tag/v5.4.2) (2021-12-08)
+- [**198**](https://github.com/lob/lob-ruby/pull/198) specified ruby version in publish action
+- [**195**](https://github.com/lob/lob-ruby/pull/195) added links to example scripts in README file & gh actions to release
+## [**5.4.1**](https://github.com/lob/lob-ruby/releases/tag/v5.4.1) (2021-09-28)
+- [**193**](https://github.com/lob/lob-ruby/pull/193) Minor patches
+## [**5.4.0**](https://github.com/lob/lob-ruby/releases/tag/v5.4.0) (2021-09-21)
+- [**191**](https://github.com/lob/lob-ruby/pull/191) Add support for reverse geocoding endpoint
+## [**5.3.0**](https://github.com/lob/lob-ruby/releases/tag/v5.3.0) (2021-08-25)
+- [**190**](https://github.com/lob/lob-ruby/pull/190) Adds support for bulk AV endpoints
+## [**5.2.0**](https://github.com/lob/lob-ruby/releases/tag/v5.2.0) (2021-05-03)
+- [**188**](https://github.com/lob/lob-ruby/pull/188) Adds support for Self Mailers
+## 5.1.2 (2021-02-18)
+
+##### Chores and Bug Fixes
+
+- [**185**](https://github.com/lob/lob-ruby/pull/185) Bumps rake to 12.3.3, adds Ruby 2.7, update example asset links, other cleanup.
+## 5.1.1 (2020-05-21)
 
 ##### Chores
 

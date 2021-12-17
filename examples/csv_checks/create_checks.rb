@@ -1,9 +1,10 @@
 $:.unshift File.expand_path("../../lib", File.dirname(__FILE__))
 require 'lob'
 require 'csv'
+require 'pp'
 
 # Initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
 
 # Create a bank account
 bank_account = lob.bank_accounts.create(
@@ -43,5 +44,5 @@ CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
     amount: row[7],
     memo: "For travel reimbursement"
   )
-  puts check['url']
+  pp check['url']
 end

@@ -1,9 +1,10 @@
 $:.unshift File.expand_path("../../lib", File.dirname(__FILE__))
 require 'lob'
 require 'csv'
+require 'pp'
 
 # Initialize Lob object
-lob = Lob::Client.new(api_key: 'YOUR_API_KEY_HERE')
+lob = Lob::Client.new(api_key: 'YOUR_API_KEY')
 
 # Load the HTML from postcard_front.html and postcard_back.html.
 front_html = File.open(File.expand_path('../postcard_front.html', __FILE__)).read
@@ -41,5 +42,5 @@ CSV.foreach(File.expand_path('../input.csv', __FILE__)) do |row|
       mileage: row[4]
     }
   )
-  puts postcard['url']
+  pp postcard['url']
 end
