@@ -1,3 +1,5 @@
+## [**5.4.5**](https://github.com/lob/lob-ruby/releases/tag/v5.4.5) (2022-01-11)
+- [**203**](https://github.com/lob/lob-ruby/pull/203) Pass through proxy to rest-client if supplied
 ## [**5.4.4**](https://github.com/lob/lob-ruby/releases/tag/v5.4.4) (2021-12-16)
 - [**202**](https://github.com/lob/lob-ruby/pull/202) Fix for coveralls API for GH actions and fix for error in resource_base.rb
 ## [**5.4.3**](https://github.com/lob/lob-ruby/releases/tag/v5.4.3) (2021-12-15)
