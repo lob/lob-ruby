@@ -77,6 +77,9 @@ module Lob
           method: method,
           url: url,
         }
+
+        client_params[:proxy] = config[:proxy] if config.key?(:proxy)
+
         unless method == :delete || method == :get
           if body and body[:merge_variables] and body[:merge_variables].class == Hash
             body[:merge_variables] = body[:merge_variables].to_json
