@@ -1,3 +1,12 @@
+## [**5.4.5**](https://github.com/lob/lob-ruby/releases/tag/v5.4.5) (2022-01-11)
+- [**203**](https://github.com/lob/lob-ruby/pull/203) Pass through proxy to rest-client if supplied
+## [**5.4.4**](https://github.com/lob/lob-ruby/releases/tag/v5.4.4) (2021-12-16)
+- [**202**](https://github.com/lob/lob-ruby/pull/202) Fix for coveralls API for GH actions and fix for error in resource_base.rb
+## [**5.4.3**](https://github.com/lob/lob-ruby/releases/tag/v5.4.3) (2021-12-15)
+- [**199**](https://github.com/lob/lob-ruby/pull/199) Refactor ResourceBase to make the options sent to rest-client more configurable
+## [**5.4.2**](https://github.com/lob/lob-ruby/releases/tag/v5.4.2) (2021-12-08)
+- [**198**](https://github.com/lob/lob-ruby/pull/198) specified ruby version in publish action
+- [**195**](https://github.com/lob/lob-ruby/pull/195) added links to example scripts in README file & gh actions to release
 ## [**5.4.1**](https://github.com/lob/lob-ruby/releases/tag/v5.4.1) (2021-09-28)
 - [**193**](https://github.com/lob/lob-ruby/pull/193) Minor patches
 ## [**5.4.0**](https://github.com/lob/lob-ruby/releases/tag/v5.4.0) (2021-09-21)

@@ -71,16 +71,24 @@ module Lob
         if query != {}
           url = "#{url}?#{build_nested_query(query)}"
         end
-        
-        begin
-          if method == :get || method == :delete
-            response = RestClient.send(method, url, headers)
-          else
-            if body[:merge_variables] and body[:merge_variables].class == Hash
-              body[:merge_variables] = body[:merge_variables].to_json()
-            end
-            response = RestClient.send(method, url, body, headers)
+
+        client_params = {
+          headers: headers,
+          method: method,
+          url: url,
+        }
+
+        client_params[:proxy] = config[:proxy] if config.key?(:proxy)
+
+        unless method == :delete || method == :get
+          if body and body[:merge_variables] and body[:merge_variables].class == Hash
+            body[:merge_variables] = body[:merge_variables].to_json
           end
+
+          client_params[:payload] = body
+        end
+        begin
+          response = RestClient::Request.execute(client_params)
 
           body = JSON.parse(response)
 
