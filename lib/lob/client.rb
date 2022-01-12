@@ -2,6 +2,7 @@ require "lob/resources/address"
 require "lob/resources/bank_account"
 require "lob/resources/bulk_intl_verifications"
 require "lob/resources/bulk_us_verifications"
+require "lob/resources/card"
 require "lob/resources/check"
 require "lob/resources/group"
 require "lob/resources/groups_member"
@@ -41,6 +42,10 @@ module Lob
 
     def bulk_us_verifications
       Lob::Resources::BulkUSVerifications.new(config)
+    end
+
+    def card
+      Lob::Resources::Card.new(config)
     end
 
     def checks
