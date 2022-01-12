@@ -17,17 +17,35 @@ pp lob.cards.create(
   size: '2.125x3.375' # optional, default: '2.125x3.375'
 )
 
-# # update a card
-# card_id = 'YOUR_CARD_ID'
-# pp lob.cards.update(
-#   card_id, # required
-#   { description: 'Updated Test Card Desc' }
-# )
+# find a card
+card_id = 'YOUR_CARD_ID'
+pp lob.cards.find(
+  card_id # required
+)
 
-# # create a card order
-# card_id = 'YOUR_CARD_ID'
-# pp lob.cards.create_order(
-#   card_id, # required
-#   { quantity: 10000 } # required
-# )
+# update a card
+card_id = 'YOUR_CARD_ID'
+pp lob.cards.update(
+  card_id, # required
+  { description: 'Updated Test Card Desc' }
+)
+
+# delete a card
+card_id = 'YOUR_CARD_ID'
+pp lob.cards.destroy(
+  card_id # required
+)
+
+# create a card order
+card_id = 'YOUR_CARD_ID'
+pp lob.cards.create_order(
+  card_id, # required
+  { quantity: 10000 } # required
+)
+
+# List orders for a given card a card order
+card_id = 'YOUR_CARD_ID'
+pp lob.cards.list_orders(
+  card_id # required
+)
 

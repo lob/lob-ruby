@@ -21,17 +21,14 @@ describe Lob::Resources::Card do
     end
   end
 
-
   describe "create" do
     it "should create a card with a front url" do
-
       result = subject.cards.create(@sample_card_params)
 
       result["description"].must_equal(@sample_card_params[:description])
     end
 
     it "should create a card with front and back as urls" do
-
       result = subject.cards.create(
         @sample_card_params.merge(back: @horizontal_card_url)
       )
@@ -40,7 +37,6 @@ describe Lob::Resources::Card do
     end
 
     it "should create a card with a front PDF" do
-
       result = subject.cards.create(
         @sample_card_params.merge(front: @horizontal_card_front)
       )
@@ -49,7 +45,6 @@ describe Lob::Resources::Card do
     end
 
     it "should create a card with front and back as PDFs" do
-
       result = subject.cards.create(
         @sample_card_params.merge({
           front: @horizontal_card_front,
@@ -69,10 +64,9 @@ describe Lob::Resources::Card do
     end
   end
 
-  
+
   describe "find" do
     it "should find a card" do
-
       new_card = subject.cards.create(
         @sample_card_params.merge(front: @horizontal_card_front)
       )
@@ -85,7 +79,6 @@ describe Lob::Resources::Card do
 
   describe "update" do
     it "should update a card" do
-
       new_card = subject.cards.create(
         @sample_card_params.merge(front: @horizontal_card_front)
       )
@@ -101,7 +94,6 @@ describe Lob::Resources::Card do
 
   describe "destroy" do
     it "should destroy a card" do
-
       new_card = subject.cards.create(
         @sample_card_params.merge(front: @horizontal_card_front)
       )
@@ -115,7 +107,6 @@ describe Lob::Resources::Card do
 
   describe "create_order" do
     it "should create an order for a card" do
-
       new_card = subject.cards.create(
         @sample_card_params.merge(front: @horizontal_card_front)
       )
@@ -134,7 +125,6 @@ describe Lob::Resources::Card do
 
   describe "list_orders" do
     it "should list all orders for a card" do
-
       new_card = subject.cards.create(
         @sample_card_params.merge(front: @horizontal_card_front)
       )
