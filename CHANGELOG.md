@@ -1,3 +1,5 @@
+## [**5.4.6**](https://github.com/lob/lob-ruby/releases/tag/v5.4.6) (2022-01-25)
+- [**206**](https://github/com/lob/lob-ruby/pull/206) added additional parsing to make sure we can pass hashes into bulk verify methods
 ## [**5.4.5**](https://github.com/lob/lob-ruby/releases/tag/v5.4.5) (2022-01-11)
 - [**203**](https://github.com/lob/lob-ruby/pull/203) Pass through proxy to rest-client if supplied
 ## [**5.4.4**](https://github.com/lob/lob-ruby/releases/tag/v5.4.4) (2021-12-16)
