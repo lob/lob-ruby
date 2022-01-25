@@ -11,6 +11,13 @@ describe Lob::Resources::BulkUSVerifications do
           city: "SAN FRANCISCO",
           state: "CA",
           zip_code: "94107"
+        },
+        {
+          recipient: "Harry Zhou",
+          primary_line: "325 BERRY ST",
+          city: "SAN FRANCISCO",
+          state: "CA",
+          zip_code: "94107"
         }
       ]
     }
@@ -24,6 +31,10 @@ describe Lob::Resources::BulkUSVerifications do
       addresses = result["addresses"]
       address = addresses.first
       address["recipient"].must_equal("TEST KEYS DO NOT VERIFY ADDRESSES")
+      address = addresses[1]
+      address["recipient"].must_equal("TEST KEYS DO NOT VERIFY ADDRESSES")
+
+
     end
 
     it "should allow 'case' in query params" do
@@ -31,6 +42,9 @@ describe Lob::Resources::BulkUSVerifications do
       addresses = result["addresses"]
       address = addresses.first
       address["recipient"].must_equal("Test Keys Do Not Verify Addresses")
+      address = addresses[1]
+      address["recipient"].must_equal("Test Keys Do Not Verify Addresses")
+
     end
   end
 

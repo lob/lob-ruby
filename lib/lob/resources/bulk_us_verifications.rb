@@ -12,6 +12,7 @@ module Lob
       end
 
       def verify(body={}, query={})
+        body[:addresses] = body[:addresses].to_json
         request = {
           method: :post,
           url: endpoint_url,
