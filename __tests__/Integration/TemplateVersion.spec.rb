@@ -265,5 +265,11 @@ RSpec.describe "TemplateVersionsApi" do
             expect(response.id).to eq(@vrsnId)
             expect(response.deleted).to eq(true)
         end
+
+        after(:all) do
+            api = TestFixtures.api_client_with_test_key()
+            templateApi = TemplatesApi.new(api)
+            templateApi.delete(@tmplId)
+        end
     end
 end

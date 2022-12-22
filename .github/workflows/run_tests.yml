@@ -19,6 +19,7 @@ jobs:
             ruby-version: ${{ matrix.ruby-version }}
       - name: Install dependencies
         run: |
+          sudo apt-get install libyaml-dev
           bundle install
       - name: Run Integration Tests
         run:
@@ -28,7 +29,7 @@ jobs:
           LOB_API_LIVE_KEY: ${{ secrets.LOB_API_LIVE_KEY }}
       - name: Run Unit Tests
         run:
-          rspec -P __tests__/Api/*.spec.rb --color --format doc  
+          rspec -P __tests__/Api/*.spec.rb --color --format doc
         env:
           LOB_API_TEST_KEY: ${{ secrets.LOB_API_TEST_KEY }}
           LOB_API_LIVE_KEY: ${{ secrets.LOB_API_LIVE_KEY }}
