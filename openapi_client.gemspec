@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "openapi_client/version"
+require "lob/version"
 
 Gem::Specification.new do |s|
   spec.name          = "lob"
