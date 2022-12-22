@@ -1,0 +1,34 @@
+name: Run Tests
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  ruby_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ["3.0", "3.1"]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+            ruby-version: ${{ matrix.ruby-version }}
+      - name: Install dependencies
+        run: |
+          bundle install
+      - name: Run Integration Tests
+        run:
+          rspec -P __tests__/Integration/*.spec.rb --color --format doc
+        env:
+          LOB_API_TEST_KEY: ${{ secrets.LOB_API_TEST_KEY }}
+          LOB_API_LIVE_KEY: ${{ secrets.LOB_API_LIVE_KEY }}
+      - name: Run Unit Tests
+        run:
+          rspec -P __tests__/Api/*.spec.rb --color --format doc  
+        env:
+          LOB_API_TEST_KEY: ${{ secrets.LOB_API_TEST_KEY }}
+          LOB_API_LIVE_KEY: ${{ secrets.LOB_API_LIVE_KEY }}
