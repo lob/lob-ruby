@@ -16,7 +16,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "openapi_client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "openapi_client"
+  s.name        = "lob"
   s.version     = OpenapiClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenAPI-Generator"]
