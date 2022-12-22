@@ -18,12 +18,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
+  spec.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
 
-  s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
+  spec.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
-  s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
-  s.test_files    = `find spec/*`.split("\n")
-  s.executables   = []
-  s.require_paths = ["lib"]
+  spec.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
+  spec.test_files    = `find spec/*`.split("\n")
+  spec.executables   = []
+  spec.require_paths = ["lib"]
 end
