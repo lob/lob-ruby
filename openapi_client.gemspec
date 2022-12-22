@@ -16,16 +16,14 @@ $:.push File.expand_path("../lib", __FILE__)
 require "openapi_client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "openapi_client"
-  s.version     = OpenapiClient::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ["OpenAPI-Generator"]
-  s.email       = ["lob-openapi@lob.com"]
-  s.homepage    = "https://openapi-generator.tech"
-  s.summary     = "Lob Ruby Gem"
-  s.description = "The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)? "
-  s.license     = "Unlicense"
-  s.required_ruby_version = ">= 2.4"
+  spec.name          = "lob"
+  spec.version       = Lob::VERSION
+  spec.authors       = ["Lob"]
+  spec.email         = ["support@lob.com"]
+  spec.description   = %q{Lob API Ruby wrapper}
+  spec.summary       = %q{Ruby wrapper for Lob.com API with ActiveRecord-style syntax}
+  spec.homepage      = "https://github.com/lob/lob-ruby"
+  spec.license       = "MIT"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
 
