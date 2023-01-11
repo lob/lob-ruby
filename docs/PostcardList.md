@@ -1,4 +1,4 @@
-# OpenapiClient::PostcardList
+# Lob::PostcardList
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::PostcardList.new(
+instance = Lob::PostcardList.new(
   data: null,
   object: null,
   next_url: null,

@@ -1,4 +1,4 @@
-# OpenapiClient::PostcardSize
+# Lob::PostcardSize
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::PostcardSize.new()
+instance = Lob::PostcardSize.new()
 ```
 

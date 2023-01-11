@@ -24,13 +24,13 @@ $ gem install lob
 
 ```ruby
 require 'lob'
-config = OpenapiClient::Configuration.default
+config = Lob::Configuration.default
 config.username = ENV['LOB_API_TEST_KEY']
 ```
 You then instantiate the specific resource API that you need access to as follows:
 
 ```ruby
-api = OpenapiClient::ApiClient.new(config)
+api = Lob::ApiClient.new(config)
 addressApi = AddressesApi.new(@api)
 
 ```

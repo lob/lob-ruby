@@ -1,4 +1,4 @@
-# OpenapiClient::PlaceholderModel
+# Lob::PlaceholderModel
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::PlaceholderModel.new(
+instance = Lob::PlaceholderModel.new(
   return_envelope: null,
   address_domestic: null,
   letter_details_writable: null,

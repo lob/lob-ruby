@@ -1,4 +1,4 @@
-# OpenapiClient::DefaultApi
+# Lob::DefaultApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -21,19 +21,19 @@ Don't call this. It's so that the right models can be generated.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::DefaultApi.new
+api_instance = Lob::DefaultApi.new
 
 begin
   # placeholder_no_call
   result = api_instance.placeholder_no_call
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling DefaultApi->placeholder_no_call: #{e}"
 end
 ```
@@ -51,7 +51,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PlaceholderModel>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling DefaultApi->placeholder_with_http_info: #{e}"
 end
 ```

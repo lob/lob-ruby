@@ -1,4 +1,4 @@
-# OpenapiClient::BillingGroupsApi
+# Lob::BillingGroupsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -24,20 +24,20 @@ Creates a new billing_group with the provided properties.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BillingGroupsApi.new
-billing_group_editable = OpenapiClient::BillingGroupEditable.new({name: 'name_example'}) # BillingGroupEditable | 
+api_instance = Lob::BillingGroupsApi.new
+billing_group_editable = Lob::BillingGroupEditable.new({name: 'name_example'}) # BillingGroupEditable | 
 
 begin
   # create
   result = api_instance.create(billing_group_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->create: #{e}"
 end
 ```
@@ -55,7 +55,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingGroup>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->billing_group_create_with_http_info: #{e}"
 end
 ```
@@ -94,20 +94,20 @@ Retrieves the details of an existing billing_group. You need only supply the uni
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BillingGroupsApi.new
+api_instance = Lob::BillingGroupsApi.new
 bg_id = 'bg_id_example' # String | id of the billing_group
 
 begin
   # get
   result = api_instance.get(bg_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->get: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingGroup>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->billing_group_retrieve_with_http_info: #{e}"
 end
 ```
@@ -164,21 +164,21 @@ Updates all editable attributes of the billing_group with the given id.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BillingGroupsApi.new
+api_instance = Lob::BillingGroupsApi.new
 bg_id = 'bg_id_example' # String | id of the billing_group
-billing_group_editable = OpenapiClient::BillingGroupEditable.new({name: 'name_example'}) # BillingGroupEditable | 
+billing_group_editable = Lob::BillingGroupEditable.new({name: 'name_example'}) # BillingGroupEditable | 
 
 begin
   # update
   result = api_instance.update(bg_id, billing_group_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->update: #{e}"
 end
 ```
@@ -196,7 +196,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingGroup>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->billing_group_update_with_http_info: #{e}"
 end
 ```
@@ -236,27 +236,27 @@ Returns a list of your billing_groups. The billing_groups are returned sorted by
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BillingGroupsApi.new
+api_instance = Lob::BillingGroupsApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   offset: 56, # Integer | An integer that designates the offset at which to begin returning results. Defaults to 0.
   include: ['inner_example'], # Array<String> | Request that the response include the total count by specifying `include[]=total_count`. 
   date_created: { key: Time.now}, # Hash<String, Time> | Filter by date created.
   date_modified: { key: 'inner_example'}, # Hash<String, String> | Filter by date modified.
-  sort_by_date_modified: OpenapiClient::SortByDateModified.new # SortByDateModified | Sorts items by ascending or descending dates. Use either `date_created` or `date_modfied`, not both. 
+  sort_by_date_modified: Lob::SortByDateModified.new # SortByDateModified | Sorts items by ascending or descending dates. Use either `date_created` or `date_modfied`, not both. 
 }
 
 begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->list: #{e}"
 end
 ```
@@ -274,7 +274,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingGroupList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BillingGroupsApi->billing_groups_list_with_http_info: #{e}"
 end
 ```

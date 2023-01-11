@@ -1,4 +1,4 @@
-# OpenapiClient::TemplateWritable
+# Lob::TemplateWritable
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::TemplateWritable.new(
+instance = Lob::TemplateWritable.new(
   description: null,
   html: null,
   metadata: null,

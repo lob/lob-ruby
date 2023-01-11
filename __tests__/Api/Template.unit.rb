@@ -1,6 +1,6 @@
 # Template.unit.rb
 
-include OpenapiClient
+include Lob
 $:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
 
 RSpec.describe "TemplatesApi" do

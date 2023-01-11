@@ -1,4 +1,4 @@
-# OpenapiClient::UploadWritable
+# Lob::UploadWritable
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::UploadWritable.new(
+instance = Lob::UploadWritable.new(
   campaign_id: null
 )
 ```

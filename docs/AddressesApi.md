@@ -1,4 +1,4 @@
-# OpenapiClient::AddressesApi
+# Lob::AddressesApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -24,20 +24,20 @@ Creates a new address given information
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::AddressesApi.new
-address_editable = OpenapiClient::AddressEditable.new # AddressEditable | 
+api_instance = Lob::AddressesApi.new
+address_editable = Lob::AddressEditable.new # AddressEditable | 
 
 begin
   # create
   result = api_instance.create(address_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->create: #{e}"
 end
 ```
@@ -55,7 +55,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Address>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->address_create_with_http_info: #{e}"
 end
 ```
@@ -94,20 +94,20 @@ Deletes the details of an existing address.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::AddressesApi.new
+api_instance = Lob::AddressesApi.new
 adr_id = 'adr_id_example' # String | id of the address
 
 begin
   # delete
   result = api_instance.delete(adr_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->delete: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AddressDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->address_delete_with_http_info: #{e}"
 end
 ```
@@ -164,20 +164,20 @@ Retrieves the details of an existing address.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::AddressesApi.new
+api_instance = Lob::AddressesApi.new
 adr_id = 'adr_id_example' # String | id of the address
 
 begin
   # get
   result = api_instance.get(adr_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->get: #{e}"
 end
 ```
@@ -195,7 +195,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Address>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->address_retrieve_with_http_info: #{e}"
 end
 ```
@@ -234,13 +234,13 @@ Returns a list of your addresses.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::AddressesApi.new
+api_instance = Lob::AddressesApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   before: 'before_example', # String | A reference to a list entry used for paginating to the previous set of entries. This field is pre-populated in the `previous_url` field in the return response. 
@@ -254,7 +254,7 @@ begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->list: #{e}"
 end
 ```
@@ -272,7 +272,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AddressList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling AddressesApi->addresses_list_with_http_info: #{e}"
 end
 ```

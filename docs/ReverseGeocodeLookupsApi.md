@@ -1,4 +1,4 @@
-# OpenapiClient::ReverseGeocodeLookupsApi
+# Lob::ReverseGeocodeLookupsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -21,14 +21,14 @@ Reverse geocode a valid US location with a live API key.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::ReverseGeocodeLookupsApi.new
-location = OpenapiClient::Location.new({latitude: 3.56, longitude: 3.56}) # Location | 
+api_instance = Lob::ReverseGeocodeLookupsApi.new
+location = Lob::Location.new({latitude: 3.56, longitude: 3.56}) # Location | 
 opts = {
   size: 56 # Integer | Determines the number of locations returned. Possible values are between 1 and 50 and any number higher will be rounded down to 50. Default size is a list of 5 reverse geocoded locations.
 }
@@ -37,7 +37,7 @@ begin
   # lookup
   result = api_instance.lookup(location, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ReverseGeocodeLookupsApi->lookup: #{e}"
 end
 ```
@@ -55,7 +55,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ReverseGeocode>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ReverseGeocodeLookupsApi->reverse_geocode_lookup_with_http_info: #{e}"
 end
 ```

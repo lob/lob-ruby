@@ -1,4 +1,4 @@
-# OpenapiClient::LetterCustomEnvelope
+# Lob::LetterCustomEnvelope
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::LetterCustomEnvelope.new(
+instance = Lob::LetterCustomEnvelope.new(
   id: null,
   url: null,
   object: null

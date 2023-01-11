@@ -1,4 +1,4 @@
-# OpenapiClient::Check
+# Lob::Check
 
 ## Properties
 
@@ -36,7 +36,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Check.new(
+instance = Lob::Check.new(
   id: null,
   to: null,
   from: null,

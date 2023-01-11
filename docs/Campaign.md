@@ -1,4 +1,4 @@
-# OpenapiClient::Campaign
+# Lob::Campaign
 
 ## Properties
 
@@ -28,7 +28,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Campaign.new(
+instance = Lob::Campaign.new(
   billing_group_id: null,
   name: null,
   description: null,

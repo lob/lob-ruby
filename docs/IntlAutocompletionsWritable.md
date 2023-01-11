@@ -1,4 +1,4 @@
-# OpenapiClient::IntlAutocompletionsWritable
+# Lob::IntlAutocompletionsWritable
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::IntlAutocompletionsWritable.new(
+instance = Lob::IntlAutocompletionsWritable.new(
   address_prefix: null,
   city: null,
   state: null,

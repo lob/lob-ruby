@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipUpdatable
+# Lob::BuckslipUpdatable
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BuckslipUpdatable.new(
+instance = Lob::BuckslipUpdatable.new(
   description: null,
   auto_reorder: null,
   reorder_quantity: null

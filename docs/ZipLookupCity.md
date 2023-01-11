@@ -1,4 +1,4 @@
-# OpenapiClient::ZipLookupCity
+# Lob::ZipLookupCity
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::ZipLookupCity.new(
+instance = Lob::ZipLookupCity.new(
   city: null,
   state: null,
   county: null,

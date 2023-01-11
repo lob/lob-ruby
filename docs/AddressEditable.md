@@ -1,4 +1,4 @@
-# OpenapiClient::AddressEditable
+# Lob::AddressEditable
 
 ## Properties
 
@@ -22,7 +22,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::AddressEditable.new(
+instance = Lob::AddressEditable.new(
   address_line1: null,
   address_line2: null,
   address_city: null,

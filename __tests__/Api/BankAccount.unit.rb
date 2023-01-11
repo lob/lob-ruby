@@ -1,6 +1,6 @@
 # BankAccount.unit.rb
 
-include OpenapiClient
+include Lob
 $:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
 require 'api/bank_accounts_api'
 require 'models/bank_account'

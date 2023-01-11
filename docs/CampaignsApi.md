@@ -1,4 +1,4 @@
-# OpenapiClient::CampaignsApi
+# Lob::CampaignsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -25,14 +25,14 @@ Creates a new campaign with the provided properties. See how to launch your firs
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CampaignsApi.new
-campaign_writable = OpenapiClient::CampaignWritable.new({name: 'name_example', schedule_type: OpenapiClient::CmpScheduleType::IMMEDIATE}) # CampaignWritable | 
+api_instance = Lob::CampaignsApi.new
+campaign_writable = Lob::CampaignWritable.new({name: 'name_example', schedule_type: Lob::CmpScheduleType::IMMEDIATE}) # CampaignWritable | 
 opts = {
   x_lang_output: 'native' # String | * `native` - Translate response to the native language of the country in the request * `match` - match the response to the language in the request  Default response is in English. 
 }
@@ -41,7 +41,7 @@ begin
   # create
   result = api_instance.create(campaign_writable, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->create: #{e}"
 end
 ```
@@ -59,7 +59,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Campaign>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->campaign_create_with_http_info: #{e}"
 end
 ```
@@ -99,20 +99,20 @@ Delete an existing campaign. You need only supply the unique identifier that was
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CampaignsApi.new
+api_instance = Lob::CampaignsApi.new
 cmp_id = 'cmp_id_example' # String | id of the campaign
 
 begin
   # delete
   result = api_instance.delete(cmp_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->delete: #{e}"
 end
 ```
@@ -130,7 +130,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CampaignDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->campaign_delete_with_http_info: #{e}"
 end
 ```
@@ -169,20 +169,20 @@ Retrieves the details of an existing campaign. You need only supply the unique c
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CampaignsApi.new
+api_instance = Lob::CampaignsApi.new
 cmp_id = 'cmp_id_example' # String | id of the campaign
 
 begin
   # get
   result = api_instance.get(cmp_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->get: #{e}"
 end
 ```
@@ -200,7 +200,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Campaign>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->campaign_retrieve_with_http_info: #{e}"
 end
 ```
@@ -239,21 +239,21 @@ Update the details of an existing campaign. You need only supply the unique iden
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CampaignsApi.new
+api_instance = Lob::CampaignsApi.new
 cmp_id = 'cmp_id_example' # String | id of the campaign
-campaign_updatable = OpenapiClient::CampaignUpdatable.new # CampaignUpdatable | 
+campaign_updatable = Lob::CampaignUpdatable.new # CampaignUpdatable | 
 
 begin
   # update
   result = api_instance.update(cmp_id, campaign_updatable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->update: #{e}"
 end
 ```
@@ -271,7 +271,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Campaign>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->campaign_update_with_http_info: #{e}"
 end
 ```
@@ -311,13 +311,13 @@ Returns a list of your campaigns. The campaigns are returned sorted by creation 
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CampaignsApi.new
+api_instance = Lob::CampaignsApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   include: ['inner_example'], # Array<String> | Request that the response include the total count by specifying `include[]=total_count`. 
@@ -329,7 +329,7 @@ begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->list: #{e}"
 end
 ```
@@ -347,7 +347,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CampaignsList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CampaignsApi->campaigns_list_with_http_info: #{e}"
 end
 ```

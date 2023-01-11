@@ -1,4 +1,4 @@
-# OpenapiClient::TemplateUpdate
+# Lob::TemplateUpdate
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::TemplateUpdate.new(
+instance = Lob::TemplateUpdate.new(
   description: null,
   published_version: null
 )

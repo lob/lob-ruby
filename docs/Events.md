@@ -1,4 +1,4 @@
-# OpenapiClient::Events
+# Lob::Events
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Events.new(
+instance = Lob::Events.new(
   id: null,
   body: null,
   reference_id: null,

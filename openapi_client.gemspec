@@ -17,7 +17,7 @@ require "openapi_client/version"
 
 Gem::Specification.new do |s|
   s.name        = "lob"
-  s.version     = OpenapiClient::VERSION
+  s.version     = Lob::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Lob"]
   s.email       = ["support@lob.com"]

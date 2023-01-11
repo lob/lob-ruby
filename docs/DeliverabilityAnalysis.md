@@ -1,4 +1,4 @@
-# OpenapiClient::DeliverabilityAnalysis
+# Lob::DeliverabilityAnalysis
 
 ## Properties
 
@@ -19,7 +19,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::DeliverabilityAnalysis.new(
+instance = Lob::DeliverabilityAnalysis.new(
   dpv_confirmation: null,
   dpv_cmra: null,
   dpv_vacant: null,

@@ -1,4 +1,4 @@
-# OpenapiClient::ReverseGeocode
+# Lob::ReverseGeocode
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::ReverseGeocode.new(
+instance = Lob::ReverseGeocode.new(
   id: null,
   addresses: null,
   object: null

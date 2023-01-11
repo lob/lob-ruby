@@ -1,4 +1,4 @@
-# OpenapiClient::HTTPValidationError
+# Lob::HTTPValidationError
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::HTTPValidationError.new(
+instance = Lob::HTTPValidationError.new(
   detail: null
 )
 ```

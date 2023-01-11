@@ -10,7 +10,7 @@ OpenAPI Generator version: 5.2.1
 
 =end
 
-module OpenapiClient
+module Lob
   class Configuration
     # Defines url scheme
     attr_accessor :scheme

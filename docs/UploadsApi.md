@@ -1,4 +1,4 @@
-# OpenapiClient::UploadsApi
+# Lob::UploadsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -28,13 +28,13 @@ Retrieves the details of an existing export. You need only supply the unique exp
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
+api_instance = Lob::UploadsApi.new
 upl_id = 'upl_id_example' # String | ID of the upload
 ex_id = 'ex_id_example' # String | ID of the export
 
@@ -42,7 +42,7 @@ begin
   # get_export
   result = api_instance.get_export(upl_id, ex_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->get_export: #{e}"
 end
 ```
@@ -60,7 +60,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Export>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->export_retrieve_with_http_info: #{e}"
 end
 ```
@@ -100,20 +100,20 @@ Creates a new upload with the provided properties.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
-upload_writable = OpenapiClient::UploadWritable.new({campaign_id: 'campaign_id_example'}) # UploadWritable | 
+api_instance = Lob::UploadsApi.new
+upload_writable = Lob::UploadWritable.new({campaign_id: 'campaign_id_example'}) # UploadWritable | 
 
 begin
   # create_upload
   result = api_instance.create_upload(upload_writable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->create_upload: #{e}"
 end
 ```
@@ -131,7 +131,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Upload>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->upload_create_with_http_info: #{e}"
 end
 ```
@@ -170,19 +170,19 @@ Delete an existing upload. You need only supply the unique identifier that was r
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
+api_instance = Lob::UploadsApi.new
 upl_id = 'upl_id_example' # String | id of the upload
 
 begin
   # delete_upload
   api_instance.delete_upload(upl_id)
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->delete_upload: #{e}"
 end
 ```
@@ -200,7 +200,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->upload_delete_with_http_info: #{e}"
 end
 ```
@@ -239,21 +239,21 @@ Campaign Exports can help you understand exactly which records in a campaign cou
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
+api_instance = Lob::UploadsApi.new
 upl_id = 'upl_id_example' # String | ID of the upload
-export_model = OpenapiClient::ExportModel.new # ExportModel | 
+export_model = Lob::ExportModel.new # ExportModel | 
 
 begin
   # create_export
   result = api_instance.create_export(upl_id, export_model)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->create_export: #{e}"
 end
 ```
@@ -271,7 +271,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UploadCreateExport>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->upload_export_create_with_http_info: #{e}"
 end
 ```
@@ -311,13 +311,13 @@ Upload an [audience file](https://help.lob.com/best-practices/campaign-audience-
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
+api_instance = Lob::UploadsApi.new
 upl_id = 'upl_id_example' # String | ID of the upload
 file = TODO # AnyType | 
 
@@ -325,7 +325,7 @@ begin
   # upload_file
   result = api_instance.upload_file(upl_id, file)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->upload_file: #{e}"
 end
 ```
@@ -343,7 +343,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UploadFile>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->upload_file_create_with_http_info: #{e}"
 end
 ```
@@ -383,20 +383,20 @@ Retrieves the details of an existing upload. You need only supply the unique upl
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
+api_instance = Lob::UploadsApi.new
 upl_id = 'upl_id_example' # String | id of the upload
 
 begin
   # get_upload
   result = api_instance.get_upload(upl_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->get_upload: #{e}"
 end
 ```
@@ -414,7 +414,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Upload>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->upload_retrieve_with_http_info: #{e}"
 end
 ```
@@ -453,21 +453,21 @@ Update the details of an existing upload. You need only supply the unique identi
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
+api_instance = Lob::UploadsApi.new
 upl_id = 'upl_id_example' # String | id of the upload
-upload_updatable = OpenapiClient::UploadUpdatable.new # UploadUpdatable | 
+upload_updatable = Lob::UploadUpdatable.new # UploadUpdatable | 
 
 begin
   # update_upload
   result = api_instance.update_upload(upl_id, upload_updatable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->update_upload: #{e}"
 end
 ```
@@ -485,7 +485,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Upload>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->upload_update_with_http_info: #{e}"
 end
 ```
@@ -525,13 +525,13 @@ Returns a list of your uploads. Optionally, filter uploads by campaign.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UploadsApi.new
+api_instance = Lob::UploadsApi.new
 opts = {
   campaign_id: 'campaign_id_example' # String | id of the campaign
 }
@@ -540,7 +540,7 @@ begin
   # list_upload
   result = api_instance.list_upload(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->list_upload: #{e}"
 end
 ```
@@ -558,7 +558,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Upload>>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UploadsApi->uploads_list_with_http_info: #{e}"
 end
 ```

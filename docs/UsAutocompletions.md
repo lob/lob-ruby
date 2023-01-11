@@ -1,4 +1,4 @@
-# OpenapiClient::UsAutocompletions
+# Lob::UsAutocompletions
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::UsAutocompletions.new(
+instance = Lob::UsAutocompletions.new(
   id: null,
   suggestions: null,
   object: null

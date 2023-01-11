@@ -1,4 +1,4 @@
-# OpenapiClient::CmpUseType
+# Lob::CmpUseType
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CmpUseType.new()
+instance = Lob::CmpUseType.new()
 ```
 

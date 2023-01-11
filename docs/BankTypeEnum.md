@@ -1,4 +1,4 @@
-# OpenapiClient::BankTypeEnum
+# Lob::BankTypeEnum
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BankTypeEnum.new()
+instance = Lob::BankTypeEnum.new()
 ```
 

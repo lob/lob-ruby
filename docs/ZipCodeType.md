@@ -1,4 +1,4 @@
-# OpenapiClient::ZipCodeType
+# Lob::ZipCodeType
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::ZipCodeType.new()
+instance = Lob::ZipCodeType.new()
 ```
 

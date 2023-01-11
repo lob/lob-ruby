@@ -1,4 +1,4 @@
-# OpenapiClient::LobError
+# Lob::LobError
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::LobError.new(
+instance = Lob::LobError.new(
   message: null,
   status_code: null,
   code: null

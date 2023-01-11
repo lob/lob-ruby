@@ -1,4 +1,4 @@
-# OpenapiClient::ZipEditable
+# Lob::ZipEditable
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::ZipEditable.new(
+instance = Lob::ZipEditable.new(
   zip_code: null
 )
 ```

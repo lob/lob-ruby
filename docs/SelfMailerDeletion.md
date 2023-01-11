@@ -1,4 +1,4 @@
-# OpenapiClient::SelfMailerDeletion
+# Lob::SelfMailerDeletion
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::SelfMailerDeletion.new(
+instance = Lob::SelfMailerDeletion.new(
   id: null,
   deleted: null,
   object: null

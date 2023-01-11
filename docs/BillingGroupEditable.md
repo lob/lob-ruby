@@ -1,4 +1,4 @@
-# OpenapiClient::BillingGroupEditable
+# Lob::BillingGroupEditable
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BillingGroupEditable.new(
+instance = Lob::BillingGroupEditable.new(
   description: null,
   name: null
 )

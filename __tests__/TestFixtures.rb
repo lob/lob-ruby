@@ -1,17 +1,17 @@
-module OpenapiClient
+module Lob
     class TestFixtures
 
         def self.api_client_with_test_key()
-            config = OpenapiClient::Configuration.default
+            config = Lob::Configuration.default
             config.username = ENV["LOB_API_TEST_KEY"]
-            apiClient = OpenapiClient::ApiClient.new(config)
+            apiClient = Lob::ApiClient.new(config)
             return apiClient
         end
 
         def self.api_client_with_live_key()
-            config = OpenapiClient::Configuration.default
+            config = Lob::Configuration.default
             config.username = ENV["LOB_API_LIVE_KEY"]
-            apiClient = OpenapiClient::ApiClient.new(config)
+            apiClient = Lob::ApiClient.new(config)
             return apiClient
         end
 

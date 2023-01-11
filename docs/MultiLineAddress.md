@@ -1,4 +1,4 @@
-# OpenapiClient::MultiLineAddress
+# Lob::MultiLineAddress
 
 ## Properties
 
@@ -18,7 +18,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::MultiLineAddress.new(
+instance = Lob::MultiLineAddress.new(
   recipient: null,
   company: null,
   primary_line: null,

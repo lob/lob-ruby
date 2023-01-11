@@ -1,4 +1,4 @@
-# OpenapiClient::UsVerificationsApi
+# Lob::UsVerificationsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -22,14 +22,14 @@ Verify a list of US or US territory addresses with a live API key.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UsVerificationsApi.new
-multiple_components_list = OpenapiClient::MultipleComponentsList.new({addresses: [OpenapiClient::MultipleComponents.new({primary_line: 'primary_line_example'})]}) # MultipleComponentsList | 
+api_instance = Lob::UsVerificationsApi.new
+multiple_components_list = Lob::MultipleComponentsList.new({addresses: [Lob::MultipleComponents.new({primary_line: 'primary_line_example'})]}) # MultipleComponentsList | 
 opts = {
   _case: 'upper' # String | Casing of the verified address. Possible values are `upper` and `proper` for uppercased (e.g. \"PO BOX\") and proper-cased (e.g. \"PO Box\"), respectively.
 }
@@ -38,7 +38,7 @@ begin
   # verifyBulk
   result = api_instance.verifyBulk(multiple_components_list, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UsVerificationsApi->verifyBulk: #{e}"
 end
 ```
@@ -56,7 +56,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UsVerifications>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UsVerificationsApi->bulk_us_verifications_with_http_info: #{e}"
 end
 ```
@@ -96,14 +96,14 @@ Verify a US or US territory address with a live API key.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UsVerificationsApi.new
-us_verifications_writable = OpenapiClient::UsVerificationsWritable.new # UsVerificationsWritable | 
+api_instance = Lob::UsVerificationsApi.new
+us_verifications_writable = Lob::UsVerificationsWritable.new # UsVerificationsWritable | 
 opts = {
   _case: 'upper' # String | Casing of the verified address. Possible values are `upper` and `proper` for uppercased (e.g. \"PO BOX\") and proper-cased (e.g. \"PO Box\"), respectively.
 }
@@ -112,7 +112,7 @@ begin
   # verifySingle
   result = api_instance.verifySingle(us_verifications_writable, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UsVerificationsApi->verifySingle: #{e}"
 end
 ```
@@ -130,7 +130,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UsVerification>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UsVerificationsApi->us_verification_with_http_info: #{e}"
 end
 ```

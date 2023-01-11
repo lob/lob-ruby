@@ -1,4 +1,4 @@
-# OpenapiClient::UsComponents
+# Lob::UsComponents
 
 ## Properties
 
@@ -36,7 +36,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::UsComponents.new(
+instance = Lob::UsComponents.new(
   primary_number: null,
   street_predirection: null,
   street_name: null,

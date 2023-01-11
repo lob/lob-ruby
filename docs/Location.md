@@ -1,4 +1,4 @@
-# OpenapiClient::Location
+# Lob::Location
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Location.new(
+instance = Lob::Location.new(
   latitude: null,
   longitude: null
 )

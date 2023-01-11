@@ -1,4 +1,4 @@
-# OpenapiClient::MailType
+# Lob::MailType
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::MailType.new()
+instance = Lob::MailType.new()
 ```
 

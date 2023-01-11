@@ -1,4 +1,4 @@
-# OpenapiClient::CardsApi
+# Lob::CardsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -25,20 +25,20 @@ Creates a new card given information
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CardsApi.new
-card_editable = OpenapiClient::CardEditable.new({front: 'front_example'}) # CardEditable | 
+api_instance = Lob::CardsApi.new
+card_editable = Lob::CardEditable.new({front: 'front_example'}) # CardEditable | 
 
 begin
   # create
   result = api_instance.create(card_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->create: #{e}"
 end
 ```
@@ -56,7 +56,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Card>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->card_create_with_http_info: #{e}"
 end
 ```
@@ -95,20 +95,20 @@ Delete an existing card. You need only supply the unique identifier that was ret
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CardsApi.new
+api_instance = Lob::CardsApi.new
 card_id = 'card_id_example' # String | id of the card
 
 begin
   # delete
   result = api_instance.delete(card_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->delete: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CardDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->card_delete_with_http_info: #{e}"
 end
 ```
@@ -165,20 +165,20 @@ Retrieves the details of an existing card. You need only supply the unique custo
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CardsApi.new
+api_instance = Lob::CardsApi.new
 card_id = 'card_id_example' # String | id of the card
 
 begin
   # get
   result = api_instance.get(card_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->get: #{e}"
 end
 ```
@@ -196,7 +196,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Card>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->card_retrieve_with_http_info: #{e}"
 end
 ```
@@ -235,21 +235,21 @@ Update the details of an existing card. You need only supply the unique identifi
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CardsApi.new
+api_instance = Lob::CardsApi.new
 card_id = 'card_id_example' # String | id of the card
-card_updatable = OpenapiClient::CardUpdatable.new # CardUpdatable | 
+card_updatable = Lob::CardUpdatable.new # CardUpdatable | 
 
 begin
   # update
   result = api_instance.update(card_id, card_updatable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->update: #{e}"
 end
 ```
@@ -267,7 +267,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Card>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->card_update_with_http_info: #{e}"
 end
 ```
@@ -307,13 +307,13 @@ Returns a list of your cards. The cards are returned sorted by creation date, wi
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CardsApi.new
+api_instance = Lob::CardsApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   before: 'before_example', # String | A reference to a list entry used for paginating to the previous set of entries. This field is pre-populated in the `previous_url` field in the return response. 
@@ -325,7 +325,7 @@ begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->list: #{e}"
 end
 ```
@@ -343,7 +343,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CardList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardsApi->cards_list_with_http_info: #{e}"
 end
 ```

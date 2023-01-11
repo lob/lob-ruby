@@ -1,4 +1,4 @@
-# OpenapiClient::TrackingEventNormal
+# Lob::TrackingEventNormal
 
 ## Properties
 
@@ -19,7 +19,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::TrackingEventNormal.new(
+instance = Lob::TrackingEventNormal.new(
   type: null,
   name: null,
   details: null,

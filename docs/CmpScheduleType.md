@@ -1,4 +1,4 @@
-# OpenapiClient::CmpScheduleType
+# Lob::CmpScheduleType
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CmpScheduleType.new()
+instance = Lob::CmpScheduleType.new()
 ```
 

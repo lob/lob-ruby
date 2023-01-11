@@ -1,4 +1,4 @@
-# OpenapiClient::LetterDetailsReturned
+# Lob::LetterDetailsReturned
 
 ## Properties
 
@@ -20,7 +20,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::LetterDetailsReturned.new(
+instance = Lob::LetterDetailsReturned.new(
   color: null,
   cards: null,
   address_placement: null,

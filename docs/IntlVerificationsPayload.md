@@ -1,4 +1,4 @@
-# OpenapiClient::IntlVerificationsPayload
+# Lob::IntlVerificationsPayload
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::IntlVerificationsPayload.new(
+instance = Lob::IntlVerificationsPayload.new(
   addresses: null
 )
 ```

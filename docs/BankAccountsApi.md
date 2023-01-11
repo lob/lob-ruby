@@ -1,4 +1,4 @@
-# OpenapiClient::BankAccountsApi
+# Lob::BankAccountsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -25,20 +25,20 @@ Creates a new bank account with the provided properties. Bank accounts created i
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BankAccountsApi.new
-bank_account_writable = OpenapiClient::BankAccountWritable.new({routing_number: 'routing_number_example', account_number: 'account_number_example', account_type: OpenapiClient::BankTypeEnum::COMPANY, signatory: 'signatory_example'}) # BankAccountWritable | 
+api_instance = Lob::BankAccountsApi.new
+bank_account_writable = Lob::BankAccountWritable.new({routing_number: 'routing_number_example', account_number: 'account_number_example', account_type: Lob::BankTypeEnum::COMPANY, signatory: 'signatory_example'}) # BankAccountWritable | 
 
 begin
   # create
   result = api_instance.create(bank_account_writable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->create: #{e}"
 end
 ```
@@ -56,7 +56,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BankAccount>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->bank_account_create_with_http_info: #{e}"
 end
 ```
@@ -95,20 +95,20 @@ Permanently deletes a bank account. It cannot be undone.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BankAccountsApi.new
+api_instance = Lob::BankAccountsApi.new
 bank_id = 'bank_id_example' # String | id of the bank account
 
 begin
   # delete
   result = api_instance.delete(bank_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->delete: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BankAccountDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->bank_account_delete_with_http_info: #{e}"
 end
 ```
@@ -165,20 +165,20 @@ Retrieves the details of an existing bank account. You need only supply the uniq
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BankAccountsApi.new
+api_instance = Lob::BankAccountsApi.new
 bank_id = 'bank_id_example' # String | id of the bank account
 
 begin
   # get
   result = api_instance.get(bank_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->get: #{e}"
 end
 ```
@@ -196,7 +196,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BankAccount>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->bank_account_retrieve_with_http_info: #{e}"
 end
 ```
@@ -235,21 +235,21 @@ Verify a bank account in order to create a check.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BankAccountsApi.new
+api_instance = Lob::BankAccountsApi.new
 bank_id = 'bank_id_example' # String | id of the bank account to be verified
-bank_account_verify = OpenapiClient::BankAccountVerify.new({amounts: [37]}) # BankAccountVerify | 
+bank_account_verify = Lob::BankAccountVerify.new({amounts: [37]}) # BankAccountVerify | 
 
 begin
   # verify
   result = api_instance.verify(bank_id, bank_account_verify)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->verify: #{e}"
 end
 ```
@@ -267,7 +267,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BankAccount>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->bank_account_verify_with_http_info: #{e}"
 end
 ```
@@ -307,13 +307,13 @@ Returns a list of your bank accounts. The bank accounts are returned sorted by c
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BankAccountsApi.new
+api_instance = Lob::BankAccountsApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   before: 'before_example', # String | A reference to a list entry used for paginating to the previous set of entries. This field is pre-populated in the `previous_url` field in the return response. 
@@ -327,7 +327,7 @@ begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->list: #{e}"
 end
 ```
@@ -345,7 +345,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BankAccountList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BankAccountsApi->bank_accounts_list_with_http_info: #{e}"
 end
 ```

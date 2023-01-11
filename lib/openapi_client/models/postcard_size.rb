@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module OpenapiClient
+module Lob
   class PostcardSize
     N4X6 = "4x6".freeze
     N6X9 = "6x9".freeze

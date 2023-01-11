@@ -1,4 +1,4 @@
-# OpenapiClient::UsVerificationOrError
+# Lob::UsVerificationOrError
 
 ## Properties
 
@@ -22,7 +22,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::UsVerificationOrError.new(
+instance = Lob::UsVerificationOrError.new(
   id: null,
   recipient: null,
   primary_line: null,

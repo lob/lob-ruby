@@ -1,4 +1,4 @@
-# OpenapiClient::BankAccountVerify
+# Lob::BankAccountVerify
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BankAccountVerify.new(
+instance = Lob::BankAccountVerify.new(
   amounts: null
 )
 ```

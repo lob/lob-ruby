@@ -1,4 +1,4 @@
-# OpenapiClient::CheckDeletion
+# Lob::CheckDeletion
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CheckDeletion.new(
+instance = Lob::CheckDeletion.new(
   id: null,
   deleted: null,
   object: null

@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module OpenapiClient
+module Lob
   class SelfMailerSize
     N6X18_BIFOLD = "6x18_bifold".freeze
     N11X9_BIFOLD = "11x9_bifold".freeze

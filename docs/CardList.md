@@ -1,4 +1,4 @@
-# OpenapiClient::CardList
+# Lob::CardList
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CardList.new(
+instance = Lob::CardList.new(
   data: null,
   object: null,
   next_url: null,

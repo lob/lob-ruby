@@ -1,4 +1,4 @@
-# OpenapiClient::Postcard
+# Lob::Postcard
 
 ## Properties
 
@@ -32,7 +32,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Postcard.new(
+instance = Lob::Postcard.new(
   id: null,
   to: null,
   from: null,

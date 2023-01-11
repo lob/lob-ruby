@@ -1,4 +1,4 @@
-# OpenapiClient::CountryExtendedExpanded
+# Lob::CountryExtendedExpanded
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CountryExtendedExpanded.new()
+instance = Lob::CountryExtendedExpanded.new()
 ```
 

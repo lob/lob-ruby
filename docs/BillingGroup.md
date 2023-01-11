@@ -1,4 +1,4 @@
-# OpenapiClient::BillingGroup
+# Lob::BillingGroup
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BillingGroup.new(
+instance = Lob::BillingGroup.new(
   description: null,
   name: null,
   id: null,

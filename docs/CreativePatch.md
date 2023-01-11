@@ -1,4 +1,4 @@
-# OpenapiClient::CreativePatch
+# Lob::CreativePatch
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CreativePatch.new(
+instance = Lob::CreativePatch.new(
   from: null,
   description: null,
   metadata: null

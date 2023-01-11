@@ -1,4 +1,4 @@
-# OpenapiClient::UsAutocompletionsApi
+# Lob::UsAutocompletionsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -21,20 +21,20 @@ Given an address prefix consisting of a partial primary line, as well as optiona
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::UsAutocompletionsApi.new
-us_autocompletions_writable = OpenapiClient::UsAutocompletionsWritable.new({address_prefix: 'address_prefix_example'}) # UsAutocompletionsWritable | 
+api_instance = Lob::UsAutocompletionsApi.new
+us_autocompletions_writable = Lob::UsAutocompletionsWritable.new({address_prefix: 'address_prefix_example'}) # UsAutocompletionsWritable | 
 
 begin
   # autocomplete
   result = api_instance.autocomplete(us_autocompletions_writable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UsAutocompletionsApi->autocomplete: #{e}"
 end
 ```
@@ -52,7 +52,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UsAutocompletions>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling UsAutocompletionsApi->us_autocompletion_with_http_info: #{e}"
 end
 ```

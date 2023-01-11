@@ -1,4 +1,4 @@
-# OpenapiClient::CheckEditable
+# Lob::CheckEditable
 
 ## Properties
 
@@ -26,7 +26,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CheckEditable.new(
+instance = Lob::CheckEditable.new(
   from: null,
   to: null,
   bank_account: null,

@@ -1,4 +1,4 @@
-# OpenapiClient::ZipLookupsApi
+# Lob::ZipLookupsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -21,20 +21,20 @@ Returns information about a ZIP code
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::ZipLookupsApi.new
-zip_editable = OpenapiClient::ZipEditable.new # ZipEditable | 
+api_instance = Lob::ZipLookupsApi.new
+zip_editable = Lob::ZipEditable.new # ZipEditable | 
 
 begin
   # lookup
   result = api_instance.lookup(zip_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ZipLookupsApi->lookup: #{e}"
 end
 ```
@@ -52,7 +52,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Zip>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ZipLookupsApi->zip_lookup_with_http_info: #{e}"
 end
 ```

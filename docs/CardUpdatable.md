@@ -1,4 +1,4 @@
-# OpenapiClient::CardUpdatable
+# Lob::CardUpdatable
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CardUpdatable.new(
+instance = Lob::CardUpdatable.new(
   description: null,
   auto_reorder: null,
   reorder_quantity: null

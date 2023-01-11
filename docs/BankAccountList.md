@@ -1,4 +1,4 @@
-# OpenapiClient::BankAccountList
+# Lob::BankAccountList
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BankAccountList.new(
+instance = Lob::BankAccountList.new(
   data: null,
   object: null,
   next_url: null,

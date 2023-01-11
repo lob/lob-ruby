@@ -1,4 +1,4 @@
-# OpenapiClient::IntlAutocompletionsApi
+# Lob::IntlAutocompletionsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -21,14 +21,14 @@ Given an address prefix consisting of a partial primary line and country, as wel
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::IntlAutocompletionsApi.new
-intl_autocompletions_writable = OpenapiClient::IntlAutocompletionsWritable.new({address_prefix: 'address_prefix_example', country: OpenapiClient::CountryExtended::AD}) # IntlAutocompletionsWritable | 
+api_instance = Lob::IntlAutocompletionsApi.new
+intl_autocompletions_writable = Lob::IntlAutocompletionsWritable.new({address_prefix: 'address_prefix_example', country: Lob::CountryExtended::AD}) # IntlAutocompletionsWritable | 
 opts = {
   x_lang_output: 'native' # String | * `native` - Translate response to the native language of the country in the request * `match` - match the response to the language in the request  Default response is in English. 
 }
@@ -37,7 +37,7 @@ begin
   # autocomplete
   result = api_instance.autocomplete(intl_autocompletions_writable, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IntlAutocompletionsApi->autocomplete: #{e}"
 end
 ```
@@ -55,7 +55,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IntlAutocompletions>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IntlAutocompletionsApi->intl_autocompletion_with_http_info: #{e}"
 end
 ```

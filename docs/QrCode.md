@@ -1,4 +1,4 @@
-# OpenapiClient::QrCode
+# Lob::QrCode
 
 ## Properties
 
@@ -17,7 +17,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::QrCode.new(
+instance = Lob::QrCode.new(
   position: null,
   top: null,
   right: null,

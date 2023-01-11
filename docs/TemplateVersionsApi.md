@@ -1,4 +1,4 @@
-# OpenapiClient::TemplateVersionsApi
+# Lob::TemplateVersionsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -25,21 +25,21 @@ Creates a new template version attached to the specified template.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplateVersionsApi.new
+api_instance = Lob::TemplateVersionsApi.new
 tmpl_id = 'tmpl_id_example' # String | The ID of the template the new version will be attached to
-template_version_writable = OpenapiClient::TemplateVersionWritable.new({html: 'html_example'}) # TemplateVersionWritable | 
+template_version_writable = Lob::TemplateVersionWritable.new({html: 'html_example'}) # TemplateVersionWritable | 
 
 begin
   # create
   result = api_instance.create(tmpl_id, template_version_writable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->create: #{e}"
 end
 ```
@@ -57,7 +57,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->create_template_version_with_http_info: #{e}"
 end
 ```
@@ -97,13 +97,13 @@ Permanently deletes a template version. A template's `published_version` can not
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplateVersionsApi.new
+api_instance = Lob::TemplateVersionsApi.new
 tmpl_id = 'tmpl_id_example' # String | The ID of the template to which the version belongs.
 vrsn_id = 'vrsn_id_example' # String | id of the template_version
 
@@ -111,7 +111,7 @@ begin
   # delete
   result = api_instance.delete(tmpl_id, vrsn_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->delete: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersionDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->template_version_delete_with_http_info: #{e}"
 end
 ```
@@ -169,13 +169,13 @@ Retrieves the template version with the given template and version ids.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplateVersionsApi.new
+api_instance = Lob::TemplateVersionsApi.new
 tmpl_id = 'tmpl_id_example' # String | The ID of the template to which the version belongs.
 vrsn_id = 'vrsn_id_example' # String | id of the template_version
 
@@ -183,7 +183,7 @@ begin
   # get
   result = api_instance.get(tmpl_id, vrsn_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->get: #{e}"
 end
 ```
@@ -201,7 +201,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->template_version_retrieve_with_http_info: #{e}"
 end
 ```
@@ -241,22 +241,22 @@ Updates the template version with the given template and version ids.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplateVersionsApi.new
+api_instance = Lob::TemplateVersionsApi.new
 tmpl_id = 'tmpl_id_example' # String | The ID of the template to which the version belongs.
 vrsn_id = 'vrsn_id_example' # String | id of the template_version
-template_version_updatable = OpenapiClient::TemplateVersionUpdatable.new # TemplateVersionUpdatable | 
+template_version_updatable = Lob::TemplateVersionUpdatable.new # TemplateVersionUpdatable | 
 
 begin
   # update
   result = api_instance.update(tmpl_id, vrsn_id, template_version_updatable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->update: #{e}"
 end
 ```
@@ -274,7 +274,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->template_version_update_with_http_info: #{e}"
 end
 ```
@@ -315,13 +315,13 @@ Returns a list of template versions for the given template ID. The template vers
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplateVersionsApi.new
+api_instance = Lob::TemplateVersionsApi.new
 tmpl_id = 'tmpl_id_example' # String | The ID of the template associated with the retrieved versions
 opts = {
   limit: 56, # Integer | How many results to return.
@@ -335,7 +335,7 @@ begin
   # list
   result = api_instance.list(tmpl_id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->list: #{e}"
 end
 ```
@@ -353,7 +353,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersionList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplateVersionsApi->template_versions_list_with_http_info: #{e}"
 end
 ```

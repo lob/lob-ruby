@@ -186,10 +186,10 @@ require 'openapi_client/api/us_autocompletions_api'
 require 'openapi_client/api/us_verifications_api'
 require 'openapi_client/api/zip_lookups_api'
 
-module OpenapiClient
+module Lob
   class << self
     # Customize default settings for the SDK using block.
-    #   OpenapiClient.configure do |config|
+    #   Lob.configure do |config|
     #     config.username = "xxx"
     #     config.password = "xxx"
     #   end

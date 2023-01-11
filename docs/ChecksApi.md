@@ -1,4 +1,4 @@
-# OpenapiClient::ChecksApi
+# Lob::ChecksApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -24,20 +24,20 @@ Completely removes a check from production. This can only be done if the check h
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::ChecksApi.new
+api_instance = Lob::ChecksApi.new
 chk_id = 'chk_id_example' # String | id of the check
 
 begin
   # cancel
   result = api_instance.cancel(chk_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->cancel: #{e}"
 end
 ```
@@ -55,7 +55,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CheckDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->check_cancel_with_http_info: #{e}"
 end
 ```
@@ -94,14 +94,14 @@ Creates a new check with the provided properties.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::ChecksApi.new
-check_editable = OpenapiClient::CheckEditable.new({from: TODO, to: TODO, bank_account: 'bank_account_example', amount: 3.56}) # CheckEditable | 
+api_instance = Lob::ChecksApi.new
+check_editable = Lob::CheckEditable.new({from: TODO, to: TODO, bank_account: 'bank_account_example', amount: 3.56}) # CheckEditable | 
 opts = {
   idempotency_key: 'idempotency_key_example' # String | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our [implementation guide](https://www.lob.com/guides#idempotent_request). 
 }
@@ -110,7 +110,7 @@ begin
   # create
   result = api_instance.create(check_editable, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->create: #{e}"
 end
 ```
@@ -128,7 +128,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Check>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->check_create_with_http_info: #{e}"
 end
 ```
@@ -168,20 +168,20 @@ Retrieves the details of an existing check. You need only supply the unique chec
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::ChecksApi.new
+api_instance = Lob::ChecksApi.new
 chk_id = 'chk_id_example' # String | id of the check
 
 begin
   # get
   result = api_instance.get(chk_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->get: #{e}"
 end
 ```
@@ -199,7 +199,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Check>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->check_retrieve_with_http_info: #{e}"
 end
 ```
@@ -238,13 +238,13 @@ Returns a list of your checks. The checks are returned sorted by creation date, 
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::ChecksApi.new
+api_instance = Lob::ChecksApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   before: 'before_example', # String | A reference to a list entry used for paginating to the previous set of entries. This field is pre-populated in the `previous_url` field in the return response. 
@@ -254,15 +254,15 @@ opts = {
   metadata: { key: 'inner_example'}, # Hash<String, String> | Filter by metadata key-value pair`.
   scheduled: true, # Boolean | * `true` - only return orders (past or future) where `send_date` is greater than `date_created` * `false` - only return orders where `send_date` is equal to `date_created` 
   send_date: { key: 'inner_example'}, # Hash<String, String> | Filter by date sent.
-  mail_type: OpenapiClient::MailType::FIRST_CLASS, # MailType | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. `usps_standard` cannot be used with `4x6` postcards or for any postcards sent outside of the United States. 
-  sort_by: OpenapiClient::SortBy3.new # SortBy3 | Sorts items by ascending or descending dates. Use either `date_created` or `send_date`, not both. 
+  mail_type: Lob::MailType::FIRST_CLASS, # MailType | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. `usps_standard` cannot be used with `4x6` postcards or for any postcards sent outside of the United States. 
+  sort_by: Lob::SortBy3.new # SortBy3 | Sorts items by ascending or descending dates. Use either `date_created` or `send_date`, not both. 
 }
 
 begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->list: #{e}"
 end
 ```
@@ -280,7 +280,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CheckList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling ChecksApi->checks_list_with_http_info: #{e}"
 end
 ```

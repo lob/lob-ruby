@@ -1,4 +1,4 @@
-# OpenapiClient::UploadCreateExport
+# Lob::UploadCreateExport
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::UploadCreateExport.new(
+instance = Lob::UploadCreateExport.new(
   message: null,
   export_id: null
 )

@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipOrdersList
+# Lob::BuckslipOrdersList
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BuckslipOrdersList.new(
+instance = Lob::BuckslipOrdersList.new(
   object: null,
   next_url: null,
   previous_url: null,

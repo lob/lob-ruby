@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipOrdersApi
+# Lob::BuckslipOrdersApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -22,21 +22,21 @@ Creates a new buckslip order given information
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BuckslipOrdersApi.new
+api_instance = Lob::BuckslipOrdersApi.new
 buckslip_id = 'buckslip_id_example' # String | The ID of the buckslip to which the buckslip orders belong.
-buckslip_order_editable = OpenapiClient::BuckslipOrderEditable.new({quantity: 37}) # BuckslipOrderEditable | 
+buckslip_order_editable = Lob::BuckslipOrderEditable.new({quantity: 37}) # BuckslipOrderEditable | 
 
 begin
   # create
   result = api_instance.create(buckslip_id, buckslip_order_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipOrdersApi->create: #{e}"
 end
 ```
@@ -54,7 +54,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BuckslipOrder>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipOrdersApi->buckslip_order_create_with_http_info: #{e}"
 end
 ```
@@ -94,13 +94,13 @@ Retrieves the buckslip orders associated with the given buckslip id.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BuckslipOrdersApi.new
+api_instance = Lob::BuckslipOrdersApi.new
 buckslip_id = 'buckslip_id_example' # String | The ID of the buckslip to which the buckslip orders belong.
 opts = {
   limit: 56, # Integer | How many results to return.
@@ -111,7 +111,7 @@ begin
   # get
   result = api_instance.get(buckslip_id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipOrdersApi->get: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BuckslipOrdersList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipOrdersApi->buckslip_orders_retrieve_with_http_info: #{e}"
 end
 ```

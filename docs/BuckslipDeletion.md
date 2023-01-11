@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipDeletion
+# Lob::BuckslipDeletion
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BuckslipDeletion.new(
+instance = Lob::BuckslipDeletion.new(
   id: null,
   deleted: null
 )

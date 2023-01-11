@@ -1,4 +1,4 @@
-# OpenapiClient::CreativesApi
+# Lob::CreativesApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -23,14 +23,14 @@ Creates a new creative with the provided properties
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CreativesApi.new
-creative_writable = OpenapiClient::CreativeWritable.new({from: TODO, resource_type: 'letter', campaign_id: 'campaign_id_example'}) # CreativeWritable | 
+api_instance = Lob::CreativesApi.new
+creative_writable = Lob::CreativeWritable.new({from: TODO, resource_type: 'letter', campaign_id: 'campaign_id_example'}) # CreativeWritable | 
 opts = {
   x_lang_output: 'native' # String | * `native` - Translate response to the native language of the country in the request * `match` - match the response to the language in the request  Default response is in English. 
 }
@@ -39,7 +39,7 @@ begin
   # create
   result = api_instance.create(creative_writable, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CreativesApi->create: #{e}"
 end
 ```
@@ -57,7 +57,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CreativeResponse>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CreativesApi->creative_create_with_http_info: #{e}"
 end
 ```
@@ -97,20 +97,20 @@ Retrieves the details of an existing creative. You need only supply the unique c
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CreativesApi.new
+api_instance = Lob::CreativesApi.new
 crv_id = 'crv_id_example' # String | id of the creative
 
 begin
   # get
   result = api_instance.get(crv_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CreativesApi->get: #{e}"
 end
 ```
@@ -128,7 +128,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CreativeResponse>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CreativesApi->creative_retrieve_with_http_info: #{e}"
 end
 ```
@@ -167,21 +167,21 @@ Update the details of an existing creative. You need only supply the unique iden
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CreativesApi.new
+api_instance = Lob::CreativesApi.new
 crv_id = 'crv_id_example' # String | id of the creative
-creative_patch = OpenapiClient::CreativePatch.new # CreativePatch | 
+creative_patch = Lob::CreativePatch.new # CreativePatch | 
 
 begin
   # update
   result = api_instance.update(crv_id, creative_patch)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CreativesApi->update: #{e}"
 end
 ```
@@ -199,7 +199,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CreativeResponse>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CreativesApi->creative_update_with_http_info: #{e}"
 end
 ```

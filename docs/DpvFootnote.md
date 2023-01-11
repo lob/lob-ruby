@@ -1,4 +1,4 @@
-# OpenapiClient::DpvFootnote
+# Lob::DpvFootnote
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::DpvFootnote.new()
+instance = Lob::DpvFootnote.new()
 ```
 

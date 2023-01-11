@@ -1,4 +1,4 @@
-# OpenapiClient::SelfMailerSize
+# Lob::SelfMailerSize
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::SelfMailerSize.new()
+instance = Lob::SelfMailerSize.new()
 ```
 

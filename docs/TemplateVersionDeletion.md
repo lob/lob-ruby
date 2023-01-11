@@ -1,4 +1,4 @@
-# OpenapiClient::TemplateVersionDeletion
+# Lob::TemplateVersionDeletion
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::TemplateVersionDeletion.new(
+instance = Lob::TemplateVersionDeletion.new(
   id: null,
   deleted: null,
   object: null

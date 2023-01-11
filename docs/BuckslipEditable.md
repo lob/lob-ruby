@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipEditable
+# Lob::BuckslipEditable
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BuckslipEditable.new(
+instance = Lob::BuckslipEditable.new(
   front: null,
   back: null,
   description: null,

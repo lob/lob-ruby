@@ -1,4 +1,4 @@
-# OpenapiClient::SelfMailerEditable
+# Lob::SelfMailerEditable
 
 ## Properties
 
@@ -21,7 +21,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::SelfMailerEditable.new(
+instance = Lob::SelfMailerEditable.new(
   to: null,
   from: null,
   size: null,

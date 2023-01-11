@@ -1,4 +1,4 @@
-# OpenapiClient::Zip
+# Lob::Zip
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Zip.new(
+instance = Lob::Zip.new(
   zip_code: null,
   id: null,
   cities: null,

@@ -1,4 +1,4 @@
-# OpenapiClient::IntlVerificationsApi
+# Lob::IntlVerificationsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -22,20 +22,20 @@ Verify a list of international (except US or US territories) address with a live
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::IntlVerificationsApi.new
-intl_verifications_payload = OpenapiClient::IntlVerificationsPayload.new({addresses: [OpenapiClient::MultipleComponentsIntl.new({primary_line: 'primary_line_example', country: OpenapiClient::CountryExtended::AD})]}) # IntlVerificationsPayload | 
+api_instance = Lob::IntlVerificationsApi.new
+intl_verifications_payload = Lob::IntlVerificationsPayload.new({addresses: [Lob::MultipleComponentsIntl.new({primary_line: 'primary_line_example', country: Lob::CountryExtended::AD})]}) # IntlVerificationsPayload | 
 
 begin
   # verifyBulk
   result = api_instance.verifyBulk(intl_verifications_payload)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IntlVerificationsApi->verifyBulk: #{e}"
 end
 ```
@@ -53,7 +53,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IntlVerifications>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IntlVerificationsApi->bulk_intl_verifications_with_http_info: #{e}"
 end
 ```
@@ -92,14 +92,14 @@ Verify an international (except US or US territories) address with a live API ke
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::IntlVerificationsApi.new
-intl_verification_writable = OpenapiClient::IntlVerificationWritable.new # IntlVerificationWritable | 
+api_instance = Lob::IntlVerificationsApi.new
+intl_verification_writable = Lob::IntlVerificationWritable.new # IntlVerificationWritable | 
 opts = {
   x_lang_output: 'native' # String | * `native` - Translate response to the native language of the country in the request * `match` - match the response to the language in the request  Default response is in English. 
 }
@@ -108,7 +108,7 @@ begin
   # verifySingle
   result = api_instance.verifySingle(intl_verification_writable, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IntlVerificationsApi->verifySingle: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IntlVerification>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IntlVerificationsApi->intl_verification_with_http_info: #{e}"
 end
 ```

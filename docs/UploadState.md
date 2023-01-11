@@ -1,4 +1,4 @@
-# OpenapiClient::UploadState
+# Lob::UploadState
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::UploadState.new()
+instance = Lob::UploadState.new()
 ```
 

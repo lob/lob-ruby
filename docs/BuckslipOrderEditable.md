@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipOrderEditable
+# Lob::BuckslipOrderEditable
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BuckslipOrderEditable.new(
+instance = Lob::BuckslipOrderEditable.new(
   quantity: null
 )
 ```

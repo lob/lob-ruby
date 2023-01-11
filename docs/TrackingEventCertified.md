@@ -1,4 +1,4 @@
-# OpenapiClient::TrackingEventCertified
+# Lob::TrackingEventCertified
 
 ## Properties
 
@@ -19,7 +19,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::TrackingEventCertified.new(
+instance = Lob::TrackingEventCertified.new(
   type: null,
   name: null,
   details: null,

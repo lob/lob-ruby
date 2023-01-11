@@ -1,4 +1,4 @@
-# OpenapiClient::IdentityValidation
+# Lob::IdentityValidation
 
 ## Properties
 
@@ -19,7 +19,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::IdentityValidation.new(
+instance = Lob::IdentityValidation.new(
   id: null,
   recipient: null,
   primary_line: null,

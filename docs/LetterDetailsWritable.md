@@ -1,4 +1,4 @@
-# OpenapiClient::LetterDetailsWritable
+# Lob::LetterDetailsWritable
 
 ## Properties
 
@@ -18,7 +18,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::LetterDetailsWritable.new(
+instance = Lob::LetterDetailsWritable.new(
   address_placement: null,
   cards: null,
   color: null,

@@ -1,4 +1,4 @@
-# OpenapiClient::Letter
+# Lob::Letter
 
 ## Properties
 
@@ -38,7 +38,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Letter.new(
+instance = Lob::Letter.new(
   to: null,
   from: null,
   carrier: null,

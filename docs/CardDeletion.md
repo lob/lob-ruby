@@ -1,4 +1,4 @@
-# OpenapiClient::CardDeletion
+# Lob::CardDeletion
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CardDeletion.new(
+instance = Lob::CardDeletion.new(
   id: null,
   deleted: null,
   object: null

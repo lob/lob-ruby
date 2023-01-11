@@ -1,4 +1,4 @@
-# OpenapiClient::CampaignUpdatable
+# Lob::CampaignUpdatable
 
 ## Properties
 
@@ -20,7 +20,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CampaignUpdatable.new(
+instance = Lob::CampaignUpdatable.new(
   name: null,
   description: null,
   schedule_type: null,

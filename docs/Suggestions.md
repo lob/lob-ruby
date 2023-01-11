@@ -1,4 +1,4 @@
-# OpenapiClient::Suggestions
+# Lob::Suggestions
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Suggestions.new(
+instance = Lob::Suggestions.new(
   primary_line: null,
   city: null,
   state: null,

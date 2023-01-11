@@ -1,4 +1,4 @@
-# OpenapiClient::GeocodeAddresses
+# Lob::GeocodeAddresses
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::GeocodeAddresses.new(
+instance = Lob::GeocodeAddresses.new(
   components: null,
   location_analysis: null
 )

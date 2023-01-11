@@ -1,4 +1,4 @@
-# OpenapiClient::ValidationError
+# Lob::ValidationError
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::ValidationError.new(
+instance = Lob::ValidationError.new(
   loc: null,
   msg: null,
   type: null

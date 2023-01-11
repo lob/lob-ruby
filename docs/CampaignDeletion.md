@@ -1,4 +1,4 @@
-# OpenapiClient::CampaignDeletion
+# Lob::CampaignDeletion
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CampaignDeletion.new(
+instance = Lob::CampaignDeletion.new(
   id: null,
   deleted: null
 )

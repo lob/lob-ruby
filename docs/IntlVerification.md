@@ -1,4 +1,4 @@
-# OpenapiClient::IntlVerification
+# Lob::IntlVerification
 
 ## Properties
 
@@ -21,7 +21,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::IntlVerification.new(
+instance = Lob::IntlVerification.new(
   id: null,
   recipient: null,
   primary_line: null,

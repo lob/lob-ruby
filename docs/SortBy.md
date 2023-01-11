@@ -1,4 +1,4 @@
-# OpenapiClient::SortBy
+# Lob::SortBy
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::SortBy.new(
+instance = Lob::SortBy.new(
   date_created: null,
   send_date: null
 )

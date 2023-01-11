@@ -1,4 +1,4 @@
-# OpenapiClient::SelfMailersApi
+# Lob::SelfMailersApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -24,14 +24,14 @@ Creates a new self_mailer given information
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::SelfMailersApi.new
-self_mailer_editable = OpenapiClient::SelfMailerEditable.new({to: 'to_example', inside: 'inside_example', outside: 'outside_example'}) # SelfMailerEditable | 
+api_instance = Lob::SelfMailersApi.new
+self_mailer_editable = Lob::SelfMailerEditable.new({to: 'to_example', inside: 'inside_example', outside: 'outside_example'}) # SelfMailerEditable | 
 opts = {
   idempotency_key: 'idempotency_key_example' # String | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our [implementation guide](https://www.lob.com/guides#idempotent_request). 
 }
@@ -40,7 +40,7 @@ begin
   # create
   result = api_instance.create(self_mailer_editable, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->create: #{e}"
 end
 ```
@@ -58,7 +58,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SelfMailer>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->self_mailer_create_with_http_info: #{e}"
 end
 ```
@@ -98,20 +98,20 @@ Completely removes a self mailer from production. This can only be done if the s
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::SelfMailersApi.new
+api_instance = Lob::SelfMailersApi.new
 sfm_id = 'sfm_id_example' # String | id of the self_mailer
 
 begin
   # delete
   result = api_instance.delete(sfm_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->delete: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SelfMailerDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->self_mailer_delete_with_http_info: #{e}"
 end
 ```
@@ -168,20 +168,20 @@ Retrieves the details of an existing self_mailer. You need only supply the uniqu
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::SelfMailersApi.new
+api_instance = Lob::SelfMailersApi.new
 sfm_id = 'sfm_id_example' # String | id of the self_mailer
 
 begin
   # get
   result = api_instance.get(sfm_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->get: #{e}"
 end
 ```
@@ -199,7 +199,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SelfMailer>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->self_mailer_retrieve_with_http_info: #{e}"
 end
 ```
@@ -238,13 +238,13 @@ Returns a list of your self_mailers. The self_mailers are returned sorted by cre
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::SelfMailersApi.new
+api_instance = Lob::SelfMailersApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   before: 'before_example', # String | A reference to a list entry used for paginating to the previous set of entries. This field is pre-populated in the `previous_url` field in the return response. 
@@ -252,18 +252,18 @@ opts = {
   include: ['inner_example'], # Array<String> | Request that the response include the total count by specifying `include[]=total_count`. 
   date_created: { key: Time.now}, # Hash<String, Time> | Filter by date created.
   metadata: { key: 'inner_example'}, # Hash<String, String> | Filter by metadata key-value pair`.
-  size: [OpenapiClient::SelfMailerSize::N6X18_BIFOLD], # Array<SelfMailerSize> | The self mailer sizes to be returned.
+  size: [Lob::SelfMailerSize::N6X18_BIFOLD], # Array<SelfMailerSize> | The self mailer sizes to be returned.
   scheduled: true, # Boolean | * `true` - only return orders (past or future) where `send_date` is greater than `date_created` * `false` - only return orders where `send_date` is equal to `date_created` 
   send_date: { key: 'inner_example'}, # Hash<String, String> | Filter by date sent.
-  mail_type: OpenapiClient::MailType::FIRST_CLASS, # MailType | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. `usps_standard` cannot be used with `4x6` postcards or for any postcards sent outside of the United States. 
-  sort_by: OpenapiClient::SortBy3.new # SortBy3 | Sorts items by ascending or descending dates. Use either `date_created` or `send_date`, not both. 
+  mail_type: Lob::MailType::FIRST_CLASS, # MailType | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. `usps_standard` cannot be used with `4x6` postcards or for any postcards sent outside of the United States. 
+  sort_by: Lob::SortBy3.new # SortBy3 | Sorts items by ascending or descending dates. Use either `date_created` or `send_date`, not both. 
 }
 
 begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->list: #{e}"
 end
 ```
@@ -281,7 +281,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SelfMailerList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling SelfMailersApi->self_mailers_list_with_http_info: #{e}"
 end
 ```

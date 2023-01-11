@@ -1,4 +1,4 @@
-# OpenapiClient::CardEditable
+# Lob::CardEditable
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CardEditable.new(
+instance = Lob::CardEditable.new(
   front: null,
   back: null,
   size: null,

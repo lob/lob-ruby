@@ -1,4 +1,4 @@
-# OpenapiClient::BankAccountWritable
+# Lob::BankAccountWritable
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BankAccountWritable.new(
+instance = Lob::BankAccountWritable.new(
   description: null,
   routing_number: null,
   account_number: null,

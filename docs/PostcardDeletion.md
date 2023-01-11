@@ -1,4 +1,4 @@
-# OpenapiClient::PostcardDeletion
+# Lob::PostcardDeletion
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::PostcardDeletion.new(
+instance = Lob::PostcardDeletion.new(
   id: null,
   deleted: null,
   object: null

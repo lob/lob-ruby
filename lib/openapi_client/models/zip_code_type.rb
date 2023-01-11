@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module OpenapiClient
+module Lob
   class ZipCodeType
     STANDARD = "standard".freeze
     PO_BOX = "po_box".freeze

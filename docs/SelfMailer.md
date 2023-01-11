@@ -1,4 +1,4 @@
-# OpenapiClient::SelfMailer
+# Lob::SelfMailer
 
 ## Properties
 
@@ -26,7 +26,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::SelfMailer.new(
+instance = Lob::SelfMailer.new(
   id: null,
   to: null,
   from: null,

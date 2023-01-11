@@ -1,4 +1,4 @@
-# OpenapiClient::MultipleComponentsList
+# Lob::MultipleComponentsList
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::MultipleComponentsList.new(
+instance = Lob::MultipleComponentsList.new(
   addresses: null
 )
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::Upload
+# Lob::Upload
 
 ## Properties
 
@@ -24,7 +24,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Upload.new(
+instance = Lob::Upload.new(
   id: null,
   account_id: null,
   campaign_id: null,

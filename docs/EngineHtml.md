@@ -1,4 +1,4 @@
-# OpenapiClient::EngineHtml
+# Lob::EngineHtml
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::EngineHtml.new()
+instance = Lob::EngineHtml.new()
 ```
 

@@ -1,4 +1,4 @@
-# OpenapiClient::Buckslip
+# Lob::Buckslip
 
 ## Properties
 
@@ -32,7 +32,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Buckslip.new(
+instance = Lob::Buckslip.new(
   id: null,
   auto_reorder: null,
   reorder_quantity: null,

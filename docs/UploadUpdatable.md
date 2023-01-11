@@ -1,4 +1,4 @@
-# OpenapiClient::UploadUpdatable
+# Lob::UploadUpdatable
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::UploadUpdatable.new(
+instance = Lob::UploadUpdatable.new(
   state: null,
   original_filename: null
 )

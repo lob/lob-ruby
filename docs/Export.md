@@ -1,4 +1,4 @@
-# OpenapiClient::Export
+# Lob::Export
 
 ## Properties
 
@@ -18,7 +18,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Export.new(
+instance = Lob::Export.new(
   id: null,
   date_created: null,
   date_modified: null,

@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipsList
+# Lob::BuckslipsList
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BuckslipsList.new(
+instance = Lob::BuckslipsList.new(
   data: null,
   object: null,
   next_url: null,

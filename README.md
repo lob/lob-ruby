@@ -26,38 +26,19 @@ Install with the appropriate [package manager](https://www.ruby-lang.org/en/docu
 
 Then add Lob's Ruby SDK to your Gemfile
 ```ruby
-gem 'openapi_client'
-```
-
-If you're using [Bundler](https://bundler.io/) to manage your dependencies, then you can install our SDK by running this on the command line
-```shell
-$ bundle add openapi_client
-```
-
-If you're not using Bundler, then you can install our SDK by running the following instead
-```shell
-$ gem install openapi_client
-```
-
-And finally import the package in your `.rb` file
-```ruby
-require 'openapi_client'
+gem install 'lob'
 ```
 
 ## First API Call
 
 ```ruby
-# Load the gem
-require 'openapi_client'
+require 'lob'
 
-# Setup authorization
-OpenapiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = '<YOUR_LOB_API_KEY>'
-end
+config = Lob::Configuration.default
+config.username = ENV['LOB_API_TEST_KEY']
 
-apiInstance = OpenapiClient::AddressesApi.new
-addressEditable = OpenapiClient::AddressEditable.new({
+apiInstance = Lob::AddressesApi.new
+addressEditable = Lob::AddressEditable.new({
     description: "Harry - Office",
     name: "Harry Zhang",
     company: "Lob",
@@ -75,7 +56,7 @@ begin
   #create
   result = apiInstance.create(addressEditable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Exception when calling AddressesApi->create: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::LobConfidenceScore
+# Lob::LobConfidenceScore
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::LobConfidenceScore.new(
+instance = Lob::LobConfidenceScore.new(
   score: null,
   level: null
 )

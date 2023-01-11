@@ -1,4 +1,4 @@
-# OpenapiClient::LetterEditable
+# Lob::LetterEditable
 
 ## Properties
 
@@ -28,7 +28,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::LetterEditable.new(
+instance = Lob::LetterEditable.new(
   description: null,
   metadata: null,
   mail_type: null,

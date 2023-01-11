@@ -1,4 +1,4 @@
-# OpenapiClient::BankAccountDeletion
+# Lob::BankAccountDeletion
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BankAccountDeletion.new(
+instance = Lob::BankAccountDeletion.new(
   id: null,
   deleted: null,
   object: null

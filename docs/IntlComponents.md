@@ -1,4 +1,4 @@
-# OpenapiClient::IntlComponents
+# Lob::IntlComponents
 
 ## Properties
 
@@ -15,7 +15,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::IntlComponents.new(
+instance = Lob::IntlComponents.new(
   primary_number: null,
   street_name: null,
   city: null,

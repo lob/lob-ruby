@@ -1,4 +1,4 @@
-# OpenapiClient::CheckList
+# Lob::CheckList
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CheckList.new(
+instance = Lob::CheckList.new(
   data: null,
   object: null,
   next_url: null,

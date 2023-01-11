@@ -1,4 +1,4 @@
-# OpenapiClient::InlineObject
+# Lob::InlineObject
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::InlineObject.new(
+instance = Lob::InlineObject.new(
   file: null
 )
 ```

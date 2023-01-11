@@ -1,4 +1,4 @@
-# OpenapiClient::CreativeResponse
+# Lob::CreativeResponse
 
 ## Properties
 
@@ -23,7 +23,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CreativeResponse.new(
+instance = Lob::CreativeResponse.new(
   id: null,
   description: null,
   from: null,

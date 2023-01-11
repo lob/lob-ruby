@@ -1,4 +1,4 @@
-# OpenapiClient::AddressDeletion
+# Lob::AddressDeletion
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::AddressDeletion.new(
+instance = Lob::AddressDeletion.new(
   id: null,
   deleted: null,
   object: null

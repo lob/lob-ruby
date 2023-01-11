@@ -1,4 +1,4 @@
-# OpenapiClient::PostcardEditable
+# Lob::PostcardEditable
 
 ## Properties
 
@@ -22,7 +22,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::PostcardEditable.new(
+instance = Lob::PostcardEditable.new(
   to: null,
   from: null,
   size: null,

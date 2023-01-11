@@ -10,6 +10,6 @@ OpenAPI Generator version: 5.2.1
 
 =end
 
-module OpenapiClient
+module Lob
   VERSION = '6.0.0-rc'
 end

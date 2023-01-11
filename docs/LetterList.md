@@ -1,4 +1,4 @@
-# OpenapiClient::LetterList
+# Lob::LetterList
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::LetterList.new(
+instance = Lob::LetterList.new(
   data: null,
   object: null,
   next_url: null,

@@ -10,7 +10,7 @@ OpenAPI Generator version: 5.2.1
 
 =end
 
-module OpenapiClient
+module Lob
   class ApiError < StandardError
     attr_reader :code, :response_headers, :response_body
 

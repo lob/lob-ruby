@@ -1,4 +1,4 @@
-# OpenapiClient::TemplatesApi
+# Lob::TemplatesApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -25,20 +25,20 @@ Creates a new template for use with the Print & Mail API. In Live mode, you can 
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplatesApi.new
-template_writable = OpenapiClient::TemplateWritable.new({html: 'html_example'}) # TemplateWritable | 
+api_instance = Lob::TemplatesApi.new
+template_writable = Lob::TemplateWritable.new({html: 'html_example'}) # TemplateWritable | 
 
 begin
   # create
   result = api_instance.create(template_writable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->create: #{e}"
 end
 ```
@@ -56,7 +56,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->create_template_with_http_info: #{e}"
 end
 ```
@@ -95,20 +95,20 @@ Permanently deletes a template.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplatesApi.new
+api_instance = Lob::TemplatesApi.new
 tmpl_id = 'tmpl_id_example' # String | id of the template
 
 begin
   # delete
   result = api_instance.delete(tmpl_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->delete: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->template_delete_with_http_info: #{e}"
 end
 ```
@@ -165,20 +165,20 @@ Retrieves the details of an existing template.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplatesApi.new
+api_instance = Lob::TemplatesApi.new
 tmpl_id = 'tmpl_id_example' # String | id of the template
 
 begin
   # get
   result = api_instance.get(tmpl_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->get: #{e}"
 end
 ```
@@ -196,7 +196,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->template_retrieve_with_http_info: #{e}"
 end
 ```
@@ -235,21 +235,21 @@ Updates the description and/or published version of the template with the given 
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplatesApi.new
+api_instance = Lob::TemplatesApi.new
 tmpl_id = 'tmpl_id_example' # String | id of the template
-template_update = OpenapiClient::TemplateUpdate.new # TemplateUpdate | 
+template_update = Lob::TemplateUpdate.new # TemplateUpdate | 
 
 begin
   # update
   result = api_instance.update(tmpl_id, template_update)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->update: #{e}"
 end
 ```
@@ -267,7 +267,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->template_update_with_http_info: #{e}"
 end
 ```
@@ -307,13 +307,13 @@ Returns a list of your templates. The templates are returned sorted by creation 
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::TemplatesApi.new
+api_instance = Lob::TemplatesApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   before: 'before_example', # String | A reference to a list entry used for paginating to the previous set of entries. This field is pre-populated in the `previous_url` field in the return response. 
@@ -327,7 +327,7 @@ begin
   # list
   result = api_instance.list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->list: #{e}"
 end
 ```
@@ -345,7 +345,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling TemplatesApi->templates_list_with_http_info: #{e}"
 end
 ```

@@ -1,6 +1,6 @@
 # BillingGroup.unit.rb
 
-include OpenapiClient
+include Lob
 $:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
 require 'api/billing_groups_api'
 require 'models/billing_group'

@@ -1,4 +1,4 @@
-# OpenapiClient::IdentityValidationApi
+# Lob::IdentityValidationApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -21,20 +21,20 @@ Validates whether a given name is associated with an address.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::IdentityValidationApi.new
-multi_line_address = OpenapiClient::MultiLineAddress.new({primary_line: 'primary_line_example'}) # MultiLineAddress | 
+api_instance = Lob::IdentityValidationApi.new
+multi_line_address = Lob::MultiLineAddress.new({primary_line: 'primary_line_example'}) # MultiLineAddress | 
 
 begin
   # validate
   result = api_instance.validate(multi_line_address)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IdentityValidationApi->validate: #{e}"
 end
 ```
@@ -52,7 +52,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IdentityValidation>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling IdentityValidationApi->identity_validation_with_http_info: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::CardOrdersApi
+# Lob::CardOrdersApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -22,21 +22,21 @@ Creates a new card order given information
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CardOrdersApi.new
+api_instance = Lob::CardOrdersApi.new
 card_id = 'card_id_example' # String | The ID of the card to which the card orders belong.
-card_order_editable = OpenapiClient::CardOrderEditable.new({quantity: 37}) # CardOrderEditable | 
+card_order_editable = Lob::CardOrderEditable.new({quantity: 37}) # CardOrderEditable | 
 
 begin
   # create
   result = api_instance.create(card_id, card_order_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardOrdersApi->create: #{e}"
 end
 ```
@@ -54,7 +54,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CardOrder>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardOrdersApi->card_order_create_with_http_info: #{e}"
 end
 ```
@@ -94,13 +94,13 @@ Retrieves the card orders associated with the given card id.
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::CardOrdersApi.new
+api_instance = Lob::CardOrdersApi.new
 card_id = 'card_id_example' # String | The ID of the card to which the card orders belong.
 opts = {
   limit: 56, # Integer | How many results to return.
@@ -111,7 +111,7 @@ begin
   # get
   result = api_instance.get(card_id, opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardOrdersApi->get: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CardOrderList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling CardOrdersApi->card_orders_retrieve_with_http_info: #{e}"
 end
 ```

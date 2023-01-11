@@ -1,4 +1,4 @@
-# OpenapiClient::PostcardDetailsWritable
+# Lob::PostcardDetailsWritable
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::PostcardDetailsWritable.new(
+instance = Lob::PostcardDetailsWritable.new(
   mail_type: null,
   size: null
 )

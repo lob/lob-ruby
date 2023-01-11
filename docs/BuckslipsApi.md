@@ -1,4 +1,4 @@
-# OpenapiClient::BuckslipsApi
+# Lob::BuckslipsApi
 
 All URIs are relative to *https://api.lob.com/v1*
 
@@ -25,20 +25,20 @@ Creates a new buckslip given information
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BuckslipsApi.new
-buckslip_editable = OpenapiClient::BuckslipEditable.new({front: 'front_example'}) # BuckslipEditable | 
+api_instance = Lob::BuckslipsApi.new
+buckslip_editable = Lob::BuckslipEditable.new({front: 'front_example'}) # BuckslipEditable | 
 
 begin
   # create
   result = api_instance.create(buckslip_editable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->create: #{e}"
 end
 ```
@@ -56,7 +56,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Buckslip>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->buckslip_create_with_http_info: #{e}"
 end
 ```
@@ -95,20 +95,20 @@ Delete an existing buckslip. You need only supply the unique identifier that was
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BuckslipsApi.new
+api_instance = Lob::BuckslipsApi.new
 buckslip_id = 'buckslip_id_example' # String | id of the buckslip
 
 begin
   # delete
   result = api_instance.delete(buckslip_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->delete: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BuckslipDeletion>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->buckslip_delete_with_http_info: #{e}"
 end
 ```
@@ -165,20 +165,20 @@ Retrieves the details of an existing buckslip. You need only supply the unique c
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BuckslipsApi.new
+api_instance = Lob::BuckslipsApi.new
 buckslip_id = 'buckslip_id_example' # String | id of the buckslip
 
 begin
   # get
   result = api_instance.get(buckslip_id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->get: #{e}"
 end
 ```
@@ -196,7 +196,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Buckslip>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->buckslip_retrieve_with_http_info: #{e}"
 end
 ```
@@ -235,21 +235,21 @@ Update the details of an existing buckslip. You need only supply the unique iden
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BuckslipsApi.new
+api_instance = Lob::BuckslipsApi.new
 buckslip_id = 'buckslip_id_example' # String | id of the buckslip
-buckslip_updatable = OpenapiClient::BuckslipUpdatable.new # BuckslipUpdatable | 
+buckslip_updatable = Lob::BuckslipUpdatable.new # BuckslipUpdatable | 
 
 begin
   # update
   result = api_instance.update(buckslip_id, buckslip_updatable)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->update: #{e}"
 end
 ```
@@ -267,7 +267,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Buckslip>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->buckslip_update_with_http_info: #{e}"
 end
 ```
@@ -307,13 +307,13 @@ Returns a list of your buckslips. The buckslips are returned sorted by creation 
 require 'time'
 require 'openapi_client'
 # setup authorization
-OpenapiClient.configure do |config|
+Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = OpenapiClient::BuckslipsApi.new
+api_instance = Lob::BuckslipsApi.new
 opts = {
   limit: 56, # Integer | How many results to return.
   before: 'before_example', # String | A reference to a list entry used for paginating to the previous set of entries. This field is pre-populated in the `previous_url` field in the return response. 
@@ -325,7 +325,7 @@ begin
   # List
   result = api_instance.List(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->List: #{e}"
 end
 ```
@@ -343,7 +343,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BuckslipsList>
-rescue OpenapiClient::ApiError => e
+rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->buckslips_list_with_http_info: #{e}"
 end
 ```

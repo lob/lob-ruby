@@ -1,4 +1,4 @@
-# OpenapiClient::Thumbnail
+# Lob::Thumbnail
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Thumbnail.new(
+instance = Lob::Thumbnail.new(
   small: null,
   medium: null,
   large: null

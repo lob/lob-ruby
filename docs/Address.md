@@ -1,4 +1,4 @@
-# OpenapiClient::Address
+# Lob::Address
 
 ## Properties
 
@@ -28,7 +28,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::Address.new(
+instance = Lob::Address.new(
   id: null,
   description: null,
   name: null,

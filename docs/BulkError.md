@@ -1,4 +1,4 @@
-# OpenapiClient::BulkError
+# Lob::BulkError
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::BulkError.new(
+instance = Lob::BulkError.new(
   error: null
 )
 ```

@@ -1,4 +1,4 @@
-# OpenapiClient::CreativeWritable
+# Lob::CreativeWritable
 
 ## Properties
 
@@ -19,7 +19,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::CreativeWritable.new(
+instance = Lob::CreativeWritable.new(
   from: null,
   description: null,
   metadata: null,

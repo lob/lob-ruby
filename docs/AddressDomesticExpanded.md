@@ -1,4 +1,4 @@
-# OpenapiClient::AddressDomesticExpanded
+# Lob::AddressDomesticExpanded
 
 ## Properties
 
@@ -22,7 +22,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = OpenapiClient::AddressDomesticExpanded.new(
+instance = Lob::AddressDomesticExpanded.new(
   address_line1: null,
   address_line2: null,
   address_city: null,
