@@ -104,14 +104,9 @@ Then, to run the integration tests:
 $ env $(cat LOCAL.env) rspec -P __tests__/Integration/* --color --format doc
 ```
 
-## Documentation For Authorization
+=======================
 
+Copyright © 2022 Lob.com
 
-## basicAuth
+Released under the MIT License, which can be found in the repository in [LICENSE.txt](https://github.com/lob/lob-go/blob/main/LICENSE.txt).
 
-- **Type**: HTTP basic authentication
-
-
-## Author
-
-lob-openapi@lob.com
