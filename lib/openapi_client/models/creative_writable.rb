@@ -92,7 +92,7 @@ module Lob
         :'metadata' => :'Hash<String, String>',
         :'resource_type' => :'String',
         :'campaign_id' => :'String',
-        :'details' => Array[:'LetterDetailsWritable', :'PostcardDetailsWritable'],
+        :'details' => Array[:'PostcardDetailsWritable', :'String'],
         :'file' => :'String',
         :'front' => :'String',
         :'back' => :'String'

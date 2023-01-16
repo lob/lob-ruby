@@ -59,6 +59,8 @@ module Lob
     # A [signed link](#section/Asset-URLs) served over HTTPS. The link returned will expire in 30 days to prevent mis-sharing. Each time a GET request is initiated, a new signed URL will be generated.
     attr_accessor :url
 
+    attr_accessor :use_type
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -99,7 +101,8 @@ module Lob
         :'inside_template_version_id' => :'inside_template_version_id',
         :'object' => :'object',
         :'tracking_events' => :'tracking_events',
-        :'url' => :'url'
+        :'url' => :'url',
+        :'use_type' => :'use_type'
       }
     end
 
@@ -126,7 +129,8 @@ module Lob
         :'inside_template_version_id' => :'String',
         :'object' => :'String',
         :'tracking_events' => :'Array<TrackingEventCertified>',
-        :'url' => :'String'
+        :'url' => :'String',
+        :'use_type' => :'SfmUseType'
       }
     end
 
@@ -141,6 +145,7 @@ module Lob
         :'inside_template_id',
         :'outside_template_version_id',
         :'inside_template_version_id',
+        :'use_type'
       ])
     end
 
@@ -231,6 +236,10 @@ module Lob
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
+      end
+
+      if attributes.key?(:'use_type')
+        self.use_type = attributes[:'use_type']
       end
     end
 
@@ -426,7 +435,8 @@ module Lob
           inside_template_version_id == o.inside_template_version_id &&
           object == o.object &&
           tracking_events == o.tracking_events &&
-          url == o.url
+          url == o.url &&
+          use_type == o.use_type
     end
 
     # @see the `==` method
@@ -438,7 +448,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, to, from, size, description, metadata, mail_type, merge_variables, send_date, outside_template_id, inside_template_id, outside_template_version_id, inside_template_version_id, object, tracking_events, url].hash
+      [id, to, from, size, description, metadata, mail_type, merge_variables, send_date, outside_template_id, inside_template_id, outside_template_version_id, inside_template_version_id, object, tracking_events, url, use_type].hash
     end
 
 

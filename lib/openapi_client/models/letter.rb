@@ -91,6 +91,11 @@ module Lob
 
     attr_accessor :custom_envelope
 
+    # The unique ID of the associated campaign if the resource was generated from a campaign.
+    attr_accessor :campaign_id
+
+    attr_accessor :use_type
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -143,7 +148,9 @@ module Lob
         :'address_placement' => :'address_placement',
         :'return_envelope' => :'return_envelope',
         :'perforated_page' => :'perforated_page',
-        :'custom_envelope' => :'custom_envelope'
+        :'custom_envelope' => :'custom_envelope',
+        :'campaign_id' => :'campaign_id',
+        :'use_type' => :'use_type'
       }
     end
 
@@ -182,7 +189,9 @@ module Lob
         :'address_placement' => :'String',
         :'return_envelope' => Array[:'ReturnEnvelope', :'Boolean'],
         :'perforated_page' => :'Integer',
-        :'custom_envelope' => :'LetterCustomEnvelope'
+        :'custom_envelope' => :'LetterCustomEnvelope',
+        :'campaign_id' => :'String',
+        :'use_type' => :'LtrUseType'
       }
     end
 
@@ -195,7 +204,9 @@ module Lob
         :'return_address',
         :'return_envelope',
         :'perforated_page',
-        :'custom_envelope'
+        :'custom_envelope',
+        :'campaign_id',
+        :'use_type'
       ])
     end
 
@@ -340,6 +351,14 @@ module Lob
 
       if attributes.key?(:'custom_envelope')
         self.custom_envelope = attributes[:'custom_envelope']
+      end
+
+      if attributes.key?(:'campaign_id')
+        self.campaign_id = attributes[:'campaign_id']
+      end
+
+      if attributes.key?(:'use_type')
+        self.use_type = attributes[:'use_type']
       end
     end
 
@@ -568,7 +587,9 @@ module Lob
           address_placement == o.address_placement &&
           return_envelope == o.return_envelope &&
           perforated_page == o.perforated_page &&
-          custom_envelope == o.custom_envelope
+          custom_envelope == o.custom_envelope &&
+          campaign_id == o.campaign_id &&
+          use_type == o.use_type
     end
 
     # @see the `==` method
@@ -580,7 +601,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [to, from, carrier, thumbnails, expected_delivery_date, date_created, date_modified, deleted, id, template_id, template_version_id, url, object, description, metadata, merge_variables, send_date, extra_service, tracking_number, tracking_events, return_address, mail_type, color, double_sided, address_placement, return_envelope, perforated_page, custom_envelope].hash
+      [to, from, carrier, thumbnails, expected_delivery_date, date_created, date_modified, deleted, id, template_id, template_version_id, url, object, description, metadata, merge_variables, send_date, extra_service, tracking_number, tracking_events, return_address, mail_type, color, double_sided, address_placement, return_envelope, perforated_page, custom_envelope, campaign_id, use_type].hash
     end
 
 

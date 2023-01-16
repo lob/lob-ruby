@@ -15,16 +15,26 @@ require 'time'
 
 module Lob
   class UploadUpdatable
-    attr_accessor :state
-
     # Original filename provided when the upload is created.
     attr_accessor :original_filename
+
+    attr_accessor :required_address_column_mapping
+
+    attr_accessor :optional_address_column_mapping
+
+    attr_accessor :metadata
+
+    # The mapping of column headers in your file to the merge variables present in your creative. See our <a href=\"https://help.lob.com/print-and-mail/building-a-mail-strategy/campaign-or-triggered-sends/campaign-audience-guide#step-3-map-merge-variable-data-if-applicable-7\" target=\"_blank\">Campaign Audience Guide</a> for additional details. <br />If a merge variable has the same \"name\" as a \"key\" in the `requiredAddressColumnMapping` or `optionalAddressColumnMapping` objects, then they **CANNOT** have a different value in this object. If a different value is provided, then when the campaign is processing it will get overwritten with the mapped value present in the `requiredAddressColumnMapping` or `optionalAddressColumnMapping` objects.
+    attr_accessor :merge_variable_column_mapping
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'state' => :'state',
-        :'original_filename' => :'originalFilename'
+        :'original_filename' => :'originalFilename',
+        :'required_address_column_mapping' => :'requiredAddressColumnMapping',
+        :'optional_address_column_mapping' => :'optionalAddressColumnMapping',
+        :'metadata' => :'metadata',
+        :'merge_variable_column_mapping' => :'mergeVariableColumnMapping'
       }
     end
 
@@ -36,14 +46,18 @@ module Lob
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'state' => :'UploadState',
-        :'original_filename' => :'String'
+        :'original_filename' => :'String',
+        :'required_address_column_mapping' => :'RequiredAddressColumnMapping',
+        :'optional_address_column_mapping' => :'OptionalAddressColumnMapping',
+        :'metadata' => :'UploadsMetadata',
+        :'merge_variable_column_mapping' => :'Object'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'merge_variable_column_mapping'
       ])
     end
 
@@ -62,14 +76,24 @@ module Lob
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
-      else
-        self.state = 'Draft'
-      end
-
       if attributes.key?(:'original_filename')
         self.original_filename = attributes[:'original_filename']
+      end
+
+      if attributes.key?(:'required_address_column_mapping')
+        self.required_address_column_mapping = attributes[:'required_address_column_mapping']
+      end
+
+      if attributes.key?(:'optional_address_column_mapping')
+        self.optional_address_column_mapping = attributes[:'optional_address_column_mapping']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'merge_variable_column_mapping')
+        self.merge_variable_column_mapping = attributes[:'merge_variable_column_mapping']
       end
     end
 
@@ -91,8 +115,11 @@ module Lob
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          state == o.state &&
-          original_filename == o.original_filename
+          original_filename == o.original_filename &&
+          required_address_column_mapping == o.required_address_column_mapping &&
+          optional_address_column_mapping == o.optional_address_column_mapping &&
+          metadata == o.metadata &&
+          merge_variable_column_mapping == o.merge_variable_column_mapping
     end
 
     # @see the `==` method
@@ -104,7 +131,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [state, original_filename].hash
+      [original_filename, required_address_column_mapping, optional_address_column_mapping, metadata, merge_variable_column_mapping].hash
     end
 
 

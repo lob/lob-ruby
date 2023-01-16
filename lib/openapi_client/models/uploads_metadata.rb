@@ -14,69 +14,15 @@ require 'date'
 require 'time'
 
 module Lob
-  # Properties that the letters in your Creative should have.
-  class LetterDetailsReturned
-    # Set this key to `true` if you would like to print in color, false for black and white.
-    attr_accessor :color
-
-    # A single-element array containing an existing card id in a string format. See [cards](#tag/Cards) for more information.
-    attr_accessor :cards
-
-    # Specifies the location of the address information that will show through the double-window envelope. 
-    attr_accessor :address_placement
-
-    attr_accessor :custom_envelope
-
-    # Set this attribute to `true` for double sided printing,  `false` for for single sided printing.
-    attr_accessor :double_sided
-
-    # Add an extra service to your letter.
-    attr_accessor :extra_service
-
-    attr_accessor :mail_type
-
-    attr_accessor :return_envelope
-
-    # Allows for letter bleed. Enabled only with specific feature flags.
-    attr_accessor :bleed
-
-    attr_accessor :file_original_url
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+  # The list of column headers in your file as an array that you want as metadata associated with each mailpiece. See our <a href=\"https://help.lob.com/print-and-mail/building-a-mail-strategy/campaign-or-triggered-sends/campaign-audience-guide#required-columns-2\" target=\"_blank\">Campaign Audience Guide</a> for additional details.
+  class UploadsMetadata
+    # The list of column names from the csv file which you want associated with each of your mailpieces
+    attr_accessor :columns
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'color' => :'color',
-        :'cards' => :'cards',
-        :'address_placement' => :'address_placement',
-        :'custom_envelope' => :'custom_envelope',
-        :'double_sided' => :'double_sided',
-        :'extra_service' => :'extra_service',
-        :'mail_type' => :'mail_type',
-        :'return_envelope' => :'return_envelope',
-        :'bleed' => :'bleed',
-        :'file_original_url' => :'file_original_url'
+        :'columns' => :'columns'
       }
     end
 
@@ -88,26 +34,13 @@ module Lob
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'color' => :'Boolean',
-        :'cards' => :'Array<String>',
-        :'address_placement' => :'String',
-        :'custom_envelope' => :'CustomEnvelopeReturned',
-        :'double_sided' => :'Boolean',
-        :'extra_service' => :'String',
-        :'mail_type' => :'MailType',
-        :'return_envelope' => Array[:'Boolean', :'String'],
-        :'bleed' => :'Boolean',
-        :'file_original_url' => :'String'
+        :'columns' => :'Array<String>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'cards',
-        :'custom_envelope',
-        :'return_envelope',
-        :'file_original_url'
       ])
     end
 
@@ -115,65 +48,21 @@ module Lob
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Lob::LetterDetailsReturned` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Lob::UploadsMetadata` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Lob::LetterDetailsReturned`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Lob::UploadsMetadata`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
-      end
-
-      if attributes.key?(:'cards')
-        if (value = attributes[:'cards']).is_a?(Array)
-          self.cards = value
+      if attributes.key?(:'columns')
+        if (value = attributes[:'columns']).is_a?(Array)
+          self.columns = value
         end
-      end
-
-      if attributes.key?(:'address_placement')
-        self.address_placement = attributes[:'address_placement']
-      else
-        self.address_placement = 'top_first_page'
-      end
-
-      if attributes.key?(:'custom_envelope')
-        self.custom_envelope = attributes[:'custom_envelope']
-      end
-
-      if attributes.key?(:'double_sided')
-        self.double_sided = attributes[:'double_sided']
-      else
-        self.double_sided = true
-      end
-
-      if attributes.key?(:'extra_service')
-        self.extra_service = attributes[:'extra_service']
-      end
-
-      if attributes.key?(:'mail_type')
-        self.mail_type = attributes[:'mail_type']
-      else
-        self.mail_type = 'usps_first_class'
-      end
-
-      if attributes.key?(:'return_envelope')
-        self.return_envelope = attributes[:'return_envelope']
-      end
-
-      if attributes.key?(:'bleed')
-        self.bleed = attributes[:'bleed']
-      else
-        self.bleed = false
-      end
-
-      if attributes.key?(:'file_original_url')
-        self.file_original_url = attributes[:'file_original_url']
       end
     end
 
@@ -181,16 +70,8 @@ module Lob
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @color.nil?
-        invalid_properties.push('invalid value for "color", color cannot be nil.')
-      end
-
-      if @cards.length > 1
-        invalid_properties.push('invalid value for "cards", number of items must be less than or equal to 1.')
-      end
-
-      if @cards.length < 0
-        invalid_properties.push('invalid value for "cards", number of items must be greater than or equal to 0.')
+      if @columns.nil?
+        invalid_properties.push('invalid value for "columns", columns cannot be nil.')
       end
 
       invalid_properties
@@ -199,36 +80,8 @@ module Lob
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @color.nil?
-      return false if @cards.length > 1
-      return false if @cards.length < 0
-      address_placement_validator = EnumAttributeValidator.new('String', ["top_first_page", "insert_blank_page", "bottom_first_page_center", "bottom_first_page"])
-      return false unless address_placement_validator.valid?(@address_placement)
+      return false if @columns.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] cards Value to be assigned
-    def cards=(cards)
-      if cards.length > 1
-        fail ArgumentError, 'invalid value for "cards", number of items must be less than or equal to 1.'
-      end
-
-      if cards.length < 0
-        fail ArgumentError, 'invalid value for "cards", number of items must be greater than or equal to 0.'
-      end
-
-      @cards = cards
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] address_placement Object to be assigned
-    def address_placement=(address_placement)
-      validator = EnumAttributeValidator.new('String', ["top_first_page", "insert_blank_page", "bottom_first_page_center", "bottom_first_page"])
-      unless validator.valid?(address_placement)
-        fail ArgumentError, "invalid value for \"address_placement\", must be one of #{validator.allowable_values}."
-      end
-      @address_placement = address_placement
     end
 
     # Checks equality by comparing each attribute.
@@ -236,16 +89,7 @@ module Lob
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          color == o.color &&
-          cards == o.cards &&
-          address_placement == o.address_placement &&
-          custom_envelope == o.custom_envelope &&
-          double_sided == o.double_sided &&
-          extra_service == o.extra_service &&
-          mail_type == o.mail_type &&
-          return_envelope == o.return_envelope &&
-          bleed == o.bleed &&
-          file_original_url == o.file_original_url
+          columns == o.columns
     end
 
     # @see the `==` method
@@ -257,7 +101,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [color, cards, address_placement, custom_envelope, double_sided, extra_service, mail_type, return_envelope, bleed, file_original_url].hash
+      [columns].hash
     end
 
 

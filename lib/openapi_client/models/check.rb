@@ -87,6 +87,8 @@ module Lob
     # Only returned if the resource has been successfully deleted.
     attr_accessor :deleted
 
+    attr_accessor :use_type
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -137,7 +139,8 @@ module Lob
         :'object' => :'object',
         :'date_created' => :'date_created',
         :'date_modified' => :'date_modified',
-        :'deleted' => :'deleted'
+        :'deleted' => :'deleted',
+        :'use_type' => :'use_type'
       }
     end
 
@@ -174,7 +177,8 @@ module Lob
         :'object' => :'String',
         :'date_created' => :'Time',
         :'date_modified' => :'Time',
-        :'deleted' => :'Boolean'
+        :'deleted' => :'Boolean',
+        :'use_type' => :'ChkUseType'
       }
     end
 
@@ -185,6 +189,7 @@ module Lob
         :'merge_variables',
         :'memo',
         :'tracking_events',
+        :'use_type'
       ])
     end
 
@@ -317,6 +322,10 @@ module Lob
 
       if attributes.key?(:'deleted')
         self.deleted = attributes[:'deleted']
+      end
+
+      if attributes.key?(:'use_type')
+        self.use_type = attributes[:'use_type']
       end
     end
 
@@ -654,7 +663,8 @@ module Lob
           object == o.object &&
           date_created == o.date_created &&
           date_modified == o.date_modified &&
-          deleted == o.deleted
+          deleted == o.deleted &&
+          use_type == o.use_type
     end
 
     # @see the `==` method
@@ -666,7 +676,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, to, from, description, metadata, merge_variables, send_date, mail_type, memo, check_number, message, amount, bank_account, check_bottom_template_id, attachment_template_id, check_bottom_template_version_id, attachment_template_version_id, url, carrier, thumbnails, expected_delivery_date, tracking_events, object, date_created, date_modified, deleted].hash
+      [id, to, from, description, metadata, merge_variables, send_date, mail_type, memo, check_number, message, amount, bank_account, check_bottom_template_id, attachment_template_id, check_bottom_template_version_id, attachment_template_version_id, url, carrier, thumbnails, expected_delivery_date, tracking_events, object, date_created, date_modified, deleted, use_type].hash
     end
 
 

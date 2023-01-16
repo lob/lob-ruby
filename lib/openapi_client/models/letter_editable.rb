@@ -66,6 +66,8 @@ module Lob
 
     attr_accessor :qr_code
 
+    attr_accessor :use_type
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -108,7 +110,8 @@ module Lob
         :'extra_service' => :'extra_service',
         :'cards' => :'cards',
         :'billing_group_id' => :'billing_group_id',
-        :'qr_code' => :'qr_code'
+        :'qr_code' => :'qr_code',
+        :'use_type' => :'use_type'
       }
     end
 
@@ -137,7 +140,8 @@ module Lob
         :'extra_service' => :'String',
         :'cards' => :'Array<String>',
         :'billing_group_id' => :'String',
-        :'qr_code' => :'QrCode'
+        :'qr_code' => :'QrCode',
+        :'use_type' => :'LtrUseType'
       }
     end
 
@@ -153,6 +157,7 @@ module Lob
         :'from',
         :'extra_service',
         :'cards',
+        :'use_type'
       ])
     end
 
@@ -251,6 +256,10 @@ module Lob
 
       if attributes.key?(:'qr_code')
         self.qr_code = attributes[:'qr_code']
+      end
+
+      if attributes.key?(:'use_type')
+        self.use_type = attributes[:'use_type']
       end
     end
 
@@ -374,7 +383,8 @@ module Lob
           extra_service == o.extra_service &&
           cards == o.cards &&
           billing_group_id == o.billing_group_id &&
-          qr_code == o.qr_code
+          qr_code == o.qr_code &&
+          use_type == o.use_type
     end
 
     # @see the `==` method
@@ -386,7 +396,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, metadata, mail_type, merge_variables, send_date, color, double_sided, address_placement, return_envelope, perforated_page, custom_envelope, to, from, file, extra_service, cards, billing_group_id, qr_code].hash
+      [description, metadata, mail_type, merge_variables, send_date, color, double_sided, address_placement, return_envelope, perforated_page, custom_envelope, to, from, file, extra_service, cards, billing_group_id, qr_code, use_type].hash
     end
 
 

@@ -74,6 +74,8 @@ module Lob
     # A timestamp in ISO 8601 format which specifies a date after the current time and up to 180 days in the future to send the letter off for production. Setting a send date overrides the default [cancellation window](#section/Cancellation-Windows) applied to the mailpiece. Until the `send_date` has passed, the mailpiece can be canceled. If a date in the format `2017-11-01` is passed, it will evaluate to midnight UTC of that date (`2017-11-01T00:00:00.000Z`). If a datetime is passed, that exact time will be used. A `send_date` passed with no time zone will default to UTC, while a `send_date` passed with a time zone will be converted to UTC.
     attr_accessor :send_date
 
+    attr_accessor :use_type
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -120,7 +122,8 @@ module Lob
         :'metadata' => :'metadata',
         :'mail_type' => :'mail_type',
         :'merge_variables' => :'merge_variables',
-        :'send_date' => :'send_date'
+        :'send_date' => :'send_date',
+        :'use_type' => :'use_type'
       }
     end
 
@@ -153,7 +156,8 @@ module Lob
         :'metadata' => :'Hash<String, String>',
         :'mail_type' => :'MailType',
         :'merge_variables' => :'Object',
-        :'send_date' => :'Time'
+        :'send_date' => :'Time',
+        :'use_type' => :'PscUseType'
       }
     end
 
@@ -167,6 +171,7 @@ module Lob
         :'tracking_events',
         :'description',
         :'merge_variables',
+        :'use_type'
       ])
     end
 
@@ -285,6 +290,10 @@ module Lob
 
       if attributes.key?(:'send_date')
         self.send_date = attributes[:'send_date']
+      end
+
+      if attributes.key?(:'use_type')
+        self.use_type = attributes[:'use_type']
       end
     end
 
@@ -498,7 +507,8 @@ module Lob
           metadata == o.metadata &&
           mail_type == o.mail_type &&
           merge_variables == o.merge_variables &&
-          send_date == o.send_date
+          send_date == o.send_date &&
+          use_type == o.use_type
     end
 
     # @see the `==` method
@@ -510,7 +520,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, to, from, carrier, thumbnails, size, expected_delivery_date, date_created, date_modified, deleted, front_template_id, back_template_id, front_template_version_id, back_template_version_id, tracking_events, object, url, description, metadata, mail_type, merge_variables, send_date].hash
+      [id, to, from, carrier, thumbnails, size, expected_delivery_date, date_created, date_modified, deleted, front_template_id, back_template_id, front_template_version_id, back_template_version_id, tracking_events, object, url, description, metadata, mail_type, merge_variables, send_date, use_type].hash
     end
 
 

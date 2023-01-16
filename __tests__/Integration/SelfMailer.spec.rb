@@ -29,7 +29,8 @@ RSpec.describe "SelfMailersApi" do
             @selfMailerEditable = SelfMailerEditable.new({
                 to: addr,
                 inside: TestFixtures.FILE_LOCATION_6X18,
-                outside: TestFixtures.FILE_LOCATION_6X18
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
             })
         end
 
@@ -82,7 +83,8 @@ RSpec.describe "SelfMailersApi" do
             selfMailerEditable = SelfMailerEditable.new({
                 to: addr,
                 inside: TestFixtures.FILE_LOCATION_6X18,
-                outside: TestFixtures.FILE_LOCATION_6X18
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
             })
 
             response = @selfMailerApi.create(selfMailerEditable)
@@ -118,19 +120,22 @@ RSpec.describe "SelfMailersApi" do
             selfMailerEditable1 = SelfMailerEditable.new({
                 to: addr,
                 inside: TestFixtures.FILE_LOCATION_6X18,
-                outside: TestFixtures.FILE_LOCATION_6X18
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
             })
 
             selfMailerEditable2 = SelfMailerEditable.new({
                 to: addr,
                 inside: TestFixtures.FILE_LOCATION_6X18,
-                outside: TestFixtures.FILE_LOCATION_6X18
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
             })
 
             selfMailerEditable3 = SelfMailerEditable.new({
                 to: addr,
                 inside: TestFixtures.FILE_LOCATION_6X18,
-                outside: TestFixtures.FILE_LOCATION_6X18
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
             })
 
             response1 = @selfMailerApi.create(selfMailerEditable1)
@@ -247,7 +252,8 @@ RSpec.describe "SelfMailersApi" do
             selfMailerEditable = SelfMailerEditable.new({
                 to: addr,
                 inside: TestFixtures.FILE_LOCATION_6X18,
-                outside: TestFixtures.FILE_LOCATION_6X18
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
             })
 
             response = @selfMailerApi.create(selfMailerEditable)

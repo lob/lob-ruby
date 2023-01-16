@@ -15,13 +15,25 @@ require 'time'
 
 module Lob
   class UploadWritable
-    # Unique identifier prefixed with `cmp_`.
     attr_accessor :campaign_id
+
+    attr_accessor :required_address_column_mapping
+
+    attr_accessor :optional_address_column_mapping
+
+    attr_accessor :metadata
+
+    # The mapping of column headers in your file to the merge variables present in your creative. See our <a href=\"https://help.lob.com/print-and-mail/building-a-mail-strategy/campaign-or-triggered-sends/campaign-audience-guide#step-3-map-merge-variable-data-if-applicable-7\" target=\"_blank\">Campaign Audience Guide</a> for additional details. <br />If a merge variable has the same \"name\" as a \"key\" in the `requiredAddressColumnMapping` or `optionalAddressColumnMapping` objects, then they **CANNOT** have a different value in this object. If a different value is provided, then when the campaign is processing it will get overwritten with the mapped value present in the `requiredAddressColumnMapping` or `optionalAddressColumnMapping` objects.
+    attr_accessor :merge_variable_column_mapping
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'campaign_id' => :'campaignId'
+        :'campaign_id' => :'campaignId',
+        :'required_address_column_mapping' => :'requiredAddressColumnMapping',
+        :'optional_address_column_mapping' => :'optionalAddressColumnMapping',
+        :'metadata' => :'metadata',
+        :'merge_variable_column_mapping' => :'mergeVariableColumnMapping'
       }
     end
 
@@ -33,13 +45,18 @@ module Lob
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'campaign_id' => :'String'
+        :'campaign_id' => :'String',
+        :'required_address_column_mapping' => :'RequiredAddressColumnMapping',
+        :'optional_address_column_mapping' => :'OptionalAddressColumnMapping',
+        :'metadata' => :'UploadsMetadata',
+        :'merge_variable_column_mapping' => :'Object'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'merge_variable_column_mapping'
       ])
     end
 
@@ -61,6 +78,22 @@ module Lob
       if attributes.key?(:'campaign_id')
         self.campaign_id = attributes[:'campaign_id']
       end
+
+      if attributes.key?(:'required_address_column_mapping')
+        self.required_address_column_mapping = attributes[:'required_address_column_mapping']
+      end
+
+      if attributes.key?(:'optional_address_column_mapping')
+        self.optional_address_column_mapping = attributes[:'optional_address_column_mapping']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'merge_variable_column_mapping')
+        self.merge_variable_column_mapping = attributes[:'merge_variable_column_mapping']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -71,11 +104,6 @@ module Lob
         invalid_properties.push('invalid value for "campaign_id", campaign_id cannot be nil.')
       end
 
-      pattern = Regexp.new(/^cmp_[a-zA-Z0-9]+$/)
-      if @campaign_id !~ pattern
-        invalid_properties.push("invalid value for \"campaign_id\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -83,23 +111,7 @@ module Lob
     # @return true if the model is valid
     def valid?
       return false if @campaign_id.nil?
-      return false if @campaign_id !~ Regexp.new(/^cmp_[a-zA-Z0-9]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] campaign_id Value to be assigned
-    def campaign_id=(campaign_id)
-      if campaign_id.nil?
-        fail ArgumentError, 'campaign_id cannot be nil'
-      end
-
-      pattern = Regexp.new(/^cmp_[a-zA-Z0-9]+$/)
-      if campaign_id !~ pattern
-        fail ArgumentError, "invalid value for \"campaign_id\", must conform to the pattern #{pattern}."
-      end
-
-      @campaign_id = campaign_id
     end
 
     # Checks equality by comparing each attribute.
@@ -107,7 +119,11 @@ module Lob
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          campaign_id == o.campaign_id
+          campaign_id == o.campaign_id &&
+          required_address_column_mapping == o.required_address_column_mapping &&
+          optional_address_column_mapping == o.optional_address_column_mapping &&
+          metadata == o.metadata &&
+          merge_variable_column_mapping == o.merge_variable_column_mapping
     end
 
     # @see the `==` method
@@ -119,7 +135,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [campaign_id].hash
+      [campaign_id, required_address_column_mapping, optional_address_column_mapping, metadata, merge_variable_column_mapping].hash
     end
 
 

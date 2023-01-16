@@ -46,6 +46,8 @@ module Lob
     # An optional string with the billing group ID to tag your usage with. Is used for billing purposes. Requires special activation to use. See [Billing Group API](https://lob.github.io/lob-openapi/#tag/Billing-Groups) for more information.
     attr_accessor :billing_group_id
 
+    attr_accessor :use_type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -59,7 +61,8 @@ module Lob
         :'send_date' => :'send_date',
         :'inside' => :'inside',
         :'outside' => :'outside',
-        :'billing_group_id' => :'billing_group_id'
+        :'billing_group_id' => :'billing_group_id',
+        :'use_type' => :'use_type'
       }
     end
 
@@ -81,7 +84,8 @@ module Lob
         :'send_date' => :'Time',
         :'inside' => :'String',
         :'outside' => :'String',
-        :'billing_group_id' => :'String'
+        :'billing_group_id' => :'String',
+        :'use_type' => :'SfmUseType'
       }
     end
 
@@ -92,6 +96,7 @@ module Lob
         :'from',
         :'description',
         :'merge_variables',
+        :'use_type'
       ])
     end
 
@@ -158,6 +163,10 @@ module Lob
 
       if attributes.key?(:'billing_group_id')
         self.billing_group_id = attributes[:'billing_group_id']
+      end
+
+      if attributes.key?(:'use_type')
+        self.use_type = attributes[:'use_type']
       end
     end
 
@@ -226,7 +235,8 @@ module Lob
           send_date == o.send_date &&
           inside == o.inside &&
           outside == o.outside &&
-          billing_group_id == o.billing_group_id
+          billing_group_id == o.billing_group_id &&
+          use_type == o.use_type
     end
 
     # @see the `==` method
@@ -238,7 +248,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [to, from, size, description, metadata, mail_type, merge_variables, send_date, inside, outside, billing_group_id].hash
+      [to, from, size, description, metadata, mail_type, merge_variables, send_date, inside, outside, billing_group_id, use_type].hash
     end
 
 

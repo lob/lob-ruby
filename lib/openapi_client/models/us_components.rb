@@ -378,7 +378,7 @@ module Lob
         invalid_properties.push('invalid value for "zip_code", zip_code cannot be nil.')
       end
 
-      pattern = Regexp.new(/^\d{5}$/)
+      pattern = Regexp.new(/(^$)|(^\d{5}$)/)
       if @zip_code !~ pattern
         invalid_properties.push("invalid value for \"zip_code\", must conform to the pattern #{pattern}.")
       end
@@ -454,7 +454,7 @@ module Lob
       return false if @state.nil?
       return false if @state.to_s.length > 2
       return false if @zip_code.nil?
-      return false if @zip_code !~ Regexp.new(/^\d{5}$/)
+      return false if @zip_code !~ Regexp.new(/(^$)|(^\d{5}$)/)
       return false if @zip_code_plus_4.nil?
       return false if @zip_code_plus_4 !~ Regexp.new(/^(\d{4})?$/)
       return false if @zip_code_type.nil?
@@ -530,7 +530,7 @@ module Lob
         fail ArgumentError, 'zip_code cannot be nil'
       end
 
-      pattern = Regexp.new(/^\d{5}$/)
+      pattern = Regexp.new(/(^$)|(^\d{5}$)/)
       if zip_code !~ pattern
         fail ArgumentError, "invalid value for \"zip_code\", must conform to the pattern #{pattern}."
       end

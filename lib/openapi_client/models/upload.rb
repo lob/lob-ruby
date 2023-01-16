@@ -21,9 +21,6 @@ module Lob
     # Account ID that made the request
     attr_accessor :account_id
 
-    # Unique identifier prefixed with `cmp_`.
-    attr_accessor :campaign_id
-
     # The environment in which the mailpieces were created. Today, will only be `live`.
     attr_accessor :mode
 
@@ -53,8 +50,14 @@ module Lob
     # A timestamp in ISO 8601 format of the date the upload was last modified
     attr_accessor :date_modified
 
-    # Only returned if the resource has been successfully deleted.
-    attr_accessor :deleted
+    attr_accessor :required_address_column_mapping
+
+    attr_accessor :optional_address_column_mapping
+
+    attr_accessor :metadata
+
+    # The mapping of column headers in your file to the merge variables present in your creative. See our <a href=\"https://help.lob.com/print-and-mail/building-a-mail-strategy/campaign-or-triggered-sends/campaign-audience-guide#step-3-map-merge-variable-data-if-applicable-7\" target=\"_blank\">Campaign Audience Guide</a> for additional details. <br />If a merge variable has the same \"name\" as a \"key\" in the `requiredAddressColumnMapping` or `optionalAddressColumnMapping` objects, then they **CANNOT** have a different value in this object. If a different value is provided, then when the campaign is processing it will get overwritten with the mapped value present in the `requiredAddressColumnMapping` or `optionalAddressColumnMapping` objects.
+    attr_accessor :merge_variable_column_mapping
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -83,7 +86,6 @@ module Lob
       {
         :'id' => :'id',
         :'account_id' => :'accountId',
-        :'campaign_id' => :'campaignId',
         :'mode' => :'mode',
         :'failures_url' => :'failuresUrl',
         :'original_filename' => :'originalFilename',
@@ -94,7 +96,10 @@ module Lob
         :'bytes_processed' => :'bytesProcessed',
         :'date_created' => :'dateCreated',
         :'date_modified' => :'dateModified',
-        :'deleted' => :'deleted'
+        :'required_address_column_mapping' => :'requiredAddressColumnMapping',
+        :'optional_address_column_mapping' => :'optionalAddressColumnMapping',
+        :'metadata' => :'metadata',
+        :'merge_variable_column_mapping' => :'mergeVariableColumnMapping'
       }
     end
 
@@ -108,7 +113,6 @@ module Lob
       {
         :'id' => :'String',
         :'account_id' => :'String',
-        :'campaign_id' => :'String',
         :'mode' => :'String',
         :'failures_url' => :'String',
         :'original_filename' => :'String',
@@ -119,13 +123,17 @@ module Lob
         :'bytes_processed' => :'Integer',
         :'date_created' => :'Time',
         :'date_modified' => :'Time',
-        :'deleted' => :'Boolean'
+        :'required_address_column_mapping' => :'RequiredAddressColumnMapping',
+        :'optional_address_column_mapping' => :'OptionalAddressColumnMapping',
+        :'metadata' => :'UploadsMetadata',
+        :'merge_variable_column_mapping' => :'Object'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'merge_variable_column_mapping'
       ])
     end
 
@@ -150,10 +158,6 @@ module Lob
 
       if attributes.key?(:'account_id')
         self.account_id = attributes[:'account_id']
-      end
-
-      if attributes.key?(:'campaign_id')
-        self.campaign_id = attributes[:'campaign_id']
       end
 
       if attributes.key?(:'mode')
@@ -198,8 +202,20 @@ module Lob
         self.date_modified = attributes[:'date_modified']
       end
 
-      if attributes.key?(:'deleted')
-        self.deleted = attributes[:'deleted']
+      if attributes.key?(:'required_address_column_mapping')
+        self.required_address_column_mapping = attributes[:'required_address_column_mapping']
+      end
+
+      if attributes.key?(:'optional_address_column_mapping')
+        self.optional_address_column_mapping = attributes[:'optional_address_column_mapping']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'merge_variable_column_mapping')
+        self.merge_variable_column_mapping = attributes[:'merge_variable_column_mapping']
       end
     end
 
@@ -218,15 +234,6 @@ module Lob
 
       if @account_id.nil?
         invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @campaign_id.nil?
-        invalid_properties.push('invalid value for "campaign_id", campaign_id cannot be nil.')
-      end
-
-      pattern = Regexp.new(/^cmp_[a-zA-Z0-9]+$/)
-      if @campaign_id !~ pattern
-        invalid_properties.push("invalid value for \"campaign_id\", must conform to the pattern #{pattern}.")
       end
 
       if @mode.nil?
@@ -261,6 +268,18 @@ module Lob
         invalid_properties.push('invalid value for "date_modified", date_modified cannot be nil.')
       end
 
+      if @required_address_column_mapping.nil?
+        invalid_properties.push('invalid value for "required_address_column_mapping", required_address_column_mapping cannot be nil.')
+      end
+
+      if @optional_address_column_mapping.nil?
+        invalid_properties.push('invalid value for "optional_address_column_mapping", optional_address_column_mapping cannot be nil.')
+      end
+
+      if @metadata.nil?
+        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -270,8 +289,6 @@ module Lob
       return false if @id.nil?
       return false if @id !~ Regexp.new(/^upl_[a-zA-Z0-9]+$/)
       return false if @account_id.nil?
-      return false if @campaign_id.nil?
-      return false if @campaign_id !~ Regexp.new(/^cmp_[a-zA-Z0-9]+$/)
       return false if @mode.nil?
       mode_validator = EnumAttributeValidator.new('String', ["test", "live"])
       return false unless mode_validator.valid?(@mode)
@@ -282,6 +299,9 @@ module Lob
       return false if @bytes_processed.nil?
       return false if @date_created.nil?
       return false if @date_modified.nil?
+      return false if @required_address_column_mapping.nil?
+      return false if @optional_address_column_mapping.nil?
+      return false if @metadata.nil?
       true
     end
 
@@ -298,21 +318,6 @@ module Lob
       end
 
       @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] campaign_id Value to be assigned
-    def campaign_id=(campaign_id)
-      if campaign_id.nil?
-        fail ArgumentError, 'campaign_id cannot be nil'
-      end
-
-      pattern = Regexp.new(/^cmp_[a-zA-Z0-9]+$/)
-      if campaign_id !~ pattern
-        fail ArgumentError, "invalid value for \"campaign_id\", must conform to the pattern #{pattern}."
-      end
-
-      @campaign_id = campaign_id
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -332,7 +337,6 @@ module Lob
       self.class == o.class &&
           id == o.id &&
           account_id == o.account_id &&
-          campaign_id == o.campaign_id &&
           mode == o.mode &&
           failures_url == o.failures_url &&
           original_filename == o.original_filename &&
@@ -343,7 +347,10 @@ module Lob
           bytes_processed == o.bytes_processed &&
           date_created == o.date_created &&
           date_modified == o.date_modified &&
-          deleted == o.deleted
+          required_address_column_mapping == o.required_address_column_mapping &&
+          optional_address_column_mapping == o.optional_address_column_mapping &&
+          metadata == o.metadata &&
+          merge_variable_column_mapping == o.merge_variable_column_mapping
     end
 
     # @see the `==` method
@@ -355,7 +362,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, account_id, campaign_id, mode, failures_url, original_filename, state, total_mailpieces, failed_mailpieces, validated_mailpieces, bytes_processed, date_created, date_modified, deleted].hash
+      [id, account_id, mode, failures_url, original_filename, state, total_mailpieces, failed_mailpieces, validated_mailpieces, bytes_processed, date_created, date_modified, required_address_column_mapping, optional_address_column_mapping, metadata, merge_variable_column_mapping].hash
     end
 
 

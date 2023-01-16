@@ -62,6 +62,8 @@ module Lob
     # An optional string with the billing group ID to tag your usage with. Is used for billing purposes. Requires special activation to use. See [Billing Group API](https://lob.github.io/lob-openapi/#tag/Billing-Groups) for more information.
     attr_accessor :billing_group_id
 
+    attr_accessor :use_type
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -102,7 +104,8 @@ module Lob
         :'memo' => :'memo',
         :'check_number' => :'check_number',
         :'message' => :'message',
-        :'billing_group_id' => :'billing_group_id'
+        :'billing_group_id' => :'billing_group_id',
+        :'use_type' => :'use_type'
       }
     end
 
@@ -129,7 +132,8 @@ module Lob
         :'memo' => :'String',
         :'check_number' => :'Integer',
         :'message' => :'String',
-        :'billing_group_id' => :'String'
+        :'billing_group_id' => :'String',
+        :'use_type' => :'ChkUseType'
       }
     end
 
@@ -142,6 +146,7 @@ module Lob
         :'description',
         :'merge_variables',
         :'memo',
+        :'use_type'
       ])
     end
 
@@ -226,6 +231,10 @@ module Lob
 
       if attributes.key?(:'billing_group_id')
         self.billing_group_id = attributes[:'billing_group_id']
+      end
+
+      if attributes.key?(:'use_type')
+        self.use_type = attributes[:'use_type']
       end
     end
 
@@ -379,7 +388,8 @@ module Lob
           memo == o.memo &&
           check_number == o.check_number &&
           message == o.message &&
-          billing_group_id == o.billing_group_id
+          billing_group_id == o.billing_group_id &&
+          use_type == o.use_type
     end
 
     # @see the `==` method
@@ -391,7 +401,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [from, to, bank_account, amount, logo, check_bottom, attachment, description, metadata, merge_variables, send_date, mail_type, memo, check_number, message, billing_group_id].hash
+      [from, to, bank_account, amount, logo, check_bottom, attachment, description, metadata, merge_variables, send_date, mail_type, memo, check_number, message, billing_group_id, use_type].hash
     end
 
 

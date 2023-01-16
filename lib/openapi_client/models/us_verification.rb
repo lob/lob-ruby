@@ -36,6 +36,9 @@ module Lob
     # Summarizes the deliverability of the `us_verification` object. For full details, see the `deliverability_analysis` field. Possible values are: * `deliverable` – The address is deliverable by the USPS. * `deliverable_unnecessary_unit` – The address is deliverable, but the secondary unit information is unnecessary. * `deliverable_incorrect_unit` – The address is deliverable to the building's default address but the secondary unit provided may not exist. There is a chance the mail will not reach the intended recipient. * `deliverable_missing_unit` – The address is deliverable to the building's default address but is missing secondary unit information. There is a chance the mail will not reach the intended recipient. * `undeliverable` – The address is not deliverable according to the USPS. 
     attr_accessor :deliverability
 
+    # This field indicates whether an address was found in a more comprehensive address dataset that includes sources from the USPS, open source mapping data, and our proprietary mail delivery data. This field can be interpreted as a representation of whether an address is a real location or not. Additionally a valid address may contradict the deliverability field since an address can be a real valid location but the USPS may not deliver to that address. 
+    attr_accessor :valid_address
+
     attr_accessor :components
 
     attr_accessor :deliverability_analysis
@@ -76,6 +79,7 @@ module Lob
         :'urbanization' => :'urbanization',
         :'last_line' => :'last_line',
         :'deliverability' => :'deliverability',
+        :'valid_address' => :'valid_address',
         :'components' => :'components',
         :'deliverability_analysis' => :'deliverability_analysis',
         :'lob_confidence_score' => :'lob_confidence_score',
@@ -98,6 +102,7 @@ module Lob
         :'urbanization' => :'String',
         :'last_line' => :'String',
         :'deliverability' => :'String',
+        :'valid_address' => :'Boolean',
         :'components' => :'UsComponents',
         :'deliverability_analysis' => :'DeliverabilityAnalysis',
         :'lob_confidence_score' => :'LobConfidenceScore',
@@ -153,6 +158,10 @@ module Lob
 
       if attributes.key?(:'deliverability')
         self.deliverability = attributes[:'deliverability']
+      end
+
+      if attributes.key?(:'valid_address')
+        self.valid_address = attributes[:'valid_address']
       end
 
       if attributes.key?(:'components')
@@ -300,6 +309,7 @@ module Lob
           urbanization == o.urbanization &&
           last_line == o.last_line &&
           deliverability == o.deliverability &&
+          valid_address == o.valid_address &&
           components == o.components &&
           deliverability_analysis == o.deliverability_analysis &&
           lob_confidence_score == o.lob_confidence_score &&
@@ -315,7 +325,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, recipient, primary_line, secondary_line, urbanization, last_line, deliverability, components, deliverability_analysis, lob_confidence_score, object].hash
+      [id, recipient, primary_line, secondary_line, urbanization, last_line, deliverability, valid_address, components, deliverability_analysis, lob_confidence_score, object].hash
     end
 
 
