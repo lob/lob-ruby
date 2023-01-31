@@ -1,0 +1,1 @@
+require 'openapi_client'
