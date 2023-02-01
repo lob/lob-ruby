@@ -153,10 +153,10 @@ RSpec.describe "AddressesApi" do
             addressEditable = AddressEditable.new
             fakeAddresses = Array.new(2) { Address.new }
 
-            DATE_FILTER  = { gt: "2020-01-01", lt: "2020-01-31T12" };
+            dateFilter  = { gt: "2020-01-01", lt: "2020-01-31T12" };
             fakeAddresses[0].id = "adr_fakeid"
             allow(addressApi).to receive(:list) { fakeAddresses }
-            response = addressApi.list(date_created: DATE_FILTER)
+            response = addressApi.list(date_created: dateFilter)
 
             expect(response.length()).to eq(2)
             expect(response).to eq(fakeAddresses)
@@ -169,10 +169,10 @@ RSpec.describe "AddressesApi" do
             addressEditable = AddressEditable.new
             fakeAddresses = Array.new(2) { Address.new }
 
-            METADATA  = { fakeMetadata: "fakemetadata" }
+            metadata  = { fakeMetadata: "fakemetadata" }
             fakeAddresses[0].id = "adr_fakeid"
             allow(addressApi).to receive(:list) { fakeAddresses }
-            response = addressApi.list(metadata: METADATA)
+            response = addressApi.list(metadata: metadata)
 
             expect(response.length()).to eq(2)
             expect(response).to eq(fakeAddresses)

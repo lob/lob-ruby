@@ -1,7 +1,7 @@
 =begin
 #Lob
 
-#The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)? 
+#The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)?
 
 The version of the OpenAPI document: 1.3.0
 Contact: lob-openapi@lob.com
@@ -49,7 +49,7 @@ module Lob
 
     attr_accessor :object
 
-    # An internal description that identifies this resource. Must be no longer than 255 characters. 
+    # An internal description that identifies this resource. Must be no longer than 255 characters.
     attr_accessor :description
 
     # Use metadata to store custom information for tagging and labeling back to your internal systems. Must be an object with up to 20 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters `\"` and `\\`. i.e. '{\"customer_id\" : \"NEWYORK2015\"}' Nested objects are not supported.  See [Metadata](#section/Metadata) for more information.
@@ -81,7 +81,7 @@ module Lob
     # Set this attribute to `true` for double sided printing, or `false` for for single sided printing. Defaults to `true`.
     attr_accessor :double_sided
 
-    # Specifies the location of the address information that will show through the double-window envelope. 
+    # Specifies the location of the address information that will show through the double-window envelope.
     attr_accessor :address_placement
 
     attr_accessor :return_envelope
@@ -401,7 +401,7 @@ module Lob
         invalid_properties.push("invalid value for \"template_version_id\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !@url.nil? && @url !~ pattern
         invalid_properties.push("invalid value for \"url\", must conform to the pattern #{pattern}.")
       end
@@ -434,7 +434,7 @@ module Lob
       return false if @id !~ Regexp.new(/^ltr_[a-zA-Z0-9]+$/)
       return false if !@template_id.nil? && @template_id !~ Regexp.new(/^tmpl_[a-zA-Z0-9]+$/)
       return false if !@template_version_id.nil? && @template_version_id !~ Regexp.new(/^vrsn_[a-zA-Z0-9]+$/)
-      return false if !@url.nil? && @url !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      return false if !@url.nil? && @url !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       return false if @object.nil?
       object_validator = EnumAttributeValidator.new('String', ["letter"])
       return false unless object_validator.valid?(@object)
@@ -495,7 +495,7 @@ module Lob
     # Custom attribute writer method with validation
     # @param [Object] url Value to be assigned
     def url=(url)
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !url.nil? && url !~ pattern
         fail ArgumentError, "invalid value for \"url\", must conform to the pattern #{pattern}."
       end
