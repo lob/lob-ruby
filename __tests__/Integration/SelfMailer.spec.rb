@@ -217,7 +217,7 @@ RSpec.describe "SelfMailersApi" do
                 response = @selfMailerApi.list(args)
 
                 if metadata then
-                    expect(response.data.length()).to be(0)
+                    expect(response.data.length()).to be(1)
                 else
                     expect(response.data.length()).to be > 0
                 end
