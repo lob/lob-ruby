@@ -155,10 +155,10 @@ RSpec.describe "BankAccountsApi" do
             bankAccountWritable = BankAccountWritable.new
             fakeBankAccounts = Array.new(2) { BankAccount.new }
 
-            DATE_FILTER  = { gt: "2020-01-01", lt: "2020-01-31T12" };
+            dateFilter  = { gt: "2020-01-01", lt: "2020-01-31T12" };
             fakeBankAccounts[0].id = "bank_fakeId"
             allow(bankAccountApi).to receive(:list) { fakeBankAccounts }
-            response = bankAccountApi.list(date_created: DATE_FILTER)
+            response = bankAccountApi.list(date_created: dateFilter)
 
             expect(response.length()).to eq(2)
             expect(bankAccountApi.list).to eq(fakeBankAccounts)
@@ -171,10 +171,10 @@ RSpec.describe "BankAccountsApi" do
             bankAccountWritable = BankAccountWritable.new
             fakeBankAccounts = Array.new(2) { BankAccount.new }
 
-            METADATA  = { fakeMetadata: "fakemetadata" }
+            metadata  = { fakeMetadata: "fakemetadata" }
             fakeBankAccounts[0].id = "bank_fakeId"
             allow(bankAccountApi).to receive(:list) { fakeBankAccounts }
-            response = bankAccountApi.list(metadata: METADATA)
+            response = bankAccountApi.list(metadata: metadata)
 
             expect(response.length()).to eq(2)
             expect(bankAccountApi.list).to eq(fakeBankAccounts)
