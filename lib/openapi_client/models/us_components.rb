@@ -470,7 +470,7 @@ module Lob
       return false if @county_fips.nil?
       return false if @carrier_route.nil?
       return false if @carrier_route_type.nil?
-      carrier_route_type_validator = EnumAttributeValidator.new('String', ["city_delivery", "rural_route", "highway_contract", "po_box", "general_delivery", ""])
+      carrier_route_type_validator = EnumAttributeValidator.new('String', ["city_delivery", "rural_route", "highway_contract", "po_box", "general_delivery", "contract", ""])
       return false unless carrier_route_type_validator.valid?(@carrier_route_type)
       true
     end
@@ -576,7 +576,7 @@ module Lob
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] carrier_route_type Object to be assigned
     def carrier_route_type=(carrier_route_type)
-      validator = EnumAttributeValidator.new('String', ["city_delivery", "rural_route", "highway_contract", "po_box", "general_delivery", ""])
+      validator = EnumAttributeValidator.new('String', ["city_delivery", "rural_route", "highway_contract", "po_box", "general_delivery", "contract", ""])
       unless validator.valid?(carrier_route_type)
         fail ArgumentError, "invalid value for \"carrier_route_type\", must be one of #{validator.allowable_values}."
       end
