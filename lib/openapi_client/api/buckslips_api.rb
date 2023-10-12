@@ -23,6 +23,7 @@ module Lob
     # Creates a new buckslip given information
     # @param buckslip_editable [BuckslipEditable] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :front An optional file upload as either a byte array or file type. 
     # @return [Buckslip]
     def create(buckslip_editable, opts = {})
       data, _status_code, _headers = buckslip_create_with_http_info(buckslip_editable, opts)
@@ -33,6 +34,7 @@ module Lob
     # Creates a new buckslip given information
     # @param buckslip_editable [BuckslipEditable] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Object] :front An optional file upload as either a byte array or file type. 
     # @return [Array<(Buckslip, Integer, Hash)>] Buckslip data, response status code and response headers
     def buckslip_create_with_http_info(buckslip_editable, opts = {})
       if @api_client.config.debugging
@@ -47,6 +49,7 @@ module Lob
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'front'] = opts[:'front'] if !opts[:'front'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

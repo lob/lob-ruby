@@ -92,6 +92,7 @@ module Lob
     # @param letter_editable [LetterEditable] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our [implementation guide](https://www.lob.com/guides#idempotent_request). 
+    # @option opts [Object] :file An optional file upload as either a byte array or file type. 
     # @return [Letter]
     def create(letter_editable, opts = {})
       data, _status_code, _headers = letter_create_with_http_info(letter_editable, opts)
@@ -103,6 +104,7 @@ module Lob
     # @param letter_editable [LetterEditable] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our [implementation guide](https://www.lob.com/guides#idempotent_request). 
+    # @option opts [Object] :file An optional file upload as either a byte array or file type. 
     # @return [Array<(Letter, Integer, Hash)>] Letter data, response status code and response headers
     def letter_create_with_http_info(letter_editable, opts = {})
       if @api_client.config.debugging
@@ -121,6 +123,7 @@ module Lob
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'file'] = opts[:'file'] if !opts[:'file'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
