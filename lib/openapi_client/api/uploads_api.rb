@@ -98,17 +98,85 @@ module Lob
       return data, status_code, headers
     end
 
-    # create_upload
+    # get
+    # Retrieves the details of an existing upload. You need only supply the unique upload identifier that was returned upon upload creation.
+    # @param upl_id [String] id of the upload
+    # @param [Hash] opts the optional parameters
+    # @return [Upload]
+    def get(upl_id, opts = {})
+      data, _status_code, _headers = get_with_http_info(upl_id, opts)
+      data
+    end
+
+    # get
+    # Retrieves the details of an existing upload. You need only supply the unique upload identifier that was returned upon upload creation.
+    # @param upl_id [String] id of the upload
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Upload, Integer, Hash)>] Upload data, response status code and response headers
+    def get_with_http_info(upl_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UploadsApi.get ...'
+      end
+      # verify the required parameter 'upl_id' is set
+      if @api_client.config.client_side_validation && upl_id.nil?
+        fail ArgumentError, "Missing the required parameter 'upl_id' when calling UploadsApi.get"
+      end
+      pattern = Regexp.new(/^upl_[a-zA-Z0-9]+$/)
+      if @api_client.config.client_side_validation && upl_id !~ pattern
+        fail ArgumentError, "invalid value for 'upl_id' when calling UploadsApi.get, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/uploads/{upl_id}'.sub('{' + 'upl_id' + '}', CGI.escape(upl_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Upload'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"UploadsApi.get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UploadsApi#get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # create
     # Creates a new upload with the provided properties.
     # @param upload_writable [UploadWritable] 
     # @param [Hash] opts the optional parameters
     # @return [Upload]
-    def create_upload(upload_writable, opts = {})
+    def create(upload_writable, opts = {})
       data, _status_code, _headers = upload_create_with_http_info(upload_writable, opts)
       data
     end
 
-    # create_upload
+    # create
     # Creates a new upload with the provided properties.
     # @param upload_writable [UploadWritable] 
     # @param [Hash] opts the optional parameters
@@ -166,17 +234,17 @@ module Lob
       return data, status_code, headers
     end
 
-    # delete_upload
+    # delete
     # Delete an existing upload. You need only supply the unique identifier that was returned upon upload creation.
     # @param upl_id [String] id of the upload
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_upload(upl_id, opts = {})
+    def delete(upl_id, opts = {})
       upload_delete_with_http_info(upl_id, opts)
       nil
     end
 
-    # delete_upload
+    # delete
     # Delete an existing upload. You need only supply the unique identifier that was returned upon upload creation.
     # @param upl_id [String] id of the upload
     # @param [Hash] opts the optional parameters
@@ -389,86 +457,18 @@ module Lob
       return data, status_code, headers
     end
 
-    # get_upload
-    # Retrieves the details of an existing upload. You need only supply the unique upload identifier that was returned upon upload creation.
-    # @param upl_id [String] id of the upload
-    # @param [Hash] opts the optional parameters
-    # @return [Upload]
-    def get_upload(upl_id, opts = {})
-      data, _status_code, _headers = upload_retrieve_with_http_info(upl_id, opts)
-      data
-    end
-
-    # get_upload
-    # Retrieves the details of an existing upload. You need only supply the unique upload identifier that was returned upon upload creation.
-    # @param upl_id [String] id of the upload
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Upload, Integer, Hash)>] Upload data, response status code and response headers
-    def upload_retrieve_with_http_info(upl_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UploadsApi.upload_retrieve ...'
-      end
-      # verify the required parameter 'upl_id' is set
-      if @api_client.config.client_side_validation && upl_id.nil?
-        fail ArgumentError, "Missing the required parameter 'upl_id' when calling UploadsApi.upload_retrieve"
-      end
-      pattern = Regexp.new(/^upl_[a-zA-Z0-9]+$/)
-      if @api_client.config.client_side_validation && upl_id !~ pattern
-        fail ArgumentError, "invalid value for 'upl_id' when calling UploadsApi.upload_retrieve, must conform to the pattern #{pattern}."
-      end
-
-      # resource path
-      local_var_path = '/uploads/{upl_id}'.sub('{' + 'upl_id' + '}', CGI.escape(upl_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'Upload'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['basicAuth']
-
-      new_options = opts.merge(
-        :operation => :"UploadsApi.upload_retrieve",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UploadsApi#upload_retrieve\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # update_upload
+    # update
     # Update the details of an existing upload. You need only supply the unique identifier that was returned upon upload creation.
     # @param upl_id [String] id of the upload
     # @param upload_updatable [UploadUpdatable] 
     # @param [Hash] opts the optional parameters
     # @return [Upload]
-    def update_upload(upl_id, upload_updatable, opts = {})
+    def update(upl_id, upload_updatable, opts = {})
       data, _status_code, _headers = upload_update_with_http_info(upl_id, upload_updatable, opts)
       data
     end
 
-    # update_upload
+    # update
     # Update the details of an existing upload. You need only supply the unique identifier that was returned upon upload creation.
     # @param upl_id [String] id of the upload
     # @param upload_updatable [UploadUpdatable] 
@@ -536,17 +536,17 @@ module Lob
       return data, status_code, headers
     end
 
-    # list_upload
+    # list
     # Returns a list of your uploads. Optionally, filter uploads by campaign.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :campaign_id id of the campaign
     # @return [Array<Upload>]
-    def list_upload(opts = {})
+    def list(opts = {})
       data, _status_code, _headers = uploads_list_with_http_info(opts)
       data
     end
 
-    # list_upload
+    # list
     # Returns a list of your uploads. Optionally, filter uploads by campaign.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :campaign_id id of the campaign
