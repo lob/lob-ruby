@@ -284,7 +284,7 @@ module Lob
         invalid_properties.push('invalid value for "url", url cannot be nil.')
       end
 
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if @url !~ pattern
         invalid_properties.push("invalid value for \"url\", must conform to the pattern #{pattern}.")
       end
@@ -305,7 +305,7 @@ module Lob
       object_validator = EnumAttributeValidator.new('String', ["self_mailer"])
       return false unless object_validator.valid?(@object)
       return false if @url.nil?
-      return false if @url !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      return false if @url !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       true
     end
 
@@ -407,7 +407,7 @@ module Lob
         fail ArgumentError, 'url cannot be nil'
       end
 
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if url !~ pattern
         fail ArgumentError, "invalid value for \"url\", must conform to the pattern #{pattern}."
       end
