@@ -85,17 +85,17 @@ module Lob
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !@small.nil? && @small !~ pattern
         invalid_properties.push("invalid value for \"small\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !@medium.nil? && @medium !~ pattern
         invalid_properties.push("invalid value for \"medium\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !@large.nil? && @large !~ pattern
         invalid_properties.push("invalid value for \"large\", must conform to the pattern #{pattern}.")
       end
@@ -106,16 +106,16 @@ module Lob
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@small.nil? && @small !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
-      return false if !@medium.nil? && @medium !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
-      return false if !@large.nil? && @large !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      return false if !@small.nil? && @small !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
+      return false if !@medium.nil? && @medium !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
+      return false if !@large.nil? && @large !~ Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       true
     end
 
     # Custom attribute writer method with validation
     # @param [Object] small Value to be assigned
     def small=(small)
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !small.nil? && small !~ pattern
         fail ArgumentError, "invalid value for \"small\", must conform to the pattern #{pattern}."
       end
@@ -126,7 +126,7 @@ module Lob
     # Custom attribute writer method with validation
     # @param [Object] medium Value to be assigned
     def medium=(medium)
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !medium.nil? && medium !~ pattern
         fail ArgumentError, "invalid value for \"medium\", must conform to the pattern #{pattern}."
       end
@@ -137,7 +137,7 @@ module Lob
     # Custom attribute writer method with validation
     # @param [Object] large Value to be assigned
     def large=(large)
-      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+$/)
+      pattern = Regexp.new(/^https:\/\/(lob-assets|lob-assets-staging)\.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(\.pdf|_thumb_[a-z]+_[0-9]+\.png)\?(version=[a-z0-9-]*&)?expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+$/)
       if !large.nil? && large !~ pattern
         fail ArgumentError, "invalid value for \"large\", must conform to the pattern #{pattern}."
       end
