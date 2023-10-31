@@ -26,6 +26,7 @@ module Lob
     U1 = "U1".freeze
     M1 = "M1".freeze
     M3 = "M3".freeze
+    PB = "PB".freeze
     P1 = "P1".freeze
     P3 = "P3".freeze
     R1 = "R1".freeze
