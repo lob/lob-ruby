@@ -621,7 +621,7 @@ module Lob
       self.class.openapi_types.each_pair do |key, type|
         if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
           self.send("#{key}=", nil) # // guardrails-disable-line
-        elsif type =~ /\AArray<(.*)>/i
+        elsif type.kind_of?(String) && type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
