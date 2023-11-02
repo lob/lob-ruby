@@ -13,23 +13,27 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Lob
+module OpenapiClient
   class DpvFootnote
     AA = "AA".freeze
     A1 = "A1".freeze
     BB = "BB".freeze
     CC = "CC".freeze
-    N1 = "N1".freeze
+    C1 = "C1".freeze
     F1 = "F1".freeze
     G1 = "G1".freeze
-    U1 = "U1".freeze
+    IA = "IA".freeze
     M1 = "M1".freeze
     M3 = "M3".freeze
+    N1 = "N1".freeze
+    PB = "PB".freeze
     P1 = "P1".freeze
     P3 = "P3".freeze
     R1 = "R1".freeze
     R7 = "R7".freeze
     RR = "RR".freeze
+    TA = "TA".freeze
+    U1 = "U1".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

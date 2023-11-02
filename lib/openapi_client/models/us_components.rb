@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Lob
+module OpenapiClient
   # A nested object containing a breakdown of each component of an address.
   class UsComponents
     # The numeric or alphanumeric part of an address preceding the street name. Often the house, building, or PO Box number.
@@ -85,6 +85,9 @@ module Lob
     # The type of `components[carrier_route]`. For more detailed information about each carrier route type, see [US Verification Details](#tag/US-Verification-Types). 
     attr_accessor :carrier_route_type
 
+    # Indicates the mailing facility for an address only supports PO Box deliveries and other forms of mail delivery are not available. 
+    attr_accessor :po_box_only_flag
+
     # A positive or negative decimal indicating the geographic latitude of the address, specifying the north-to-south position of a location. This should be used with `longitude` to pinpoint locations on a map. Will not be returned for undeliverable addresses or military addresses (state is `AA`, `AE`, or `AP`). 
     attr_accessor :latitude
 
@@ -140,6 +143,7 @@ module Lob
         :'county_fips' => :'county_fips',
         :'carrier_route' => :'carrier_route',
         :'carrier_route_type' => :'carrier_route_type',
+        :'po_box_only_flag' => :'po_box_only_flag',
         :'latitude' => :'latitude',
         :'longitude' => :'longitude'
       }
@@ -177,6 +181,7 @@ module Lob
         :'county_fips' => :'String',
         :'carrier_route' => :'String',
         :'carrier_route_type' => :'String',
+        :'po_box_only_flag' => :'String',
         :'latitude' => :'Float',
         :'longitude' => :'Float'
       }
@@ -194,13 +199,13 @@ module Lob
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Lob::UsComponents` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::UsComponents` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Lob::UsComponents`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::UsComponents`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -299,6 +304,10 @@ module Lob
 
       if attributes.key?(:'carrier_route_type')
         self.carrier_route_type = attributes[:'carrier_route_type']
+      end
+
+      if attributes.key?(:'po_box_only_flag')
+        self.po_box_only_flag = attributes[:'po_box_only_flag']
       end
 
       if attributes.key?(:'latitude')
@@ -428,6 +437,10 @@ module Lob
         invalid_properties.push('invalid value for "carrier_route_type", carrier_route_type cannot be nil.')
       end
 
+      if @po_box_only_flag.nil?
+        invalid_properties.push('invalid value for "po_box_only_flag", po_box_only_flag cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -472,6 +485,9 @@ module Lob
       return false if @carrier_route_type.nil?
       carrier_route_type_validator = EnumAttributeValidator.new('String', ["city_delivery", "rural_route", "highway_contract", "po_box", "general_delivery", ""])
       return false unless carrier_route_type_validator.valid?(@carrier_route_type)
+      return false if @po_box_only_flag.nil?
+      po_box_only_flag_validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      return false unless po_box_only_flag_validator.valid?(@po_box_only_flag)
       true
     end
 
@@ -583,6 +599,16 @@ module Lob
       @carrier_route_type = carrier_route_type
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] po_box_only_flag Object to be assigned
+    def po_box_only_flag=(po_box_only_flag)
+      validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      unless validator.valid?(po_box_only_flag)
+        fail ArgumentError, "invalid value for \"po_box_only_flag\", must be one of #{validator.allowable_values}."
+      end
+      @po_box_only_flag = po_box_only_flag
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -612,6 +638,7 @@ module Lob
           county_fips == o.county_fips &&
           carrier_route == o.carrier_route &&
           carrier_route_type == o.carrier_route_type &&
+          po_box_only_flag == o.po_box_only_flag &&
           latitude == o.latitude &&
           longitude == o.longitude
     end
@@ -625,7 +652,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [primary_number, street_predirection, street_name, street_suffix, street_postdirection, secondary_designator, secondary_number, pmb_designator, pmb_number, extra_secondary_designator, extra_secondary_number, city, state, zip_code, zip_code_plus_4, zip_code_type, delivery_point_barcode, address_type, record_type, default_building_address, county, county_fips, carrier_route, carrier_route_type, latitude, longitude].hash
+      [primary_number, street_predirection, street_name, street_suffix, street_postdirection, secondary_designator, secondary_number, pmb_designator, pmb_number, extra_secondary_designator, extra_secondary_number, city, state, zip_code, zip_code_plus_4, zip_code_type, delivery_point_barcode, address_type, record_type, default_building_address, county, county_fips, carrier_route, carrier_route_type, po_box_only_flag, latitude, longitude].hash
     end
 
 
@@ -705,7 +732,7 @@ module Lob
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Lob.const_get(type)
+        klass = OpenapiClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

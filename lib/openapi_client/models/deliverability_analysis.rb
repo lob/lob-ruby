@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Lob
+module OpenapiClient
   # A nested object containing a breakdown of the deliverability of an address.
   class DeliverabilityAnalysis
     # Result of Delivery Point Validation (DPV), which determines whether or not the address is deliverable by the USPS. Possible values are: * `Y` –– The address is deliverable by the USPS. * `S` –– The address is deliverable by removing the provided secondary unit designator. This information may be incorrect or unnecessary. * `D` –– The address is deliverable to the building's default address but is missing a secondary unit designator and/or number.   There is a chance the mail will not reach the intended recipient. * `N` –– The address is not deliverable according to the USPS, but parts of the address are valid (such as the street and ZIP code). * `''` –– This address is not deliverable. No matching street could be found within the city or ZIP code. 
@@ -27,6 +27,24 @@ module Lob
 
     # Corresponds to the USPS field `dpv_no_stat`. Indicates that an address has been vacated in the recent past, and is no longer receiving deliveries. If it's been unoccupied for 90+ days, or temporarily vacant, this will be flagged. Possible values are: * `Y` –– Address is active. * `N` –– Address is not active. * `''` –– A DPV match is not made (`deliverability_analysis[dpv_confirmation]` is `N` or an empty string). 
     attr_accessor :dpv_active
+
+    # Indicates the reason why an address is vacant or no longer receiving deliveries. Possible values are: * `01` –– Address does not receive mail from the USPS directly, but is serviced by a drop address. * `02` –– Address not yet deliverable. * `03` –– A DPV match is not made (`deliverability_analysis[dpv_confirmation]` is `N` or an empty string). * `04` –– Address is a College, Military Zone, or other type. * `05` –– Address no longer receives deliveries. * `06` –– Address is missing required secondary information. * `''` –– A DPV match is not made or the address is active. 
+    attr_accessor :dpv_inactive_reason
+
+    # Indicates a street address for which mail is delivered to a PO Box. Possible values are: * `Y` –– Address is a PO Box throwback delivery point. * `N` –– Address is not a PO Box throwback delivery point. * `''` –– A DPV match is not made (`deliverability_analysis[dpv_confirmation]` is `N` or an empty string). 
+    attr_accessor :dpv_throwback
+
+    # Indicates whether deliveries are not performed on one or more days of the week at an address. Possible values are: * `Y` –– Mail delivery does not occur on some days of the week. * `N` –– Mail delivery occurs every day of the week. * `''` –– A DPV match is not made (`deliverability_analysis[dpv_confirmation]` is `N` or an empty string). 
+    attr_accessor :dpv_non_delivery_day_flag
+
+    # Indicates days of the week (starting on Sunday) deliveries are not performed at an address. For example: * `YNNNNNN` –– Mail delivery does not occur on Sunday's. * `NYNNNYN` –– Mail delivery does not occur on Monday's or Friday's. * `''` –– A DPV match is not made (`deliverability_analysis[dpv_confirmation]` is `N` or an empty string) or address receives mail every day of the week (`deliverability_analysis[dpv_non_delivery_day_flag]` is `N` or an empty string). 
+    attr_accessor :dpv_non_delivery_day_values
+
+    # Indicates packages to this address will not be left due to security concerns. Possible values are: * `Y` –– Address does not have a secure mailbox. * `N` –– Address has a secure mailbox. * `''` –– A DPV match is not made (`deliverability_analysis[dpv_confirmation]` is `N` or an empty string). 
+    attr_accessor :dpv_no_secure_location
+
+    # Indicates the door of the address is not accessible for mail delivery. Possible values are: * `Y` –– Door is not accessible. * `N` –– Door is accessible. * `''` –– A DPV match is not made (`deliverability_analysis[dpv_confirmation]` is `N` or an empty string). 
+    attr_accessor :dpv_door_not_accessible
 
     # An array of 2-character strings that gives more insight into how `deliverability_analysis[dpv_confirmation]` was determined. Will always include at least 1 string, and can include up to 3. For details, see [US Verification Details](#tag/US-Verification-Types). 
     attr_accessor :dpv_footnotes
@@ -72,6 +90,12 @@ module Lob
         :'dpv_cmra' => :'dpv_cmra',
         :'dpv_vacant' => :'dpv_vacant',
         :'dpv_active' => :'dpv_active',
+        :'dpv_inactive_reason' => :'dpv_inactive_reason',
+        :'dpv_throwback' => :'dpv_throwback',
+        :'dpv_non_delivery_day_flag' => :'dpv_non_delivery_day_flag',
+        :'dpv_non_delivery_day_values' => :'dpv_non_delivery_day_values',
+        :'dpv_no_secure_location' => :'dpv_no_secure_location',
+        :'dpv_door_not_accessible' => :'dpv_door_not_accessible',
         :'dpv_footnotes' => :'dpv_footnotes',
         :'ews_match' => :'ews_match',
         :'lacs_indicator' => :'lacs_indicator',
@@ -92,6 +116,12 @@ module Lob
         :'dpv_cmra' => :'String',
         :'dpv_vacant' => :'String',
         :'dpv_active' => :'String',
+        :'dpv_inactive_reason' => :'String',
+        :'dpv_throwback' => :'String',
+        :'dpv_non_delivery_day_flag' => :'String',
+        :'dpv_non_delivery_day_values' => :'String',
+        :'dpv_no_secure_location' => :'String',
+        :'dpv_door_not_accessible' => :'String',
         :'dpv_footnotes' => :'Array<DpvFootnote>',
         :'ews_match' => :'Boolean',
         :'lacs_indicator' => :'String',
@@ -110,13 +140,13 @@ module Lob
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Lob::DeliverabilityAnalysis` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::DeliverabilityAnalysis` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Lob::DeliverabilityAnalysis`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::DeliverabilityAnalysis`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -135,6 +165,30 @@ module Lob
 
       if attributes.key?(:'dpv_active')
         self.dpv_active = attributes[:'dpv_active']
+      end
+
+      if attributes.key?(:'dpv_inactive_reason')
+        self.dpv_inactive_reason = attributes[:'dpv_inactive_reason']
+      end
+
+      if attributes.key?(:'dpv_throwback')
+        self.dpv_throwback = attributes[:'dpv_throwback']
+      end
+
+      if attributes.key?(:'dpv_non_delivery_day_flag')
+        self.dpv_non_delivery_day_flag = attributes[:'dpv_non_delivery_day_flag']
+      end
+
+      if attributes.key?(:'dpv_non_delivery_day_values')
+        self.dpv_non_delivery_day_values = attributes[:'dpv_non_delivery_day_values']
+      end
+
+      if attributes.key?(:'dpv_no_secure_location')
+        self.dpv_no_secure_location = attributes[:'dpv_no_secure_location']
+      end
+
+      if attributes.key?(:'dpv_door_not_accessible')
+        self.dpv_door_not_accessible = attributes[:'dpv_door_not_accessible']
       end
 
       if attributes.key?(:'dpv_footnotes')
@@ -180,6 +234,30 @@ module Lob
         invalid_properties.push('invalid value for "dpv_active", dpv_active cannot be nil.')
       end
 
+      if @dpv_inactive_reason.nil?
+        invalid_properties.push('invalid value for "dpv_inactive_reason", dpv_inactive_reason cannot be nil.')
+      end
+
+      if @dpv_throwback.nil?
+        invalid_properties.push('invalid value for "dpv_throwback", dpv_throwback cannot be nil.')
+      end
+
+      if @dpv_non_delivery_day_flag.nil?
+        invalid_properties.push('invalid value for "dpv_non_delivery_day_flag", dpv_non_delivery_day_flag cannot be nil.')
+      end
+
+      if @dpv_non_delivery_day_values.nil?
+        invalid_properties.push('invalid value for "dpv_non_delivery_day_values", dpv_non_delivery_day_values cannot be nil.')
+      end
+
+      if @dpv_no_secure_location.nil?
+        invalid_properties.push('invalid value for "dpv_no_secure_location", dpv_no_secure_location cannot be nil.')
+      end
+
+      if @dpv_door_not_accessible.nil?
+        invalid_properties.push('invalid value for "dpv_door_not_accessible", dpv_door_not_accessible cannot be nil.')
+      end
+
       if @dpv_footnotes.nil?
         invalid_properties.push('invalid value for "dpv_footnotes", dpv_footnotes cannot be nil.')
       end
@@ -218,6 +296,22 @@ module Lob
       return false if @dpv_active.nil?
       dpv_active_validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
       return false unless dpv_active_validator.valid?(@dpv_active)
+      return false if @dpv_inactive_reason.nil?
+      dpv_inactive_reason_validator = EnumAttributeValidator.new('String', ["01", "02", "03", "04", "05", "06", ""])
+      return false unless dpv_inactive_reason_validator.valid?(@dpv_inactive_reason)
+      return false if @dpv_throwback.nil?
+      dpv_throwback_validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      return false unless dpv_throwback_validator.valid?(@dpv_throwback)
+      return false if @dpv_non_delivery_day_flag.nil?
+      dpv_non_delivery_day_flag_validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      return false unless dpv_non_delivery_day_flag_validator.valid?(@dpv_non_delivery_day_flag)
+      return false if @dpv_non_delivery_day_values.nil?
+      return false if @dpv_no_secure_location.nil?
+      dpv_no_secure_location_validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      return false unless dpv_no_secure_location_validator.valid?(@dpv_no_secure_location)
+      return false if @dpv_door_not_accessible.nil?
+      dpv_door_not_accessible_validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      return false unless dpv_door_not_accessible_validator.valid?(@dpv_door_not_accessible)
       return false if @dpv_footnotes.nil?
       return false if @ews_match.nil?
       return false if @lacs_indicator.nil?
@@ -271,6 +365,56 @@ module Lob
     end
 
     # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] dpv_inactive_reason Object to be assigned
+    def dpv_inactive_reason=(dpv_inactive_reason)
+      validator = EnumAttributeValidator.new('String', ["01", "02", "03", "04", "05", "06", ""])
+      unless validator.valid?(dpv_inactive_reason)
+        fail ArgumentError, "invalid value for \"dpv_inactive_reason\", must be one of #{validator.allowable_values}."
+      end
+      @dpv_inactive_reason = dpv_inactive_reason
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] dpv_throwback Object to be assigned
+    def dpv_throwback=(dpv_throwback)
+      validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      unless validator.valid?(dpv_throwback)
+        fail ArgumentError, "invalid value for \"dpv_throwback\", must be one of #{validator.allowable_values}."
+      end
+      @dpv_throwback = dpv_throwback
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] dpv_non_delivery_day_flag Object to be assigned
+    def dpv_non_delivery_day_flag=(dpv_non_delivery_day_flag)
+      validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      unless validator.valid?(dpv_non_delivery_day_flag)
+        fail ArgumentError, "invalid value for \"dpv_non_delivery_day_flag\", must be one of #{validator.allowable_values}."
+      end
+      @dpv_non_delivery_day_flag = dpv_non_delivery_day_flag
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] dpv_no_secure_location Object to be assigned
+    def dpv_no_secure_location=(dpv_no_secure_location)
+      validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      unless validator.valid?(dpv_no_secure_location)
+        fail ArgumentError, "invalid value for \"dpv_no_secure_location\", must be one of #{validator.allowable_values}."
+      end
+      @dpv_no_secure_location = dpv_no_secure_location
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] dpv_door_not_accessible Object to be assigned
+    def dpv_door_not_accessible=(dpv_door_not_accessible)
+      validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
+      unless validator.valid?(dpv_door_not_accessible)
+        fail ArgumentError, "invalid value for \"dpv_door_not_accessible\", must be one of #{validator.allowable_values}."
+      end
+      @dpv_door_not_accessible = dpv_door_not_accessible
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
     # @param [Object] lacs_indicator Object to be assigned
     def lacs_indicator=(lacs_indicator)
       validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
@@ -299,6 +443,12 @@ module Lob
           dpv_cmra == o.dpv_cmra &&
           dpv_vacant == o.dpv_vacant &&
           dpv_active == o.dpv_active &&
+          dpv_inactive_reason == o.dpv_inactive_reason &&
+          dpv_throwback == o.dpv_throwback &&
+          dpv_non_delivery_day_flag == o.dpv_non_delivery_day_flag &&
+          dpv_non_delivery_day_values == o.dpv_non_delivery_day_values &&
+          dpv_no_secure_location == o.dpv_no_secure_location &&
+          dpv_door_not_accessible == o.dpv_door_not_accessible &&
           dpv_footnotes == o.dpv_footnotes &&
           ews_match == o.ews_match &&
           lacs_indicator == o.lacs_indicator &&
@@ -315,7 +465,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [dpv_confirmation, dpv_cmra, dpv_vacant, dpv_active, dpv_footnotes, ews_match, lacs_indicator, lacs_return_code, suite_return_code].hash
+      [dpv_confirmation, dpv_cmra, dpv_vacant, dpv_active, dpv_inactive_reason, dpv_throwback, dpv_non_delivery_day_flag, dpv_non_delivery_day_values, dpv_no_secure_location, dpv_door_not_accessible, dpv_footnotes, ews_match, lacs_indicator, lacs_return_code, suite_return_code].hash
     end
 
 
@@ -395,7 +545,7 @@ module Lob
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Lob.const_get(type)
+        klass = OpenapiClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
