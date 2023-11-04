@@ -32,6 +32,7 @@ module Lob
     R1 = "R1".freeze
     R7 = "R7".freeze
     RR = "RR".freeze
+    TA = "TA".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
