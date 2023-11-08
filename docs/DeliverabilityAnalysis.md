@@ -26,21 +26,21 @@
 require 'openapi_client'
 
 instance = Lob::DeliverabilityAnalysis.new(
-  dpv_confirmation: null,
-  dpv_cmra: null,
-  dpv_vacant: null,
-  dpv_active: null,
-  dpv_inactive_reason: null,
-  dpv_throwback: null,
-  dpv_non_delivery_day_flag: null,
-  dpv_non_delivery_day_values: null,
-  dpv_no_secure_location: null,
-  dpv_door_not_accessible: null,
-  dpv_footnotes: null,
-  ews_match: null,
-  lacs_indicator: null,
-  lacs_return_code: null,
-  suite_return_code: null
+  dpv_confirmation: nil,
+  dpv_cmra: nil,
+  dpv_vacant: nil,
+  dpv_active: nil,
+  dpv_inactive_reason: nil,
+  dpv_throwback: nil,
+  dpv_non_delivery_day_flag: nil,
+  dpv_non_delivery_day_values: nil,
+  dpv_no_secure_location: nil,
+  dpv_door_not_accessible: nil,
+  dpv_footnotes: nil,
+  ews_match: nil,
+  lacs_indicator: nil,
+  lacs_return_code: nil,
+  suite_return_code: nil
 )
 ```
 
