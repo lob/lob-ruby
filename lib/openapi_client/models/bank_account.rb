@@ -15,6 +15,21 @@ require 'time'
 
 module Lob
   class BankAccount
+    ID_PATTERN = /^bank_[a-zA-Z0-9]+$/
+    private_constant :ID_PATTERN
+
+    SIGNATURE_URL_PATTERN = /^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(''|_signature)(.pdf|_thumb_[a-z]+_[0-9]+.png|.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9\-_]+/
+    private_constant :SIGNATURE_URL_PATTERN
+
+    DESERIALIZE_BOOLEAN_REGEXP = /\A(true|t|yes|y|1)\z/i
+    private_constant :DESERIALIZE_BOOLEAN_REGEXP
+
+    DESERIALIZE_ARRAY_REGEXP = /\AArray<(?<inner_type>.+)>\z/
+    private_constant :DESERIALIZE_ARRAY_REGEXP
+
+    DESERIALIZE_HASH_REGEXP = /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
+    private_constant :DESERIALIZE_HASH_REGEXP
+
     # An internal description that identifies this resource. Must be no longer than 255 characters. 
     attr_accessor :description
 
@@ -252,13 +267,11 @@ module Lob
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      pattern = Regexp.new(/^bank_[a-zA-Z0-9]+$/)
-      if @id !~ pattern
-        invalid_properties.push("invalid value for \"id\", must conform to the pattern #{pattern}.")
+      if !ID_PATTERN.match?(@id.to_s)
+        invalid_properties.push("invalid value for \"id\", must conform to the pattern #{ID_PATTERN}.")
       end
 
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(''|_signature)(.pdf|_thumb_[a-z]+_[0-9]+.png|.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9\-_]+/)
-      if !@signature_url.nil? && @signature_url !~ pattern
+      if !@signature_url.nil? && !SIGNATURE_URL_PATTERN.match?(@signature_url.to_s)
         invalid_properties.push("invalid value for \"signature_url\", must conform to the pattern #{pattern}.")
       end
 
@@ -292,8 +305,8 @@ module Lob
       return false if @signatory.nil?
       return false if @signatory.to_s.length > 30
       return false if @id.nil?
-      return false if @id !~ Regexp.new(/^bank_[a-zA-Z0-9]+$/)
-      return false if !@signature_url.nil? && @signature_url !~ Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(''|_signature)(.pdf|_thumb_[a-z]+_[0-9]+.png|.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9\-_]+/)
+      return false if !ID_PATTERN.match?(@id.to_s)
+      return false if !@signature_url.nil? && !SIGNATURE_URL_PATTERN.match?(@signature_url.to_s)
       return false if @date_created.nil?
       return false if @date_modified.nil?
       return false if @object.nil?
@@ -381,9 +394,8 @@ module Lob
         fail ArgumentError, 'id cannot be nil'
       end
 
-      pattern = Regexp.new(/^bank_[a-zA-Z0-9]+$/)
-      if id !~ pattern
-        fail ArgumentError, "invalid value for \"id\", must conform to the pattern #{pattern}."
+      if !ID_PATTERN.match?(id.to_s)
+        fail ArgumentError, "invalid value for \"id\", must conform to the pattern #{ID_PATTERN}."
       end
 
       @id = id
@@ -392,9 +404,8 @@ module Lob
     # Custom attribute writer method with validation
     # @param [Object] signature_url Value to be assigned
     def signature_url=(signature_url)
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(''|_signature)(.pdf|_thumb_[a-z]+_[0-9]+.png|.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9\-_]+/)
-      if !signature_url.nil? && signature_url !~ pattern
-        fail ArgumentError, "invalid value for \"signature_url\", must conform to the pattern #{pattern}."
+      unless signature_url.nil? || SIGNATURE_URL_PATTERN.match?(signature_url.to_s)
+        fail ArgumentError, "invalid value for \"signature_url\", must conform to the pattern #{SIGNATURE_URL_PATTERN}."
       end
 
       @signature_url = signature_url
@@ -499,20 +510,16 @@ module Lob
       when :Float
         value.to_f
       when :Boolean
-        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
-          true
-        else
-          false
-        end
+        DESERIALIZE_BOOLEAN_REGEXP.match?(value.to_s)
       when :Object
         # generic object (usually a Hash), return directly
         value
-      when /\AArray<(?<inner_type>.+)>\z/
-        inner_type = Regexp.last_match[:inner_type]
+      when md = DESERIALIZE_ARRAY_REGEXP.match(value.to_s)
+        inner_type = md[:inner_type]
         value.map { |v| _deserialize(inner_type, v) }
-      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
-        k_type = Regexp.last_match[:k_type]
-        v_type = Regexp.last_match[:v_type]
+      when md = DESERIALIZE_HASH_REGEXP.match(value.to_s)
+        k_type = md[:k_type]
+        v_type = md[:v_type]
         {}.tap do |hash|
           value.each do |k, v|
             hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
