@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **address** | **String** | The entire address in one string (e.g., \&quot;210 King Street 94107\&quot;). _Does not support a recipient and will error when other payload parameters are provided._  | [optional] |
+| **address** | **String** | The entire address in one string (e.g., \&quot;2261 Market Street 94114\&quot;). _Does not support a recipient and will error when other payload parameters are provided._  | [optional] |
 | **recipient** | **String** | The intended recipient, typically a person&#39;s or firm&#39;s name. | [optional] |
 | **primary_line** | **String** | The primary delivery line (usually the street address) of the address. Combination of the following applicable &#x60;components&#x60;: * &#x60;primary_number&#x60; * &#x60;street_predirection&#x60; * &#x60;street_name&#x60; * &#x60;street_suffix&#x60; * &#x60;street_postdirection&#x60; * &#x60;secondary_designator&#x60; * &#x60;secondary_number&#x60; * &#x60;pmb_designator&#x60; * &#x60;pmb_number&#x60;  | [optional] |
 | **secondary_line** | **String** | The secondary delivery line of the address. This field is typically empty but may contain information if &#x60;primary_line&#x60; is too long.  | [optional] |
