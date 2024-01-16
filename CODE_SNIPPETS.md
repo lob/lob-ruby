@@ -50,11 +50,11 @@ curl https://api.lob.com/v1/addresses \
   -d "company=Lob" \
   -d "email=harry@lob.com" \
   -d "phone=5555555555" \
-  -d "address_line1=210 King St" \
-  -d "address_line2=# 6100" \
+  -d "address_line1=2261 Market Street" \
+  -d "address_line2=Ste 5668" \
   -d "address_city=San Francisco" \
   -d "address_state=CA" \
-  -d "address_zip=94107" \
+  -d "address_zip=94114" \
   -d "address_country=US" \
 ```
 
@@ -65,11 +65,11 @@ addressCreate = AddressEditable.new({
   company: "Lob",
   email: "harry@lob.com",
   phone: "5555555555",
-  address_line1: "210 King St",
-  address_line2: "# 6100",
+  address_line1: "2261 Market Street",
+  address_line2: "Ste 5668",
   address_city: "San Francisco",
   address_state: "CA",
-  address_zip: "94107",
+  address_zip: "94114",
   address_country: "US",
 });
 
@@ -195,11 +195,11 @@ curl https://api.lob.com/v1/postcards \
   --data-urlencode "front=<html style='padding: 1in; font-size: 50;'>Front HTML for {{name}}</html>" \
   --data-urlencode "back=<html style='padding: 1in; font-size: 20;'>Back HTML for {{name}}</html>" \
   -d "to[name]=Harry Zhang" \
-  -d "to[address_line1]=210 King St" \
-  -d "to[address_line2]=# 6100" \
+  -d "to[address_line1]=2261 Market Street" \
+  -d "to[address_line2]=Ste 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
-  -d "to[address_zip]=94107" \
+  -d "to[address_zip]=94114" \
   -d "merge_variables[name]=Harry" \
 ```
 
@@ -211,11 +211,11 @@ postcardCreate = PostcardEditable.new({
   back: "<html style='padding: 1in; font-size: 20;'>Back HTML for {{name}}</html>",
   to: AddressEditable.new({ 
     name: "Harry Zhang",
-    address_line1: "210 King St",
-    address_line2: "# 6100",
+    address_line1: "2261 Market Street",
+    address_line2: "Ste 5668",
     address_city: "San Francisco",
     address_state: "CA",
-    address_zip: "94107",
+    address_zip: "94114",
   }),
   merge_variables: { 
     name: "Harry"
@@ -304,11 +304,11 @@ curl https://api.lob.com/v1/self_mailers \
   --data-urlencode "inside=<html style='padding: 1in; font-size: 50;'>Inside HTML for {{name}}</html>" \
   --data-urlencode "outside=<html style='padding: 1in; font-size: 20;'>Outside HTML for {{name}}</html>" \
   -d "to[name]=Harry Zhang" \
-  -d "to[address_line1]=210 King St" \
-  -d "to[address_line2]=# 6100" \
+  -d "to[address_line1]=2261 Market Street" \
+  -d "to[address_line2]=Ste 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
-  -d "to[address_zip]=94107" \
+  -d "to[address_zip]=94114" \
   -d "merge_variables[name]=Harry" \
 ```
 
@@ -320,11 +320,11 @@ selfMailerCreate = SelfMailerEditable.new({
   outside: "<html style='padding: 1in; font-size: 20;'>Outside HTML for {{name}}</html>",
   to: AddressEditable.new({ 
     name: "Harry Zhang",
-    address_line1: "210 King St",
-    address_line2: "# 6100",
+    address_line1: "2261 Market Street",
+    address_line2: "Ste 5668",
     address_city: "San Francisco",
     address_state: "CA",
-    address_zip: "94107",
+    address_zip: "94114",
   }),
   merge_variables: { 
     name: "Harry"
@@ -413,11 +413,11 @@ curl https://api.lob.com/v1/letters \
   --data-urlencode "file=<html style='padding-top: 3in; margin: .5in;'>HTML Letter for {{name}}</html>" \
   -d "color=true" \
   -d "to[name]=Harry Zhang" \
-  -d "to[address_line1]=210 King St" \
-  -d "to[address_line2]=# 6100" \
+  -d "to[address_line1]=2261 Market Street" \
+  -d "to[address_line2]=Ste 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
-  -d "to[address_zip]=94107" \
+  -d "to[address_zip]=94114" \
   -d "merge_variables[name]=Harry" \
   -d "cards[]=card_c51ae96f5cebf3e"
 ```
@@ -430,11 +430,11 @@ letterCreate = LetterEditable.new({
   color: "true",
   to: AddressEditable.new({ 
     name: "Harry Zhang",
-    address_line1: "210 King St",
-    address_line2: "# 6100",
+    address_line1: "2261 Market Street",
+    address_line2: "Ste 5668",
     address_city: "San Francisco",
     address_state: "CA",
-    address_zip: "94107",
+    address_zip: "94114",
   }),
   merge_variables: { 
     name: "Harry"
@@ -529,11 +529,11 @@ curl https://api.lob.com/v1/checks \
   --data-urlencode "check_bottom=<h1 style='padding-top:4in;'>Demo Check for {{name}}</h1>" \
   -d "from=adr_210a8d4b0b76d77b" \
   -d "to[name]=Harry Zhang" \
-  -d "to[address_line1]=210 King St" \
-  -d "to[address_line2]=# 6100" \
+  -d "to[address_line1]=2261 Market Street" \
+  -d "to[address_line2]=Ste 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
-  -d "to[address_zip]=94107" \
+  -d "to[address_zip]=94114" \
   -d "merge_variables[name]=Harry" \
 ```
 
@@ -548,11 +548,11 @@ checkCreate = CheckEditable.new({
   from: "adr_210a8d4b0b76d77b",
   to: AddressDomestic.new({ 
     name: "Harry Zhang",
-    address_line1: "210 King St",
-    address_line2: "# 6100",
+    address_line1: "2261 Market Street",
+    address_line2: "Ste 5668",
     address_city: "San Francisco",
     address_state: "CA",
-    address_zip: "94107",
+    address_zip: "94114",
   }),
   merge_variables: { 
     name: "Harry"
@@ -1688,10 +1688,10 @@ end
 curl https://api.lob.com/v1/bulk/us_verifications \
   -u <YOUR LIVE API KEY>: \
   --header "Content-Type: application/x-www-form-urlencoded" \
-  --data-urlencode "addresses[0][primary_line]=210 King Street" \
+  --data-urlencode "addresses[0][primary_line]=2261 Market Street" \
   --data-urlencode "addresses[0][city]=San Francisco" \
   --data-urlencode "addresses[0][state]=CA" \
-  --data-urlencode "addresses[0][zip_code]=94017" \
+  --data-urlencode "addresses[0][zip_code]=94114" \
   --data-urlencode "addresses[1][primary_line]=185 BERRY ST STE 6600" \
   --data-urlencode "addresses[1][city]=SAN FRANCISCO" \
   --data-urlencode "addresses[1][state]=CA" \
@@ -1703,10 +1703,10 @@ usVerificationsApi = UsVerificationsApi.new(config)
 
 
 verificationData0 = MultipleComponents.new({ 
-  primary_line: "210 King Street",
+  primary_line: "2261 Market Street",
   city: "San Francisco",
   state: "CA",
-  zip_code: "94017",
+  zip_code: "94114",
 })
 
 verificationData1 = MultipleComponents.new({ 
@@ -1735,20 +1735,20 @@ end
 ```bash
 curl https://api.lob.com/v1/us_verifications \
   -u <YOUR_LIVE_API_KEY>: \
-  -d "primary_line=210 King Street" \
+  -d "primary_line=2261 Market Street" \
   -d "city=San Francisco" \
   -d "state=CA" \
-  -d "zip_code=94017" \
+  -d "zip_code=94114" \
 ```
 
 ```ruby
 usVerificationsApi = UsVerificationsApi.new(config)
 
 verificationData = UsVerificationsWritable.new({ 
-  primary_line: "210 King Street",
+  primary_line: "2261 Market Street",
   city: "San Francisco",
   state: "CA",
-  zip_code: "94017",
+  zip_code: "94114",
 })
 
 begin

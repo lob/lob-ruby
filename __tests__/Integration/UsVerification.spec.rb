@@ -17,10 +17,10 @@ RSpec.describe "UsVerificationsApi" do
             @usVerificationApi = UsVerificationsApi.new(api)
 
             @validAddress = UsVerificationsWritable.new({
-                primary_line: "210 KING ST",
+                primary_line: "2261 MARKET ST",
                 city: "SAN FRANCISCO",
                 state: "CA",
-                zip_code: "94107"
+                zip_code: "94114"
             })
             @invalidAddress = UsVerificationsWritable.new({
                 primary_line: "1 CEMETERY ST",
@@ -29,10 +29,10 @@ RSpec.describe "UsVerificationsApi" do
                 zip_code: "07000"
             })
             mc1 = MultipleComponents.new({
-                primary_line: "210 KING ST",
+                primary_line: "2261 MARKET Street",
                 city: "SAN FRANCISCO",
                 state: "CA",
-                zip_code: "94107"
+                zip_code: "94114"
             })
             mc2 = MultipleComponents.new({
                 primary_line: "001 CEMETERY LN",

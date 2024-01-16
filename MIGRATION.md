@@ -50,12 +50,12 @@ Here is a sample of the legacy lob-ruby CREATE function:
   company: 'Lob',
   email: 'harry@lob.com',
   phone: '5555555555',
-  address_line1: '210 King St',
-  address_line2: '# 6100',
+  address_line1: '2261 Market Street',
+  address_line2: 'Ste 5668',
   address_city: 'San Francisco',
   address_state: 'CA',
   address_country: 'US',
-  address_zip: '94107'
+  address_zip: '94114'
 )
 ```
 
