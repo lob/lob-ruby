@@ -1,4 +1,4 @@
-# Lob::UsVerifications
+# OpenapiClient::UsVerifications
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'openapi_client'
 
-instance = Lob::UsVerifications.new(
+instance = OpenapiClient::UsVerifications.new(
   addresses: null,
   errors: null
 )

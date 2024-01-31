@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Lob
+module OpenapiClient
   class MultipleComponents
     # The intended recipient, typically a person's or firm's name.
     attr_accessor :recipient
@@ -35,6 +35,9 @@ module Lob
     # Required if `city` and `state` are not passed in. If included, must be formatted as a US ZIP or ZIP+4 (e.g. `94107`, `941072282`, `94107-2282`).
     attr_accessor :zip_code
 
+    # ID that is returned in the response body for the verification 
+    attr_accessor :transient_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -44,7 +47,8 @@ module Lob
         :'urbanization' => :'urbanization',
         :'city' => :'city',
         :'state' => :'state',
-        :'zip_code' => :'zip_code'
+        :'zip_code' => :'zip_code',
+        :'transient_id' => :'transient_id'
       }
     end
 
@@ -62,7 +66,8 @@ module Lob
         :'urbanization' => :'String',
         :'city' => :'String',
         :'state' => :'String',
-        :'zip_code' => :'String'
+        :'zip_code' => :'String',
+        :'transient_id' => :'String'
       }
     end
 
@@ -77,13 +82,13 @@ module Lob
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Lob::MultipleComponents` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::MultipleComponents` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Lob::MultipleComponents`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::MultipleComponents`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -114,6 +119,10 @@ module Lob
 
       if attributes.key?(:'zip_code')
         self.zip_code = attributes[:'zip_code']
+      end
+
+      if attributes.key?(:'transient_id')
+        self.transient_id = attributes[:'transient_id']
       end
     end
 
@@ -257,7 +266,8 @@ module Lob
           urbanization == o.urbanization &&
           city == o.city &&
           state == o.state &&
-          zip_code == o.zip_code
+          zip_code == o.zip_code &&
+          transient_id == o.transient_id
     end
 
     # @see the `==` method
@@ -269,7 +279,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [recipient, primary_line, secondary_line, urbanization, city, state, zip_code].hash
+      [recipient, primary_line, secondary_line, urbanization, city, state, zip_code, transient_id].hash
     end
 
 
@@ -349,7 +359,7 @@ module Lob
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Lob.const_get(type)
+        klass = OpenapiClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
