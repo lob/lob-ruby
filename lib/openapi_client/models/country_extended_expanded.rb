@@ -176,6 +176,7 @@ module Lob
     PORTUGAL = "PORTUGAL".freeze
     QATAR = "QATAR".freeze
     ROMANIA = "ROMANIA".freeze
+    RUSSIA = "RUSSIA".freeze
     RUSSIAN_FEDERATION = "RUSSIAN FEDERATION".freeze
     RWANDA = "RWANDA".freeze
     SAINT_HELENA = "SAINT HELENA".freeze
