@@ -1,4 +1,4 @@
-# Lob::UsVerificationsWritable
+# OpenapiClient::UsVerificationsWritable
 
 ## Properties
 
@@ -12,13 +12,14 @@
 | **city** | **String** |  | [optional] |
 | **state** | **String** | The [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2:US) two letter code or subdivision name for the state. &#x60;city&#x60; and &#x60;state&#x60; are required if no &#x60;zip_code&#x60; is passed. | [optional] |
 | **zip_code** | **String** | Required if &#x60;city&#x60; and &#x60;state&#x60; are not passed in. If included, must be formatted as a US ZIP or ZIP+4 (e.g. &#x60;94107&#x60;, &#x60;941072282&#x60;, &#x60;94107-2282&#x60;). | [optional] |
+| **transient_id** | **String** | ID that is returned in the response body for the verification  | [optional] |
 
 ## Example
 
 ```ruby
 require 'openapi_client'
 
-instance = Lob::UsVerificationsWritable.new(
+instance = OpenapiClient::UsVerificationsWritable.new(
   address: null,
   recipient: null,
   primary_line: null,
@@ -26,7 +27,8 @@ instance = Lob::UsVerificationsWritable.new(
   urbanization: null,
   city: null,
   state: null,
-  zip_code: null
+  zip_code: null,
+  transient_id: null
 )
 ```
 

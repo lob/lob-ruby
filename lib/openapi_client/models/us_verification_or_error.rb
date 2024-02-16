@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Lob
+module OpenapiClient
   # A model used to represent an entry in a result list where the entry can either be a us_verification or an Error. The SDK will perform necessary casting into the correct corresponding type. 
   class UsVerificationOrError
     # Unique identifier prefixed with `us_ver_`.
@@ -42,6 +42,9 @@ module Lob
     attr_accessor :lob_confidence_score
 
     attr_accessor :object
+
+    # ID that is returned in the response body for the verification 
+    attr_accessor :transient_id
 
     attr_accessor :error
 
@@ -81,6 +84,7 @@ module Lob
         :'deliverability_analysis' => :'deliverability_analysis',
         :'lob_confidence_score' => :'lob_confidence_score',
         :'object' => :'object',
+        :'transient_id' => :'transient_id',
         :'error' => :'error'
       }
     end
@@ -104,6 +108,7 @@ module Lob
         :'deliverability_analysis' => :'DeliverabilityAnalysis',
         :'lob_confidence_score' => :'LobConfidenceScore',
         :'object' => :'String',
+        :'transient_id' => :'String',
         :'error' => :'BulkError'
       }
     end
@@ -119,13 +124,13 @@ module Lob
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Lob::UsVerificationOrError` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::UsVerificationOrError` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Lob::UsVerificationOrError`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::UsVerificationOrError`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -174,6 +179,10 @@ module Lob
         self.object = attributes[:'object']
       else
         self.object = 'us_verification'
+      end
+
+      if attributes.key?(:'transient_id')
+        self.transient_id = attributes[:'transient_id']
       end
 
       if attributes.key?(:'error')
@@ -311,6 +320,7 @@ module Lob
           deliverability_analysis == o.deliverability_analysis &&
           lob_confidence_score == o.lob_confidence_score &&
           object == o.object &&
+          transient_id == o.transient_id &&
           error == o.error
     end
 
@@ -323,7 +333,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, recipient, primary_line, secondary_line, urbanization, last_line, deliverability, components, deliverability_analysis, lob_confidence_score, object, error].hash
+      [id, recipient, primary_line, secondary_line, urbanization, last_line, deliverability, components, deliverability_analysis, lob_confidence_score, object, transient_id, error].hash
     end
 
 
@@ -403,7 +413,7 @@ module Lob
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Lob.const_get(type)
+        klass = OpenapiClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
