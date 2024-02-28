@@ -21,7 +21,7 @@ Creates a new creative with the provided properties
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -95,7 +95,7 @@ Retrieves the details of an existing creative. You need only supply the unique c
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -165,7 +165,7 @@ Update the details of an existing creative. You need only supply the unique iden
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

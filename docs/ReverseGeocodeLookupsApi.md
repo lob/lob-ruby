@@ -19,7 +19,7 @@ Reverse geocode a valid US location with a live API key.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

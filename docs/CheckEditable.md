@@ -20,11 +20,12 @@
 | **check_number** | **Integer** | An integer that designates the check number. | [optional] |
 | **message** | **String** | Max of 400 characters to be included at the bottom of the check page. | [optional] |
 | **billing_group_id** | **String** | An optional string with the billing group ID to tag your usage with. Is used for billing purposes. Requires special activation to use. See [Billing Group API](https://lob.github.io/lob-openapi/#tag/Billing-Groups) for more information. | [optional] |
+| **use_type** | [**ChkUseType**](ChkUseType.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::CheckEditable.new(
   from: null,
@@ -42,7 +43,8 @@ instance = Lob::CheckEditable.new(
   memo: null,
   check_number: null,
   message: null,
-  billing_group_id: null
+  billing_group_id: null,
+  use_type: null
 )
 ```
 

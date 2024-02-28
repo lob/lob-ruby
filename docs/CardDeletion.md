@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::CardDeletion.new(
   id: null,

@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::BulkErrorProperties.new(
   message: null,

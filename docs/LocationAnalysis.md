@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::LocationAnalysis.new(
   latitude: null,

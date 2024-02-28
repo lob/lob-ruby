@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::IntlVerificationsPayload.new(
   addresses: null

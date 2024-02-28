@@ -22,7 +22,7 @@ Creates a new billing_group with the provided properties.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -92,7 +92,7 @@ Retrieves the details of an existing billing_group. You need only supply the uni
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -162,7 +162,7 @@ Updates all editable attributes of the billing_group with the given id.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -234,7 +234,7 @@ Returns a list of your billing_groups. The billing_groups are returned sorted by
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

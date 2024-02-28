@@ -24,6 +24,9 @@ module Lob
     # The environment in which the mailpieces were created. Today, will only be `live`.
     attr_accessor :mode
 
+    # Campaign ID associated with the upload
+    attr_accessor :campaign_id
+
     # Url where your campaign mailpiece failures can be retrieved
     attr_accessor :failures_url
 
@@ -87,6 +90,7 @@ module Lob
         :'id' => :'id',
         :'account_id' => :'accountId',
         :'mode' => :'mode',
+        :'campaign_id' => :'campaignId',
         :'failures_url' => :'failuresUrl',
         :'original_filename' => :'originalFilename',
         :'state' => :'state',
@@ -114,6 +118,7 @@ module Lob
         :'id' => :'String',
         :'account_id' => :'String',
         :'mode' => :'String',
+        :'campaign_id' => :'String',
         :'failures_url' => :'String',
         :'original_filename' => :'String',
         :'state' => :'UploadState',
@@ -162,6 +167,10 @@ module Lob
 
       if attributes.key?(:'mode')
         self.mode = attributes[:'mode']
+      end
+
+      if attributes.key?(:'campaign_id')
+        self.campaign_id = attributes[:'campaign_id']
       end
 
       if attributes.key?(:'failures_url')
@@ -240,6 +249,10 @@ module Lob
         invalid_properties.push('invalid value for "mode", mode cannot be nil.')
       end
 
+      if @campaign_id.nil?
+        invalid_properties.push('invalid value for "campaign_id", campaign_id cannot be nil.')
+      end
+
       if @state.nil?
         invalid_properties.push('invalid value for "state", state cannot be nil.')
       end
@@ -292,6 +305,7 @@ module Lob
       return false if @mode.nil?
       mode_validator = EnumAttributeValidator.new('String', ["test", "live"])
       return false unless mode_validator.valid?(@mode)
+      return false if @campaign_id.nil?
       return false if @state.nil?
       return false if @total_mailpieces.nil?
       return false if @failed_mailpieces.nil?
@@ -338,6 +352,7 @@ module Lob
           id == o.id &&
           account_id == o.account_id &&
           mode == o.mode &&
+          campaign_id == o.campaign_id &&
           failures_url == o.failures_url &&
           original_filename == o.original_filename &&
           state == o.state &&
@@ -362,7 +377,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, account_id, mode, failures_url, original_filename, state, total_mailpieces, failed_mailpieces, validated_mailpieces, bytes_processed, date_created, date_modified, required_address_column_mapping, optional_address_column_mapping, metadata, merge_variable_column_mapping].hash
+      [id, account_id, mode, campaign_id, failures_url, original_filename, state, total_mailpieces, failed_mailpieces, validated_mailpieces, bytes_processed, date_created, date_modified, required_address_column_mapping, optional_address_column_mapping, metadata, merge_variable_column_mapping].hash
     end
 
 

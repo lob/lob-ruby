@@ -15,11 +15,12 @@
 | **inside** | **String** | The artwork to use as the inside of your self mailer.  |  |
 | **outside** | **String** | The artwork to use as the outside of your self mailer.  |  |
 | **billing_group_id** | **String** | An optional string with the billing group ID to tag your usage with. Is used for billing purposes. Requires special activation to use. See [Billing Group API](https://lob.github.io/lob-openapi/#tag/Billing-Groups) for more information. | [optional] |
+| **use_type** | [**SfmUseType**](SfmUseType.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::SelfMailerEditable.new(
   to: null,
@@ -32,7 +33,8 @@ instance = Lob::SelfMailerEditable.new(
   send_date: null,
   inside: null,
   outside: null,
-  billing_group_id: null
+  billing_group_id: null,
+  use_type: null
 )
 ```
 

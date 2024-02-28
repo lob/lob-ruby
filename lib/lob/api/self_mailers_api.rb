@@ -243,7 +243,7 @@ module Lob
     # @option opts [Boolean] :scheduled * &#x60;true&#x60; - only return orders (past or future) where &#x60;send_date&#x60; is greater than &#x60;date_created&#x60; * &#x60;false&#x60; - only return orders where &#x60;send_date&#x60; is equal to &#x60;date_created&#x60; 
     # @option opts [Hash<String, String>] :send_date Filter by date sent.
     # @option opts [MailType] :mail_type A string designating the mail postage type: * &#x60;usps_first_class&#x60; - (default) * &#x60;usps_standard&#x60; - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. &#x60;usps_standard&#x60; cannot be used with &#x60;4x6&#x60; postcards or for any postcards sent outside of the United States.  (default to 'usps_first_class')
-    # @option opts [SortBy3] :sort_by Sorts items by ascending or descending dates. Use either &#x60;date_created&#x60; or &#x60;send_date&#x60;, not both. 
+    # @option opts [SortBy4] :sort_by Sorts items by ascending or descending dates. Use either &#x60;date_created&#x60; or &#x60;send_date&#x60;, not both. 
     # @return [SelfMailerList]
     def list(opts = {})
       data, _status_code, _headers = self_mailers_list_with_http_info(opts)
@@ -263,7 +263,7 @@ module Lob
     # @option opts [Boolean] :scheduled * &#x60;true&#x60; - only return orders (past or future) where &#x60;send_date&#x60; is greater than &#x60;date_created&#x60; * &#x60;false&#x60; - only return orders where &#x60;send_date&#x60; is equal to &#x60;date_created&#x60; 
     # @option opts [Hash<String, String>] :send_date Filter by date sent.
     # @option opts [MailType] :mail_type A string designating the mail postage type: * &#x60;usps_first_class&#x60; - (default) * &#x60;usps_standard&#x60; - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. &#x60;usps_standard&#x60; cannot be used with &#x60;4x6&#x60; postcards or for any postcards sent outside of the United States.  (default to 'usps_first_class')
-    # @option opts [SortBy3] :sort_by Sorts items by ascending or descending dates. Use either &#x60;date_created&#x60; or &#x60;send_date&#x60;, not both. 
+    # @option opts [SortBy4] :sort_by Sorts items by ascending or descending dates. Use either &#x60;date_created&#x60; or &#x60;send_date&#x60;, not both. 
     # @return [Array<(SelfMailerList, Integer, Hash)>] SelfMailerList data, response status code and response headers
     def self_mailers_list_with_http_info(opts = {})
       if @api_client.config.debugging

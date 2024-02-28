@@ -22,7 +22,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::BankAccount.new(
   description: null,

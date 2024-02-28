@@ -20,7 +20,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::IntlVerificationOrError.new(
   id: null,

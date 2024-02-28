@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::BillingGroupList.new(
   data: null,

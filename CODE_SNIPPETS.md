@@ -51,7 +51,7 @@ curl https://api.lob.com/v1/addresses \
   -d "email=harry@lob.com" \
   -d "phone=5555555555" \
   -d "address_line1=2261 Market Street" \
-  -d "address_line2=Ste 5668" \
+  -d "address_line2=STE 5668" \
   -d "address_city=San Francisco" \
   -d "address_state=CA" \
   -d "address_zip=94114" \
@@ -66,7 +66,7 @@ addressCreate = AddressEditable.new({
   email: "harry@lob.com",
   phone: "5555555555",
   address_line1: "2261 Market Street",
-  address_line2: "Ste 5668",
+  address_line2: "STE 5668",
   address_city: "San Francisco",
   address_state: "CA",
   address_zip: "94114",
@@ -196,7 +196,7 @@ curl https://api.lob.com/v1/postcards \
   --data-urlencode "back=<html style='padding: 1in; font-size: 20;'>Back HTML for {{name}}</html>" \
   -d "to[name]=Harry Zhang" \
   -d "to[address_line1]=2261 Market Street" \
-  -d "to[address_line2]=Ste 5668" \
+  -d "to[address_line2]=STE 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
   -d "to[address_zip]=94114" \
@@ -212,7 +212,7 @@ postcardCreate = PostcardEditable.new({
   to: AddressEditable.new({ 
     name: "Harry Zhang",
     address_line1: "2261 Market Street",
-    address_line2: "Ste 5668",
+    address_line2: "STE 5668",
     address_city: "San Francisco",
     address_state: "CA",
     address_zip: "94114",
@@ -305,7 +305,7 @@ curl https://api.lob.com/v1/self_mailers \
   --data-urlencode "outside=<html style='padding: 1in; font-size: 20;'>Outside HTML for {{name}}</html>" \
   -d "to[name]=Harry Zhang" \
   -d "to[address_line1]=2261 Market Street" \
-  -d "to[address_line2]=Ste 5668" \
+  -d "to[address_line2]=STE 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
   -d "to[address_zip]=94114" \
@@ -321,7 +321,7 @@ selfMailerCreate = SelfMailerEditable.new({
   to: AddressEditable.new({ 
     name: "Harry Zhang",
     address_line1: "2261 Market Street",
-    address_line2: "Ste 5668",
+    address_line2: "STE 5668",
     address_city: "San Francisco",
     address_state: "CA",
     address_zip: "94114",
@@ -414,7 +414,7 @@ curl https://api.lob.com/v1/letters \
   -d "color=true" \
   -d "to[name]=Harry Zhang" \
   -d "to[address_line1]=2261 Market Street" \
-  -d "to[address_line2]=Ste 5668" \
+  -d "to[address_line2]=STE 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
   -d "to[address_zip]=94114" \
@@ -431,7 +431,7 @@ letterCreate = LetterEditable.new({
   to: AddressEditable.new({ 
     name: "Harry Zhang",
     address_line1: "2261 Market Street",
-    address_line2: "Ste 5668",
+    address_line2: "STE 5668",
     address_city: "San Francisco",
     address_state: "CA",
     address_zip: "94114",
@@ -530,7 +530,7 @@ curl https://api.lob.com/v1/checks \
   -d "from=adr_210a8d4b0b76d77b" \
   -d "to[name]=Harry Zhang" \
   -d "to[address_line1]=2261 Market Street" \
-  -d "to[address_line2]=Ste 5668" \
+  -d "to[address_line2]=STE 5668" \
   -d "to[address_city]=San Francisco" \
   -d "to[address_state]=CA" \
   -d "to[address_zip]=94114" \
@@ -549,7 +549,7 @@ checkCreate = CheckEditable.new({
   to: AddressDomestic.new({ 
     name: "Harry Zhang",
     address_line1: "2261 Market Street",
-    address_line2: "Ste 5668",
+    address_line2: "STE 5668",
     address_city: "San Francisco",
     address_state: "CA",
     address_zip: "94114",

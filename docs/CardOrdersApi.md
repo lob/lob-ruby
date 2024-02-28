@@ -20,7 +20,7 @@ Creates a new card order given information
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -92,7 +92,7 @@ Retrieves the card orders associated with the given card id.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

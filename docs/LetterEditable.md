@@ -22,11 +22,12 @@
 | **cards** | **Array&lt;String&gt;** | A single-element array containing an existing card id in a string format. See [cards](#tag/Cards) for more information. | [optional] |
 | **billing_group_id** | **String** | An optional string with the billing group ID to tag your usage with. Is used for billing purposes. Requires special activation to use. See [Billing Group API](https://lob.github.io/lob-openapi/#tag/Billing-Groups) for more information. | [optional] |
 | **qr_code** | [**QrCode**](QrCode.md) |  | [optional] |
+| **use_type** | [**LtrUseType**](LtrUseType.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::LetterEditable.new(
   description: null,
@@ -46,7 +47,8 @@ instance = Lob::LetterEditable.new(
   extra_service: null,
   cards: null,
   billing_group_id: null,
-  qr_code: null
+  qr_code: null,
+  use_type: null
 )
 ```
 

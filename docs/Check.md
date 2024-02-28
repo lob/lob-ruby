@@ -30,11 +30,12 @@
 | **date_created** | **Time** | A timestamp in ISO 8601 format of the date the resource was created. |  |
 | **date_modified** | **Time** | A timestamp in ISO 8601 format of the date the resource was last modified. |  |
 | **deleted** | **Boolean** | Only returned if the resource has been successfully deleted. | [optional] |
+| **use_type** | [**ChkUseType**](ChkUseType.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::Check.new(
   id: null,
@@ -62,7 +63,8 @@ instance = Lob::Check.new(
   object: null,
   date_created: null,
   date_modified: null,
-  deleted: null
+  deleted: null,
+  use_type: null
 )
 ```
 

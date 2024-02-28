@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::GeocodeAddresses.new(
   components: null,

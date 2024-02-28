@@ -22,7 +22,7 @@ Creates a new address given information
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -92,7 +92,7 @@ Deletes the details of an existing address.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -162,7 +162,7 @@ Retrieves the details of an existing address.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -232,7 +232,7 @@ Returns a list of your addresses.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

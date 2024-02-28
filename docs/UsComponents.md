@@ -35,36 +35,36 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::UsComponents.new(
-  primary_number: nil,
-  street_predirection: nil,
-  street_name: nil,
-  street_suffix: nil,
-  street_postdirection: nil,
-  secondary_designator: nil,
-  secondary_number: nil,
-  pmb_designator: nil,
-  pmb_number: nil,
-  extra_secondary_designator: nil,
-  extra_secondary_number: nil,
-  city: nil,
-  state: nil,
-  zip_code: nil,
-  zip_code_plus_4: nil,
-  zip_code_type: nil,
-  delivery_point_barcode: nil,
-  address_type: nil,
-  record_type: nil,
-  default_building_address: nil,
-  county: nil,
-  county_fips: nil,
-  carrier_route: nil,
-  carrier_route_type: nil,
-  po_box_only_flag: nil,
-  latitude: nil,
-  longitude: nil
+  primary_number: null,
+  street_predirection: null,
+  street_name: null,
+  street_suffix: null,
+  street_postdirection: null,
+  secondary_designator: null,
+  secondary_number: null,
+  pmb_designator: null,
+  pmb_number: null,
+  extra_secondary_designator: null,
+  extra_secondary_number: null,
+  city: null,
+  state: null,
+  zip_code: null,
+  zip_code_plus_4: null,
+  zip_code_type: null,
+  delivery_point_barcode: null,
+  address_type: null,
+  record_type: null,
+  default_building_address: null,
+  county: null,
+  county_fips: null,
+  carrier_route: null,
+  carrier_route_type: null,
+  po_box_only_flag: null,
+  latitude: null,
+  longitude: null
 )
 ```
 

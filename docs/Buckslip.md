@@ -30,7 +30,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::Buckslip.new(
   id: null,

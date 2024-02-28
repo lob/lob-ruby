@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::Zip.new(
   zip_code: null,

@@ -1,7 +1,7 @@
 =begin
 #Lob
 
-#The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)?
+#The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)? 
 
 The version of the OpenAPI document: 1.3.0
 Contact: lob-openapi@lob.com
@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module Lob
-  # A model used to represent an entry in a result list where the entry can either be a us_verification or an Error. The SDK will perform necessary casting into the correct corresponding type.
+  # A model used to represent an entry in a result list where the entry can either be a us_verification or an Error. The SDK will perform necessary casting into the correct corresponding type. 
   class UsVerificationOrError
     # Unique identifier prefixed with `us_ver_`.
     attr_accessor :id
@@ -22,13 +22,13 @@ module Lob
     # The intended recipient, typically a person's or firm's name.
     attr_accessor :recipient
 
-    # The primary delivery line (usually the street address) of the address. Combination of the following applicable `components`: * `primary_number` * `street_predirection` * `street_name` * `street_suffix` * `street_postdirection` * `secondary_designator` * `secondary_number` * `pmb_designator` * `pmb_number`
+    # The primary delivery line (usually the street address) of the address. Combination of the following applicable `components`: * `primary_number` * `street_predirection` * `street_name` * `street_suffix` * `street_postdirection` * `secondary_designator` * `secondary_number` * `pmb_designator` * `pmb_number` 
     attr_accessor :primary_line
 
-    # The secondary delivery line of the address. This field is typically empty but may contain information if `primary_line` is too long.
+    # The secondary delivery line of the address. This field is typically empty but may contain information if `primary_line` is too long. 
     attr_accessor :secondary_line
 
-    # Only present for addresses in Puerto Rico. An urbanization refers to an area, sector, or development within a city. See [USPS documentation](https://pe.usps.com/text/pub28/28api_008.htm#:~:text=I51.,-4%20Urbanizations&text=In%20Puerto%20Rico%2C%20identical%20street,placed%20before%20the%20urbanization%20name.) for clarification.
+    # Only present for addresses in Puerto Rico. An urbanization refers to an area, sector, or development within a city. See [USPS documentation](https://pe.usps.com/text/pub28/28api_008.htm#:~:text=I51.,-4%20Urbanizations&text=In%20Puerto%20Rico%2C%20identical%20street,placed%20before%20the%20urbanization%20name.) for clarification. 
     attr_accessor :urbanization
 
     attr_accessor :last_line
@@ -43,7 +43,7 @@ module Lob
 
     attr_accessor :object
 
-    # ID that is returned in the response body for the verification
+    # ID that is returned in the response body for the verification 
     attr_accessor :transient_id
 
     attr_accessor :error

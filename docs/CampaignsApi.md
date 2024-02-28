@@ -23,7 +23,7 @@ Creates a new campaign with the provided properties. See how to launch your firs
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -32,7 +32,7 @@ Lob.configure do |config|
 end
 
 api_instance = Lob::CampaignsApi.new
-campaign_writable = Lob::CampaignWritable.new({name: 'name_example', schedule_type: Lob::CmpScheduleType::IMMEDIATE}) # CampaignWritable | 
+campaign_writable = Lob::CampaignWritable.new({name: 'name_example', schedule_type: Lob::CmpScheduleType::IMMEDIATE, use_type: Lob::CmpUseType::MARKETING}) # CampaignWritable | 
 opts = {
   x_lang_output: 'native' # String | * `native` - Translate response to the native language of the country in the request * `match` - match the response to the language in the request  Default response is in English. 
 }
@@ -97,7 +97,7 @@ Delete an existing campaign. You need only supply the unique identifier that was
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -167,7 +167,7 @@ Retrieves the details of an existing campaign. You need only supply the unique c
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -237,7 +237,7 @@ Update the details of an existing campaign. You need only supply the unique iden
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -309,7 +309,7 @@ Returns a list of your campaigns. The campaigns are returned sorted by creation 
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

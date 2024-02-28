@@ -19,7 +19,7 @@ Given an address prefix consisting of a partial primary line and country, as wel
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -28,7 +28,7 @@ Lob.configure do |config|
 end
 
 api_instance = Lob::IntlAutocompletionsApi.new
-intl_autocompletions_writable = Lob::IntlAutocompletionsWritable.new({address_prefix: 'address_prefix_example', country: Lob::CountryExtended::AD}) # IntlAutocompletionsWritable | 
+intl_autocompletions_writable = Lob::IntlAutocompletionsWritable.new({address_prefix: 'address_prefix_example', country: Lob::CountryExtended::EMPTY}) # IntlAutocompletionsWritable | 
 opts = {
   x_lang_output: 'native' # String | * `native` - Translate response to the native language of the country in the request * `match` - match the response to the language in the request  Default response is in English. 
 }
