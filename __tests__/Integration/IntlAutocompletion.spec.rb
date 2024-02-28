@@ -1,7 +1,7 @@
 # IntlAutocompletion.spec.rb
 require_relative '../TestFixtures'
 include Lob
-$:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
+$:.unshift File.expand_path("../../lib/lob", File.dirname(__FILE__))
 
 RSpec.describe "IntlAutocompletionsApi" do
     it "can be instantiated" do

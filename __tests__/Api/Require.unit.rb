@@ -1,7 +1,6 @@
 # Require.unit.rb
 
 RSpec.describe "Require" do
-  
       it "works with lob.rb" do
           Object.send :remove_const, :Lob
           paths = $".select do |path|
