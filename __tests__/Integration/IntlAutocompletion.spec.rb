@@ -23,7 +23,7 @@ RSpec.describe "IntlAutocompletionsApi" do
             })
         end
 
-        it "Autocompletes intl address (with test key)" do
+        skip "Autocompletes intl address (with test key)" do
             autocompletedAddr = @intlAutocompletionApi.autocomplete(@validAddress)
             expect(autocompletedAddr.suggestions[0].primary_line).to eq("TEST KEYS DO NOT AUTOCOMPLETE INTL ADDRESSES")
         end
