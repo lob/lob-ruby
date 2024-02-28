@@ -13,19 +13,18 @@ OpenAPI Generator version: 5.2.1
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "lob/version"
+require "openapi_client/version"
 
 Gem::Specification.new do |s|
   s.name        = "lob"
   s.version     = Lob::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["OpenAPI-Generator"]
-  s.email       = ["lob-openapi@lob.com"]
-  s.homepage    = "https://openapi-generator.tech"
-  s.summary     = "Lob Ruby Gem"
-  s.description = "The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)? "
-  s.license     = "Unlicense"
-  s.required_ruby_version = ">= 2.4"
+  s.authors     = ["Lob"]
+  s.email       = ["support@lob.com"]
+  s.homepage    = "https://github.com/lob/lob-ruby"
+  s.summary     = %q{Ruby wrapper for Lob.com API with ActiveRecord-style syntax}
+  s.description = %q{Lob API Ruby wrapper}
+  s.license     = "MIT"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
 
