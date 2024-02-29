@@ -95,7 +95,8 @@ RSpec.describe "LettersApi" do
                 to: @someAddr.id,
                 from: @someAddr.id,
                 file: TestFixtures.FILE_LOCATION_8X11,
-                color: true
+                color: true,
+                use_type: 'marketing'
             })
 
             response = @letterApi.create(letterEditable)
@@ -135,21 +136,24 @@ RSpec.describe "LettersApi" do
                 to: @someAddr.id,
                 from: @someAddr.id,
                 file: TestFixtures.FILE_LOCATION_8X11,
-                color: true
+                color: true,
+                use_type: 'marketing'
             })
 
             letterEditable2 = LetterEditable.new({
                 to: @someAddr.id,
                 from: @someAddr.id,
                 file: TestFixtures.FILE_LOCATION_8X11,
-                color: true
+                color: true,
+                use_type: 'marketing'
             })
 
             letterEditable3 = LetterEditable.new({
                 to: @someAddr.id,
                 from: @someAddr.id,
                 file: TestFixtures.FILE_LOCATION_8X11,
-                color: true
+                color: true,
+                use_type: 'marketing'
             })
 
             response1 = @letterApi.create(letterEditable1)
@@ -266,7 +270,9 @@ RSpec.describe "LettersApi" do
                 to: @someAddr.id,
                 from: @someAddr.id,
                 file: TestFixtures.FILE_LOCATION_8X11,
-                color: true
+                color: true,
+                use_type: 'marketing'
+
             })
 
             response = @letterApi.create(letterEditable)
