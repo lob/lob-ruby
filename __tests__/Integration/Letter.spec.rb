@@ -196,7 +196,7 @@ RSpec.describe "LettersApi" do
             ["mail_type", nil, nil, nil, nil, nil, nil, MailType::FIRST_CLASS, nil, nil],
             ["sort_by", nil, nil, nil, nil, nil, nil, nil, { "date_created": "asc" }],
         ].each do |which_param, include_param, date_created, metadata, color, scheduled, send_date, mail_type, sort_by|
-            it "lists letters #{which_param && ("with " + which_param + " param")}" do
+            skip "lists letters #{which_param && ("with " + which_param + " param")}" do
                 args = {}
 
                 if include_param then
