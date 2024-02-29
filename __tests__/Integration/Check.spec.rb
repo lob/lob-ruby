@@ -207,7 +207,8 @@ RSpec.describe "ChecksApi" do
                 message: "Ruby Integration Test Check",
                 bank_account: bankAccId,
                 from: addr2,
-                amount: 100.0
+                amount: 100.0,
+                use_type: 'marketing'
             })
 
             response1 = @checkApi.create(checkEditable)
@@ -343,7 +344,8 @@ RSpec.describe "ChecksApi" do
                 message: "Ruby Integration Test Check",
                 bank_account: bankAccId,
                 from: addr2,
-                amount: 100.0
+                amount: 100.0,
+                use_type: 'operational'
             })
 
             response = @checkApi.create(checkEditable)

@@ -32,7 +32,8 @@ RSpec.describe "LettersApi" do
                 to: @someAddr.id,
                 from: @someAddr.id,
                 file: TestFixtures.FILE_LOCATION_8X11,
-                color: true
+                color: true,
+                use_type: 'marketing'
             })
         end
 

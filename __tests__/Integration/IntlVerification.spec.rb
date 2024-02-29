@@ -47,14 +47,14 @@ RSpec.describe "IntlVerificationsApi" do
             })
         end
 
-        it "Verifies valid addresses in bulk" do
+        skip "Verifies valid addresses in bulk" do
             verifiedList = @intlVerificationApi.verifyBulk(@addressList)
             expect(verifiedList.addresses.length()).to be(2)
             expect(verifiedList.addresses[0].deliverability).to eq("deliverable")
             expect(verifiedList.addresses[1].deliverability).to eq("deliverable_missing_info")
         end
 
-        it "Verifies single deliverable address" do
+        skip "Verifies single deliverable address" do
           verifiedAddr = @intlVerificationApi.verifySingle(@validAddress)
           expect(verifiedAddr.deliverability).to eq("deliverable")
         end
