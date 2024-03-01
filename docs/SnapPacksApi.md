@@ -252,7 +252,7 @@ opts = {
   include: ['inner_example'], # Array<String> | Request that the response include the total count by specifying `include[]=total_count`. 
   date_created: { key: Time.now}, # Hash<String, Time> | Filter by date created.
   metadata: { key: 'inner_example'}, # Hash<String, String> | Filter by metadata key-value pair`.
-  size: [Lob::SnapPackSize::N6X18_BIFOLD], # Array<SnapPackSize> | The Snap Pack sizes to be returned.
+  size: [Lob::SnapPackSize::N8_5X11], # Array<SnapPackSize> | The Snap Pack sizes to be returned.
   scheduled: true, # Boolean | * `true` - only return orders (past or future) where `send_date` is greater than `date_created` * `false` - only return orders where `send_date` is equal to `date_created` 
   send_date: { key: 'inner_example'}, # Hash<String, String> | Filter by date sent.
   mail_type: Lob::MailType::FIRST_CLASS, # MailType | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. `usps_standard` cannot be used with `4x6` postcards or for any postcards sent outside of the United States. 

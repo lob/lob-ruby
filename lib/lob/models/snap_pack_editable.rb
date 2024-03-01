@@ -126,7 +126,7 @@ module Lob
       if attributes.key?(:'size')
         self.size = attributes[:'size']
       else
-        self.size = '6x18_bifold'
+        self.size = '8.5x11'
       end
 
       if attributes.key?(:'description')

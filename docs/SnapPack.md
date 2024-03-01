@@ -7,7 +7,7 @@
 | **id** | **String** | Unique identifier prefixed with &#x60;ord_&#x60;. |  |
 | **to** | [**AnyType**](.md) |  |  |
 | **from** | [**AnyType**](.md) |  | [optional] |
-| **size** | [**SnapPackSize**](SnapPackSize.md) |  | [optional][default to &#39;6x18_bifold&#39;] |
+| **size** | [**SnapPackSize**](SnapPackSize.md) |  | [optional][default to &#39;8.5x11&#39;] |
 | **description** | **String** | An internal description that identifies this resource. Must be no longer than 255 characters.  | [optional] |
 | **metadata** | **Hash&lt;String, String&gt;** | Use metadata to store custom information for tagging and labeling back to your internal systems. Must be an object with up to 20 key-value pairs. Keys must be at most 40 characters and values must be at most 500 characters. Neither can contain the characters &#x60;\&quot;&#x60; and &#x60;\\&#x60;. i.e. &#39;{\&quot;customer_id\&quot; : \&quot;NEWYORK2015\&quot;}&#39; Nested objects are not supported.  See [Metadata](#section/Metadata) for more information. | [optional] |
 | **mail_type** | [**MailType**](MailType.md) |  | [optional][default to &#39;usps_first_class&#39;] |
@@ -18,7 +18,7 @@
 | **outside_template_version_id** | **String** | The unique ID of the specific version of the HTML template used for the outside of the snap pack. | [optional] |
 | **inside_template_version_id** | **String** | The unique ID of the specific version of the HTML template used for the inside of the snap pack. | [optional] |
 | **object** | **String** | Value is resource type. | [optional][default to &#39;snap_pack&#39;] |
-| **tracking_events** | [**Array&lt;TrackingEventCertified&gt;**](TrackingEventCertified.md) | An array of certified tracking events ordered by ascending &#x60;time&#x60;. Not populated in test mode. | [optional] |
+| **tracking_events** | [**Array&lt;TrackingEventNormal&gt;**](TrackingEventNormal.md) | An array of tracking events ordered by ascending &#x60;time&#x60;. Not populated in test mode. | [optional] |
 | **url** | **String** | A [signed link](#section/Asset-URLs) served over HTTPS. The link returned will expire in 30 days to prevent mis-sharing. Each time a GET request is initiated, a new signed URL will be generated. |  |
 | **use_type** | [**SnpUseType**](SnpUseType.md) |  |  |
 

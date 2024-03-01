@@ -375,9 +375,6 @@ lib/lob/models/zip_editable.rb
 lib/lob/models/zip_lookup_city.rb
 lib/lob/version.rb
 lob.gemspec
-spec/api/buckslip_orders_api_spec.rb
-spec/api/buckslips_api_spec.rb
-spec/api/snap_packs_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/spec_helper.rb

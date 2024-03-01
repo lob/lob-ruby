@@ -18,6 +18,7 @@ module Lob
     N6X18_BIFOLD = "6x18_bifold".freeze
     N11X9_BIFOLD = "11x9_bifold".freeze
     N12X9_BIFOLD = "12x9_bifold".freeze
+    N17_75X9_TRIFOLD = "17.75x9_trifold".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

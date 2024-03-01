@@ -53,7 +53,7 @@ module Lob
     # Value is resource type.
     attr_accessor :object
 
-    # An array of certified tracking events ordered by ascending `time`. Not populated in test mode.
+    # An array of tracking events ordered by ascending `time`. Not populated in test mode.
     attr_accessor :tracking_events
 
     # A [signed link](#section/Asset-URLs) served over HTTPS. The link returned will expire in 30 days to prevent mis-sharing. Each time a GET request is initiated, a new signed URL will be generated.
@@ -128,7 +128,7 @@ module Lob
         :'outside_template_version_id' => :'String',
         :'inside_template_version_id' => :'String',
         :'object' => :'String',
-        :'tracking_events' => :'Array<TrackingEventCertified>',
+        :'tracking_events' => :'Array<TrackingEventNormal>',
         :'url' => :'String',
         :'use_type' => :'SfmUseType'
       }

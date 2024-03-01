@@ -18,7 +18,7 @@
 | **outside_template_version_id** | **String** | The unique ID of the specific version of the HTML template used for the outside of the self mailer. | [optional] |
 | **inside_template_version_id** | **String** | The unique ID of the specific version of the HTML template used for the inside of the self mailer. | [optional] |
 | **object** | **String** | Value is resource type. | [optional][default to &#39;self_mailer&#39;] |
-| **tracking_events** | [**Array&lt;TrackingEventCertified&gt;**](TrackingEventCertified.md) | An array of certified tracking events ordered by ascending &#x60;time&#x60;. Not populated in test mode. | [optional] |
+| **tracking_events** | [**Array&lt;TrackingEventNormal&gt;**](TrackingEventNormal.md) | An array of tracking events ordered by ascending &#x60;time&#x60;. Not populated in test mode. | [optional] |
 | **url** | **String** | A [signed link](#section/Asset-URLs) served over HTTPS. The link returned will expire in 30 days to prevent mis-sharing. Each time a GET request is initiated, a new signed URL will be generated. |  |
 | **use_type** | [**SfmUseType**](SfmUseType.md) |  |  |
 

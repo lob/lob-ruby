@@ -15,9 +15,7 @@ require 'time'
 
 module Lob
   class SnapPackSize
-    N6X18_BIFOLD = "6x18_bifold".freeze
-    N11X9_BIFOLD = "11x9_bifold".freeze
-    N12X9_BIFOLD = "12x9_bifold".freeze
+    N8_5X11 = "8.5x11".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
