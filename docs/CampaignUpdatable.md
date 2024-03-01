@@ -18,7 +18,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::CampaignUpdatable.new(
   name: null,

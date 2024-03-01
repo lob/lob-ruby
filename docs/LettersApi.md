@@ -22,7 +22,7 @@ Completely removes a letter from production. This can only be done if the letter
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -92,7 +92,7 @@ Creates a new letter given information
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -101,9 +101,10 @@ Lob.configure do |config|
 end
 
 api_instance = Lob::LettersApi.new
-letter_editable = Lob::LetterEditable.new({color: false, to: TODO, from: TODO, file: 'file_example'}) # LetterEditable | 
+letter_editable = Lob::LetterEditable.new({color: false, to: TODO, from: TODO, file: 'file_example', use_type: Lob::LtrUseType::MARKETING}) # LetterEditable | 
 opts = {
-  idempotency_key: 'idempotency_key_example' # String | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our [implementation guide](https://www.lob.com/guides#idempotent_request). 
+  idempotency_key: 'idempotency_key_example', # String | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our [implementation guide](https://www.lob.com/guides#idempotent_request). 
+  file: TODO # Object | An optional file upload as either a byte array or file type. 
 }
 
 begin
@@ -139,6 +140,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **letter_editable** | [**LetterEditable**](LetterEditable.md) |  |  |
 | **idempotency_key** | **String** | A string of no longer than 256 characters that uniquely identifies this resource. For more help integrating idempotency keys, refer to our [implementation guide](https://www.lob.com/guides#idempotent_request).  | [optional] |
+| **file** | [**Object**](.md) | An optional file upload as either a byte array or file type.  | [optional] |
 
 ### Return type
 
@@ -166,7 +168,7 @@ Retrieves the details of an existing letter. You need only supply the unique let
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -236,7 +238,7 @@ Returns a list of your letters. The letters are returned sorted by creation date
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -256,7 +258,7 @@ opts = {
   scheduled: true, # Boolean | * `true` - only return orders (past or future) where `send_date` is greater than `date_created` * `false` - only return orders where `send_date` is equal to `date_created` 
   send_date: { key: 'inner_example'}, # Hash<String, String> | Filter by date sent.
   mail_type: Lob::MailType::FIRST_CLASS, # MailType | A string designating the mail postage type: * `usps_first_class` - (default) * `usps_standard` - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. `usps_standard` cannot be used with `4x6` postcards or for any postcards sent outside of the United States. 
-  sort_by: Lob::SortBy3.new # SortBy3 | Sorts items by ascending or descending dates. Use either `date_created` or `send_date`, not both. 
+  sort_by: Lob::SortBy4.new # SortBy4 | Sorts items by ascending or descending dates. Use either `date_created` or `send_date`, not both. 
 }
 
 begin
@@ -300,7 +302,7 @@ end
 | **scheduled** | **Boolean** | * &#x60;true&#x60; - only return orders (past or future) where &#x60;send_date&#x60; is greater than &#x60;date_created&#x60; * &#x60;false&#x60; - only return orders where &#x60;send_date&#x60; is equal to &#x60;date_created&#x60;  | [optional] |
 | **send_date** | [**Hash&lt;String, String&gt;**](String.md) | Filter by date sent. | [optional] |
 | **mail_type** | [**MailType**](.md) | A string designating the mail postage type: * &#x60;usps_first_class&#x60; - (default) * &#x60;usps_standard&#x60; - a [cheaper option](https://lob.com/pricing/print-mail#compare) which is less predictable and takes longer to deliver. &#x60;usps_standard&#x60; cannot be used with &#x60;4x6&#x60; postcards or for any postcards sent outside of the United States.  | [optional][default to &#39;usps_first_class&#39;] |
-| **sort_by** | [**SortBy3**](.md) | Sorts items by ascending or descending dates. Use either &#x60;date_created&#x60; or &#x60;send_date&#x60;, not both.  | [optional] |
+| **sort_by** | [**SortBy4**](.md) | Sorts items by ascending or descending dates. Use either &#x60;date_created&#x60; or &#x60;send_date&#x60;, not both.  | [optional] |
 
 ### Return type
 

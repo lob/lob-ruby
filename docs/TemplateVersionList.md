@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::TemplateVersionList.new(
   data: null,

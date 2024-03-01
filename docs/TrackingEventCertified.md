@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::TrackingEventCertified.new(
   type: null,

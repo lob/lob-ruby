@@ -1,7 +1,7 @@
 # Postcard.spec.rb
 require_relative '../TestFixtures'
 include Lob
-$:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
+$:.unshift File.expand_path("../../lib/lob", File.dirname(__FILE__))
 require 'uri'
 
 RSpec.describe "Postcards Api" do
@@ -39,7 +39,7 @@ RSpec.describe "Postcards Api" do
                 from: @addressEditable2,
                 front: TestFixtures.FILE_LOCATION_4x6,
                 back: TestFixtures.FILE_LOCATION_4x6,
-                
+                use_type: 'marketing'
               });
         end
 
@@ -103,7 +103,7 @@ RSpec.describe "Postcards Api" do
                 from: @addressEditable2,
                 front: TestFixtures.FILE_LOCATION_4x6,
                 back: TestFixtures.FILE_LOCATION_4x6,
-                
+                use_type: 'marketing'
               });
 
             response = @postcardApi.create(@dummyPostcard)
@@ -197,7 +197,7 @@ RSpec.describe "Postcards Api" do
             from: @addressEditable2,
             front: TestFixtures.FILE_LOCATION_4x6,
             back: TestFixtures.FILE_LOCATION_4x6,
-            
+            use_type: 'marketing'
           });
 
           response = @postcardApi.create(@dummyPostcard)

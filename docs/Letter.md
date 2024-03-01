@@ -32,11 +32,13 @@
 | **return_envelope** | [**AnyType**](.md) |  |  |
 | **perforated_page** | **Integer** | Required if &#x60;return_envelope&#x60; is &#x60;true&#x60;. The number of the page that should be perforated for use with the return envelope. Must be greater than or equal to &#x60;1&#x60;. The blank page added by &#x60;address_placement&#x3D;insert_blank_page&#x60; will be ignored when considering the perforated page number. To see how perforation will impact your letter design, view our [perforation guide](https://s3-us-west-2.amazonaws.com/public.lob.com/assets/templates/letter_perf_template.pdf). | [optional] |
 | **custom_envelope** | [**LetterCustomEnvelope**](LetterCustomEnvelope.md) |  | [optional] |
+| **campaign_id** | **String** | The unique ID of the associated campaign if the resource was generated from a campaign. | [optional] |
+| **use_type** | [**LtrUseType**](LtrUseType.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::Letter.new(
   to: null,
@@ -66,7 +68,9 @@ instance = Lob::Letter.new(
   address_placement: null,
   return_envelope: null,
   perforated_page: null,
-  custom_envelope: null
+  custom_envelope: null,
+  campaign_id: null,
+  use_type: null
 )
 ```
 

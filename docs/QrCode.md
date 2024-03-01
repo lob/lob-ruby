@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::QrCode.new(
   position: null,

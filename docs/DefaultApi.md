@@ -19,7 +19,7 @@ Don't call this. It's so that the right models can be generated.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

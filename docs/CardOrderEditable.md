@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::CardOrderEditable.new(
   quantity: null

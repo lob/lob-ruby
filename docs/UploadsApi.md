@@ -5,13 +5,13 @@ All URIs are relative to *https://api.lob.com/v1*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**export_retrieve**](UploadsApi.md#export_retrieve) | **GET** /uploads/{upl_id}/exports/{ex_id} | get_export |
-| [**upload_create**](UploadsApi.md#upload_create) | **POST** /uploads | create_upload |
-| [**upload_delete**](UploadsApi.md#upload_delete) | **DELETE** /uploads/{upl_id} | delete_upload |
+| [**get**](UploadsApi.md#get) | **GET** /uploads/{upl_id} | get |
+| [**upload_create**](UploadsApi.md#upload_create) | **POST** /uploads | create |
+| [**upload_delete**](UploadsApi.md#upload_delete) | **DELETE** /uploads/{upl_id} | delete |
 | [**upload_export_create**](UploadsApi.md#upload_export_create) | **POST** /uploads/{upl_id}/exports | create_export |
 | [**upload_file_create**](UploadsApi.md#upload_file_create) | **POST** /uploads/{upl_id}/file | upload_file |
-| [**upload_retrieve**](UploadsApi.md#upload_retrieve) | **GET** /uploads/{upl_id} | get_upload |
-| [**upload_update**](UploadsApi.md#upload_update) | **PATCH** /uploads/{upl_id} | update_upload |
-| [**uploads_list**](UploadsApi.md#uploads_list) | **GET** /uploads | list_upload |
+| [**upload_update**](UploadsApi.md#upload_update) | **PATCH** /uploads/{upl_id} | update |
+| [**uploads_list**](UploadsApi.md#uploads_list) | **GET** /uploads | list |
 
 
 ## export_retrieve
@@ -26,7 +26,7 @@ Retrieves the details of an existing export. You need only supply the unique exp
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -86,11 +86,81 @@ end
 - **Accept**: application/json
 
 
+## get
+
+> <Upload> get(upl_id)
+
+get
+
+Retrieves the details of an existing upload. You need only supply the unique upload identifier that was returned upon upload creation.
+
+### Examples
+
+```ruby
+require 'time'
+require 'lob'
+# setup authorization
+Lob.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = Lob::UploadsApi.new
+upl_id = 'upl_id_example' # String | id of the upload
+
+begin
+  # get
+  result = api_instance.get(upl_id)
+  p result
+rescue Lob::ApiError => e
+  puts "Error when calling UploadsApi->get: #{e}"
+end
+```
+
+#### Using the get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Upload>, Integer, Hash)> get_with_http_info(upl_id)
+
+```ruby
+begin
+  # get
+  data, status_code, headers = api_instance.get_with_http_info(upl_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Upload>
+rescue Lob::ApiError => e
+  puts "Error when calling UploadsApi->get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **upl_id** | **String** | id of the upload |  |
+
+### Return type
+
+[**Upload**](Upload.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## upload_create
 
 > <Upload> upload_create(upload_writable)
 
-create_upload
+create
 
 Creates a new upload with the provided properties.
 
@@ -98,7 +168,7 @@ Creates a new upload with the provided properties.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -110,11 +180,11 @@ api_instance = Lob::UploadsApi.new
 upload_writable = Lob::UploadWritable.new({campaign_id: 'campaign_id_example'}) # UploadWritable | 
 
 begin
-  # create_upload
-  result = api_instance.create_upload(upload_writable)
+  # create
+  result = api_instance.create(upload_writable)
   p result
 rescue Lob::ApiError => e
-  puts "Error when calling UploadsApi->create_upload: #{e}"
+  puts "Error when calling UploadsApi->create: #{e}"
 end
 ```
 
@@ -126,7 +196,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # create_upload
+  # create
   data, status_code, headers = api_instance.upload_create_with_http_info(upload_writable)
   p status_code # => 2xx
   p headers # => { ... }
@@ -160,7 +230,7 @@ end
 
 > upload_delete(upl_id)
 
-delete_upload
+delete
 
 Delete an existing upload. You need only supply the unique identifier that was returned upon upload creation.
 
@@ -168,7 +238,7 @@ Delete an existing upload. You need only supply the unique identifier that was r
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -180,10 +250,10 @@ api_instance = Lob::UploadsApi.new
 upl_id = 'upl_id_example' # String | id of the upload
 
 begin
-  # delete_upload
-  api_instance.delete_upload(upl_id)
+  # delete
+  api_instance.delete(upl_id)
 rescue Lob::ApiError => e
-  puts "Error when calling UploadsApi->delete_upload: #{e}"
+  puts "Error when calling UploadsApi->delete: #{e}"
 end
 ```
 
@@ -195,7 +265,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # delete_upload
+  # delete
   data, status_code, headers = api_instance.upload_delete_with_http_info(upl_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -237,7 +307,7 @@ Campaign Exports can help you understand exactly which records in a campaign cou
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -309,7 +379,7 @@ Upload an [audience file](https://help.lob.com/best-practices/campaign-audience-
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -369,81 +439,11 @@ end
 - **Accept**: application/json
 
 
-## upload_retrieve
-
-> <Upload> upload_retrieve(upl_id)
-
-get_upload
-
-Retrieves the details of an existing upload. You need only supply the unique upload identifier that was returned upon upload creation.
-
-### Examples
-
-```ruby
-require 'time'
-require 'openapi_client'
-# setup authorization
-Lob.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = Lob::UploadsApi.new
-upl_id = 'upl_id_example' # String | id of the upload
-
-begin
-  # get_upload
-  result = api_instance.get_upload(upl_id)
-  p result
-rescue Lob::ApiError => e
-  puts "Error when calling UploadsApi->get_upload: #{e}"
-end
-```
-
-#### Using the upload_retrieve_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Upload>, Integer, Hash)> upload_retrieve_with_http_info(upl_id)
-
-```ruby
-begin
-  # get_upload
-  data, status_code, headers = api_instance.upload_retrieve_with_http_info(upl_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Upload>
-rescue Lob::ApiError => e
-  puts "Error when calling UploadsApi->upload_retrieve_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **upl_id** | **String** | id of the upload |  |
-
-### Return type
-
-[**Upload**](Upload.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## upload_update
 
 > <Upload> upload_update(upl_id, upload_updatable)
 
-update_upload
+update
 
 Update the details of an existing upload. You need only supply the unique identifier that was returned upon upload creation.
 
@@ -451,7 +451,7 @@ Update the details of an existing upload. You need only supply the unique identi
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -464,11 +464,11 @@ upl_id = 'upl_id_example' # String | id of the upload
 upload_updatable = Lob::UploadUpdatable.new # UploadUpdatable | 
 
 begin
-  # update_upload
-  result = api_instance.update_upload(upl_id, upload_updatable)
+  # update
+  result = api_instance.update(upl_id, upload_updatable)
   p result
 rescue Lob::ApiError => e
-  puts "Error when calling UploadsApi->update_upload: #{e}"
+  puts "Error when calling UploadsApi->update: #{e}"
 end
 ```
 
@@ -480,7 +480,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # update_upload
+  # update
   data, status_code, headers = api_instance.upload_update_with_http_info(upl_id, upload_updatable)
   p status_code # => 2xx
   p headers # => { ... }
@@ -515,7 +515,7 @@ end
 
 > <Array<Upload>> uploads_list(opts)
 
-list_upload
+list
 
 Returns a list of your uploads. Optionally, filter uploads by campaign.
 
@@ -523,7 +523,7 @@ Returns a list of your uploads. Optionally, filter uploads by campaign.
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -537,11 +537,11 @@ opts = {
 }
 
 begin
-  # list_upload
-  result = api_instance.list_upload(opts)
+  # list
+  result = api_instance.list(opts)
   p result
 rescue Lob::ApiError => e
-  puts "Error when calling UploadsApi->list_upload: #{e}"
+  puts "Error when calling UploadsApi->list: #{e}"
 end
 ```
 
@@ -553,7 +553,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # list_upload
+  # list
   data, status_code, headers = api_instance.uploads_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }

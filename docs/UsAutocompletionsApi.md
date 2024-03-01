@@ -19,7 +19,7 @@ Given an address prefix consisting of a partial primary line, as well as optiona
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

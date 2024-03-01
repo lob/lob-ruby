@@ -13,7 +13,7 @@ All URIs are relative to *https://api.lob.com/v1*
 
 ## buckslip_create
 
-> <Buckslip> buckslip_create(buckslip_editable)
+> <Buckslip> buckslip_create(buckslip_editable, opts)
 
 create
 
@@ -23,7 +23,7 @@ Creates a new buckslip given information
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -33,10 +33,13 @@ end
 
 api_instance = Lob::BuckslipsApi.new
 buckslip_editable = Lob::BuckslipEditable.new({front: 'front_example'}) # BuckslipEditable | 
+opts = {
+  front: TODO # Object | An optional file upload as either a byte array or file type. 
+}
 
 begin
   # create
-  result = api_instance.create(buckslip_editable)
+  result = api_instance.create(buckslip_editable, opts)
   p result
 rescue Lob::ApiError => e
   puts "Error when calling BuckslipsApi->create: #{e}"
@@ -47,12 +50,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Buckslip>, Integer, Hash)> buckslip_create_with_http_info(buckslip_editable)
+> <Array(<Buckslip>, Integer, Hash)> buckslip_create_with_http_info(buckslip_editable, opts)
 
 ```ruby
 begin
   # create
-  data, status_code, headers = api_instance.buckslip_create_with_http_info(buckslip_editable)
+  data, status_code, headers = api_instance.buckslip_create_with_http_info(buckslip_editable, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Buckslip>
@@ -66,6 +69,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **buckslip_editable** | [**BuckslipEditable**](BuckslipEditable.md) |  |  |
+| **front** | [**Object**](.md) | An optional file upload as either a byte array or file type.  | [optional] |
 
 ### Return type
 
@@ -93,7 +97,7 @@ Delete an existing buckslip. You need only supply the unique identifier that was
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -163,7 +167,7 @@ Retrieves the details of an existing buckslip. You need only supply the unique c
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -233,7 +237,7 @@ Update the details of an existing buckslip. You need only supply the unique iden
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -305,7 +309,7 @@ Returns a list of your buckslips. The buckslips are returned sorted by creation 
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

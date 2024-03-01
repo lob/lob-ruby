@@ -16,7 +16,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::LetterDetailsWritable.new(
   address_placement: null,

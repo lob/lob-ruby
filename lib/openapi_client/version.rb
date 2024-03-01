@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.2.1
 =end
 
 module Lob
-  VERSION = '6.0.8'
+  VERSION = '7.0.0'
 end

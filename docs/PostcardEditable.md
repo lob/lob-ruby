@@ -16,11 +16,12 @@
 | **back** | **String** | The artwork to use as the back of your postcard.  |  |
 | **billing_group_id** | **String** | An optional string with the billing group ID to tag your usage with. Is used for billing purposes. Requires special activation to use. See [Billing Group API](https://lob.github.io/lob-openapi/#tag/Billing-Groups) for more information. | [optional] |
 | **qr_code** | [**QrCode**](QrCode.md) |  | [optional] |
+| **use_type** | [**PscUseType**](PscUseType.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::PostcardEditable.new(
   to: null,
@@ -34,7 +35,8 @@ instance = Lob::PostcardEditable.new(
   front: null,
   back: null,
   billing_group_id: null,
-  qr_code: null
+  qr_code: null,
+  use_type: null
 )
 ```
 

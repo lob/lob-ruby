@@ -20,7 +20,7 @@ Verify a list of international (except US or US territories) address with a live
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -29,7 +29,7 @@ Lob.configure do |config|
 end
 
 api_instance = Lob::IntlVerificationsApi.new
-intl_verifications_payload = Lob::IntlVerificationsPayload.new({addresses: [Lob::MultipleComponentsIntl.new({primary_line: 'primary_line_example', country: Lob::CountryExtended::AD})]}) # IntlVerificationsPayload | 
+intl_verifications_payload = Lob::IntlVerificationsPayload.new({addresses: [Lob::MultipleComponentsIntl.new({primary_line: 'primary_line_example', country: Lob::CountryExtended::EMPTY})]}) # IntlVerificationsPayload | 
 
 begin
   # verifyBulk
@@ -90,7 +90,7 @@ Verify an international (except US or US territories) address with a live API ke
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'lob'
 # setup authorization
 Lob.configure do |config|
   # Configure HTTP basic authorization: basicAuth

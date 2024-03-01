@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::EventType.new(
   id: null,

@@ -16,7 +16,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::MultipleComponents.new(
   recipient: null,

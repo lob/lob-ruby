@@ -20,7 +20,7 @@
 ## Example
 
 ```ruby
-require 'openapi_client'
+require 'lob'
 
 instance = Lob::AddressDomestic.new(
   address_line1: null,

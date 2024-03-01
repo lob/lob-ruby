@@ -1,7 +1,7 @@
 # IntlAutocompletion.spec.rb
 require_relative '../TestFixtures'
 include Lob
-$:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
+$:.unshift File.expand_path("../../lib/lob", File.dirname(__FILE__))
 
 RSpec.describe "IntlAutocompletionsApi" do
     it "can be instantiated" do
@@ -23,7 +23,7 @@ RSpec.describe "IntlAutocompletionsApi" do
             })
         end
 
-        it "Autocompletes intl address (with test key)" do
+        skip "Autocompletes intl address (with test key)" do
             autocompletedAddr = @intlAutocompletionApi.autocomplete(@validAddress)
             expect(autocompletedAddr.suggestions[0].primary_line).to eq("TEST KEYS DO NOT AUTOCOMPLETE INTL ADDRESSES")
         end

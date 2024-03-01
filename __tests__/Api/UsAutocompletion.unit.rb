@@ -1,6 +1,6 @@
 # IntlAutcompletion.unit.rb
 
-$:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
+$:.unshift File.expand_path("../../lib/lob", File.dirname(__FILE__))
 
 RSpec.describe "UsAutocompletionsApi" do
 

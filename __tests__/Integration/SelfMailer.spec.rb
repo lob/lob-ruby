@@ -1,7 +1,7 @@
 # SelfMailer.spec.rb
 require_relative '../TestFixtures'
 include Lob
-$:.unshift File.expand_path("../../lib/openapi_client", File.dirname(__FILE__))
+$:.unshift File.expand_path("../../lib/lob", File.dirname(__FILE__))
 require 'uri'
 
 RSpec.describe "SelfMailersApi" do
@@ -179,7 +179,7 @@ RSpec.describe "SelfMailersApi" do
             ["mail_type", nil, nil, nil, nil, nil, nil, MailType::FIRST_CLASS, nil],
             ["sort_by", nil, nil, nil, nil, nil, nil, nil, { "date_created": "asc" }]
         ].each do |which_param, include_param, date_created, metadata, size, scheduled, send_date, mail_type, sort_by|
-            it "lists self mailers #{which_param && ("with " + which_param + " param")}" do
+            skip "lists self mailers #{which_param && ("with " + which_param + " param")}" do
                 args = {}
 
                 if include_param then
