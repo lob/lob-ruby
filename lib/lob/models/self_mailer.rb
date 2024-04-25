@@ -53,7 +53,7 @@ module Lob
     # Value is resource type.
     attr_accessor :object
 
-    # An array of tracking events ordered by ascending `time`. Not populated in test mode.
+    # An array of certified tracking events ordered by ascending `time`. Not populated in test mode.
     attr_accessor :tracking_events
 
     # A [signed link](#section/Asset-URLs) served over HTTPS. The link returned will expire in 30 days to prevent mis-sharing. Each time a GET request is initiated, a new signed URL will be generated.
@@ -128,7 +128,7 @@ module Lob
         :'outside_template_version_id' => :'String',
         :'inside_template_version_id' => :'String',
         :'object' => :'String',
-        :'tracking_events' => :'Array<TrackingEventNormal>',
+        :'tracking_events' => :'Array<TrackingEventCertified>',
         :'url' => :'String',
         :'use_type' => :'SfmUseType'
       }
@@ -284,7 +284,7 @@ module Lob
         invalid_properties.push('invalid value for "url", url cannot be nil.')
       end
 
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       if @url !~ pattern
         invalid_properties.push("invalid value for \"url\", must conform to the pattern #{pattern}.")
       end
@@ -305,7 +305,7 @@ module Lob
       object_validator = EnumAttributeValidator.new('String', ["self_mailer"])
       return false unless object_validator.valid?(@object)
       return false if @url.nil?
-      return false if @url !~ Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      return false if @url !~ Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       true
     end
 
@@ -407,7 +407,7 @@ module Lob
         fail ArgumentError, 'url cannot be nil'
       end
 
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       if url !~ pattern
         fail ArgumentError, "invalid value for \"url\", must conform to the pattern #{pattern}."
       end

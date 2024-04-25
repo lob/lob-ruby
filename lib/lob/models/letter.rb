@@ -67,7 +67,7 @@ module Lob
     # The tracking number, if applicable, will appear here when it becomes available. Dummy tracking numbers are not created in test mode.
     attr_accessor :tracking_number
 
-    # Tracking events are not populated for registered or regular (no extra service) letters.
+    # An array of tracking_event objects ordered by ascending `time`. Will not be populated for letters created in test mode.
     attr_accessor :tracking_events
 
     # Specifies the address the return envelope will be sent back to. This is an optional argument that is available if an account is signed up for the return envelope tracking beta, and has `return_envelope`, and `perforated_page` fields populated in the API request.
@@ -401,7 +401,7 @@ module Lob
         invalid_properties.push("invalid value for \"template_version_id\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       if !@url.nil? && @url !~ pattern
         invalid_properties.push("invalid value for \"url\", must conform to the pattern #{pattern}.")
       end
@@ -412,10 +412,6 @@ module Lob
 
       if !@description.nil? && @description.to_s.length > 255
         invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 255.')
-      end
-
-      if !@tracking_events.nil? && @tracking_events.length > 0
-        invalid_properties.push('invalid value for "tracking_events", number of items must be less than or equal to 0.')
       end
 
       invalid_properties
@@ -434,12 +430,11 @@ module Lob
       return false if @id !~ Regexp.new(/^ltr_[a-zA-Z0-9]+$/)
       return false if !@template_id.nil? && @template_id !~ Regexp.new(/^tmpl_[a-zA-Z0-9]+$/)
       return false if !@template_version_id.nil? && @template_version_id !~ Regexp.new(/^vrsn_[a-zA-Z0-9]+$/)
-      return false if !@url.nil? && @url !~ Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      return false if !@url.nil? && @url !~ Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       return false if @object.nil?
       object_validator = EnumAttributeValidator.new('String', ["letter"])
       return false unless object_validator.valid?(@object)
       return false if !@description.nil? && @description.to_s.length > 255
-      return false if !@tracking_events.nil? && @tracking_events.length > 0
       address_placement_validator = EnumAttributeValidator.new('String', ["top_first_page", "insert_blank_page", "bottom_first_page_center", "bottom_first_page"])
       return false unless address_placement_validator.valid?(@address_placement)
       true
@@ -495,7 +490,7 @@ module Lob
     # Custom attribute writer method with validation
     # @param [Object] url Value to be assigned
     def url=(url)
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       if !url.nil? && url !~ pattern
         fail ArgumentError, "invalid value for \"url\", must conform to the pattern #{pattern}."
       end
@@ -533,16 +528,6 @@ module Lob
     # @param [Object] merge_variables Value to be assigned
     def merge_variables=(merge_variables)
       @merge_variables = merge_variables
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tracking_events Value to be assigned
-    def tracking_events=(tracking_events)
-      if !tracking_events.nil? && tracking_events.length > 0
-        fail ArgumentError, 'invalid value for "tracking_events", number of items must be less than or equal to 0.'
-      end
-
-      @tracking_events = tracking_events
     end
 
     # Custom attribute writer method checking allowed values (enum).
