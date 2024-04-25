@@ -402,7 +402,7 @@ module Lob
         invalid_properties.push('invalid value for "url", url cannot be nil.')
       end
 
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       if @url !~ pattern
         invalid_properties.push("invalid value for \"url\", must conform to the pattern #{pattern}.")
       end
@@ -447,7 +447,7 @@ module Lob
       return false if !@check_bottom_template_version_id.nil? && @check_bottom_template_version_id !~ Regexp.new(/^vrsn_[a-zA-Z0-9]+$/)
       return false if !@attachment_template_version_id.nil? && @attachment_template_version_id !~ Regexp.new(/^vrsn_[a-zA-Z0-9]+$/)
       return false if @url.nil?
-      return false if @url !~ Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      return false if @url !~ Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       return false if @carrier.nil?
       carrier_validator = EnumAttributeValidator.new('String', ["USPS"])
       return false unless carrier_validator.valid?(@carrier)
@@ -605,7 +605,7 @@ module Lob
         fail ArgumentError, 'url cannot be nil'
       end
 
-      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9-_]+/)
+      pattern = Regexp.new(/^https:\/\/lob-assets.com\/(letters|postcards|bank-accounts|checks|self-mailers|cards)\/[a-z]{3,4}_[a-z0-9]{15,16}(_signature)?(\.pdf|_thumb_[a-z]+_[0-9]+\.png|\.png)\?(version=[a-z0-9]*&)expires=[0-9]{10}&signature=[a-zA-Z0-9_-]+/)
       if url !~ pattern
         fail ArgumentError, "invalid value for \"url\", must conform to the pattern #{pattern}."
       end
