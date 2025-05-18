@@ -178,7 +178,7 @@ RSpec.describe "LettersApi" do
 
             expect(response.data[0].id).not_to eq(first_ltr_id)
 
-            uri    = URI.parse(response.next_url)
+            uri    = URI.parse(response.previous_url)
             params = CGI.parse(uri.query)
 
             response = @letterApi.list({ :"limit" => 2, :"before" => params["before"][0] })

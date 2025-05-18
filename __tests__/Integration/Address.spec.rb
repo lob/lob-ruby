@@ -147,13 +147,13 @@ RSpec.describe "AddressesApi" do
         end
 
         it "lists addresses with after param" do
-            response = @addressApi.list()
+            response = @addressApi.list(limit: 2)
             responseAfter = @addressApi.list(after: response.getNextPageToken())
             expect(responseAfter.data.length()).to be > 0
         end
 
         it "lists addresses with before param" do
-            response = @addressApi.list()
+            response = @addressApi.list(limit: 2)
             responseAfter = @addressApi.list(before: response.getNextPageToken())
             expect(responseAfter.data.length()).to be > 0
         end
