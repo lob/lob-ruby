@@ -14,8 +14,8 @@
 | **address_line1** | **String** |  | [optional] |
 | **address_line2** | **String** |  | [optional] |
 | **address_city** | **String** |  | [optional] |
-| **address_state** | **String** | 2 letter state short-name code for US address or must be no longer than 200 characters for non-US address. | [optional] |
-| **address_zip** | **String** | Must follow the ZIP format of &#x60;12345&#x60; or ZIP+4 format of &#x60;12345-1234&#x60; for US address or must be no longer than 40 characters for non-US address. | [optional] |
+| **address_state** | **String** | 2 letter state short-name code | [optional] |
+| **address_zip** | **String** | Must follow the ZIP format of &#x60;12345&#x60; or ZIP+4 format of &#x60;12345-1234&#x60;.  | [optional] |
 | **address_country** | [**CountryExtendedExpanded**](CountryExtendedExpanded.md) |  | [optional] |
 | **object** | **String** |  | [optional][default to &#39;address&#39;] |
 | **date_created** | **Time** | A timestamp in ISO 8601 format of the date the resource was created. | [optional] |
@@ -28,7 +28,7 @@
 ```ruby
 require 'lob'
 
-instance = Lob::Address.build(
+instance = Lob::Address.new(
   id: null,
   description: null,
   name: null,
