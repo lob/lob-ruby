@@ -14,8 +14,8 @@
 | **address_line1** | **String** |  | [optional] |
 | **address_line2** | **String** |  | [optional] |
 | **address_city** | **String** |  | [optional] |
-| **address_state** | **String** | 2 letter state short-name code | [optional] |
-| **address_zip** | **String** | Must have a maximum of 12 characters  | [optional] |
+| **address_state** | **String** | Must be no longer than 200 characters. | [optional] |
+| **address_zip** | **String** | Must be no longer than 40 characters. | [optional] |
 | **address_country** | [**CountryExtendedExpandedNoUs**](CountryExtendedExpandedNoUs.md) |  | [optional] |
 | **object** | **String** |  | [optional][default to &#39;address&#39;] |
 | **date_created** | **Time** | A timestamp in ISO 8601 format of the date the resource was created. | [optional] |
