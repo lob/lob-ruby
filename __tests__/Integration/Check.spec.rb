@@ -236,7 +236,7 @@ RSpec.describe "ChecksApi" do
 
             expect(response.data[0].id).not_to eq(first_chk_id)
 
-            uri    = URI.parse(response.previous_url)
+            uri    = URI.parse(response.next_url)
             params = CGI.parse(uri.query)
 
             response = @checkApi.list({ :"limit" => 2, :"before" => params["before"][0] })

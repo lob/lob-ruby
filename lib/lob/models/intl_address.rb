@@ -42,10 +42,10 @@ module Lob
 
     attr_accessor :address_city
 
-    # Must be no longer than 200 characters.
+    # 2 letter state short-name code
     attr_accessor :address_state
 
-    # Must be no longer than 40 characters.
+    # Must have a maximum of 12 characters 
     attr_accessor :address_zip
 
     attr_accessor :address_country
@@ -294,12 +294,13 @@ module Lob
         invalid_properties.push('invalid value for "address_city", the character length must be smaller than or equal to 200.')
       end
 
-      if !@address_state.nil? && @address_state.to_s.length > 200
-        invalid_properties.push('invalid value for "address_state", the character length must be smaller than or equal to 200.')
+      pattern = Regexp.new(/^[a-zA-Z]{2}$/)
+      if !@address_state.nil? && @address_state !~ pattern
+        invalid_properties.push("invalid value for \"address_state\", must conform to the pattern #{pattern}.")
       end
 
-      if !@address_zip.nil? && @address_zip.to_s.length > 40
-        invalid_properties.push('invalid value for "address_zip", the character length must be smaller than or equal to 40.')
+      if !@address_zip.nil? && @address_zip.to_s.length > 12
+        invalid_properties.push('invalid value for "address_zip", the character length must be smaller than or equal to 12.')
       end
 
       invalid_properties
@@ -317,8 +318,8 @@ module Lob
       return false if !@address_line1.nil? && @address_line1.to_s.length > 64
       return false if !@address_line2.nil? && @address_line2.to_s.length > 64
       return false if !@address_city.nil? && @address_city.to_s.length > 200
-      return false if !@address_state.nil? && @address_state.to_s.length > 200
-      return false if !@address_zip.nil? && @address_zip.to_s.length > 40
+      return false if !@address_state.nil? && @address_state !~ Regexp.new(/^[a-zA-Z]{2}$/)
+      return false if !@address_zip.nil? && @address_zip.to_s.length > 12
       object_validator = EnumAttributeValidator.new('String', ["address"])
       return false unless object_validator.valid?(@object)
       true
@@ -424,8 +425,9 @@ module Lob
     # Custom attribute writer method with validation
     # @param [Object] address_state Value to be assigned
     def address_state=(address_state)
-      if !address_state.nil? && address_state.to_s.length > 200
-        fail ArgumentError, 'invalid value for "address_state", the character length must be smaller than or equal to 200.'
+      pattern = Regexp.new(/^[a-zA-Z]{2}$/)
+      if !address_state.nil? && address_state !~ pattern
+        fail ArgumentError, "invalid value for \"address_state\", must conform to the pattern #{pattern}."
       end
 
       @address_state = address_state
@@ -434,8 +436,8 @@ module Lob
     # Custom attribute writer method with validation
     # @param [Object] address_zip Value to be assigned
     def address_zip=(address_zip)
-      if !address_zip.nil? && address_zip.to_s.length > 40
-        fail ArgumentError, 'invalid value for "address_zip", the character length must be smaller than or equal to 40.'
+      if !address_zip.nil? && address_zip.to_s.length > 12
+        fail ArgumentError, 'invalid value for "address_zip", the character length must be smaller than or equal to 12.'
       end
 
       @address_zip = address_zip

@@ -1,7 +1,7 @@
 =begin
 #Lob
 
-#The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)? 
+#The Lob API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and uses HTTP response codes to indicate any API errors. <p> Looking for our [previous documentation](https://lob.github.io/legacy-docs/)?
 
 The version of the OpenAPI document: 1.3.0
 Contact: lob-openapi@lob.com
@@ -11,10 +11,10 @@ OpenAPI Generator version: 5.2.1
 =end
 
 # Common files
-require 'lob/api_client'
-require 'lob/api_error'
-require 'lob/version'
-require 'lob/configuration'
+require 'openapi_client/api_client'
+require 'openapi_client/api_error'
+require 'openapi_client/version'
+require 'openapi_client/configuration'
 
 # Models
 require 'lob/models/address'
@@ -127,17 +127,10 @@ require 'lob/models/self_mailer_editable'
 require 'lob/models/self_mailer_list'
 require 'lob/models/self_mailer_size'
 require 'lob/models/sfm_use_type'
-require 'lob/models/snap_pack'
-require 'lob/models/snap_pack_deletion'
-require 'lob/models/snap_pack_editable'
-require 'lob/models/snap_pack_list'
-require 'lob/models/snap_pack_size'
-require 'lob/models/snp_use_type'
 require 'lob/models/sort_by'
 require 'lob/models/sort_by1'
 require 'lob/models/sort_by2'
 require 'lob/models/sort_by3'
-require 'lob/models/sort_by4'
 require 'lob/models/sort_by_date_modified'
 require 'lob/models/suggestions'
 require 'lob/models/template'
@@ -193,7 +186,6 @@ require 'lob/api/letters_api'
 require 'lob/api/postcards_api'
 require 'lob/api/reverse_geocode_lookups_api'
 require 'lob/api/self_mailers_api'
-require 'lob/api/snap_packs_api'
 require 'lob/api/template_versions_api'
 require 'lob/api/templates_api'
 require 'lob/api/uploads_api'
@@ -201,10 +193,10 @@ require 'lob/api/us_autocompletions_api'
 require 'lob/api/us_verifications_api'
 require 'lob/api/zip_lookups_api'
 
-module Lob
+module OpenapiClient
   class << self
     # Customize default settings for the SDK using block.
-    #   Lob.configure do |config|
+    #   OpenapiClient.configure do |config|
     #     config.username = "xxx"
     #     config.password = "xxx"
     #   end

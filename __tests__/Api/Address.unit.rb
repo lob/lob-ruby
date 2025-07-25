@@ -35,7 +35,7 @@ RSpec.describe "AddressesApi" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
             addressEditable = AddressEditable.new
-            fakeAddress = UsAddress.new
+            fakeAddress = Address.new
 
             fakeAddress.id = "adr_fakeid"
             allow(addressApi).to receive(:create) { fakeAddress }
@@ -62,7 +62,7 @@ RSpec.describe "AddressesApi" do
         it "retrieves an address" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
-            fakeAddress = UsAddress.new
+            fakeAddress = Address.new
 
             fakeAddress.id = "adr_fakeid"
             allow(addressApi).to receive(:get) { fakeAddress }
@@ -91,7 +91,7 @@ RSpec.describe "AddressesApi" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
             addressEditable = AddressEditable.new
-            fakeAddresses = Array.new(2) { UsAddress.new }
+            fakeAddresses = Array.new(2) { Address.new }
 
             fakeAddresses[0].id = "adr_fakeid"
             allow(addressApi).to receive(:list) { fakeAddresses }
@@ -106,7 +106,7 @@ RSpec.describe "AddressesApi" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
             addressEditable = AddressEditable.new
-            fakeAddresses = Array.new(2) { UsAddress.new }
+            fakeAddresses = Array.new(2) { Address.new }
 
             fakeAddresses[0].id = "adr_fakeid"
             allow(addressApi).to receive(:list) { fakeAddresses }
@@ -121,7 +121,7 @@ RSpec.describe "AddressesApi" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
             addressEditable = AddressEditable.new
-            fakeAddresses = Array.new(2) { UsAddress.new }
+            fakeAddresses = Array.new(2) { Address.new }
 
             fakeAddresses[0].id = "adr_fakeid"
             allow(addressApi).to receive(:list) { fakeAddresses }
@@ -136,7 +136,7 @@ RSpec.describe "AddressesApi" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
             addressEditable = AddressEditable.new
-            fakeAddresses = Array.new(2) { UsAddress.new }
+            fakeAddresses = Array.new(2) { Address.new }
 
             fakeAddresses[0].id = "adr_fakeid"
             allow(addressApi).to receive(:list) { fakeAddresses }
@@ -151,7 +151,7 @@ RSpec.describe "AddressesApi" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
             addressEditable = AddressEditable.new
-            fakeAddresses = Array.new(2) { UsAddress.new }
+            fakeAddresses = Array.new(2) { Address.new }
 
             dateFilter  = { gt: "2020-01-01", lt: "2020-01-31T12" };
             fakeAddresses[0].id = "adr_fakeid"
@@ -167,7 +167,7 @@ RSpec.describe "AddressesApi" do
             addressApiMock = double("ApiClient")
             addressApi = AddressesApi.new(addressApiMock)
             addressEditable = AddressEditable.new
-            fakeAddresses = Array.new(2) { UsAddress.new }
+            fakeAddresses = Array.new(2) { Address.new }
 
             metadata  = { fakeMetadata: "fakemetadata" }
             fakeAddresses[0].id = "adr_fakeid"

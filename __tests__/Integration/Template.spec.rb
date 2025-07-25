@@ -98,8 +98,7 @@ RSpec.describe "TemplatesApi" do
 
             templateWritable3 = TemplateWritable.new({
                 description: "Ruby Integration Test",
-                html: "<html>Updated HTML for Ruby Integration Test</html>",
-                metadata: { name: "Harry" }
+                html: "<html>Updated HTML for Ruby Integration Test</html>"
             })
 
             response1 = @templateApi.create(templateWritable1)
@@ -124,7 +123,7 @@ RSpec.describe "TemplatesApi" do
 
             expect(response.data[0].id).not_to eq(first_tmpl_id)
 
-            uri    = URI.parse(response.previous_url)
+            uri    = URI.parse(response.next_url)
             params = CGI.parse(uri.query)
 
             response = @templateApi.list({ :"limit" => 2, :"before" => params["before"][0] })
