@@ -31,7 +31,7 @@ You then instantiate the specific resource API that you need access to as follow
 
 ```ruby
 api = Lob::ApiClient.new(config)
-addressApi = AddressesApi.new(@api)
+addressApi = Lob::AddressesApi.new(@api)
 
 ```
 
