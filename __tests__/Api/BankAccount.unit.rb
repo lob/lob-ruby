@@ -215,7 +215,7 @@ RSpec.describe "BankAccountsApi" do
       it "handles errors returned by the api" do
           bankAccountApiMock = double("ApiClient")
           bankAccountApi = BankAccountsApi.new(bankAccountApiMock)
-          bankAccountVerify = BankAccountVerify.new
+          bankAccountVerify = BankAccountVerify.new(amounts: [11, 35])
 
           allow(bankAccountApi).to receive(:verify).and_raise("exception thrown in verification test")
           begin
@@ -228,7 +228,7 @@ RSpec.describe "BankAccountsApi" do
       it "verifies a bank account" do
           bankAccountApiMock = double("ApiClient")
           bankAccountApi = BankAccountsApi.new(bankAccountApiMock)
-          bankAccountVerify = BankAccountVerify.new
+          bankAccountVerify = BankAccountVerify.new(amounts: [11, 35])
           fakeBankAccount = BankAccount.new
           fakeBankAccount.verified = true
           fakeBankAccount.id = "bank_fakeId"
