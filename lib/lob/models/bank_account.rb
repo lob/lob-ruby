@@ -55,6 +55,9 @@ module Lob
 
     attr_accessor :object
 
+    # The type of microdeposit verification used for this bank account. Either "amounts" or "descriptor_code", or null once verified.
+    attr_accessor :microdeposit_type
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -93,7 +96,8 @@ module Lob
         :'date_created' => :'date_created',
         :'date_modified' => :'date_modified',
         :'deleted' => :'deleted',
-        :'object' => :'object'
+        :'object' => :'object',
+        :'microdeposit_type' => :'microdeposit_type'
       }
     end
 
@@ -118,7 +122,8 @@ module Lob
         :'date_created' => :'Time',
         :'date_modified' => :'Time',
         :'deleted' => :'Boolean',
-        :'object' => :'String'
+        :'object' => :'String',
+        :'microdeposit_type' => :'String'
       }
     end
 
@@ -127,6 +132,7 @@ module Lob
       Set.new([
         :'description',
         :'signature_url',
+        :'microdeposit_type',
       ])
     end
 
@@ -205,6 +211,10 @@ module Lob
         self.object = attributes[:'object']
       else
         self.object = 'bank_account'
+      end
+
+      if attributes.key?(:'microdeposit_type')
+        self.microdeposit_type = attributes[:'microdeposit_type']
       end
     end
 
@@ -428,7 +438,8 @@ module Lob
           date_created == o.date_created &&
           date_modified == o.date_modified &&
           deleted == o.deleted &&
-          object == o.object
+          object == o.object &&
+          microdeposit_type == o.microdeposit_type
     end
 
     # @see the `==` method
@@ -440,7 +451,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, routing_number, account_number, account_type, signatory, metadata, id, signature_url, bank_name, verified, date_created, date_modified, deleted, object].hash
+      [description, routing_number, account_number, account_type, signatory, metadata, id, signature_url, bank_name, verified, date_created, date_modified, deleted, object, microdeposit_type].hash
     end
 
 
