@@ -126,6 +126,38 @@ RSpec.describe "Postcards Api" do
         before(:all) do
             api = TestFixtures.api_client_with_test_key()
             @postcardApi = PostcardsApi.new(api)
+
+            addressEditable1 = AddressEditable.new({
+                name: "Thing T. Thing",
+                address_line1: "1313 CEMETERY LN",
+                address_city: "WESTFIELD",
+                address_state: "NJ",
+                address_zip: "07000",
+            })
+
+            addressEditable2 = AddressEditable.new({
+                name: "FESTER",
+                address_line1: "001 CEMETERY LN",
+                address_line2: "SUITE 666",
+                address_city: "WESTFIELD",
+                address_state: "NJ",
+                address_zip: "07000",
+            })
+
+            dummyPostcard = PostcardEditable.new({
+                to: addressEditable1,
+                from: addressEditable2,
+                front: TestFixtures.FILE_LOCATION_4x6,
+                back: TestFixtures.FILE_LOCATION_4x6,
+                use_type: 'marketing'
+            })
+
+            response1 = @postcardApi.create(dummyPostcard)
+            response2 = @postcardApi.create(dummyPostcard)
+            response3 = @postcardApi.create(dummyPostcard)
+            response4 = @postcardApi.create(dummyPostcard)
+            response5 = @postcardApi.create(dummyPostcard)
+            @postcardIds = [response1.id, response2.id, response3.id, response4.id, response5.id]
         end
 
         it "lists postcards with limit, before, and after params" do
@@ -167,6 +199,10 @@ RSpec.describe "Postcards Api" do
                     expect(response.total_count).to be
                 end
             end
+        end
+
+        after(:all) do
+            @postcardIds.each { |id| @postcardApi.cancel(id) }
         end
     end
 
