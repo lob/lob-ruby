@@ -138,13 +138,31 @@ RSpec.describe "SelfMailersApi" do
                 use_type: SfmUseType::MARKETING
             })
 
+            selfMailerEditable4 = SelfMailerEditable.new({
+                to: addr,
+                inside: TestFixtures.FILE_LOCATION_6X18,
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
+            })
+
+            selfMailerEditable5 = SelfMailerEditable.new({
+                to: addr,
+                inside: TestFixtures.FILE_LOCATION_6X18,
+                outside: TestFixtures.FILE_LOCATION_6X18,
+                use_type: SfmUseType::MARKETING
+            })
+
             response1 = @selfMailerApi.create(selfMailerEditable1)
             response2 = @selfMailerApi.create(selfMailerEditable2)
             response3 = @selfMailerApi.create(selfMailerEditable3)
+            response4 = @selfMailerApi.create(selfMailerEditable4)
+            response5 = @selfMailerApi.create(selfMailerEditable5)
 
             @selfMailer1Id = response1.id
             @selfMailer2Id = response2.id
             @selfMailer3Id = response3.id
+            @selfMailer4Id = response4.id
+            @selfMailer5Id = response5.id
         end
 
         it "lists self mailers with limit, before, and after params" do
@@ -232,6 +250,8 @@ RSpec.describe "SelfMailersApi" do
             @selfMailerApi.delete(@selfMailer1Id)
             @selfMailerApi.delete(@selfMailer2Id)
             @selfMailerApi.delete(@selfMailer3Id)
+            @selfMailerApi.delete(@selfMailer4Id)
+            @selfMailerApi.delete(@selfMailer5Id)
         end
     end
 

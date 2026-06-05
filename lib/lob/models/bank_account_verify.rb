@@ -18,10 +18,14 @@ module Lob
     # In live mode, an array containing the two micro deposits (in cents) placed in the bank account. In test mode, no micro deposits will be placed, so any two integers between `1` and `100` will work.
     attr_accessor :amounts
 
+    # The 6-character code (beginning with SM) from the bank statement descriptor of the single $0.01 microdeposit. Required when microdeposit_type is descriptor_code.
+    attr_accessor :descriptor_code
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'amounts' => :'amounts'
+        :'amounts' => :'amounts',
+        :'descriptor_code' => :'descriptor_code'
       }
     end
 
@@ -33,7 +37,8 @@ module Lob
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'amounts' => :'Array<Integer>'
+        :'amounts' => :'Array<Integer>',
+        :'descriptor_code' => :'String'
       }
     end
 
@@ -63,22 +68,51 @@ module Lob
           self.amounts = value
         end
       end
+
+      if attributes.key?(:'descriptor_code')
+        self.descriptor_code = attributes[:'descriptor_code']
+      end
+
+      has_amounts = !@amounts.nil?
+      has_descriptor_code = !@descriptor_code.nil?
+
+      if !has_amounts && !has_descriptor_code
+        fail ArgumentError, 'one of "amounts" or "descriptor_code" must be provided'
+      end
+
+      if has_amounts && has_descriptor_code
+        fail ArgumentError, 'only one of "amounts" or "descriptor_code" may be provided'
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @amounts.nil?
-        invalid_properties.push('invalid value for "amounts", amounts cannot be nil.')
+
+      if @amounts.nil? && @descriptor_code.nil?
+        invalid_properties.push('one of "amounts" or "descriptor_code" must be provided')
       end
 
-      if @amounts.length > 2
-        invalid_properties.push('invalid value for "amounts", number of items must be less than or equal to 2.')
+      if !@amounts.nil? && !@descriptor_code.nil?
+        invalid_properties.push('only one of "amounts" or "descriptor_code" may be provided')
       end
 
-      if @amounts.length < 2
-        invalid_properties.push('invalid value for "amounts", number of items must be greater than or equal to 2.')
+      if !@amounts.nil?
+        if @amounts.length > 2
+          invalid_properties.push('invalid value for "amounts", number of items must be less than or equal to 2.')
+        end
+
+        if @amounts.length < 2
+          invalid_properties.push('invalid value for "amounts", number of items must be greater than or equal to 2.')
+        end
+      end
+
+      if !@descriptor_code.nil?
+        pattern = Regexp.new(/^SM[a-zA-Z0-9]{4}$/)
+        if @descriptor_code !~ pattern
+          invalid_properties.push("invalid value for \"descriptor_code\", must conform to the pattern #{pattern}.")
+        end
       end
 
       invalid_properties
@@ -87,9 +121,15 @@ module Lob
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @amounts.nil?
-      return false if @amounts.length > 2
-      return false if @amounts.length < 2
+      return false if @amounts.nil? && @descriptor_code.nil?
+      return false if !@amounts.nil? && !@descriptor_code.nil?
+      if !@amounts.nil?
+        return false if @amounts.length > 2
+        return false if @amounts.length < 2
+      end
+      if !@descriptor_code.nil?
+        return false if @descriptor_code !~ Regexp.new(/^SM[a-zA-Z0-9]{4}$/)
+      end
       true
     end
 
@@ -111,12 +151,28 @@ module Lob
       @amounts = amounts
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] descriptor_code Value to be assigned
+    def descriptor_code=(descriptor_code)
+      if descriptor_code.nil?
+        fail ArgumentError, 'descriptor_code cannot be nil'
+      end
+
+      pattern = Regexp.new(/^SM[a-zA-Z0-9]{4}$/)
+      if descriptor_code !~ pattern
+        fail ArgumentError, "invalid value for \"descriptor_code\", must conform to the pattern #{pattern}."
+      end
+
+      @descriptor_code = descriptor_code
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          amounts == o.amounts
+          amounts == o.amounts &&
+          descriptor_code == o.descriptor_code
     end
 
     # @see the `==` method
@@ -128,7 +184,7 @@ module Lob
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amounts].hash
+      [amounts, descriptor_code].hash
     end
 
 
