@@ -24,6 +24,7 @@ RSpec.describe "UsAutocompletionsApi" do
 
         it "Autocompletes US address (with test key)" do
             autocompletedAddr = @usAutocompletionApi.autocomplete(@validAddress)
+            puts autocompletedAddr.suggestions[0].primary_line
             expect(autocompletedAddr.suggestions[0].primary_line).to eq("1 TELEGRAPH HILL BLVD")
         end
 
